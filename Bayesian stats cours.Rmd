@@ -1,0 +1,51 @@
+---
+title: "Bayesian stats cours"
+author: "Vincyane Badouard"
+date: "12/07/2021"
+output: html_document
+---
+
+
+1) design the model (data story)
+2) condition on the data (update the model)
+3) evaluate the model (critique)
+
+ex : 9 times
+dta : W (water) or L (land)
+
+p = proba de W
+proba de L = 1-p
+
+*prior* : information before the data (p in [0;1])
+*posterior* : update info of each value of p conditional on data
+
+chaque postérior est le prior du prochain posterior
+plus on a de données plus il est aisé d'avoir un résulat précis
+
+Define generative relations between the variables
+
+
+W, L, W
+p * (1-p) *p = p^2(1-p)^1 : relative number to see W
+
+*Vraissemblance* : 
+
+
+# Grid approximation (to define posterior) :
+
+posterior proba = standardizez product of proba of the data and prior proba
+standardisé : add up all the products and divide by this sum
+
+grid approximation uses finite grid of parameter values instead of continuous space 
+too expensive with more yhan a few parameters
+
+Sampling from the posterior 
+
+Intervals : how much mass 
+
+Percentile intervals (PI): equal area in each tail
+Hightest posterior density intervals (HPDI) : narrowest interval containing mass
+
+Mean nearly always more sensible than the mode 
+
+Model : 

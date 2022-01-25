@@ -1,0 +1,120 @@
+---
+title: "I am a modeler"
+author: "Vincyane Badouard"
+date: "06/07/2021"
+output: html_document
+---
+
+
+# La modélisation
+1) On récolte n observations qui sont le résultats de n expériences aléatoires indépendantes.
+
+2) Modélisation : on suppose que les n valeurs sont des
+réalisations de n variables aléatoires indépendantes et de même loi.
+
+3) Estimation : chercher dans le modèle une loi qui soit le plus
+proche possible de la loi de notre var réponse = chercher un estimateur de theta0.
+
+4) "Validation” de modèle : on revient en arrière et on tente de
+vérifier si l’hypothèse de l’étape 2 est raisonnable ((normalité,
+linéarité, analyse des résidus, test d’adéquation, etc...)
+
+Modèle non-paramétrique : univers de dimension infinie
+Modèle paramétrique : univers de dimension finie
+
+# Modèle linéaire simple
+
+- Variables quantitatives -> régression
+- Variables qualitatives -> ANOVA (analyse de la variance)
+- Variables mixtes -> ANCOVA (analyse de la covariance)
+
+
+# Lois de probabilité de la fonction de réponse
+
+loi de probabilité =
+- sa fct de répartition
+- sa densité
+
+Différentes lois :
+- Variable réponse continue : Normale ou Gamma
+- Réponse binaire (succès-échecs, présence-absence) : Bernoulli (1 seul tirage), binomiale (plsrs tirages(nbr de succés, proportion))
+
+- Comptages (nbr entiers) : Poisson, négative binomiale, Geométrique
+
+- Durée de survie : Exponentielle
+
+Choix (l’adéquation du modèle aux données) : 
+
+-la déviance normalisée (scaled deviance) : retenir celle qui minimise la déviance D
+-la statistique du khi-deux de Pearson
+- AIC, BIC, régression lasso
+
+Lorsque le modèle étudié est exact, la déviance normalisée D* ou le khi-deux de Pearson, suit approximativement une loi du khi-deux àn-K degrés de liberté.
+
+
+# GLM (modèles linéaires généralisés)
+
+Dans quel cas ? quand la variable réponse et les variables explicatives ne sont pas définis sur le même univers (intervalle de valeurs).
+
+GLM :
+- Modèle linéaire gaussien : Gaussienne
+- Régression logistique : Bernouilli (binaire), variable réponse catégorielle, ordinale ou polytomique (modalités)
+- Log-linéaire : Poisson
+
+Une *fonction de lien* spécifique (= fonction de lien canonique) permet de *relier l’espérance μ au paramètre naturel theta (ou canonique) de la loi*.
+En d'autres mots, lier l'espérance de la variable réponse (μ) au prédicteur linéaire construit à partir des variables explicatives. 
+
+Fcts de lien naturel:
+- Pour la loi Normale : theta = μ                        (link=’identity’)
+- Pour la loi Poisson : theta = log(μ)                   (link=’log’)
+- Pour la loi Bernouilli : theta = logit(μ) = log(μ/1-μ) (= logarithme du rapport des chances) (link=’logit’)
+- Pour la loi Gamma : theta = 1/μ                        (link=’inverse’)
+
+
+Fcts de liens :
+- Identité
+- Logit : est adaptée au cas où μ est comprise entre 0 et1 (par exemple la probabilitéde succès dans une loi binomiale). Approbriée quand les proportions de 0 et de 1 sont équilibrées
+- Probit : est l'inverse de la fonction de répartition de la loi normale centrée réduite. Approbriée quand les proportions de 0 et de 1 sont équilibrées.
+- clog–log : Approbriée quand les proportions de 0 et de 1 sont trés déséquilibrées (Hardin and Hilbe (2007))
+- Puissance
+- Logarithme
+- Gompit( complémentaire log log)
+
+[0;1] : logit, probit, clog–log, and log–log
+
+Sauf cas (très) particulier, le lien n’est jamais "parfait".
+
+La fonction de lien est inversible.
+
+Choix de la fct de lien : le choix de la fonction de lien est libre. Néanmoins choisir la fonction de lien naturel permet d'assurer la convergence de l'algorithme d'estimation utilisé classiquement (algorithme de Newton-Raphson) vers le maximum de vraisemblance.
+
+# Modèle mixte
+
+= modèle contenant des effets fixes et des effets aléatoires.
+
+Effets fixes = effet d'une variable mesurée, avec des niveaux/groupes qui sont délibérément arrangés par l'expérimentateur, donc bien définie et controlée, sur une var réponse.
+
+Effets aléatoires = effet sur la structure de l'échantillon, dont les niveaux sont possibles. Dans l'étude de ce type d'effet on ne s'intéresse pas à l'effet qu'a chacun des groupes mais à la variabilité totale qu'ils apportent à la var réponse.
+
+
+
+# Créer nos prédicteurs selon l'effet que l'on veut tester
+- interaction entre 2 variables : X3= X1*X2 (multiplication de var)
+- effet non linéaire : X4 = X1^2 (exposant sur une variable)
+
+
+# tests
+Le test t permet de tester l’hypothèse H0 pour chaque variable.
+Le test de Fisher permet de tester plusieurs paramètres simultanément. Le test de Fisher a plus de sens dans le cas d'une ANOVA car il considère la variable explicative dans son ensemble et non modalité par modalité.
+
+# Estimations des paramètres
+
+Par minimisation des moindres carrés ou maximum de vraissemblance
+Résidus (epsilon) = Y - estimation d'Y (y chapeau)
+
+
+# Variable réponse qualitatite
+Chercher à expliquer Y par X revient à chercher de l’information sur la loi de probabilité de Y sachant X.
+
+Si on peut, rendre la variable binaire (0,1) -> Bernoulli -> Régression logistique
+

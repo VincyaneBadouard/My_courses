@@ -1,0 +1,40 @@
+---
+title: "C++"
+author: "Vincyane Badouard"
+date: "13/11/2020"
+output: html_document
+---
+
+Intérêt : + rapide
+
+Package *Rcpp* : simplifie l'intégration de code C++ dans R 
+Inconvénients : difficile à débugger
+-> n'y écrire que du code maitrisé et méritant cet effort
+
+Sous R :
++ préparation/vérification des données 
++ traitement et la présentation des résultats.
+
+C++ : 
++ dans un package (dossier "src")
++ dans un doc C++ (.cpp)
++ dans RMarkdown avec insertion chunk Rcpp
+
+*sourceCpp()* : compilation du .cpp
+
+Créer une fonction C++ :
+calculer le double d’un vecteur numérique
+```{Rcpp}
+#include <Rcpp.h>
+using namespace Rcpp;
+// [[Rcpp::export]]
+NumericVector timesTwo(NumericVector x) {
+return x * 2;
+}
+```
+
+-> Une fct R du meme nom que la fct C++ s'est créée
+```{r}
+timesTwo(1:5)
+```
+

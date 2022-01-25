@@ -1,0 +1,85 @@
+---
+title: "Rmarkdown"
+author: "Vincyane Badouard"
+date: "14/02/2020"
+output: 
+   html_document:
+     thème: readable
+     toc: yes #table des matières
+     toc-float: yes #table des matières flottante
+bibliography: biblio.bib
+csl: joe.csl #style citation et biblio
+link-citations: yes
+---
+```{r, echo=F}
+library(knitr)
+opts_chunk$set(echo=F, message=F)#pour ne pas voir le code et les message pour tout le document
+```
+
+texte
+
+
+# Titre
+
+
+## Sous-titre
+
+Liste :
+
+* chat
++ chien
+- oiseau
+
+Liste numérotée :
+
+1. Liste numérotée
+1. on peut laisser 1. et il met les bons numéros
+
+*italique* ou _italique_
+
+**gras** ou __gras__
+
+_**gras&italique**_
+
+> citation
+
+<!--commentaire -->
+
+# Chunk 
+
+raccourci clavier pour générer un chunk : *CTRL + ALT + I*
+
+Chunk options
+```{r echo=False, warning=FALSE, include=TRUE}
+# echo=F : ne pas mettre le contenu du chunk dans le rendu (pour ne pas voir le code)
+# eval = F : ne pas faire tourner le code
+# include = F : ne pas afficher les sorties console
+# le reste à voir dans le petit engrenage du chunk
+1+2
+```
+
+Afficher une valeur dans le texte :
+1+2 = 'r 1+2'
+
+# Table
+
+```{r }
+#la fonction "kable" dans "knitr"
+knitr::kable(head(cars), #les en-têtes de "cars"
+              caption = 
+                "Légende.")
+```
+
+
+# Figure 
+
+```{r, figure, fi.cap="c'est une légende"}
+library(tidyverse)
+ggplot(cars, aes(speed, dist))+
+  geom_point()
+```
+
+# Equations
+
+$\alpha$
+$$Y \sim\mathcal N(\mu,\sigma)\frac{1}{1+e}$$

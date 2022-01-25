@@ -1,0 +1,300 @@
+---
+title: "Shiny cours"
+author: "Vincyane Badouard"
+date: "12/10/2021"
+output: html_document
+---
+
+# Packages
+```{r}
+library(shiny) # Web Application Framework for R 
+library(bslib) # aesthetic, thème et feuilles de style
+# bslib::bootswatch_themes() # pour voir ts les thèmes
+library(shinydashboard)
+# library(bs4Dash) # dashboard aussi. restart R session si on passe d'un pkg à l'autre (dont mode jour/nuit mais mal fait)
+library(shinyjs) # Improve the User Experience
+library(dplyr)
+library(ggplot2)
+library(thematic) # Aesthetic, Unified and Automatic 'Theming' of 'ggplot2', 'lattice', and 'base' R Graphics 
+library(DT) # Interactive table
+library(leaflet) # Interactive Web Maps
+library(plotly) # Interactive Web Graphics
+```
+
+# Tips codeur 
++ à la fin d'une grosse parenthèse/accolade préciser de quoi c'est la fin
++ *#### titre partie ####* ou tirets ou égales pour faire des parties déroulantes dans le code
+
+# Shiny:
+Package gratuit dvp par Rstudio
+donne à l'utilisateur une page web à consulter
+Ne supporte que l'encodage *UTF-8*
+
+ce qu'on peut y mettre :
+- curseurs
+- cases à cocher
+- graphiques
+- cartes intéractives (changer le fond)
+- changer la langue
+- process automatique -> vidéo
+- arbres décisionnaires
+
+R ne fait qu'1 tache à la fois donc Shiny aussi, mais il existe des moyens de palier à ça.
+
+R -> Shiny -> Bootstrap -> HTML/CSS/JavaScript -> Navigateurs internets
+
+1) structurer l'appli
+2) créer l'interface
+3) gérer les intéractions
+4) enrichir l'appli
+5) mise en ligne et partage de l'appli
+
+# Structurer l'appli
+
+1) créer un dossier ac le nom de l'appli
+2) 2 fichiers : *ui.R* et *server.R* enregistrés en *UTF-8*
+
+*ui.R* : dont fct *fluidPage()* (mise en forme de l'interface)
+*server.R* : dont fct *server <- function(input, output, session)*
+*global.R* (optionnel, même dossier) : chargement de variables dans envrment global de l'utilisateur
+Il est possible de mettre ces 3 codes dans un même fichier.
+
+Lancement de l'appli : bouton "Run App" ou shiny::runApp ("dossierdes2fichiers")
+Appuyer sur STOP qd fini
+
+# Créer l'interface
+
+*ui.R* et sa fct créent l'interface graphique
+Le code R dans ui est converti en HTML (on peut aussi mettre du HTML dans ui (HTML()))
+
+sous-dossier *www* avec (non aacessibles sous code, uniqueùment sous ap):
+- *image.png*
+- *style.css*
+- *script.js*
+
+Formater du texte (fcts inspirée du HTML) à mettre dans *fluidPage()*:
+*p()* : paragraphe
+*h1~h6()* : 1er niv d'en-tête à 6ème niv
+*a(href =, target = "_blank)* : lien hypertexte, target = "_blank permet d'ouvrir dans un nouvel onglet
+*br()* : retour à la ligne
+*code()* : Police code
+*strong()* : gras
+*em()* : italique
+*img(src = image dans www)* : insérer une image
+
+*,* à la fin de chaque ligne dans ces fonction (sépare les args)
+
+clic droit sur la page web pour en voir le code de mise ne forme en html.
+
+## Mise en page
+- Page 
+- titlePanel (titre)
+- Layout
+- side bar panel
+- main panel
+- tapPanel1,2,3
+
+Mettre des onglets : *tabsetPanel()* : conteneur
+  dedans 1er onglet : *tabpanel(),*
+  2ème onglet : *tabpanel(),* etc
+  
+Page barre latérale et panneau principal, 1/3-2/3 : *sidebarLayout()* (conteneur)
+
+## INPUTS & OUPUTS
+
+Répertoriés ici: https://shiny.rstudio.com/gallery/widget-gallery.html
+Dans ui :
+
+INPUT
++ actionButton : bouton
++ actionLink : bouton
++ checkboxInput : entrée numérique
++ checkboxGroupInput : groupes de cases à cocher
++ dateInput : date avec propositions
++ dateRangeInput : période
+
+OUTPUT
++ plotOutput : graphique
++ imageOutput : image
++ tableOutput : print tableau
++ dataTable : tableau optimisé (interactif: affichage et recherche)
++ text
++ verbatim : format console R
++ html/uiOutput : ui dynamique (faire apparaitre des choses au départ caché)
+
+
+# Gérer les intéractions
+
+Sur ui:
+un identifiant (*inputId =*) unique par input/output et parlant
+label, choices seront visibles sur l'app
+selected : valeur selectionnée par dédaut 
+
+Sur server.R :
+*output$idouput <- renderText(){input$idinput}*
+c'est l'objet calulé à la dernière ligne qui est utilisé pour mettre à jour l'outpout
+
+1 fct/output même pour un même input
+
+on peut mettre un print avant la der ligne de code pour afficher le rslt dans console
+
+un input répétitif peut être mis sous forme de fct et mis soit dans servers soit dans global.
+
+Réaction réactive : la fct *reactive* permet de ne pas recalculer même input à chaque output (comme un cache) (diapo 46)
+
+Chaine de réactivité :
+Reactive value -> Reactive expression -> Rendu & output ou Observer
+
+input = reactive value + élmt graphique (cases, surseur etc)
+
+Reactive value avec *reactiveValues(result = NULL)* (voir server de calculatrice)
+
+Reactive expression = calcul lourd, extract données, mise en cache pour plsrs render/oberver.
+
+Rendu & output = mise à j d'un output avec un nouvel objet.
+*Observer* =  gestion fine de l'interface : gestion d'evnment (click bouton), gestion de proxy.
+
+Une expression réactive peut en observer une autre expression réactive (propagation)
+
+
+Fonctions :
+*reactiveValues*
+*reactive*
+*eventReactive* : réagit à un évenemnt mis en 1er argument
+*observe*
+*observeEvent*
+*isolate* pour ne pas appliquer un code sans l'activation d'un code précédent (voir server calculatrice).
+*invalidateLater* : ré-exécution d'un observateur/render/expr rel après un certain laps de temps
+*debounce/throttle*
+
+
+
+# Enrichir l'appli
+## Leaflet
+cartographie (représentation spatiale) dynamique 
+Utilise le pipe
+
+1) choisir le fond de carte
+voir code diapo
+~devant les vars de data
+
+2) Définir le zoom initial
+voir code diapo
+
+3) ajouter des points spécifiques (markers)
+voir code diapo
+
+4) personaliser les points (description des markers)
+voir code diapo
+
+5) Ajouter des formes
+rayon en mètres
+voir code diapo
+
+6) Ajouter une légende
+voir code diapo
+
+7) Ajouter une échelle et la possibilité de faire des mesures
+voir code diapo
+
+Après un render pour initialiser, un *proxy*, encapsulé dans un *observe*, pour ne pas recalculer le fond de carte à chaque modif.
+L'objet à mettre à  a préalablement été construit dans un render
+
+Des proxy existent pour leaflet, DT, plotly
+
+
+## Charger/enregistrer des fichiers
+Il faut mettre une limite max de gigas pour protéger le serveur.
+
+### Charger
+Fichiers fournis par l'utilisateur : input
+
+Dans ui :
+*fileInput(inputId = "fiMyFiles", multiple = TRUE,...)*
+
+Dans server : diapo p54
+
+package shinyFiles pour fichiers lourds
+
+### Enregistrer
+Fichiers transmis à l'utilisateur : output
+
+Dans ui :
+*downloadButton(outputId = "myReport",...)*
+
+Dans server : diapo p54
+
+
+## Shinydashboard
+
+permet de personnalisr la partie ui (rien ne change dans la partie server)
+
+Barre de navigation à gauche et une page principale pour les figures
+
+3 parties : header, sidebar, body
+
+```{r}
+
+```
++ Dans le body, différentes boites (box) pour les différentes sorties
++ On peut ajouter des onglets dans la sidebar, liée à la partie body
++ Menu avec messages, notif, taches en haut à droite
++ InfoBox, ValueBox (valeurs numériques d'intérets)
++ Personnalisation box (rétractable, )
+
+la hauteur s'adapte au contenu
+
+# Autres packages 
++ shinyjs : visibilité d'élmt, activité d'élmt, attributs d'éléments (couleur selon la class), code javascript
+*shinyjs::hidden* : cacher un bouton
+
++ shinyWidgets : bouton switch, sliderText
+
++ shinyalert : création de boite de messages personnalisée
+
++ shinyhelper : ajouter de l'aide à une appli (description)
+
++ plotly : graphiques ggplot2 intéractifs
+
++ shinysccloaders : spinner (truc qui tourne) pendant le calcul
+
++ shinyFeeback ou shinyvalidate : avertissement, erreur sur les valeurs saisies
+
+
++ Tableau éditable : excelR, DataEditR, shiny-matrix
+
++ Crosstalk : sélection commune et synchronysée entre plsrs outputs (pour plotly, leaflet, DT)
+
++ ShinyMobile : plus adaptée à une interface téléphone, ressemble plus à une appli
+
+# Mise en ligne et partage de l'appli
+
+## En local : c'est mieux, plus rapide car outils de calcul et on y est seul
+à travers un package, on peut lancer son appli avec le Addins dans Rstudio
+
+ou juste dépot pour l'appli sur github
+
++ Application Windows sans ouvrir Rstudio, avec un R-portable (lourd)
+
+## A distance
+plsrs utilisateurs sur 1 serveur R/Shiny
+ShinyProxy : 1 R pour chaque utilisateur
+
+Hébergement dédié (Shinyapps.io) : offre gratuite avec des limitations
+
+
+# Module
+
+-> Répéter des outputs pour différents onglets 
+
++ dans ui : création des onglets avec des données spécifiques
++ dans server : callModule()
++ Code du module dans dossier R (pas de sous-dossier), qu'il faudra sourcer
+  - fct avec code pour ui : création d'ID unique avec shiny::ns()
+  - fct avec code pour server
+
+
+# Autres sources cours
+
+mastering shiny
+
