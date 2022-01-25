@@ -1,0 +1,11 @@
+bookdown::gitbook:
+  config:
+    toc:
+      before: |
+        <li><a href="./">My_cours</a></li>
+      after: |
+        <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
+      collapse: section
+  includes:
+    in_header: hypothesis.html
+    before_body: open_review_block.html

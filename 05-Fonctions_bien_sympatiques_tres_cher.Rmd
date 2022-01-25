@@ -1,0 +1,387 @@
+# Fonctions bien sympatiques trés cher
+
+*ICI JE METS JUSTE LE NOM DES FONCTIONS, MAIS FAUT CHERCHER SUR INTERNET LES MODALITES D'UTILISATION !!*
+
+## Conseils
+
++ Eviter de donner le meme nom au pipe que la base qu'on utilise dedans, ça écrase les données, et c'est la galere pour les reccuperer
+
++ Les fonctions tidy sont pas faites pour s'imbriquer. Utiliser des fonctions base à l'int des fcts tidy.
+
++ Qd un prblm est trop gros, découper le travail (ex: faire des soustables)
+
+## Tips de codeur
+
++ Mesurer le temps d’exécution d’un code : *system.time* ou *microbenchmark (fct1,fct2)* pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.
+
++ détacher un package de l'environnement : *unloadNamespace()*
+
++ connaitre le code d'une fct : *trace(pkgname::fct, edit=T)*
+
++ tout bien aligner le code : ctrl A puis ctrl I
+
++ recherche sur toutes les pages : Ctrl shift F (on peut faire du replace !)
+
++ (obt <- code) : affiche l'objet
+
+## Charger les données
+
++ Chemin absolu : écriture de l’entièreté du chemin
++ Chemin relatif :
+*~* = le dossier du setwd
+*./* = là où je suis
+Les .rmd ont leur propre racine, donc pas celle de leur projet.
+*« ../* = dossier parent (du niv de dessus)  et je mets autant de *../* que de niveau à remonter.
+Puis tabulation pour qu’il propose mes fichiers.
+Stocker mon chemin relatif dans un objet « path ».
+file.path(path, "dossier", "file") function pour lire mon chemin stocké.
+
+
+!!!!!!Environment > import dataset > *tjrs spécifier le séparateur (delimiter) et le marqueur de décimale (locale > decimal mark)!!!!!!!!!* (franchement ça fait trop de la m*rd sinon)
+
++ Importer avec les accents : *locale = locale(encoding = "latin1")*
+
++ Importer du shapefile (shp) : 
+*readORG(dsn = "/path/to/your/file", layer = "filename")* ou
+*shapefile("path/to/your/file.shp")*
+
+## Corection préliminaires des données
+
++ Corriger les arbres non touvées mais vivants dans inventaires : package *forestdata* sur github ecofog
+
+
+## Transformation de données !
+
++ De character à factor : *mutate(Vernacular = factor(as.character(Vernacular)))*
+
++ Séparer 1 colonne en plsrs : *separate(data, col à séparer, sep = "_", into = c(nom des new col), remove = F)* remove = F pour conserver la colonne qu'on sépare
+
++ Combiner des colonnes en une : *unite(col1, col2, col = "sp", sep = " ", remove = T)*
+
++ La même qd ya pas de séparateur : *mutate(variable = substr(x, start, stop))* ou
+*StrLeft(x, n)* 
+*StrRight(x, n)* en partant de la fin. -n pour enlever n paramètre
+
++ Recoder une variable : *mutate(var = recode(var, "1" = "A" , "2" = "B"))* le nouveau code derière le =
+si ya erreur essayer : *"'1' = 'A' ; '2' = 'B'"* guillemets double et simple et point virgule
+
++ Changer une variable sous condition : *mutate(var = ifelse(condition, si oui, sinon))*
+Sous plusieurs conditions : séparer les conditions d'un *&*
+
++ Changer le nombre de décimales : *format(x, digits = 0, scientific = F)* ou *round(x, digits = 0)*
+
++ effectuer par ligne : *rowise*
+
++ Remplir une colonne à partir d'une fonction dont l'input est une table : *do()*
+
++ déplie la une sous-table existant dans une table : *unnest()*
+
+
+## Histoire de characters
+
++ Extraire un element numeric dans une chaîne de characters : *extract_numeric(var)*
+
++ Mettre le nom d'un objet sous forme de chararters : *deparse(substitute(obj))*
+
+## La syntaxe qui fait chier, du balai !
+
++ Enlever un espace avant et/ou apres un character : *trimws(x, which = c("both", "left", "right"))*
+
++ Mettre en minuscule/majuscule : *tolower()/toupper()*
+
++ 1ère lettre de l'expression en majuscule : *str_to_sentence()*
+
++ Enlever accent : *sub("é","e",vector))* 
+
+## Comparaison de tables
+
++ *diffdf(,)*
+
+## Tirage
+
++  Tirer aléatoirement n individus sans remplacement : *sample_n(n, replace = F)*
+
+
+
+## Yo ! arrange mes données !
+
++ Vincyane la base...
+```{r}
+## Quand tu veux passer une collone de df en argument de fonction :
+## V0
+column_name <- "Position" ## character string in an object
+column <- inventory[,column_name] ## character vector
+line_nonna <- which(!is.na(column)) ## which rows different of NA
+subinventory <- inventory[line_nonna,] ## filter base version
+
+## V1
+column_name <- "Position"
+column <- inventory[,column_name]
+nonna <- !is.na(column) ## logical vector 
+subinventory <- inventory[nonna,] ## take only the TRUE
+
+## V2
+column_name <- "Position"
+inventory[!is.na(inventory[,column_name]),] %>%
+  st_as_sf(wkt = column_name)
+
+## Vdplyr
+col_name <- deparse(substitute(var)) ## object name to this name in character
+inventory %>%
+  filter(!is.na( {{ var }} )) %>% ## {{var}} pour réccupérer l'objet mis en argument "var"
+  st_as_sf(wkt = col_name) ## quand t'as besoin du nom de la colonne en charactère
+
+#ou
+
+modif_var <- function(data, nom_variable){
+  data %>% dplyr::mutate(nouveau_nom = !!rlang::sym(nom_variable)+1)
+}
+
+```
+
+
++ Inverser lignes & colonnes (retourner) (transposer) : *t()*
++ Mettre une colonne en colonne "rownames" : *column_to_rownames(data, varàdéplacer)*
++ Metrre l'information de plusieurs colonnes en 1 : *melt()*
++ Inverse : *dcast(col1 + col2 ~ newcol)*
++ Ne prendre qu'une partie des données : *filter()* ou *subset()*
+Si on veut garder les NA, comme filter les vire d'office, rajouter *| is.na(var)*
+
++ Pour filtrer beaucoup de valeurs d'une même var: 
+
+values <- c("Tom", "Lynn") vecteur de n'importe quoi
+*filter(dat, var %in% values)*
+
++ Ne pas prendre une partie des données (valeurs) : *filter(!(Vernacular %in% remove))* (enlever remove dans vernacular)
++ Quand dans un booléen les Na dérangent, utiliser plutot *%in%* que *==* (ex: a %in% TRUE)
++ Enlever des colonnes : *select(-colname)*
+
++ Réaliser les opérations suivantes par groupes de modalités : *group_by*
+
++ Créer une variable résumant les effectifs des éléments d'une variable : *summarise(N = n())* ou *count()*
+
++ Effectifs par ordre croissant : *arrange(N)*
++ Effectifs par ordre décroissant : *arrange(desc(N))*
++ Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis *arrange(var)*
++ Selectionner les n valeurs maximales : *top_n*
++ Afficher les 30 1ères lignes : *slice(1:30)*
++ Changer ordre des colonnes :   *select(c(a, y, x, b : w))*
+
++ Séparer une base de données, selon un facteur, en une liste de bases de données : *split(data, data$fact)*
+
++ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : *unique()*
++ Savoir si ttes les valeurs d'une colonne sont les mêmes: *length(unique(data$var)) == 1*
+ou *all(data$var == data$var[1])* = est-ce que toutes les valeurs sont égales à la 1ère
+
+
+
+## Donne moi des infos sur mes données
+
++ pH[pH>7] : afficher les ph>7
+length(pH[pH>7]) : combien de ph>7
+data[pH>7,] : afficher les lignes dont les ph>7
+
+which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat de l’opération logique est vrai
+
++ Indicer selon une modalité : *data[data$var =="modalite",]*
+
++ Nombre de NA dans 1 colonne : *sum(is.na(data$x_num))*
+
++ Nombre de lignes ayant pour valeur "truc" dans telle variable *sum(as.numeric(data$var == "truc"), na.rm = TRUE)* pcq as.numeric transforme un vecteur de booléen en vecteur de 0 et 1.
+
++ Nombre de NA dans le jeu de de données, dans chaque colonne : *colSums(is.na(data))*
+
++ est-ce que tt ça est vrai : *all()*
+
++ au moins 1 vrai : *any()* ne prend pas de liste (enfin si mais il n'est pas cntent)!
+
++ renvoyer les éléments dupliqué : *duplicated()* (booléen) y_data[!duplicated(my_data$var), ] (dataframe)
+*anyDuplicated*
+
+
+## Calcul informatif
+
++ Faire la somme/moyenne/autre de chaque ligne/colonne : *apply(data, c(1,2), sum)* 1 : par ligne ou 2 : par colonne 
+
++ Appliquer une fonction sur une liste/vecteur : *lapply(liste, function(elementdelaliste) la fonction dépendante de l'élement)* ou *lapply(liste, function, autres arguments de la fct)*
+ex : lapply(a, function(element) bcDiversity(element$N, q = 1, Correction = "Best"))
+
+ptit tips : la version fonction d'extraction d'élément d'un objet ($) : *getElement(object, var)* ex :
+lapply(x, function(x) x$var) 
+=
+lapply(x, function(x) getElement(x, "var"))
+=
+lapply(x, getElement, "var")
+
++ Appliquer une fonction sur plsrs listes/vecteurs : *mapply(function(X,Y) {la fonction(X, Y)}, X=list1, Y=list2, SIMPLIFY = F)* 
+SIMPLIFY = F : laisse la structure initiale de la liste
+
++ *map* functions family font apriori la même chose que les apply avec plus de possiblités et + rapides car écrites en C (https://r4ds.had.co.nz/iteration.html)
+Les map ne produisent que des vecteurs, pas de matrice)
+
+Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu'il ne va pas : *map(safely(fct))* qui renvoie le résultat et le message d'erreur
+
+## sf package
+
++ Passer d'un sf à un dataframe (supprimer la col géométrie) : *st_geometry(sf) <- NULL*
+
++ sfg to sfc : *st_sfc(sfg)*
+
++ sfc to sfg : *st_point(as.numeric(unlist(sfc)))* (ex ici point)
+
++ MULTIPOINT to POINT : *st_cast(st_sfc(mutipoint), "POINT", group_or_split = TRUE)*
+
++ Simplification d'objet : *st_cast(objet, "objt + simple"* (ex : polygon to linestring)
+
++ Attribuer un crs à un objt sf ou sfc : *st_set_crs(objtsanscrs, st_crs(objtaveccrs))*
+
++ st_union ne préserve pas l'ordre des géométries dans la géométrie finale, il faut utiliser :
+
+objt_sf_12 <- objt_sf_1 %>% rbind(objt_sf_2)
+
+objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))
+
+
+
+
+## Eh oh c'est moi qui décide ! illustre moi ça comme il faut !
+
++ Faire des graphs ggplot en clic bouton : *esquisse::esquisser()*
+
++ Relier le label au point quuand c'est pas visible : *geom_text_repel*
+
++ Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): *melt()*
+
++ Séparer un facet_wrap en plusieurs pages : *facet_wrap_paginate()* 
+
++ Echelles différentes sur un facet :
+- *scales = "free" "free_x" "free_y" or "fixed"*
+- qd on veut personnaliser :
+on crée un data pour un geom_blank : blank_data <- data.frame(group = c("var1", "var1", "var2", "var2"), x = c(min commun, 
+max commun, min commun, max commun), y = c(min commun, max commun, min commun, max commun))
+
+puis *geom_blank(data = blank_data, aes(x = x, y = y))* 
+
++ Gradient de couleurs : *colorRampPalette(c("blue", "white", "red"))(4)* 4 = nbr de catégories
+ou *scale_fill_gradient2(low="blue", high="red", mid = "white")*
+Voir les palettes : *RColorBrewer::display.brewer.all()*
+
+
+## Télécharger mon bébé dans le bon format, au bon endroit !
+
++ PNG : *png()* avant commande du plot & *dev.off()* après commande du plot
+
+## Nettoyage
+
++ Enlever un élément de l'environement : *remove()*
++ Vider tt l'envrmt global : *rm(list = ls())* ls() renvoie ts les objets de l'envmt
+
+## Boucle
+
+1) Output : créer un objet vide de la classe, voire de la taille que l'on souhaite pour notre output (+ rapide)
+- chaine de charactère vide : *""*
+- vecteur/liste : *vector("numeric", length(x)), ou juste vector(), list()*
+
++ Quand on ne connait pas la longeur de l'output apriori, on peut l'aggrandir progressivement dans le corps de la boucle : *output <- c(output, action qu'on boucle)* 
+ou on stocke les outputs de chaque itération dans un élément d'une liste crée en amont (*vector("list", length(x))*), puis qd la loop est finie on unlist (+efficace).
+En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers à chaque iteration puis tout coller ensemble après la boucle (-lourd).
+
+2) Sequence : créer un vecteur dans lequel puiser s'il n'existe déjà
++ pour agir sur chaque col d'un df : *seq_along(df)*
++ boucler sur indice, value ou names
+
+3) Body : Pour chaque valeur que peut prendre trait dans All_traits :
+*for(trait in All_traits){}*
+resultat <- rep(NA, 3)
+for(i in seq_len(3)) {
+resultat[i] <- i
+}
+
++ utiliser *[[]]* plutot que *[]* même pour les vecteurs
+
+*seq_along()* : permet dans le cas où la sequence est de taille 0 ou 1 de bien avoir un output de cette taille sinon avec *1:length(1 ou 0)* on optiendra *1 0* ou *1 1*
+
++ faire une boucle dont les résultats sont mis dans une liste: *foreach()*
+
++ Boucle while : boucle jusq'à ce que la condition soit fausse. Peut être utilisée lorsqu'on ne connait pas la longueur de la séquence.
+while (condition) {
+  ## body
+}
+
++ Arrêter la boucle : break()
++ Arreter l'itération actuelle et asser à la prochaine : next()
+
+## Les objets
+
+#### des infos sur mon objet
+
++ Présence d'une variable *"varName" %in% names(df)*
++ Type : *class(a)*, pour ttes les variables d'une table *lapply(data, class)*
++ Structure : *str(a, 1)* 1 c'est le niveau de structure, yen a plsrs, c'est pas obligatoire
+
+#### List
+"a" la liste.
++ Voir les éléments de la liste : *a$*
++ Indicer une liste : *a[[position]]* 
+
++ Transposer une liste (inverser la tructure) : purr::transpose()
+
+
+#### Fonction
+
+function(arguments){
+operation1
+operation2
+return()  ## préciser ce que la fonction doit renvoyer
+}
+
+## Condition
+Les if sont des bolléens qui vérifient si la "condition" est "TRUE", donc il n'est pas nécessaire "x == TRUE" mais seulement "x" ou "!x"
++ *if(condition) {action}*
++ *if(condition1 && condition2) { expression }*
++ *if(condition1 || condition2) { expression }*
+
++ Dans les if else la place des brackets est importante:
+
++ if(case1) {
+expression1
+} else {
+expression2
+}
+
++ if(case1) {
+expression1
+} else if(case2) {
+expression2
+}
+. . .
+else last.expression
++ *ifelse(condition, expression1, expression2)*  vectorized version of the if() statement. Warning: ifelse() is designed to work with vectors and matrices – not data frames.
+
+
+## Logical Operators
+
+```{r}
+c(T, F, T) | c(F, F, T) ## TRUE FALSE  TRUE
+
+c(T, F, T) || c(F, F, T) ## TRUE
+
+c(F, F, T) || c(F, F, T) ## FALSE
+
+c(F, F, T) || c(T, F, T) ## TRUE
+
+## |/& to compare each value of different bolean vectors
+## ||/&& to compare single value conditions 
+```
+
+## Stan - Modelo - Bayes
+
++ Chercher une fct dans Rstan : *lookup("bernoulli")*
+
+## Faire de la biblio comme une déesse
+
++ package bibliometrix
+
+## Date & time
+
++ convertir une date (y, m, d) en année numeric : *as.numeric(format(ExactDate, "%Y"))*

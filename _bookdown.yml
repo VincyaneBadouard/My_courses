@@ -1,0 +1,6 @@
+book_filename: "My_cours"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Cours "
+output_dir: "docs"

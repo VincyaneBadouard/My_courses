@@ -1,0 +1,451 @@
+# Package creation
+
+## References
+
++ The original bible : https://r-pkgs.org/index.html
++ en francais : https://www.imo.universite-paris-saclay.fr/~goude/Materials/ProjetMLF/editer_package_R.html
++ Eric Marcon's cours : https://ericmarcon.github.io/Cours-travailleR/
+
+## Les packages R nécessaires 
+
+Télécharger des packages d'aide à l'organisation et structure, nécessaire à l'écriture d'un package :
+```{r}
+## install.packages(c("usethis", "roxygen2", "devtools", "testthat", "covr", "goodpractice"))
+## 
+## library(usethis) #automatise la création des dossiers, vignette, site
+## 
+## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages
+## 
+## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages
+## # roxygen2::roxygenise()#refresh de la documentation
+## 
+## library(testthat) # Create test units
+## 
+## library(covr) # Test coverage report()
+## 
+## library(available) #vérifier la disponibilité du nom de votre package
+## 
+## # available::available("LoggingLab") # TreeData
+## 
+## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)
+
+## gp(system.file(package = "Maria")) #trouve les mauvaises pratiques de notre package
+```
+```{r}
+## si on avait une ancienne version de withr pour rstan
+## remove.packages("withr")
+## install.packages("withr")
+```
+## Creation du package 
+
++ *New Project > New Directory > R package using devtools…*
+
++ Nom du package : pas d’espace, pas d’underscore, ne pas commencer par un chiffre et en minuscule
+
+
++ *Build > Install and restart* construit et charge le package dans R 
+
+## Tips de codeur
+
++ Mesurer le temps d’exécution d’un code : *system.time* ou *microbenchmark (fct1,fct2)* pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.
+
++ Détacher un package de l'environnement : *unloadNamespace()*
+Définitions "Charger/Attacher" un package :
+- pkg::fct = pas attaché
+- library(pkg) = attaché
+dans un cas comme dans l'autre, le package est chargé (load) : on l'utilise.
+
++ Trouver les non ASCII characters : *tools::showNonASCIIfile("R/zzz.R")*
+  
++ les lignes doivent faire 80 charactères max
+
+## Eviter les messages d'erreurs
+
++ Ne pas sauter de lignes dans "DESCRIPTION" file
+
+## Commandes
+
++ *Build > Install and restart* permet de tester des modifications de code
++ *check* ou *devtools::check()* permet de vérifier son code (màj de la documentation (dossier "man"), tests sur le code, renvoie erreurs et avertissements)
++ *git branch -d main* dans la console permet de supprimer la branche "main" de git
+
++ Documentation-exporter une fonction : placer le curseur dans la fonction et appeler le menu “Code > *Insert Roxygen Skeleton*” (ou  CTRL + ALT + SHIFT + R): roxygen2 la déclarera dans "NAMESPACE" après un "check"
+
++ raccourcir les lignes du squelette : *ctrl + shift + /*
+
+
+### Comprendre le Skeleton 
+
+= sera la page d'aide de la fonction !
+@include : mentionne des fichiers .R appelés dans le fichier
+@import :  importer l’intégralité des fonctions du package (seulement si on utilise bcp de fcts du package (ex: ggplot2)
+@importFrom package fct : aller chercher une fonction dans un package (à privilégier)
+@param : y décrire le paramètre et citér sa classe 
+@return décrire le résultat de la fonction
+@export déclare que la fonction est exportée : elle sera donc utilisable dans l’environnement de travail
+
++ Pour un exemple qu'on ne veut pas encore "checké" *\dontrun{l'exemple}*
+
+### R folfer
+
+Contiendra 1 ou plsrs fichiers .R contenant nos fonctions.
+1 fichier peut contenir 1 fonction 
+ou on peut y rassembler plsrs fonctions regroupables
+
+### nompackage.R file
+
+= commentaires pour roxygen2
+= page d'aide du package (=1er bloc) (visible avec *package?Maria*)
+= supplément de la vignette
+
+### NAMESPACE file
+
+"gestion des noms des objets"
+= interaction du package avec le monde exterieur : importation d’autres fonctions/packages, exportation de nos fonctions.
+
+### DESCRIPTION file
+
+Depends: liste des packages d’origine de chaque générique
+Depends: 
+R (>= 2.10),
+ggplot2,
+graphics
+Les alinéas sont nécessaires
+
+### .Rbuildignore
+
+= fichiers dans le package pour le constructeur, mais qui ne seront pas chargés avec le package pour l'utilisateur. 
+
+## Importation de fonctions
++ le package d’appartenance de la fonction doit obligatoirement être déclaré :
+*DESCRIPTION < Imports: nom package, nom package*
+*Le package tydiverse ne doit pas être importé car trés changeant*
+
+Import du pipe : *usethis::use_pipe()*
+
+Pour ne pas le faire à la main (préférable): *usethis::use_package("stats")*
+
++ Importer la fonction dans *nompackage.R* : 
+*#' @importFrom package fct* dans le squelette de la fct (fichier.R)
+
++ la fonction importée doit être trouvable dans
+l’environnement du package en création : la meilleure pratique est de qualifier systématiquement les fonctions
+d’autres packages dans le code avec la syntaxe *package::fonction()* (Sylvain dit que non)
+
+## Créer des classes pour ses objets en plus de ceux de base
+*class(x) <- "MyClass"* ou 
+*class(y) <- c("MyClass", class(y))* si on veut ajouter une classe aux classes de l'objet déjà existantes
+
+## Créer une "méthode générique"
+méthode générique = modèle de fonction, sans code, à décliner selon la classe d’objet à traiter (ex : "plot").
+
+Une méthode générique est plus lente en calcul que ses fonctions dérivées qui sont spécialisées à une classe d'objet.
+
+```{r}
+meth_generique <- function(x, ...) {
+  UseMethod("meth_generique")
+}
+
+## Fonction dérivée :
+meth_generique.class <- function(x, ...) {
+  return(x * 3L)
+  #le suffixe L signifiant que 3 doit être compris comme un entier.
+}
+
+##créer une fonction dérivée à partir d'une fonction dérivée déjà existante
+print.multiple <- function(x, ...) {
+  print.default(x$y)#n'afficher que le resultats y
+}
+```
+
+Sa signature : ensemble de ses arguments
+Les fonctions dérivées de cette méthode devront obligatoirement avoir les *mêmes arguments* dans le *même ordre* et pourront seulement ajouter des arguments supplémentaires avant "..." (qui est obligatoire).
+
+1er argument : "x". Dépend de la classe de l'objet
+
+## tidyverse
+
+Tout package doit être compatible avec le tydiverse.
+
++ pour permettre l’utilisation de pipelines, l’argument principal = le premier
+
++ fcts qui transforment des données doivent accepter un dataframe ou un tibble comme premier argument et
+retourner un objet du même format
+
++ les méthodes plot() doivent être doublées de méthodes
+*autoplot()* avec les mêmes arguments qui produisent le
+même graphique qu'avec ggplot2.
+autoplot() : permet de visualiser tt type d'objet, meilleur que ggplot2.
+
++ aes() devient *aes_()* et ajouter un *~* devant les noms des variables.
+
++ R CMD CHECK NOTE "no visible binding for global variable" : mettre *@importFrom rlang .data*
+
+
+
+## Vignette
+
++ Création *usethis::use_vignette("nomdupackage")*
++ *library(monpackage)* dans le premier chunk.
++ introduction à l'utilisation du package
++ chunk avec un exemple d’utilisation 
++ Les packages utilisés par la vignette doivent apparaitre dans DESCRIPTION
+
++ C'est un rmd donc ne pas oublier de kniter souvent
+
+Pour compiler la vignette (Build ne le fait pas) (et la voir dans la page d'aide du package):
+installer le package à partir de sa source :
+
++ Pour mettre une copie de la vignette dans /doc (durant le dvp) : *devtools::build_vignettes()*
++ Push sur Github puis *devtools::install_github("DeveloperName/PackageName", build_vignettes = TRUE)*
+Cette methode le permet aussi, mais plus triviale : https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/
+
+
++ Pour que le check ne construise pas la vignette : *--no-build-vignettes* dans options > check et build pckg
+
++ Si le build renvoie une erreur relative à qpdf : il faut installer les Rtools et au bon endroit (voir 1.1.2 Rtools TravailleR d'Eric Marcon)
+
+## Site du package : Pkgdown
+https://pkgdown.r-lib.org/articles/pkgdown.html 
+
+! le dépot doit être *public* !
+
++ Création site du package (dossier "docs"): *usethis::use_pkgdown()* puis *pkgdown::build_site()*
+
++ Use GitHub actions to automatically build and publish the site every time you make a change *usethis::use_pkgdown_github_pages()*
+
++ Configures a GitHub Action to automatically build the pkgdown site and deploy it via GitHub Pages : *usethis::use_github_action("pkgdown")*
+
+Home page : index.md or README.md
+Reference : liens vers les pages d'aide de toutes les fcts du package. On peut les organiser voir le lien.
+Articles : vignettes
+News : NEWS.md
+
++ Customise your site: https://pkgdown.r-lib.org/articles/customise.html
+
+## Des petits messages à l'utilisateur
+
++ Afficher des messages informatifs : *cat()*
+ex : cat("multiplied by", object$times, "is:\n") donne "multiplied by 2 is:"
+
+
+## C++
++ un C++ file dans dossier "src"
++ un .gitignore dans ce même dossier, dans lequel on met :
+"# C binaries
+src/*.o
+src/*.so
+src/*.dll"
+
+
+## Biblio
+
+réf biblio (sauf celles des .rmd (vignette, site) gérées automatiquement avec *Rdpack* et *roxygen2*
+
+De notre zotero/mendeley vers :
+REFERENCES.bib dans le dossier "inst"
+
+DESCRIPTION : ajouter
+"RdMacros: Rdpack
+Imports: Rdpack"
+
+Comment citer :
+citation(packagename)
+
+## Where stock my data in my package 
+
+### *Testing data*:
+
+- Just for me : in *inst/extdata* ('inst' pour 'installed') : external data (private) (en csv) -> no need to document
+- For the user (and me) : in "data" : internal data (= deliver with the package) (public) -> need to document
+
+### *Default data*:
+
+- Dataset : in "data" : internal data (= deliver with the package) (public) -> need to document
+
+- Valeurs par default d'arguments de fct : 
+
+  * Fct d'arguments : si on veut passer des valeurs par défaut dans une fct, on peut les proposer en arguments de celle-ci. S'il y en a bcp, on peut créer *une autre fct* qui aura pour arguments ces valeurs par défaut et qui créé une *liste* de celles-ci. Cette dernière fct sera entrée comme argument de la 1ère. Ainsi n'importe quelle valeur peut être modifiée sans avoir à tout réécrire. *fun1(A, B, arg = fun2(arg10 = FALSE))*
+
+  * Liste dans data : on peut aussi juste créer la liste et en faire un data que l'utilisateur loadera, modifira, et injectera dans la fct en argument, mais ça lui demande donc du travail préliminaire.
+
+- "Global options" in *zzz file*
+
+#### "Global options"
+
+Where write options: in *zzz file* (in R folder), as a named list or vector (eg. pars <- list(track_size = 2, method = "EFI"). Then you called pars$method.).
+
+Options = an object (here a list/vector)
+
+zzz file : on y met généralement les actions devant se réaliser au chargement du package.
+(https://cran.r-project.org/web/packages/GlobalOptions/vignettes/GlobalOptions.html#session_info)
+(https://github.com/mojaveazure/seurat-disk/blob/master/R/zzz.R)
+
+Inconvénients des options : on ne peut pas appliquer de apply sur différentes valeurs choisies d'une même option.
+
+
++ Documenter les "options" du package : dans un fichier .R dons le dossier R (regarder ?rstan_options pour inspiration)
+
++ Modification des options par l'utilisateur : *options()* http://www.endmemo.com/r/options.php
+
++ If you modify global options() or graphics par(), save the old values and reset when you’re done:
+*old <- options(optionsname = defaultvalue)* save the old values
+*on.exit(options(old), add = TRUE)* reset when you’re done
+
++ To access the value of a single option, one should use, e.g., getOption("width") rather than options("width") which is a list of length one.
+
+
+### Exported data (in *data/*)
+
++ accessible à l'utilisateur !
+
++ *usethis::use_data(data1, data2)* : crée un fichier (.rda) pour chaque jeu de données/variable, dans le dossier *data*
+
++ pas conseillé de prendre un autre format de fichier, celui-ci est pertinent (rapide et léger).
+
++ DESCRIPTION file : *LazyData: true* -> data dispo dès le chargement du package, ne chargeront qu'au besoin.
+
++ comprésser un fichier : *bzip2*, *gzip* ou *xz*
+
++ si le fichier data est une version transformée d'une base de donnée, il est conseillé de mettre le code de transformation dans *data-raw/* grace à : *usethis::use_data_raw("nom du data")*
+
+
+### Documenter ces données exportées
+
++ Où : dossier 'R' nommé 'data.R'
++ roxygen squeleton :
+
+```
+##' Data title
+##'
+##' Data description
+##'
+##' @format A data frame with X rows and Z variables:
+##' \describe{
+##'   \item{var1}{description, in units}
+##'   \item{var2}{description, in units}
+##'   ...
+##' }
+##' @source \url{} commande d'acquisition des données
+"name"
+```
+
+### Internal data for a function (in *R/sysdata.rda*)
+
++ Pour : stocker une base de données analysée/pré-calculée, dont a besoin une fonction.
+
++ non-accessible à l'utilisateur ! -> pas à être documenté
+
++ mise dans *R/sysdata.rda* grace à *usethis::use_data(, internal = TRUE)*
+
++ si le fichier data est une version transformée d'une base de donnée, il est conseillé de mettre le code de transformation dans *data-raw/* grace à : *usethis::use_data_raw()*
+
+## Charger ces data
+
++ Quand : pour les exemples et les tests, pas dans les fonctions ! Les fonctions ne manipulent que leurs propres objets (en 1er lieu leurs arguments).
+(Le mieux c'est de garder son environnement global vide lors de la création de la fonction.)
+
++ *system.file("dossier", "fichier", package = "nompackage")* : donne le chemin vers un fichier d'un package, pour tout système d'exploitation.
+
++ load() : pour charcher les .rda. Ex : load(system.file("extdata", "BrokenParacou6_2016.rda", package = "Maria"))
++ read_csv : pour charcher les csv
+
++ *data(nomdufichier)* : charge le fichier s'il est dans le dossier "data" du package
+
+
+
+## Tests 
+
++ Créer un dossier "tests" : *usethis::use_testthat()* 
++ écrire des tests à nos fonctions dans tests/testthat :  *usethis::use_test(name = "nomdelafct")*
++ The test name should complete the sentence “Test that …”.
+```{r exemple test}
+## test_that("Math works", {
+##   expect_equal(1 + 1, 2)
+##   expect_equal(1 + 2, 3)
+##   expect_equal(1 + 3, 4)
+## })
+```
++ lancer tous les tests : devtools::test() (Ctrl + Shift + T)
++ Each test is run in its own environment and is self-contained.
++ chaque test s'applique sur les outputs de la fct testée, pas sur les objets internes
++ dans les test, ne charger la function qu'1 fois si possible pour limiter le temps de calcul (limité sur CRAN)
++ Ne pas afficher les messages renvoyées par les fcts testées dans les tests : *suppressMessages(fun())*
+
+
+
+package "teststat" : vérification que la fonction fonctionne et renvoie les valeurs qu’on veut
+package “covr” (juste copier report() dans la console) : qui dit quelle proportion du code est sous unités de tests (couverture)
+
+Devtools (https://testthat.r-lib.org/reference/index.html):
+expect_equal() is equal within small *numerical tolerance*?
+expect_identical() is *exactly equal*?
+expect_match() matches specified string or regular
+expect_message() displays specified message?
+expect_warning() displays specified warning?
+expect_error() throws specified error?
+expect_type() output inherits from certain *class*?
+expect_false() returns FALSE?
+expect_true() returns TRUE?
+logical-expectations() : Does code return TRUE or FALSE?
+expect_null() : Does code return *NULL*?
+expect_length : code return a vector with the specified length?
+equality-expectations() : code return the expected value?
+expect_vector() : Does code return a vector with the expected size and/or prototype?
+expect_named() : Does code return a vector with (given) names?
+comparison-expectations() : Does code return a number greater/less than the expected value?
+expect_setequal() : Does code return a vector containing the *expected values*?
+expect_output() : Does code print output to the console?
+try_again() : Try evaluating an expressing multiple times until it succeeds.
+make_expectation() : Make an equality test.
+test_examples() : Test package examples
+
+these functions have two arguments: the 1st is the actual result, the 2nd is what you expect.
+
+## Un package pour tous
+
++ Pour tout système d'exploitation : mentionnés dans le yaml de githubactions : il fait les tests pour chacun d'eux
+
+## CRAN
+
++ tous les tests doivent êtres réussis sur min 2 syst d'exploitation
++ 0 notes/warning/error
+
+### Les tests 
++ Githubactions : pour un contrôle standard :*usethis::use_github_action_check_standard()* -> R-CMD-check.yaml creation
+https://youtu.be/K4x-uqLl_m4
+
++ Codecov : test-coverage.yaml (https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow) (créer un "secret" pour le token sur github si le dépot est privé)
+Il faut créer un compte codecov
+
+## Debugger
+
++ tapper ligne par ligne dans la console la partie qui coince
++ Lorsque *Browse[1]>* s'affiche dans la console, on peut écrire des commandes utilisant l'environnement de la fonction en bug, et donc la travailler.
+
+## Versioning
+https://r-pkgs.org/release.html#release-version
+
+*major.minor.patch.9000*
+
+.9000 only for dvlmpt version
+major, nimor, patch for released version
+
+il peut y avoir des versions de dvlp entre released versions
+
+For development version:
+9000 +1 / commit for example. You can choose your unit
+
+For released version: 
+*patch* : just debuging, no addings
+
+*minor* : debuging, addings, with backward compatibility (same functions and arguments names)
+
+*major* : substantive changes, not backward compatible, affect many users
+
+
+
+
+
+
+

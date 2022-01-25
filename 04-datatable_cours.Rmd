@@ -1,0 +1,355 @@
+# datatable functions
+
+## Sources
+https://www.rdocumentation.org/packages/data.table/versions/1.14.2 (R doc)
+https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html (French, trés bien!)
+https://linogaliana.netlify.app/post/datatable/datatable-intro/ (French, trop bien !!)
+https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html (vignette)
+https://stackoverflow.com/questions/tagged/data.table (stackoverflow)
+https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html (frequent questions in dt)
+
+
+## Pourquoi data.table
+
+https://dreamrs.github.io/talks/20180528_RAddicts_datatable.pdf
+
++ data.table est particulièrement adapté aux données volumineuses (plus de 1Go) où l’utilisation de dplyr est vivement déconseillée
+
++ data.table est beaucoup plus rapide et puissant que dplyr
+
++ ne dépend que de R-base, importe uniquement le package "methods"
+
+## Syntax
+dt[i, j, by]
+dt : data.table
+i : rows
+j : columns/expressions
+by : grouped columns
+ces 3 éléments ne sont pas toujours présents
+
+Les crochets permettent de ne pas utiliser le "$".
+
+data.table also = to data.frame
+
+```{r}
+library(data.table)
+```
+
+## Create a data.table
+```{r}
+dt <- data.table(a = c(2, 1), b = c("a", "b"))
+dt[, `:=`(c = 1 , d = 2, e = c(1, 2))]
+dt <- dt[, -c(2)] ## remove b column (il faut assigner sinon il ne l'enregistre pas)
+dt[, e := NULL] ## là non
+
+dt[, c, by = .(a)]
+dt[, c, keyby = .(a)] ## group and order
+
+```
+
+## Convert a data.frame or list to a data.table
+- *setDT(df)* (preferred) or
+- *as.data.table(df)*
+
+- *setDF(dt)* to return in data.frame
+
+## Punctuation
+
+
++ les fonctions commençant par *set* ou contenant l'opérateur *:=* n'ont pas besoin d'être réassigné à l'objet avec "<-".
+C'est mieux car ne garde pas de copie en mémoire.
+
++ le *.* est un raccourci de list entre [ ] mais pas en dehors
+
++ *:=* ou *`:=`()* (“assignation par référence”) permet de modifier une variable en assignation directe, *donc pas besoin de "<-"*
+-> *+ rapide et très économe en mémoire vive*
+
+## Subset rows :
+- by rows positions : *dt[1:2, ]*
+- by values in one or more columns : *dt[a > 5, ]*
+! ne renvoie pas les NA contrairement au data.frame !
+La virgule n'est pas obligatoire si pas de colonnes à spécifier.
+
+*%like%*
+*%between%*
+
+## Extract columns :
+Les colonnes sont des listes.
+
+by position : *dt[, c(2)]*, prefix "-" to drop
+by names : *dt[, .(b, c)]* le point est un raccourci de list dans les [] pas en dehors.
+return as vector : *dt[, b]* ou *dt[[b]]*
+return as data.table : *dt[, list(b)]*
+On ne peut pas directement selctionner un var par sa position ou avec une chaine de charactères car compris comme des cstes
+
+## Summarize
+
+*dt[, .(x = sum(a))]* create a data.table with new columns based on the summarized values of rows.
+Summary functions ex : mean(), median(), min(), max(), etc
+
+*.N* pour obtenir le nombres d'observations
+*,by =* par sous-groupe
+
+## Compute columns
+
++ := permet de modifier une variable en assignation directe, donc pas besoin de "<-".
++ () pour dire que ce sont des colonnes existantes et non des nouvelles a creer 
+
+
+*dt[, c := 1 + 2]* : compute a column based on an expression (c = col name)
+
+*dt[a == 1, c := 1 + 2]* : compute a column based on an expression but only for a subset
+of rows
+
+ + Si on veut mettre des NA : *:= NA_real_*
+
+*dt[, `:=`(c = 1 , d = 2)]* : compute multiple columns based on separate expressions (se créent en meme temps donc ne peut pas dépendre de l'autre)
+
+ou *dt[ , c("newcol1", "newcol2") := list(col1 * 10, col2 * 20)]*
+
++ Delete a column : *dt[, c := NULL]* (trés rapide)
+
++ Séparer 1 col en 2 : *dt[, c("cola", "colb") := tstrsplit(col, "_", fixed = TRUE)]*
+
++ Unire 2 col en 1 : *dt[, xy:= paste0(x,y)]* ou *dt[, xy:= paste(x,y, sep = "_")]*
+
+## Change column class
+*dt[, b := as.integer(b)]*
+
+## Group
+
+*dt[, j, by = "colname"]* : by 1 var
+*dt[, j, by = .(a)]* : group rows by values in specified columns (a the column).
+*dt[, j, by = c("var1", "var2", "var3")]* 
+*dt[, j, keyby = .(a)]* : group and simultaneously order rows by values
+in specified columns.
+
+
+## Common grouped operations
+*dt[, .(c = sum(b)), by = a]* : summarize rows within groups.
+*dt[, c := sum(b), by = a]* : create a new column and compute rows within groups.
+*dt[, .SD[1], by = a]* : extract first row of groups.
+*dt[, .SD[.N], by = a]* : extract last row of groups.
+*dt[, .(new = old, new = col1 + col2)]* : rename a col, and compute another
+
+## A sequence operation on a datatable
+Pour enchaîner les opérations : *dt[…][…]*
+
+Règle : pas faire de lignes trop longues et crochet de fin d'op et celui de début de la prochaine doivent être accolé : *][*
+
+## Functions !
+
+On peut y appliquer n'importe quelle fct de n'importe quel pkg, mais préférer celles du pkg data.table.
+
++ Remove rows with missing values : *na.omit(dt, cols=c(cols1, col2), invert=FALSE)* cols et invert ne sont pas obligatoires
++ Order columns values : *setorder(dt, a, -b)* "-" to decreasing order
+ou *dt[order(a, -b)]*
++ Extract unique rows on specified col *unique(dt, by = c("a", "b"))* no by to use all columns
++ Count the nbr of unique rows : *uniqueN(dt, by = c("a", "b"))*
++ Rename col : *setnames(dt, c("old1", "old2"), c("new1", "new2"))*
+ou *dt[, .(new = old)]*
++ changer ordre des colonnes : *setcolorder(DT, c("col1","col2"))*
+
+avec ":=" : *dt[ , col_min := tolower(col)]*
+
+## Combine data.tables
+
++ Avec une fct : *data.table::merge(x, y, [options])* (comme les join tidy, voir les options)
+
++ Join on rows with equal values : *dt_a[dt_b, on = .(b = y)]* 'on' pour spécifier les col équivalentes mais de noms différents
+
++ on equal and unequal : *dt_a[dt_b, on = .(b = y, c > z)]*
++ Rolling join
++ Combine rows of 2 datatables : *rbind(dt_a, dt_b)*
++ Combine columns of 2 datatables : *cbind(dt_a, dt_b)*
+
+## Indexation
+Très puissant pour accélérer les opérations sur les lignes (filtres, jointures)
+
++ Déclarer les variables faisant office de clef (key) : *setkey(dt, a, b)* ou *setkeyv(dt, c("a","b"))* ou *setkey(dt, a)* si qu'1 var.
+-> réordone selon cette clef
+Peut prendre bcp de temps (qqmin)mais gros gain de temps pour les opérations ultérieures.
+
++ Pour savoir si un data.table est déjà indexé : *key(dt)* qui renvoie le nom des clés ou NULL.
+
+
+## Reshape
+
+https://rdatatable.gitlab.io/data.table/articles/datatable-reshape.html
+
++ Long to wide format : *dcast(dt, id ~ y, value.var = c("a", "b"), fun.aggregate = list(mean, sum))*
+with:
+y = col name in the longformat whose *values* will become the columns of the wide format
+value.var : col name whose values in columns will be put in rows (colonnes à transposer)
+fun.aggregate : si on veut utiliser des fcts pour aggrége les données
+
+Pour des noms plus significatifs des nouvelles colonnes : *id ~ paste0("y", y)* (préciser l'appartenance à y à chaque nom de col)
+
+Conseil : Il faut donc faire attention à ce que ces variables aient un nombre limité de valeurs, pour ne pas obtenir une table extrêmement large. On peut éventuellement discrétiser les variables continues, ou regrouper les modalités avant d’utiliser dcast()
+
++ Wide to long format (ce qu'on veut!) : 
+melt(dt,
+id.vars = c("id"),
+measure.vars = patterns("^a", "^b"),
+variable.name = "y",
+value.name = c("a", "b"))
+
+with : 
+id.vars : variables qui identifient les lignes de table d’arrivée; col qui restent des cols.
+measure.vars : cols to rows (variables qui sont transposées)
+variable.name : new col name for values in rows to this column (nom de la nouvelle colonne qui contient le nom des variables transposées)
+value.name : new col names (nom de la nouvelle colonne qui contient la valeur des variables transposées.)
+
+## Avoir des infos/calculer des statistiques
+*dt[, sum(b)]* : pour renvoyer la valeur
+
++ Pour en calculer plsrs à la fois : *dt[, .(mean = mean(b), sd = sd(b))]*
+
++ *.N* : nbr d'obs
++ *uniqueN* : nbr d'obs uniques
++ *%in%*	: nbr dans la liste
++ *%chin%*	: character dans la liste
++ *%between%*	: valeur entre deux nombres
++ *%like% "^x"* :	Reconnaissance d’une chaîne de caractères
++ *rowid(var1, var2)* : créer un identifiant de ligne unique pour un goupe de variables (= un compteur)
+
+
+## Apply functions
+*dt[, lapply(.SD, mean), .SDcols = c("a", "b")]* (create a new table)
+*dt[ , names(dt) := lapply(.SD, as.character)]* for all the columns
+*dt[, (cols) := lapply(.SD, as.character), .SDcols = cols]* for specified columns (cols = c("a", "b"))
+() pour dire que ce sont des colonnes existantes et non des nouvelles a creer 
+
+*dt[, paste0(cols, "_m") := lapply(.SD, mean), .SDcols = cols]* add a suffix
+
+
+.SD : "Subset of Data" (= mot clef de data.table, représentant les colonnes)
+.SDcols : columns on which to apply
+
+## Sequential rows
+
+
+## Maniement de chaines de caractères
+
++ séparer une colonne en fonction d’un caractère : *data.table::tstrsplit()*
+
+## Read and write files
+
+de fichiers plats (= fichiers texte)
+Import : *fread("file.csv", select = c("a", "b"))*
++ Très rapide pour importer des gros volumes de données et nettement plus rapide que les fcts du pkg readr.
++ Permet de selectionner les colonnes qu'on veut ou ne veut pas importer
++ un grand nbr d'options
+
+
+Export : *fwrite(dt, "file.csv")*
+
+## Programmer des fonctions avec data.table
+
+### Sécuriser
+
+Quand on utilise ":=" on peut par erreur écraser des données. Donc la sécurité c'est de *faire une copie des input* en entrée de fonction et travailler sur cette copie (qui porte un autre nom).
+
+### Variables en argument
+
+Pas necessaires si cest de la *valeur en chaine de characteres* dont on a besoin.
+Si on a besoin du *symbol/name*, ils nous faut ces outils :
+
+https://linogaliana.netlify.app/post/datatable/datatable-nse/
+
+get() ne fctne que si l'argument* n'a pas le même nom* que la colonne du dt
+eval() ne fctne que si l'argument *a le même nom* que la colonne du dt
+```{r}
+
+modif_variable <- function(dt, variable = "x"){
+  dt_copy <- data.table::copy(dt) ## une copie pour la sécurité
+  dt_copy[,c(variable) := get(variable) + 1] ## get() pour appeler un nom de variable entre guillemets (character)
+  return(dt_copy)
+}
+
+```
+
+Select columns whose name is *variable, using a character vector*
+```{r}
+IdTree = "idTree"
+Plot = "plot"
+SubPlot = "subplot"
+
+AssoVect <- c(IdTree, Plot, SubPlot, TreeFieldNum)
+correspondances <- unique(Data[, ..AssoVect]) ## ".." 
+correspondances <- unique(Data[, c(IdTree, Plot, SubPlot, TreeFieldNum), with = FALSE]) ## with = FALSE : the column names can be used as variables
+
+```
+
+
+Cas plus générique : eval & substitute
+*eval()* exécute une expression
+*substitute()* : attribut les valeurs, substitut les variables (=names=symbol) par leurs valeurs
+*as.name()* : refer to R object by their name
+-> avoid conflict and work with user variables names
+```{r}
+df1 <- data.table(sp = LETTERS[1:10], x = rnorm(10)) ## cas où l'arg n'a pas le même nom que la col
+df2 <- data.table(species = LETTERS[1:10], var = rnorm(10)) ## cas où l'arg a le même nom que la col
+
+species = "sp"
+var = "x"
+
+fun <- function(df, species, var){
+  env <- lapply(list(.species = species, .var = var), as.name) ## environment
+  eval(substitute(
+      {
+      df[, p := paste(.species, .var)]
+      df[, q := paste(.species,  "_", .var)] ## le . devant le nom n'est pas nécessaire c'est juste mieux de distinguer pour le codeur
+    }, env))
+  return(df)
+}
+
+fun(df1, "sp", "x") ## cas où l'arg n'a pas le même nom que la col
+df1
+
+fun(df2, "species", "var") ## cas où l'arg a le même nom que la col
+df2
+```
+
+### .SD (Subset of Data) 
+
+.SD permet d’appliquer la même opération sur plusieurs colonnes. 
+
+.SDcols : sélection des colonnes sur lesquelles appliquer l'opération (par défaut elles sont toutes prises)
+
+-> syntaxe très puissante, compact et lisible 
+
+### lapply+.SD pour des fonctions de statistiques descriptives
+
+```{r}
+## fabriquer une table statistique
+
+DT[, lapply(.SD, min), .SDcol = "a", by = c]
+
+mes_statistiques <- function(x) return(c(mean(x), var(x), quantile(x, probs = c(.25,.5,.75))))
+
+data_agregee <- dt[, ## i
+                   lapply(.SD, mes_statistiques), ## j (expression)
+                    by = "Species", ## by (group)
+                   .SDcols = c("Petal.Width","Petal.Length")] 
+data_agregee[, 'stat' := c("moyenne","variance","P25","P50","P75"), by = "Species"] ## add a col to define the values in rows
+data_agregee
+```
+
+
+### Des data.table poupées russes 
+
+Facilite la parallélisation
+
+*DT[, list(list(.SD)), by = Group]*
+
+cl <- makeCluster(2)
+
+DT[,
+clust := list(parLapplyLB(cl, V1,
+function(X){kmeans(X,2)$cluster}))]
+
+
+
+
+
