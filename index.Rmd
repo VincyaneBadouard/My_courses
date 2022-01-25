@@ -1,0 +1,28 @@
+--- 
+title: "My cours"
+subtitle: "Subtitle."
+author: "Vincyane Badouard"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+link-citations: yes
+colorlinks: yes
+description: "Description."
+---
+
+```{r setup}
+library(knitr)
+opts_chunk$set(
+  eval = F, echo = T,  
+  message = F, warning = F, 
+  fig.height = 6, fig.width = 8,
+  cache = F, cache.lazy = F)
+```
+
+`r if (knitr:::is_html_output()) '# Preface {-}'`
+
+`r if (knitr:::is_html_output()) 'Blah.'`
+
+`r if (knitr:::is_html_output()) 'Have a nice reading.'`
+
+`r if (knitr:::is_html_output()) '<div align="right">  *Vincyane*'`
