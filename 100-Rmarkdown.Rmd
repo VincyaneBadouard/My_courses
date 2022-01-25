@@ -1,3 +1,5 @@
+# (PART) Outils autour de R {-}
+
 ```{r, echo=F}
 library(knitr)
 opts_chunk$set(echo=F, message=F)#pour ne pas voir le code et les message pour tout le document

@@ -1,3 +1,5 @@
+# (PART) Coder sous R {-}
+
 # Fonctions bien sympatiques trés cher
 
 *ICI JE METS JUSTE LE NOM DES FONCTIONS, MAIS FAUT CHERCHER SUR INTERNET LES MODALITES D'UTILISATION !!*
