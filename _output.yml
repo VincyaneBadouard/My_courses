@@ -3,9 +3,9 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">My_cours</a></li>
-      after: |
+      after: | # lien "source" vers le dépot Github
         <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
-      collapse: section
+      collapse: section # pour ne pas afficher les sous-parties ds le menu deroulant
   includes:
-    in_header: hypothesis.html
+    in_header: hypothesis.html # permet les comentaires dans le doc (open review)
     before_body: open_review_block.html

@@ -77,6 +77,8 @@ chunk
 table
 figure
 equations
+bookdown
+fichiers-particuliers
 intégration-continue
 travis
 script-de-contrôle-de-travis

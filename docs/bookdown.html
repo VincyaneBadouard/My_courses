@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 8 Function creation | My cours</title>
+  <title>Cours 6 Bookdown | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 8 Function creation | My cours" />
+  <meta property="og:title" content="Cours 6 Bookdown | My cours" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 8 Function creation | My cours" />
+  <meta name="twitter:title" content="Cours 6 Bookdown | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intégration-continue.html"/>
-<link rel="next" href="package-creation.html"/>
+<link rel="prev" href="rmarkdown.html"/>
+<link rel="next" href="intégration-continue.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -402,369 +402,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="function-creation" class="section level1" number="8">
-<h1><span class="header-section-number">Cours 8</span> Function creation</h1>
-<div id="étapes-de-développement" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Étapes de développement :</h2>
-<ol style="list-style-type: decimal">
-<li>Planifier le travail (pas de programmation encore) :</li>
-</ol>
+<div id="bookdown" class="section level1" number="6">
+<h1><span class="header-section-number">Cours 6</span> Bookdown</h1>
+<p>R proj particulier pour le bookdown</p>
+<div id="fichiers-particuliers" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Fichiers particuliers</h2>
 <ul>
-<li>définir clairement la tâche à accomplir par la fonction et la sortie qu’elle doit produire,</li>
-<li>prévoir les étapes à suivre afin d’effectuer cette tâche,</li>
-<li>identifier les arguments devant être fournis en entrée à la fonction.</li>
+<li><p>index.rmd : fichier pour indiquer le header de ts les fichiers, écrit la “préface”</p></li>
+<li><p>_bookdown.yml : def construction livre</p></li>
 </ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Développer le corps de la fonction</li>
-</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="bookdown.html#cb24-1" aria-hidden="true" tabindex="-1"></a>book_filename<span class="sc">:</span> <span class="st">&quot;My_cours&quot;</span></span>
+<span id="cb24-2"><a href="bookdown.html#cb24-2" aria-hidden="true" tabindex="-1"></a>delete_merged_file<span class="sc">:</span> true <span class="co"># supprimer le fichier intermediaire de la compilation</span></span>
+<span id="cb24-3"><a href="bookdown.html#cb24-3" aria-hidden="true" tabindex="-1"></a>language<span class="sc">:</span></span>
+<span id="cb24-4"><a href="bookdown.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  ui<span class="sc">:</span></span>
+<span id="cb24-5"><a href="bookdown.html#cb24-5" aria-hidden="true" tabindex="-1"></a>    chapter_name<span class="sc">:</span> <span class="st">&quot;Cours &quot;</span></span>
+<span id="cb24-6"><a href="bookdown.html#cb24-6" aria-hidden="true" tabindex="-1"></a>output_dir<span class="sc">:</span> <span class="st">&quot;docs&quot;</span> <span class="co"># dossier de stockage de la compilation</span></span></code></pre></div>
 <ul>
-<li>Écrire le programme par étapes, d’abord sans former la fonction, en commentant bien le code et en travaillant sur des mini-données test.</li>
-<li>Pour chaque petite étape ou sous-tâche, tester interactivement si le programme produit le résultat escompté (tester souvent en cours de travail, ainsi il y a moins de débogage à faire).</li>
+<li>_output.yml : def construction des sorties</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Créer la fonction à partir du programme développé.</p></li>
-<li><p>Documenter la fonction.</p></li>
-<li><p>Tester la fonction : sauvegarder nos tests et bien les structurer, car ils serviront souvent.</p></li>
-<li><p>Si nous rencontrons des comportements indésirables lors des tests, déboguer la fonction :</p></li>
-</ol>
-<ul>
-<li>cerner le ou les problèmes,</li>
-<li>apporter les correctifs nécessaires à la fonction (que ce soit dans son corps ou dans liste de ses arguments),</li>
-<li>adapter la documentation et les tests au besoin,</li>
-<li>faire tourner de nouveau les tests,</li>
-<li>répéter ces sous-étapes jusqu’à ce que les tests ne révèlent plus aucun problème à régler ou aucune amélioration à apporter.</li>
-</ul>
-</div>
-<div id="structure" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Structure :</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="function-creation.html#cb26-1" aria-hidden="true" tabindex="-1"></a>nomdemafonction<span class="ot">&lt;-</span><span class="cf">function</span>(variable1,variable2...)</span>
-<span id="cb26-2"><a href="function-creation.html#cb26-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb26-3"><a href="function-creation.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ici on met le contenu de la fonction (généralement on effectue des transformations aux variables passées en argument)</span></span>
-<span id="cb26-4"><a href="function-creation.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="function-creation.html#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="function-creation.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="function-creation.html#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="function-creation.html#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="function-creation.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(Variabledesortie) <span class="do">## il s&#39;agit du résultat que va renvoyer la fonction (non négligeable!)! c&#39;est bien le but d&#39;une fct!</span></span>
-<span id="cb26-10"><a href="function-creation.html#cb26-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb26-11"><a href="function-creation.html#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="function-creation.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#une fois la fonction créée on peut l&#39;utiliser:</span></span>
-<span id="cb26-13"><a href="function-creation.html#cb26-13" aria-hidden="true" tabindex="-1"></a> <span class="fu">nomdemafonction</span>(varA,varB,...)</span></code></pre></div>
-<p><em>Une fct normalement constituée ne travaille directement que sur ses arguments et non sur les objets stockés dans la console.</em>
-Tous les objets qui seront utilisés dans le script doivent avoir été créés dans le script.
-Les seules exceptions à cette règle sont les arguments qui eux sont définis dans l’en-tête.</p>
-<p>Exemple</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="function-creation.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculer le coefficient de variation (CV) (=écart type/moyenne) d&#39;une série de valeur.</span></span>
-<span id="cb27-2"><a href="function-creation.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="function-creation.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="function-creation.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="function-creation.html#cb27-5" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x){      <span class="do">## x est un vecteur contenant une série de valeurs</span></span>
-<span id="cb27-6"><a href="function-creation.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  moy <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)        <span class="do">## moyenne de x</span></span>
-<span id="cb27-7"><a href="function-creation.html#cb27-7" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)            <span class="do">## ecart type de x</span></span>
-<span id="cb27-8"><a href="function-creation.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  rslt <span class="ot">&lt;-</span> s<span class="sc">/</span>moy         <span class="do">## calcul du CV</span></span>
-<span id="cb27-9"><a href="function-creation.html#cb27-9" aria-hidden="true" tabindex="-1"></a>  rslt                  <span class="co">#la fonction retourne le résultat</span></span>
-<span id="cb27-10"><a href="function-creation.html#cb27-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div id="nommer-ses-arguments" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Nommer ses arguments</h2>
-<p>Noms habituels :
-x, y, z: vectors.
-w: a vector of weights.
-df: a data frame.
-i, j: numeric indices (typically rows and columns).
-n: length, or number of rows.
-p: number of columns.</p>
-<p>Règle :
-Si les <em>arguments</em> des fonctions appelées sont donnés de la forme <em>name = object</em>, ils peuvent être écris dans n’importe quel ordre. Dans le cas contraire, il faut respecter l’ordre des arguments.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="function-creation.html#cb28-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, graph, limit) {</span>
-<span id="cb28-2"><a href="function-creation.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  [<span class="cf">function</span> body omitted]</span>
-<span id="cb28-3"><a href="function-creation.html#cb28-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-4"><a href="function-creation.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="function-creation.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Alors la fonction peut être invoquée de plusieurs manières, par exemple:</span></span>
-<span id="cb28-6"><a href="function-creation.html#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="function-creation.html#cb28-7" aria-hidden="true" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="fu">fun1</span>(d, df, <span class="cn">TRUE</span>, <span class="dv">20</span>) <span class="do">## arguments dans l&#39;ordre</span></span>
-<span id="cb28-8"><a href="function-creation.html#cb28-8" aria-hidden="true" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="fu">fun1</span>(<span class="at">data=</span>d, <span class="at">limit=</span><span class="dv">20</span>, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">data.frame=</span>df) <span class="do">## arguments dans le désordre et donc nommés</span></span></code></pre></div>
-</div>
-<div id="valeurs-par-défaut" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Valeurs par défaut</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="function-creation.html#cb29-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">limit=</span><span class="dv">20</span>) { ... } <span class="co">#on attribue une valeur à l&#39;argument dès l&#39;écriture</span></span></code></pre></div>
-</div>
-<div id="évaluation-de-la-fonction" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> évaluation de la fonction</h2>
-<p>return() renvoie la dernière valeur calculée</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="function-creation.html#cb30-1" aria-hidden="true" tabindex="-1"></a>nom_de_fonction <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments) {</span>
-<span id="cb30-2"><a href="function-creation.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    instructions</span>
-<span id="cb30-3"><a href="function-creation.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(valeur) <span class="co">#non négligeable! c&#39;est bien le but d&#39;une fct!</span></span>
-<span id="cb30-4"><a href="function-creation.html#cb30-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div id="vérification-de-la-classe-des-arguments" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> Vérification de la classe des arguments</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="function-creation.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
-</div>
-<div id="largument-fun" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> L’argument ‘fun’</h2>
-<p>= passer une fonction a une autre fonction en argument</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="function-creation.html#cb32-1" aria-hidden="true" tabindex="-1"></a>col_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(df, fun) {</span>
-<span id="cb32-2"><a href="function-creation.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;double&quot;</span>, <span class="fu">length</span>(df))</span>
-<span id="cb32-3"><a href="function-creation.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(df)) {</span>
-<span id="cb32-4"><a href="function-creation.html#cb32-4" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">fun</span>(df[[i]])</span>
-<span id="cb32-5"><a href="function-creation.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb32-6"><a href="function-creation.html#cb32-6" aria-hidden="true" tabindex="-1"></a>  out</span>
-<span id="cb32-7"><a href="function-creation.html#cb32-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-8"><a href="function-creation.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">col_summary</span>(df, median)</span>
-<span id="cb32-9"><a href="function-creation.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">col_summary</span>(df, mean)</span></code></pre></div>
-</div>
-<div id="largument" class="section level2" number="8.8">
-<h2><span class="header-section-number">8.8</span> L’argument ‘…’</h2>
-<p>Il est possible d’utiliser le symbole ‘…’ dans les paramètres d’une fct pour indiquer que tous les paramètres supplémentaires seront transmis aux autres fonctions internes.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="function-creation.html#cb33-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">limit=</span><span class="dv">20</span>, ...) {</span>
-<span id="cb33-2"><a href="function-creation.html#cb33-2" aria-hidden="true" tabindex="-1"></a>       [omitted statements]</span>
-<span id="cb33-3"><a href="function-creation.html#cb33-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (graph)</span>
-<span id="cb33-4"><a href="function-creation.html#cb33-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">par</span>(<span class="at">pch=</span><span class="st">&quot;*&quot;</span>, ...)</span>
-<span id="cb33-5"><a href="function-creation.html#cb33-5" aria-hidden="true" tabindex="-1"></a>       [more omissions]</span>
-<span id="cb33-6"><a href="function-creation.html#cb33-6" aria-hidden="true" tabindex="-1"></a>     }</span></code></pre></div>
-</div>
-<div id="types-de-fonction" class="section level2" number="8.9">
-<h2><span class="header-section-number">8.9</span> Types de fonction</h2>
-<div id="appel-récursif" class="section level3" number="8.9.1">
-<h3><span class="header-section-number">8.9.1</span> Appel récursif</h3>
-<p>La récursivité est une démarche qui fait référence à l’objet-même de la démarche à un moment du processus (=poupée russe)
-Une fct peut s’appeller elle-même, tant qu’il existe une condition d’arrêt.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="function-creation.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Scalaire : nombre réel</span></span>
-<span id="cb34-2"><a href="function-creation.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Vecteur : serie de valeurs</span></span>
-<span id="cb34-3"><a href="function-creation.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="function-creation.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Sur scalaire</span></span>
-<span id="cb34-5"><a href="function-creation.html#cb34-5" aria-hidden="true" tabindex="-1"></a>factorielle <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb34-6"><a href="function-creation.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">1</span>) resultat <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="do">## scalaire booléen       ## arrêt de la récursion (n=1 est la condition d&#39;arrêt)</span></span>
-<span id="cb34-7"><a href="function-creation.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> resultat <span class="ot">&lt;-</span> <span class="fu">factorielle</span>(n<span class="dv">-1</span>)<span class="sc">*</span>n <span class="do">## appel récursif (si n différent de 1)</span></span>
-<span id="cb34-8"><a href="function-creation.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultat)</span>
-<span id="cb34-9"><a href="function-creation.html#cb34-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-10"><a href="function-creation.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Sur vecteur</span></span>
-<span id="cb34-11"><a href="function-creation.html#cb34-11" aria-hidden="true" tabindex="-1"></a>factorielle <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb34-12"><a href="function-creation.html#cb34-12" aria-hidden="true" tabindex="-1"></a>  indice <span class="ot">&lt;-</span> (n <span class="sc">==</span> <span class="dv">1</span>) <span class="do">## vecteur de booléens</span></span>
-<span id="cb34-13"><a href="function-creation.html#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">all</span>(indice)) <span class="fu">return</span>(n) <span class="do">## arrêt de la récursion (n=1 est la condition d&#39;arrêt)</span></span>
-<span id="cb34-14"><a href="function-creation.html#cb34-14" aria-hidden="true" tabindex="-1"></a>  n[<span class="sc">!</span>indice] <span class="ot">&lt;-</span> n[<span class="sc">!</span>indice]<span class="sc">*</span><span class="fu">factorielle</span>(n[<span class="sc">!</span>indice] <span class="sc">-</span> <span class="dv">1</span>) <span class="do">## appel récursif (si n différent de 1)</span></span>
-<span id="cb34-15"><a href="function-creation.html#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(n)</span>
-<span id="cb34-16"><a href="function-creation.html#cb34-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div id="fct-anonyme-dans-une-autre-fonction" class="section level3" number="8.9.2">
-<h3><span class="header-section-number">8.9.2</span> Fct anonyme dans une autre fonction</h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="function-creation.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(x, y, <span class="cf">function</span>(x, y) x <span class="sc">*</span> y<span class="sc">^</span><span class="dv">2</span>) <span class="do">## une fonction est mise en argument d&#39;une autre fonction</span></span>
-<span id="cb35-2"><a href="function-creation.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
-<span id="cb35-3"><a href="function-creation.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   16   25   36</span></span>
-<span id="cb35-4"><a href="function-creation.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   32   50   72</span></span>
-<span id="cb35-5"><a href="function-creation.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   48   75  108</span></span></code></pre></div>
-</div>
-</div>
-<div id="retourner-un-résultat" class="section level2" number="8.10">
-<h2><span class="header-section-number">8.10</span> Retourner un résultat</h2>
-<ul>
-<li><p>Une fonction retourne le <em>résultat de la dernière expression</em> du corps de la fct.
--&gt; donc il ne faut pas que la dernère expression soit une affectation (&lt;-), sinon on ne pourra pas affecter le résultat à un objet</p></li>
-<li><p>On peut retourner un résultat spécifique, à n’importe quel endroit de la fonction avec la fct <em>return()</em>
-Si le résultat que l’on veut retourner est codé par la dernière expression, return() est inutile.
-“return” se met plutot à la fin d’une fct, sauf cas exeptionel (if…), car la fct n’affiche plus les msg/stop si le return s’est effectué.</p></li>
-<li><p>Lorsqu’une fonction doit retourner plusieurs résultats, il est en général préférable d’avoir recours à une <em>liste nommée</em>.</p></li>
-<li><p>Retourner plsrs outputs : <em>Outputs &lt;- list(objt1 = objt1, objt2 = objt2) return(Outputs)</em></p></li>
-</ul>
-<p><em>Si une fct retourne plsrs ouputs, elle doit toujours les retourner. S’il ne sont générés que sous condition, créer un objet vide du m^me nom lorsque la condition n’est pas respectée.</em></p>
-</div>
-<div id="fonctions-de-message-et-darrêt-de-fonction" class="section level2" number="8.11">
-<h2><span class="header-section-number">8.11</span> Fonctions de message et d’arrêt de fonction</h2>
-<ul>
-<li>message() = message diagnostique (juste informatif)</li>
-<li>warning() = message d’erreur (problème non rédhibitoire (ex: syntax))</li>
-<li>stop() = message d’erreur + arrêt du code (rédhibitoire)</li>
-</ul>
-<p>“stop” est une fonction d’erreur, si c’est juste une question de prérequis, il faut utiliser “if” pas “stop”.
-Un “stop” dans une fonction interne arrête également la fonction dans laquelle elle est inscrite.</p>
-<p>“try” : essaye la fonction interne sans stopper la fonction englobante.
-“catch” : capture le résultat du “try” quel qu’il soit.</p>
-<ul>
-<li><p><em>verbose</em> : par défaut = TRUE dans R donc si on veut tjrs tout afficher il ne sert à rien de le mentionner</p></li>
-<li><p>Pour demander confirmation à l’utilisateur : <em>readline(“pay attention to me!(press enter to continue)”)</em></p></li>
-</ul>
-</div>
-<div id="interaction-avec-lutilisateur" class="section level2" number="8.12">
-<h2><span class="header-section-number">8.12</span> Interaction avec l’utilisateur</h2>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="function-creation.html#cb36-1" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb36-2"><a href="function-creation.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  ANSWER <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">&quot;Are you a satisfied R user? &quot;</span>) <span class="do">## question</span></span>
-<span id="cb36-3"><a href="function-creation.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-4"><a href="function-creation.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">substr</span>(ANSWER, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">&quot;n&quot;</span>) <span class="do">## check the answer</span></span>
-<span id="cb36-5"><a href="function-creation.html#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;This is impossible.  YOU LIED!</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="do">## re-prompt</span></span>
-<span id="cb36-6"><a href="function-creation.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
-<span id="cb36-7"><a href="function-creation.html#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;I knew it.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb36-8"><a href="function-creation.html#cb36-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb36-9"><a href="function-creation.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">interactive</span>()) <span class="fu">fun</span>()</span></code></pre></div>
-</div>
-<div id="iteration" class="section level2" number="8.13">
-<h2><span class="header-section-number">8.13</span> Iteration</h2>
-<p><a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a></p>
-<ul>
-<li>itérer n fois : <em>replicate(n, expr, simplify = F)</em> (renvoie une liste) ou <em>purrr::rerun(n, expr)</em> ou <em>purrr::map(1:n, ~ expr)</em> ou <em>lapply(seq_len(n), function(x) fun())</em></li>
-</ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="function-creation.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fun0 a function</span></span>
-<span id="cb37-2"><a href="function-creation.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## fun1 a a function to iterate fun0 with a n argument</span></span>
-<span id="cb37-3"><a href="function-creation.html#cb37-3" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, x) <span class="fu">replicate</span>(n, <span class="fu">fun0</span>(<span class="at">x =</span> x))</span>
-<span id="cb37-4"><a href="function-creation.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(n, x)</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="function-creation.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb38-2"><a href="function-creation.html#cb38-2" aria-hidden="true" tabindex="-1"></a>fun0 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.list</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>)), <span class="at">nrow =</span> <span class="dv">2</span>))</span>
-<span id="cb38-3"><a href="function-creation.html#cb38-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb38-4"><a href="function-creation.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fun0</span>(<span class="dv">1</span>)</span>
-<span id="cb38-5"><a href="function-creation.html#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-6"><a href="function-creation.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
-<span id="cb38-7"><a href="function-creation.html#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-8"><a href="function-creation.html#cb38-8" aria-hidden="true" tabindex="-1"></a>mb <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
-<span id="cb38-9"><a href="function-creation.html#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">repl =</span> {<span class="fu">replicate</span>(n, <span class="fu">fun0</span>(<span class="dv">1</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)},</span>
-<span id="cb38-10"><a href="function-creation.html#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reru =</span> {purrr<span class="sc">::</span><span class="fu">rerun</span>(n, <span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
-<span id="cb38-11"><a href="function-creation.html#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">map =</span> {purrr<span class="sc">::</span><span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="sc">~</span><span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
-<span id="cb38-12"><a href="function-creation.html#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">lap =</span> {<span class="fu">lapply</span>(<span class="fu">seq_len</span>(n), <span class="cf">function</span>(x) <span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
-<span id="cb38-13"><a href="function-creation.html#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> 1000L</span>
-<span id="cb38-14"><a href="function-creation.html#cb38-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-15"><a href="function-creation.html#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-16"><a href="function-creation.html#cb38-16" aria-hidden="true" tabindex="-1"></a>mb</span>
-<span id="cb38-17"><a href="function-creation.html#cb38-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-18"><a href="function-creation.html#cb38-18" aria-hidden="true" tabindex="-1"></a>mb <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
-<span id="cb38-19"><a href="function-creation.html#cb38-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">suit =</span> {<span class="dv">1</span><span class="sc">:</span>n},</span>
-<span id="cb38-20"><a href="function-creation.html#cb38-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">rep =</span> {<span class="fu">rep</span>(<span class="dv">1</span>, n)},</span>
-<span id="cb38-21"><a href="function-creation.html#cb38-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq_len =</span> {<span class="fu">seq_len</span>(n)},</span>
-<span id="cb38-22"><a href="function-creation.html#cb38-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq_along =</span> {<span class="fu">seq_along</span> (n)}, <span class="do">## le + rapide</span></span>
-<span id="cb38-23"><a href="function-creation.html#cb38-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">c =</span> {<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>n)},</span>
-<span id="cb38-24"><a href="function-creation.html#cb38-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> 1000L</span>
-<span id="cb38-25"><a href="function-creation.html#cb38-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-26"><a href="function-creation.html#cb38-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-27"><a href="function-creation.html#cb38-27" aria-hidden="true" tabindex="-1"></a>mb</span></code></pre></div>
-<ul>
-<li>repeat() : répète à l’infini si on ne met pas une condition et un break dedans.</li>
-<li>Boucle for ou boucle while</li>
-<li>Encapsuler une boucle dans une fonction</li>
-<li><em>apply</em> family (base) : apply(), lapply(), tapply(), etc</li>
-<li><em>map</em> family (purrr) (+ rapides car écrite en C): map() (makes a list), map_lgl() (logical vector), map_int() (integer vector), map_dbl() (double vector), map_chr() (character vector).
-Les map ne produisent que des vecteurs, pas de matrice)
-Peuvent apliquer des fonctions ou des formules (<a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a>).</li>
-</ul>
-<p>Les boucles for ne sont plus lentes depuis de nombreuses années. Le principal avantage de l’utilisation de fonctions comme map() n’est pas la vitesse, mais la clarté : elles rendent votre code plus facile à écrire et à lire.</p>
-<ul>
-<li>Modif de l’output : transposer une liste (inverser la tructure) : purrr::transpose()</li>
-</ul>
-</div>
-<div id="parallelisation" class="section level2" number="8.14">
-<h2><span class="header-section-number">8.14</span> Parallelisation</h2>
-<p><a href="https://nceas.github.io/oss-lessons/parallel-computing-in-r/parallel-computing-in-r.html" class="uri">https://nceas.github.io/oss-lessons/parallel-computing-in-r/parallel-computing-in-r.html</a>
-<a href="https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html" class="uri">https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html</a></p>
-<p>Why : for time and memory</p>
-<p>1 processor = multiple cores = multiple computations to be executed at the same time.
-R is sequential and uses 1 processor</p>
-<p>Plus simple de paralléliser des taches indépendantes, 1 par coeur.
-1 tâche = 1 fct</p>
-<ul>
-<li>Packages : <em>parallel</em>, <em>future</em>, <em>foreach</em>, <em>doParallel</em></li>
-<li>diffèrent selon les syst d’exploit on dirait</li>
-</ul>
-<p><em>Parallel</em> functions :
-- detectCores() : détecte le nbr de coeur de la machine.
-- mclapply() : utiliser plsrs coeurs sur un ordinateur local (= parallelized version of lapply) (pas sous windows)
-- makeCluster() and clusterApply() : utiliser plusieurs processeurs sur des machines locales (et distantes)
-- clusterExport() : à distance</p>
-<p>Sous windows on ne peut pas paralléliser en local il faut donc un cluster :
-- créer un cluster : <em>cl &lt;- makePSOCKcluster(nbr de copies de R à créer)</em> (à défaut d’avoir des coeurs il crée plsrs copies de R)
-- créer l’envmt du cluster : <em>clusterExport(cl, varlist = c(“var1”, “var2”), envir = environment())</em>
-- paralléliser : <em>parLapply(cl, seq_along(iter), myfun)</em>
-- arrêter le cluster : <em>stopCluster(cl)</em></p>
-<p><a href="https://stackoverflow.com/questions/17196261/understanding-the-differences-between-mclapply-and-parlapply-in-r" class="uri">https://stackoverflow.com/questions/17196261/understanding-the-differences-between-mclapply-and-parlapply-in-r</a></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="function-creation.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
-<span id="cb39-2"><a href="function-creation.html#cb39-2" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makePSOCKcluster</span>(<span class="dv">4</span>) <span class="do">## créer un cluster</span></span>
-<span id="cb39-3"><a href="function-creation.html#cb39-3" aria-hidden="true" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(i) { <span class="fu">Sys.sleep</span>(<span class="dv">1</span>); i } <span class="do">## the function</span></span>
-<span id="cb39-4"><a href="function-creation.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parLapply</span>(cl, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, myfun) <span class="do">## parallelization</span></span>
-<span id="cb39-5"><a href="function-creation.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl) <span class="do">## stop the cluster</span></span></code></pre></div>
-<p>Sur des boucles :
-- foreach sequential operator : <em>%do%</em>
-- doParallel parallelizable operator : <em>%dopar%</em></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="function-creation.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## nonparallel for loop</span></span>
-<span id="cb40-2"><a href="function-creation.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
-<span id="cb40-3"><a href="function-creation.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sqrt</span>(i))</span>
-<span id="cb40-4"><a href="function-creation.html#cb40-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb40-5"><a href="function-creation.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="do">## nonparallel foreach loop</span></span>
-<span id="cb40-6"><a href="function-creation.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
-<span id="cb40-7"><a href="function-creation.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
-<span id="cb40-8"><a href="function-creation.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span> (<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">.combine=</span>c) <span class="sc">%do%</span> { <span class="do">## .combine=c si on veut unlist l&#39;output, .combine=rbind si on veut un df </span></span>
-<span id="cb40-9"><a href="function-creation.html#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(i)</span>
-<span id="cb40-10"><a href="function-creation.html#cb40-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb40-11"><a href="function-creation.html#cb40-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb40-12"><a href="function-creation.html#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="do">## doParallel = foreach parallel adaptor for the &#39;parallel&#39; package</span></span>
-<span id="cb40-13"><a href="function-creation.html#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doParallel)</span>
-<span id="cb40-14"><a href="function-creation.html#cb40-14" aria-hidden="true" tabindex="-1"></a>numCores <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(<span class="at">logical =</span> <span class="cn">FALSE</span>) <span class="do">## FALSE to have the physical cores</span></span>
-<span id="cb40-15"><a href="function-creation.html#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-16"><a href="function-creation.html#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
-<span id="cb40-17"><a href="function-creation.html#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(numCores)</span>
-<span id="cb40-18"><a href="function-creation.html#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span> (<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">%dopar%</span> {</span>
-<span id="cb40-19"><a href="function-creation.html#cb40-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(i)</span>
-<span id="cb40-20"><a href="function-creation.html#cb40-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb40-21"><a href="function-creation.html#cb40-21" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
-<p>When you’re done, clean up the cluster : <em>stopImplicitCluster()</em></p>
-</div>
-<div id="choses-à-savoir" class="section level2" number="8.15">
-<h2><span class="header-section-number">8.15</span> Choses à savoir</h2>
-<ul>
-<li><p>Une fct a un environnement propre (ses var sont locales et ne vont pas dans l’envmt de travail): ainsi pas de conflit.
-Eviter donc d’utiliser des objets provenant de l’envmt de travail.
-Pour cela le mieux est de garder son environnement global tjrs vide (vider tt l’envrmt global : <em>rm(list = ls())</em>)</p></li>
-<li><p>On peut définir une fonction à l’intérieur (= <em>fonction interne</em>) d’une autre fonction. Cette fonction sera locale à la fonction dans laquelle elle est définie.</p></li>
-</ul>
-</div>
-<div id="débogage-tips" class="section level2" number="8.16">
-<h2><span class="header-section-number">8.16</span> Débogage tips</h2>
-<ul>
-<li><p>Lorsque <em>Browse[1]&gt;</em> s’affiche dans la console, on peut écrire des commandes utilisant l’environnement de la fonction en bug, et donc la travailler.</p></li>
-<li><p>Un booléen T/F ne marche pas si des NA existe</p></li>
-<li><p>Lorsqu’une fct ne retourne pas le résultat attendu, placer des commandes <em>print</em> à l’intérieur de la fct, afin de suivre les valeurs prises par les différentes variables. On peut même écrire print(1) après la 1ère ligne, print(2) après la 2eme, ainsi de suite pour savoir à quelle ligne se trouve l’erreur.</p></li>
-<li><p>Quand ce qui précède ne fonctionne pas, ne reste souvent plus qu’à exécuter manuellement la fonction :</p></li>
-<li><p>définir dans l’espace de travail tous les arguments de la fonction,</p></li>
-<li><p>puis exécuter le corps de la fonction ligne par ligne.
-La vérification du résultat de chaque ligne permet généralement de retrouver la ou les expressions qui causent problème.</p></li>
-</ul>
-<p>ou</p>
-<ul>
-<li>masquez avec le « ## » toutes les commandes que vous venez d’éditer ou rajouter, sauf la 1ere, Sauvez, et testez le fichier afin de voir si cette ligne est correcte. Si « source » fonctionne, enlevez le prochain dièse. N’oubliez pas de sauver et de « sourcer » à chaque test.</li>
-</ul>
-</div>
-<div id="où-écrire-ses-fcts" class="section level2" number="8.17">
-<h2><span class="header-section-number">8.17</span> Où écrire ses fcts ?</h2>
-<p>Dans un fichier .R indépendant
-<em>nom de fichier = nom de la fonction</em></p>
-</div>
-<div id="comment-les-utiliser" class="section level2" number="8.18">
-<h2><span class="header-section-number">8.18</span> Comment les utiliser ?</h2>
-<p>Enregistrer le code de la fct dans l’envmt :
-source(“nomfct/file.R”)</p>
-</div>
-<div id="plusieurs-fonctions-internes---passation-dinfos" class="section level2" number="8.19">
-<h2><span class="header-section-number">8.19</span> Plusieurs fonctions internes - passation d’infos</h2>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="function-creation.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Main : fonction englobante</span></span>
-<span id="cb41-2"><a href="function-creation.html#cb41-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">&lt;-</span> <span class="cf">function</span>(inventory){</span>
-<span id="cb41-3"><a href="function-creation.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  inventory.volume <span class="ot">&lt;-</span> <span class="fu">getvolume</span>(inventory)</span>
-<span id="cb41-4"><a href="function-creation.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(inventory)</span>
-<span id="cb41-5"><a href="function-creation.html#cb41-5" aria-hidden="true" tabindex="-1"></a>  inventory.final <span class="ot">&lt;-</span> <span class="fu">filtervolume</span>(<span class="at">patate =</span> inventory.volume)</span>
-<span id="cb41-6"><a href="function-creation.html#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(inventory.volume)</span>
-<span id="cb41-7"><a href="function-creation.html#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(inventory.final)</span>
-<span id="cb41-8"><a href="function-creation.html#cb41-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb41-9"><a href="function-creation.html#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-10"><a href="function-creation.html#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonctions internes</span></span>
-<span id="cb41-11"><a href="function-creation.html#cb41-11" aria-hidden="true" tabindex="-1"></a>getvolume <span class="ot">&lt;-</span> <span class="cf">function</span>(inventory){</span>
-<span id="cb41-12"><a href="function-creation.html#cb41-12" aria-hidden="true" tabindex="-1"></a>  inventory <span class="ot">&lt;-</span> inventory <span class="sc">%&gt;%</span> </span>
-<span id="cb41-13"><a href="function-creation.html#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">v =</span> <span class="dv">2</span><span class="sc">*</span>d)</span>
-<span id="cb41-14"><a href="function-creation.html#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(inventory)</span>
-<span id="cb41-15"><a href="function-creation.html#cb41-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb41-16"><a href="function-creation.html#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-17"><a href="function-creation.html#cb41-17" aria-hidden="true" tabindex="-1"></a>filtervolume <span class="ot">&lt;-</span> <span class="cf">function</span>(patate){</span>
-<span id="cb41-18"><a href="function-creation.html#cb41-18" aria-hidden="true" tabindex="-1"></a>  poireau <span class="ot">&lt;-</span> patate <span class="sc">%&gt;%</span> </span>
-<span id="cb41-19"><a href="function-creation.html#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(v <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb41-20"><a href="function-creation.html#cb41-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(poireau)</span>
-<span id="cb41-21"><a href="function-creation.html#cb41-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb41-22"><a href="function-creation.html#cb41-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-23"><a href="function-creation.html#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="do">## test</span></span>
-<span id="cb41-24"><a href="function-creation.html#cb41-24" aria-hidden="true" tabindex="-1"></a>inventory <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">d =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>))</span>
-<span id="cb41-25"><a href="function-creation.html#cb41-25" aria-hidden="true" tabindex="-1"></a><span class="fu">main</span>(inventory)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bookdown.html#cb25-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span>gitbook<span class="sc">:</span></span>
+<span id="cb25-2"><a href="bookdown.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  config<span class="sc">:</span></span>
+<span id="cb25-3"><a href="bookdown.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span></span>
+<span id="cb25-4"><a href="bookdown.html#cb25-4" aria-hidden="true" tabindex="-1"></a>      before<span class="sc">:</span> <span class="er">|</span></span>
+<span id="cb25-5"><a href="bookdown.html#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;./&quot;</span><span class="sc">&gt;</span>My_cours<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
+<span id="cb25-6"><a href="bookdown.html#cb25-6" aria-hidden="true" tabindex="-1"></a>      after<span class="sc">:</span> <span class="er">|</span> <span class="co"># lien &quot;source&quot; vers le dépot Github</span></span>
+<span id="cb25-7"><a href="bookdown.html#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;https://github.com/VincyaneBadouard/My_cours&quot;</span> target<span class="ot">=</span><span class="st">&quot;blank&quot;</span><span class="sc">&gt;</span>Source<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
+<span id="cb25-8"><a href="bookdown.html#cb25-8" aria-hidden="true" tabindex="-1"></a>      collapse<span class="sc">:</span> section <span class="co"># pour ne pas afficher les sous-parties ds le menu deroulant</span></span>
+<span id="cb25-9"><a href="bookdown.html#cb25-9" aria-hidden="true" tabindex="-1"></a>  includes<span class="sc">:</span></span>
+<span id="cb25-10"><a href="bookdown.html#cb25-10" aria-hidden="true" tabindex="-1"></a>    in_header<span class="sc">:</span> hypothesis.html <span class="co"># permet les comentaires dans le doc (open review)</span></span>
+<span id="cb25-11"><a href="bookdown.html#cb25-11" aria-hidden="true" tabindex="-1"></a>    before_body<span class="sc">:</span> open_review_block.html</span></code></pre></div>
+<p>scroll_hillight: yes # mise en couleur qd on est dans la partie</p>
 
 </div>
 </div>
@@ -773,8 +440,8 @@ source(“nomfct/file.R”)</p>
           </div>
         </div>
       </div>
-<a href="intégration-continue.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="package-creation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intégration-continue.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

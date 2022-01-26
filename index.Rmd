@@ -1,6 +1,6 @@
 --- 
 title: "My cours"
-subtitle: "Subtitle."
+subtitle: "My personal courses"
 author: "Vincyane Badouard"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -21,7 +21,9 @@ opts_chunk$set(
 
 `r if (knitr:::is_html_output()) '# Preface {-}'`
 
-`r if (knitr:::is_html_output()) 'Blah.'`
+`r if (knitr:::is_html_output()) 'This book contains my personal courses.'`
+
+`r if (knitr:::is_html_output()) 'Some are in French, some in English, or both...sorry.'`
 
 `r if (knitr:::is_html_output()) 'Have a nice reading.'`
 
