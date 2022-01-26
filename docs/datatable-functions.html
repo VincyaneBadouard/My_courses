@@ -223,10 +223,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#sous-titre"><i class="fa fa-check"></i><b>5.1.1</b> Sous-titre</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#chunk"><i class="fa fa-check"></i><b>5.2</b> Chunk</a></li>
-<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.3</b> Table</a></li>
-<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.4</b> Figure</a></li>
-<li class="chapter" data-level="5.5" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.5</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.2</b> Table</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.3</b> Figure</a></li>
+<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.4</b> Equations</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>6</b> Bookdown</a>
 <ul>
@@ -406,11 +405,11 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <h1><span class="header-section-number">Cours 2</span> datatable functions</h1>
 <div id="sources" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Sources</h2>
-<p><a href="https://www.rdocumentation.org/packages/data.table/versions/1.14.2" class="uri">https://www.rdocumentation.org/packages/data.table/versions/1.14.2</a> (R doc)
-<a href="https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html" class="uri">https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html</a> (French, trés bien!)
-<a href="https://linogaliana.netlify.app/post/datatable/datatable-intro/" class="uri">https://linogaliana.netlify.app/post/datatable/datatable-intro/</a> (French, trop bien !!)
-<a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html" class="uri">https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html</a> (vignette)
-<a href="https://stackoverflow.com/questions/tagged/data.table" class="uri">https://stackoverflow.com/questions/tagged/data.table</a> (stackoverflow)
+<p><a href="https://www.rdocumentation.org/packages/data.table/versions/1.14.2" class="uri">https://www.rdocumentation.org/packages/data.table/versions/1.14.2</a> (R doc)<br />
+<a href="https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html" class="uri">https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html</a> (French, trés bien!)<br />
+<a href="https://linogaliana.netlify.app/post/datatable/datatable-intro/" class="uri">https://linogaliana.netlify.app/post/datatable/datatable-intro/</a> (French, trop bien !!)<br />
+<a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html" class="uri">https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html</a> (vignette)<br />
+<a href="https://stackoverflow.com/questions/tagged/data.table" class="uri">https://stackoverflow.com/questions/tagged/data.table</a> (stackoverflow)<br />
 <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html" class="uri">https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html</a> (frequent questions in dt)</p>
 </div>
 <div id="pourquoi-data.table" class="section level2" number="2.2">
@@ -424,201 +423,209 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 </div>
 <div id="syntax" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Syntax</h2>
-<p>dt[i, j, by]
-dt : data.table
-i : rows
-j : columns/expressions
-by : grouped columns
+<p><strong>dt[i, j, by]</strong><br />
+dt : data.table<br />
+<strong>i</strong> : rows<br />
+<strong>j</strong> : columns/expressions<br />
+<strong>by</strong> : grouped columns<br />
 ces 3 éléments ne sont pas toujours présents</p>
 <p>Les crochets permettent de ne pas utiliser le “$”.</p>
 <p>data.table also = to data.frame</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="datatable-functions.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
 </div>
 <div id="create-a-data.table" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Create a data.table</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="datatable-functions.html#cb7-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span>
-<span id="cb7-2"><a href="datatable-functions.html#cb7-2" aria-hidden="true" tabindex="-1"></a>dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(<span class="at">c =</span> <span class="dv">1</span> , <span class="at">d =</span> <span class="dv">2</span>, <span class="at">e =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))]</span>
-<span id="cb7-3"><a href="datatable-functions.html#cb7-3" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>)] <span class="do">## remove b column (il faut assigner sinon il ne l&#39;enregistre pas)</span></span>
-<span id="cb7-4"><a href="datatable-functions.html#cb7-4" aria-hidden="true" tabindex="-1"></a>dt[, e <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>] <span class="do">## là non</span></span>
-<span id="cb7-5"><a href="datatable-functions.html#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="datatable-functions.html#cb7-6" aria-hidden="true" tabindex="-1"></a>dt[, c, by <span class="ot">=</span> .(a)]</span>
-<span id="cb7-7"><a href="datatable-functions.html#cb7-7" aria-hidden="true" tabindex="-1"></a>dt[, c, keyby <span class="ot">=</span> .(a)] <span class="do">## group and order</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="datatable-functions.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="datatable-functions.html#cb14-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span>
+<span id="cb14-2"><a href="datatable-functions.html#cb14-2" aria-hidden="true" tabindex="-1"></a>dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(<span class="at">c =</span> <span class="dv">1</span> , <span class="at">d =</span> <span class="dv">2</span>, <span class="at">e =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))]</span>
+<span id="cb14-3"><a href="datatable-functions.html#cb14-3" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>)] <span class="do">## remove b column (il faut assigner sinon il ne l&#39;enregistre pas)</span></span>
+<span id="cb14-4"><a href="datatable-functions.html#cb14-4" aria-hidden="true" tabindex="-1"></a>dt[, e <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>] <span class="do">## là non</span></span>
+<span id="cb14-5"><a href="datatable-functions.html#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="datatable-functions.html#cb14-6" aria-hidden="true" tabindex="-1"></a>dt[, c, by <span class="ot">=</span> .(a)]</span>
+<span id="cb14-7"><a href="datatable-functions.html#cb14-7" aria-hidden="true" tabindex="-1"></a>dt[, c, keyby <span class="ot">=</span> .(a)] <span class="do">## group and order</span></span></code></pre></div>
 </div>
 <div id="convert-a-data.frame-or-list-to-a-data.table" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Convert a data.frame or list to a data.table</h2>
 <ul>
-<li><p><em>setDT(df)</em> (preferred) or</p></li>
-<li><p><em>as.data.table(df)</em></p></li>
-<li><p><em>setDF(dt)</em> to return in data.frame</p></li>
+<li><p><strong>setDT(df)</strong> (preferred)<br />
+or<br />
+</p></li>
+<li><p><strong>as.data.table(df)</strong></p></li>
+<li><p><strong>setDF(dt)</strong> to return in data.frame</p></li>
 </ul>
 </div>
 <div id="punctuation" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Punctuation</h2>
 <ul>
-<li><p>les fonctions commençant par <em>set</em> ou contenant l’opérateur <em>:=</em> n’ont pas besoin d’être réassigné à l’objet avec “&lt;-”.
+<li><p>les fonctions commençant par <strong>set</strong> ou contenant l’opérateur <strong>:=</strong> n’ont pas besoin d’être réassigné à l’objet avec “&lt;-”.<br />
 C’est mieux car ne garde pas de copie en mémoire.</p></li>
-<li><p>le <em>.</em> est un raccourci de list entre [ ] mais pas en dehors</p></li>
-<li><p><em>:=</em> ou <em><code>:=</code>()</em> (“assignation par référence”) permet de modifier une variable en assignation directe, <em>donc pas besoin de “&lt;-”</em>
--&gt; <em>+ rapide et très économe en mémoire vive</em></p></li>
+<li><p>le <strong>.</strong> est un raccourci de list entre [ ] mais pas en dehors</p></li>
+<li><p><strong>:=</strong> ou <strong><code>:=</code>()</strong> (“assignation par référence”) permet de modifier une variable en assignation directe, <strong>donc pas besoin de “&lt;-”</strong><br />
+-&gt; <strong>+ rapide et très économe en mémoire vive</strong></p></li>
 </ul>
 </div>
 <div id="subset-rows" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Subset rows :</h2>
 <ul>
-<li>by rows positions : <em>dt[1:2, ]</em></li>
-<li>by values in one or more columns : <em>dt[a &gt; 5, ]</em>
-! ne renvoie pas les NA contrairement au data.frame !
-La virgule n’est pas obligatoire si pas de colonnes à spécifier.</li>
+<li>by rows positions : <strong>dt[1:2, ]</strong><br />
+</li>
+<li>by values in one or more columns : <strong>dt[a &gt; 5, ]</strong></li>
 </ul>
-<p><em>%like%</em>
-<em>%between%</em></p>
+<p>! ne renvoie pas les NA contrairement au data.frame !<br />
+La virgule n’est pas obligatoire si pas de colonnes à spécifier.</p>
+<p><strong>%like%</strong><br />
+<strong>%between%</strong></p>
 </div>
 <div id="extract-columns" class="section level2" number="2.8">
 <h2><span class="header-section-number">2.8</span> Extract columns :</h2>
 <p>Les colonnes sont des listes.</p>
-<p>by position : <em>dt[, c(2)]</em>, prefix “-” to drop
-by names : <em>dt[, .(b, c)]</em> le point est un raccourci de list dans les [] pas en dehors.
-return as vector : <em>dt[, b]</em> ou <em>dt[[b]]</em>
-return as data.table : <em>dt[, list(b)]</em>
-On ne peut pas directement selctionner un var par sa position ou avec une chaine de charactères car compris comme des cstes</p>
+<ul>
+<li><p>by position : <strong>dt[, c(2)]</strong>, prefix “-” to drop<br />
+</p></li>
+<li><p>by names : <strong>dt[, .(b, c)]</strong> le point est un raccourci de list dans les [] pas en dehors.</p></li>
+<li><p>return as vector : <strong>dt[, b]</strong> ou <strong>dt[[b]]</strong><br />
+</p></li>
+<li><p>return as data.table : <strong>dt[, list(b)]</strong></p></li>
+</ul>
+<p>On ne peut pas directement selctionner un var par sa position ou avec une chaine de charactères car compris comme des cstes</p>
 </div>
 <div id="summarize" class="section level2" number="2.9">
 <h2><span class="header-section-number">2.9</span> Summarize</h2>
-<p><em>dt[, .(x = sum(a))]</em> create a data.table with new columns based on the summarized values of rows.
+<p><strong>dt[, .(x = sum(a))]</strong> create a data.table with new columns based on the summarized values of rows.
 Summary functions ex : mean(), median(), min(), max(), etc</p>
-<p><em>.N</em> pour obtenir le nombres d’observations
-<em>,by =</em> par sous-groupe</p>
+<p><strong>.N</strong> pour obtenir le nombres d’observations<br />
+<strong>,by =</strong> par sous-groupe</p>
 </div>
 <div id="compute-columns" class="section level2" number="2.10">
 <h2><span class="header-section-number">2.10</span> Compute columns</h2>
 <ul>
-<li>:= permet de modifier une variable en assignation directe, donc pas besoin de “&lt;-”.</li>
-<li>() pour dire que ce sont des colonnes existantes et non des nouvelles a creer</li>
+<li><strong>:=</strong> permet de modifier une variable en assignation directe, donc pas besoin de “&lt;-”.</li>
+<li><strong>()</strong> pour dire que ce sont des colonnes existantes et non des nouvelles a creer</li>
 </ul>
-<p><em>dt[, c := 1 + 2]</em> : compute a column based on an expression (c = col name)</p>
-<p><em>dt[a == 1, c := 1 + 2]</em> : compute a column based on an expression but only for a subset
+<p><strong>dt[, c := 1 + 2]</strong> : compute a column based on an expression (c = col name)</p>
+<p><strong>dt[a == 1, c := 1 + 2]</strong> : compute a column based on an expression but only for a subset
 of rows</p>
 <ul>
-<li>Si on veut mettre des NA : <em>:= NA_real_</em></li>
+<li>Si on veut mettre des NA : <strong>:= NA_real_</strong></li>
 </ul>
-<p><em>dt[, <code>:=</code>(c = 1 , d = 2)]</em> : compute multiple columns based on separate expressions (se créent en meme temps donc ne peut pas dépendre de l’autre)</p>
-<p>ou <em>dt[ , c(“newcol1”, “newcol2”) := list(col1 * 10, col2 * 20)]</em></p>
+<p><strong>dt[, <code>:=</code>(c = 1 , d = 2)]</strong> : compute multiple columns based on separate expressions (se créent en meme temps donc ne peut pas dépendre de l’autre)</p>
+<p>ou <strong>dt[ , c(“newcol1”, “newcol2”) := list(col1 ** 10, col2 ** 20)]</strong></p>
 <ul>
-<li><p>Delete a column : <em>dt[, c := NULL]</em> (trés rapide)</p></li>
-<li><p>Séparer 1 col en 2 : <em>dt[, c(“cola”, “colb”) := tstrsplit(col, "_", fixed = TRUE)]</em></p></li>
-<li><p>Unire 2 col en 1 : <em>dt[, xy:= paste0(x,y)]</em> ou <em>dt[, xy:= paste(x,y, sep = "_")]</em></p></li>
+<li><p>Delete a column : <strong>dt[, c := NULL]</strong> (trés rapide)</p></li>
+<li><p>Séparer 1 col en 2 : <strong>dt[, c(“cola”, “colb”) := tstrsplit(col, "_", fixed = TRUE)]</strong></p></li>
+<li><p>Unire 2 col en 1 : <strong>dt[, xy:= paste0(x,y)]</strong> ou <strong>dt[, xy:= paste(x,y, sep = "_")]</strong></p></li>
 </ul>
 </div>
 <div id="change-column-class" class="section level2" number="2.11">
 <h2><span class="header-section-number">2.11</span> Change column class</h2>
-<p><em>dt[, b := as.integer(b)]</em></p>
+<p><strong>dt[, b := as.integer(b)]</strong></p>
 </div>
 <div id="group" class="section level2" number="2.12">
 <h2><span class="header-section-number">2.12</span> Group</h2>
-<p><em>dt[, j, by = “colname”]</em> : by 1 var
-<em>dt[, j, by = .(a)]</em> : group rows by values in specified columns (a the column).
-<em>dt[, j, by = c(“var1”, “var2”, “var3”)]</em>
-<em>dt[, j, keyby = .(a)]</em> : group and simultaneously order rows by values
+<p><strong>dt[, j, by = “colname”]</strong> : by 1 var<br />
+<strong>dt[, j, by = .(a)]</strong> : group rows by values in specified columns (a the column).<br />
+<strong>dt[, j, by = c(“var1”, “var2”, “var3”)]</strong><br />
+<strong>dt[, j, keyby = .(a)]</strong> : group and simultaneously order rows by values<br />
 in specified columns.</p>
 </div>
 <div id="common-grouped-operations" class="section level2" number="2.13">
 <h2><span class="header-section-number">2.13</span> Common grouped operations</h2>
-<p><em>dt[, .(c = sum(b)), by = a]</em> : summarize rows within groups.
-<em>dt[, c := sum(b), by = a]</em> : create a new column and compute rows within groups.
-<em>dt[, .SD[1], by = a]</em> : extract first row of groups.
-<em>dt[, .SD[.N], by = a]</em> : extract last row of groups.
-<em>dt[, .(new = old, new = col1 + col2)]</em> : rename a col, and compute another</p>
+<p><strong>dt[, .(c = sum(b)), by = a]</strong> : summarize rows within groups.<br />
+<strong>dt[, c := sum(b), by = a]</strong> : create a new column and compute rows within groups.<br />
+<strong>dt[, .SD[1], by = a]</strong> : extract first row of groups.<br />
+<strong>dt[, .SD[.N], by = a]</strong> : extract last row of groups.<br />
+<strong>dt[, .(new = old, new = col1 + col2)]</strong> : rename a col, and compute another</p>
 </div>
 <div id="a-sequence-operation-on-a-datatable" class="section level2" number="2.14">
 <h2><span class="header-section-number">2.14</span> A sequence operation on a datatable</h2>
-<p>Pour enchaîner les opérations : <em>dt[…][…]</em></p>
-<p>Règle : pas faire de lignes trop longues et crochet de fin d’op et celui de début de la prochaine doivent être accolé : <em>][</em></p>
+<p>Pour enchaîner les opérations : <strong>dt[…][…]</strong></p>
+<p>Règle : pas faire de lignes trop longues et crochet de fin d’op et celui de début de la prochaine doivent être accolé : <strong>][</strong></p>
 </div>
 <div id="functions" class="section level2" number="2.15">
 <h2><span class="header-section-number">2.15</span> Functions !</h2>
 <p>On peut y appliquer n’importe quelle fct de n’importe quel pkg, mais préférer celles du pkg data.table.</p>
 <ul>
-<li>Remove rows with missing values : <em>na.omit(dt, cols=c(cols1, col2), invert=FALSE)</em> cols et invert ne sont pas obligatoires</li>
-<li>Order columns values : <em>setorder(dt, a, -b)</em> “-” to decreasing order
-ou <em>dt[order(a, -b)]</em></li>
-<li>Extract unique rows on specified col <em>unique(dt, by = c(“a”, “b”))</em> no by to use all columns</li>
-<li>Count the nbr of unique rows : <em>uniqueN(dt, by = c(“a”, “b”))</em></li>
-<li>Rename col : <em>setnames(dt, c(“old1”, “old2”), c(“new1”, “new2”))</em>
-ou <em>dt[, .(new = old)]</em></li>
-<li>changer ordre des colonnes : <em>setcolorder(DT, c(“col1”,“col2”))</em></li>
+<li>Remove rows with missing values : <strong>na.omit(dt, cols=c(cols1, col2), invert=FALSE)</strong> cols et invert ne sont pas obligatoires</li>
+<li>Order columns values : <strong>setorder(dt, a, -b)</strong> “-” to decreasing order
+ou <strong>dt[order(a, -b)]</strong></li>
+<li>Extract unique rows on specified col <strong>unique(dt, by = c(“a”, “b”))</strong> no by to use all columns</li>
+<li>Count the nbr of unique rows : <strong>uniqueN(dt, by = c(“a”, “b”))</strong></li>
+<li>Rename col : <strong>setnames(dt, c(“old1”, “old2”), c(“new1”, “new2”))</strong>
+ou <strong>dt[, .(new = old)]</strong></li>
+<li>changer ordre des colonnes : <strong>setcolorder(DT, c(“col1”,“col2”))</strong></li>
 </ul>
-<p>avec “:=” : <em>dt[ , col_min := tolower(col)]</em></p>
+<p>avec “:=” : <strong>dt[ , col_min := tolower(col)]</strong></p>
 </div>
 <div id="combine-data.tables" class="section level2" number="2.16">
 <h2><span class="header-section-number">2.16</span> Combine data.tables</h2>
 <ul>
-<li><p>Avec une fct : <em>data.table::merge(x, y, [options])</em> (comme les join tidy, voir les options)</p></li>
-<li><p>Join on rows with equal values : <em>dt_a[dt_b, on = .(b = y)]</em> ‘on’ pour spécifier les col équivalentes mais de noms différents</p></li>
-<li><p>on equal and unequal : <em>dt_a[dt_b, on = .(b = y, c &gt; z)]</em></p></li>
+<li><p>Avec une fct : <strong>data.table::merge(x, y, [options])</strong> (comme les join tidy, voir les options)</p></li>
+<li><p>Join on rows with equal values : <strong>dt_a[dt_b, on = .(b = y)]</strong> ‘on’ pour spécifier les col équivalentes mais de noms différents</p></li>
+<li><p>on equal and unequal : <strong>dt_a[dt_b, on = .(b = y, c &gt; z)]</strong></p></li>
 <li><p>Rolling join</p></li>
-<li><p>Combine rows of 2 datatables : <em>rbind(dt_a, dt_b)</em></p></li>
-<li><p>Combine columns of 2 datatables : <em>cbind(dt_a, dt_b)</em></p></li>
+<li><p>Combine rows of 2 datatables : <strong>rbind(dt_a, dt_b)</strong></p></li>
+<li><p>Combine columns of 2 datatables : <strong>cbind(dt_a, dt_b)</strong></p></li>
 </ul>
 </div>
 <div id="indexation" class="section level2" number="2.17">
 <h2><span class="header-section-number">2.17</span> Indexation</h2>
 <p>Très puissant pour accélérer les opérations sur les lignes (filtres, jointures)</p>
 <ul>
-<li><p>Déclarer les variables faisant office de clef (key) : <em>setkey(dt, a, b)</em> ou <em>setkeyv(dt, c(“a”,“b”))</em> ou <em>setkey(dt, a)</em> si qu’1 var.
--&gt; réordone selon cette clef
+<li><p>Déclarer les variables faisant office de clef (key) : <strong>setkey(dt, a, b)</strong> ou <strong>setkeyv(dt, c(“a”,“b”))</strong> ou <strong>setkey(dt, a)</strong> si qu’1 var.<br />
+-&gt; réordone selon cette clef<br />
 Peut prendre bcp de temps (qqmin)mais gros gain de temps pour les opérations ultérieures.</p></li>
-<li><p>Pour savoir si un data.table est déjà indexé : <em>key(dt)</em> qui renvoie le nom des clés ou NULL.</p></li>
+<li><p>Pour savoir si un data.table est déjà indexé : <strong>key(dt)</strong> qui renvoie le nom des clés ou NULL.</p></li>
 </ul>
 </div>
 <div id="reshape" class="section level2" number="2.18">
 <h2><span class="header-section-number">2.18</span> Reshape</h2>
 <p><a href="https://rdatatable.gitlab.io/data.table/articles/datatable-reshape.html" class="uri">https://rdatatable.gitlab.io/data.table/articles/datatable-reshape.html</a></p>
 <ul>
-<li>Long to wide format : <em>dcast(dt, id ~ y, value.var = c(“a”, “b”), fun.aggregate = list(mean, sum))</em>
-with:
-y = col name in the longformat whose <em>values</em> will become the columns of the wide format
-value.var : col name whose values in columns will be put in rows (colonnes à transposer)
-fun.aggregate : si on veut utiliser des fcts pour aggrége les données</li>
+<li>Long to wide format :<br />
+<strong>dcast(dt, id ~ y, value.var = c(“a”, “b”), fun.aggregate = list(mean, sum))</strong><br />
+with:<br />
+<strong>y</strong> = col name in the longformat whose <strong>values</strong> will become the columns of the wide format<br />
+<strong>value.var</strong> : col name whose values in columns will be put in rows (colonnes à transposer)<br />
+<strong>fun.aggregate</strong> : si on veut utiliser des fcts pour aggrége les données</li>
 </ul>
-<p>Pour des noms plus significatifs des nouvelles colonnes : <em>id ~ paste0(“y”, y)</em> (préciser l’appartenance à y à chaque nom de col)</p>
+<p>Pour des noms plus significatifs des nouvelles colonnes : <strong>id ~ paste0(“y”, y)</strong> (préciser l’appartenance à y à chaque nom de col)</p>
 <p>Conseil : Il faut donc faire attention à ce que ces variables aient un nombre limité de valeurs, pour ne pas obtenir une table extrêmement large. On peut éventuellement discrétiser les variables continues, ou regrouper les modalités avant d’utiliser dcast()</p>
 <ul>
-<li>Wide to long format (ce qu’on veut!) :
-melt(dt,
-id.vars = c(“id”),
-measure.vars = patterns(“^a”, “^b”),
-variable.name = “y”,
-value.name = c(“a”, “b”))</li>
+<li>Wide to long format (ce qu’on veut!) :</li>
 </ul>
-<p>with :
-id.vars : variables qui identifient les lignes de table d’arrivée; col qui restent des cols.
-measure.vars : cols to rows (variables qui sont transposées)
-variable.name : new col name for values in rows to this column (nom de la nouvelle colonne qui contient le nom des variables transposées)
-value.name : new col names (nom de la nouvelle colonne qui contient la valeur des variables transposées.)</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="datatable-functions.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(dt,</span>
+<span id="cb15-2"><a href="datatable-functions.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>),</span>
+<span id="cb15-3"><a href="datatable-functions.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">measure.vars =</span> <span class="fu">patterns</span>(<span class="st">&quot;^a&quot;</span>, <span class="st">&quot;^b&quot;</span>),</span>
+<span id="cb15-4"><a href="datatable-functions.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">variable.name =</span> <span class="st">&quot;y&quot;</span>,</span>
+<span id="cb15-5"><a href="datatable-functions.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">value.name =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
+<p>with :<br />
+<strong>id.vars</strong> : variables qui identifient les lignes de table d’arrivée; col qui restent des cols.<br />
+<strong>measure.vars</strong> : cols to rows (variables qui sont transposées)<br />
+<strong>variable.name</strong> : new col name for values in rows to this column (nom de la nouvelle colonne qui contient le nom des variables transposées)<br />
+<strong>value.name</strong> : new col names (nom de la nouvelle colonne qui contient la valeur des variables transposées.)</p>
 </div>
 <div id="avoir-des-infoscalculer-des-statistiques" class="section level2" number="2.19">
 <h2><span class="header-section-number">2.19</span> Avoir des infos/calculer des statistiques</h2>
-<p><em>dt[, sum(b)]</em> : pour renvoyer la valeur</p>
+<p><strong>dt[, sum(b)]</strong> : pour renvoyer la valeur</p>
 <ul>
-<li><p>Pour en calculer plsrs à la fois : <em>dt[, .(mean = mean(b), sd = sd(b))]</em></p></li>
-<li><p><em>.N</em> : nbr d’obs</p></li>
-<li><p><em>uniqueN</em> : nbr d’obs uniques</p></li>
-<li><p><em>%in%</em> : nbr dans la liste</p></li>
-<li><p><em>%chin%</em> : character dans la liste</p></li>
-<li><p><em>%between%</em> : valeur entre deux nombres</p></li>
-<li><p><em>%like% “^x”</em> : Reconnaissance d’une chaîne de caractères</p></li>
-<li><p><em>rowid(var1, var2)</em> : créer un identifiant de ligne unique pour un goupe de variables (= un compteur)</p></li>
+<li><p>Pour en calculer plsrs à la fois : <strong>dt[, .(mean = mean(b), sd = sd(b))]</strong></p></li>
+<li><p><strong>.N</strong> : nbr d’obs</p></li>
+<li><p><strong>uniqueN</strong> : nbr d’obs uniques</p></li>
+<li><p><strong>%in%</strong> : nbr dans la liste</p></li>
+<li><p><strong>%chin%</strong> : character dans la liste</p></li>
+<li><p><strong>%between%</strong> : valeur entre deux nombres</p></li>
+<li><p><strong>%like% “^x”</strong> : Reconnaissance d’une chaîne de caractères</p></li>
+<li><p><strong>rowid(var1, var2)</strong> : créer un identifiant de ligne unique pour un goupe de variables (= un compteur)</p></li>
 </ul>
 </div>
 <div id="apply-functions" class="section level2" number="2.20">
 <h2><span class="header-section-number">2.20</span> Apply functions</h2>
-<p><em>dt[, lapply(.SD, mean), .SDcols = c(“a”, “b”)]</em> (create a new table)
-<em>dt[ , names(dt) := lapply(.SD, as.character)]</em> for all the columns
-<em>dt[, (cols) := lapply(.SD, as.character), .SDcols = cols]</em> for specified columns (cols = c(“a”, “b”))
+<p><strong>dt[, lapply(.SD, mean), .SDcols = c(“a”, “b”)]</strong> (create a new table)<br />
+<strong>dt[ , names(dt) := lapply(.SD, as.character)]</strong> for all the columns<br />
+<strong>dt[, (cols) := lapply(.SD, as.character), .SDcols = cols]</strong> for specified columns (cols = c(“a”, “b”))<br />
 () pour dire que ce sont des colonnes existantes et non des nouvelles a creer</p>
-<p><em>dt[, paste0(cols, "_m") := lapply(.SD, mean), .SDcols = cols]</em> add a suffix</p>
-<p>.SD : “Subset of Data” (= mot clef de data.table, représentant les colonnes)
-.SDcols : columns on which to apply</p>
+<p><strong>dt[, paste0(cols, "_m") := lapply(.SD, mean), .SDcols = cols]</strong> add a suffix</p>
+<p><strong>.SD</strong> : “Subset of Data” (= mot clef de data.table, représentant les colonnes)<br />
+<strong>.SDcols</strong> : columns on which to apply</p>
 </div>
 <div id="sequential-rows" class="section level2" number="2.21">
 <h2><span class="header-section-number">2.21</span> Sequential rows</h2>
@@ -626,100 +633,102 @@ value.name : new col names (nom de la nouvelle colonne qui contient la valeur de
 <div id="maniement-de-chaines-de-caractères" class="section level2" number="2.22">
 <h2><span class="header-section-number">2.22</span> Maniement de chaines de caractères</h2>
 <ul>
-<li>séparer une colonne en fonction d’un caractère : <em>data.table::tstrsplit()</em></li>
+<li>séparer une colonne en fonction d’un caractère : <strong>data.table::tstrsplit()</strong></li>
 </ul>
 </div>
 <div id="read-and-write-files" class="section level2" number="2.23">
 <h2><span class="header-section-number">2.23</span> Read and write files</h2>
-<p>de fichiers plats (= fichiers texte)
-Import : <em>fread(“file.csv”, select = c(“a”, “b”))</em>
+<p>Lecture et ecriture de fichiers plats (= fichiers texte)<br />
+Import : <strong>fread(“file.csv”, select = c(“a”, “b”))</strong><br />
 + Très rapide pour importer des gros volumes de données et nettement plus rapide que les fcts du pkg readr.
 + Permet de selectionner les colonnes qu’on veut ou ne veut pas importer
 + un grand nbr d’options</p>
-<p>Export : <em>fwrite(dt, “file.csv”)</em></p>
+<p>Export : <strong>fwrite(dt, “file.csv”)</strong></p>
 </div>
 <div id="programmer-des-fonctions-avec-data.table" class="section level2" number="2.24">
 <h2><span class="header-section-number">2.24</span> Programmer des fonctions avec data.table</h2>
 <div id="sécuriser" class="section level3" number="2.24.1">
 <h3><span class="header-section-number">2.24.1</span> Sécuriser</h3>
-<p>Quand on utilise “:=” on peut par erreur écraser des données. Donc la sécurité c’est de <em>faire une copie des input</em> en entrée de fonction et travailler sur cette copie (qui porte un autre nom).</p>
+<p>Quand on utilise “:=” on peut par erreur écraser des données. Donc la sécurité c’est de <strong>faire une copie des input</strong> en entrée de fonction et travailler sur cette copie (qui porte un autre nom).</p>
 </div>
 <div id="variables-en-argument" class="section level3" number="2.24.2">
 <h3><span class="header-section-number">2.24.2</span> Variables en argument</h3>
-<p>Pas necessaires si cest de la <em>valeur en chaine de characteres</em> dont on a besoin.
-Si on a besoin du <em>symbol/name</em>, ils nous faut ces outils :</p>
+<p>Pas necessaires si cest de la <strong>valeur en chaine de characteres</strong> dont on a besoin.
+Si on a besoin du <strong>symbol/name</strong>, ils nous faut ces outils :</p>
 <p><a href="https://linogaliana.netlify.app/post/datatable/datatable-nse/" class="uri">https://linogaliana.netlify.app/post/datatable/datatable-nse/</a></p>
-<p>get() ne fctne que si l’argument* n’a pas le même nom* que la colonne du dt
-eval() ne fctne que si l’argument <em>a le même nom</em> que la colonne du dt</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="datatable-functions.html#cb8-1" aria-hidden="true" tabindex="-1"></a>modif_variable <span class="ot">&lt;-</span> <span class="cf">function</span>(dt, <span class="at">variable =</span> <span class="st">&quot;x&quot;</span>){</span>
-<span id="cb8-2"><a href="datatable-functions.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  dt_copy <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">copy</span>(dt) <span class="do">## une copie pour la sécurité</span></span>
-<span id="cb8-3"><a href="datatable-functions.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  dt_copy[,<span class="fu">c</span>(variable) <span class="sc">:</span><span class="er">=</span> <span class="fu">get</span>(variable) <span class="sc">+</span> <span class="dv">1</span>] <span class="do">## get() pour appeler un nom de variable entre guillemets (character)</span></span>
-<span id="cb8-4"><a href="datatable-functions.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(dt_copy)</span>
-<span id="cb8-5"><a href="datatable-functions.html#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Select columns whose name is <em>variable, using a character vector</em></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="datatable-functions.html#cb9-1" aria-hidden="true" tabindex="-1"></a>IdTree <span class="ot">=</span> <span class="st">&quot;idTree&quot;</span></span>
-<span id="cb9-2"><a href="datatable-functions.html#cb9-2" aria-hidden="true" tabindex="-1"></a>Plot <span class="ot">=</span> <span class="st">&quot;plot&quot;</span></span>
-<span id="cb9-3"><a href="datatable-functions.html#cb9-3" aria-hidden="true" tabindex="-1"></a>SubPlot <span class="ot">=</span> <span class="st">&quot;subplot&quot;</span></span>
-<span id="cb9-4"><a href="datatable-functions.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="datatable-functions.html#cb9-5" aria-hidden="true" tabindex="-1"></a>AssoVect <span class="ot">&lt;-</span> <span class="fu">c</span>(IdTree, Plot, SubPlot, TreeFieldNum)</span>
-<span id="cb9-6"><a href="datatable-functions.html#cb9-6" aria-hidden="true" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">unique</span>(Data[, ..AssoVect]) <span class="do">## &quot;..&quot; </span></span>
-<span id="cb9-7"><a href="datatable-functions.html#cb9-7" aria-hidden="true" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">unique</span>(Data[, <span class="fu">c</span>(IdTree, Plot, SubPlot, TreeFieldNum), <span class="at">with =</span> <span class="cn">FALSE</span>]) <span class="do">## with = FALSE : the column names can be used as variables</span></span></code></pre></div>
-<p>Cas plus générique : eval &amp; substitute
-<em>eval()</em> exécute une expression
-<em>substitute()</em> : attribut les valeurs, substitut les variables (=names=symbol) par leurs valeurs
-<em>as.name()</em> : refer to R object by their name
+<p><strong>get()</strong> ne fctne que si l’argument <strong>n’a pas le même nom</strong> que la colonne du dt<br />
+<strong>eval()</strong> ne fctne que si l’argument <strong>a le même nom</strong> que la colonne du dt</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="datatable-functions.html#cb16-1" aria-hidden="true" tabindex="-1"></a>modif_variable <span class="ot">&lt;-</span> <span class="cf">function</span>(dt, <span class="at">variable =</span> <span class="st">&quot;x&quot;</span>){</span>
+<span id="cb16-2"><a href="datatable-functions.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  dt_copy <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">copy</span>(dt) <span class="do">## une copie pour la sécurité</span></span>
+<span id="cb16-3"><a href="datatable-functions.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  dt_copy[,<span class="fu">c</span>(variable) <span class="sc">:</span><span class="er">=</span> <span class="fu">get</span>(variable) <span class="sc">+</span> <span class="dv">1</span>] <span class="do">## get() pour appeler un nom de variable entre guillemets (character)</span></span>
+<span id="cb16-4"><a href="datatable-functions.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(dt_copy)</span>
+<span id="cb16-5"><a href="datatable-functions.html#cb16-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Select columns whose name is <strong>variable, using a character vector</strong><br />
+<strong>, with = FALSE]</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="datatable-functions.html#cb17-1" aria-hidden="true" tabindex="-1"></a>IdTree <span class="ot">=</span> <span class="st">&quot;idTree&quot;</span></span>
+<span id="cb17-2"><a href="datatable-functions.html#cb17-2" aria-hidden="true" tabindex="-1"></a>Plot <span class="ot">=</span> <span class="st">&quot;plot&quot;</span></span>
+<span id="cb17-3"><a href="datatable-functions.html#cb17-3" aria-hidden="true" tabindex="-1"></a>SubPlot <span class="ot">=</span> <span class="st">&quot;subplot&quot;</span></span>
+<span id="cb17-4"><a href="datatable-functions.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="datatable-functions.html#cb17-5" aria-hidden="true" tabindex="-1"></a>AssoVect <span class="ot">&lt;-</span> <span class="fu">c</span>(IdTree, Plot, SubPlot, TreeFieldNum)</span>
+<span id="cb17-6"><a href="datatable-functions.html#cb17-6" aria-hidden="true" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">unique</span>(Data[, ..AssoVect]) <span class="do">## &quot;..&quot; </span></span>
+<span id="cb17-7"><a href="datatable-functions.html#cb17-7" aria-hidden="true" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">unique</span>(Data[, <span class="fu">c</span>(IdTree, Plot, SubPlot, TreeFieldNum), <span class="at">with =</span> <span class="cn">FALSE</span>]) <span class="do">## with = FALSE : the column names can be used as variables</span></span></code></pre></div>
+<p>Cas plus générique : eval &amp; substitute<br />
+<strong>eval()</strong> exécute une expression<br />
+<strong>substitute()</strong> : attribut les valeurs, substitut les variables (=names=symbol) par leurs valeurs<br />
+<strong>as.name()</strong> : refer to R object by their name<br />
 -&gt; avoid conflict and work with user variables names</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="datatable-functions.html#cb10-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">sp =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="do">## cas où l&#39;arg n&#39;a pas le même nom que la col</span></span>
-<span id="cb10-2"><a href="datatable-functions.html#cb10-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">species =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">var =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="do">## cas où l&#39;arg a le même nom que la col</span></span>
-<span id="cb10-3"><a href="datatable-functions.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="datatable-functions.html#cb10-4" aria-hidden="true" tabindex="-1"></a>species <span class="ot">=</span> <span class="st">&quot;sp&quot;</span></span>
-<span id="cb10-5"><a href="datatable-functions.html#cb10-5" aria-hidden="true" tabindex="-1"></a>var <span class="ot">=</span> <span class="st">&quot;x&quot;</span></span>
-<span id="cb10-6"><a href="datatable-functions.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="datatable-functions.html#cb10-7" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(df, species, var){</span>
-<span id="cb10-8"><a href="datatable-functions.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  env <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">list</span>(<span class="at">.species =</span> species, <span class="at">.var =</span> var), as.name) <span class="do">## environment</span></span>
-<span id="cb10-9"><a href="datatable-functions.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eval</span>(<span class="fu">substitute</span>(</span>
-<span id="cb10-10"><a href="datatable-functions.html#cb10-10" aria-hidden="true" tabindex="-1"></a>      {</span>
-<span id="cb10-11"><a href="datatable-functions.html#cb10-11" aria-hidden="true" tabindex="-1"></a>      df[, p <span class="sc">:</span><span class="er">=</span> <span class="fu">paste</span>(.species, .var)]</span>
-<span id="cb10-12"><a href="datatable-functions.html#cb10-12" aria-hidden="true" tabindex="-1"></a>      df[, q <span class="sc">:</span><span class="er">=</span> <span class="fu">paste</span>(.species,  <span class="st">&quot;_&quot;</span>, .var)] <span class="do">## le . devant le nom n&#39;est pas nécessaire c&#39;est juste mieux de distinguer pour le codeur</span></span>
-<span id="cb10-13"><a href="datatable-functions.html#cb10-13" aria-hidden="true" tabindex="-1"></a>    }, env))</span>
-<span id="cb10-14"><a href="datatable-functions.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
-<span id="cb10-15"><a href="datatable-functions.html#cb10-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-16"><a href="datatable-functions.html#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="datatable-functions.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(df1, <span class="st">&quot;sp&quot;</span>, <span class="st">&quot;x&quot;</span>) <span class="do">## cas où l&#39;arg n&#39;a pas le même nom que la col</span></span>
-<span id="cb10-18"><a href="datatable-functions.html#cb10-18" aria-hidden="true" tabindex="-1"></a>df1</span>
-<span id="cb10-19"><a href="datatable-functions.html#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="datatable-functions.html#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(df2, <span class="st">&quot;species&quot;</span>, <span class="st">&quot;var&quot;</span>) <span class="do">## cas où l&#39;arg a le même nom que la col</span></span>
-<span id="cb10-21"><a href="datatable-functions.html#cb10-21" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="datatable-functions.html#cb18-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">sp =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="do">## cas où l&#39;arg n&#39;a pas le même nom que la col</span></span>
+<span id="cb18-2"><a href="datatable-functions.html#cb18-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">species =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">var =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="do">## cas où l&#39;arg a le même nom que la col</span></span>
+<span id="cb18-3"><a href="datatable-functions.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="datatable-functions.html#cb18-4" aria-hidden="true" tabindex="-1"></a>species <span class="ot">=</span> <span class="st">&quot;sp&quot;</span></span>
+<span id="cb18-5"><a href="datatable-functions.html#cb18-5" aria-hidden="true" tabindex="-1"></a>var <span class="ot">=</span> <span class="st">&quot;x&quot;</span></span>
+<span id="cb18-6"><a href="datatable-functions.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="datatable-functions.html#cb18-7" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(df, species, var){</span>
+<span id="cb18-8"><a href="datatable-functions.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  env <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">list</span>(<span class="at">.species =</span> species, <span class="at">.var =</span> var), as.name) <span class="do">## environment</span></span>
+<span id="cb18-9"><a href="datatable-functions.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eval</span>(<span class="fu">substitute</span>(</span>
+<span id="cb18-10"><a href="datatable-functions.html#cb18-10" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb18-11"><a href="datatable-functions.html#cb18-11" aria-hidden="true" tabindex="-1"></a>      df[, p <span class="sc">:</span><span class="er">=</span> <span class="fu">paste</span>(.species, .var)]</span>
+<span id="cb18-12"><a href="datatable-functions.html#cb18-12" aria-hidden="true" tabindex="-1"></a>      df[, q <span class="sc">:</span><span class="er">=</span> <span class="fu">paste</span>(.species,  <span class="st">&quot;_&quot;</span>, .var)] <span class="do">## le . devant le nom n&#39;est pas nécessaire c&#39;est juste mieux de distinguer pour le codeur</span></span>
+<span id="cb18-13"><a href="datatable-functions.html#cb18-13" aria-hidden="true" tabindex="-1"></a>    }, env))</span>
+<span id="cb18-14"><a href="datatable-functions.html#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb18-15"><a href="datatable-functions.html#cb18-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-16"><a href="datatable-functions.html#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="datatable-functions.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(df1, <span class="st">&quot;sp&quot;</span>, <span class="st">&quot;x&quot;</span>) <span class="do">## cas où l&#39;arg n&#39;a pas le même nom que la col</span></span>
+<span id="cb18-18"><a href="datatable-functions.html#cb18-18" aria-hidden="true" tabindex="-1"></a>df1</span>
+<span id="cb18-19"><a href="datatable-functions.html#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="datatable-functions.html#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(df2, <span class="st">&quot;species&quot;</span>, <span class="st">&quot;var&quot;</span>) <span class="do">## cas où l&#39;arg a le même nom que la col</span></span>
+<span id="cb18-21"><a href="datatable-functions.html#cb18-21" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
 </div>
 <div id="sd-subset-of-data" class="section level3" number="2.24.3">
 <h3><span class="header-section-number">2.24.3</span> .SD (Subset of Data)</h3>
-<p>.SD permet d’appliquer la même opération sur plusieurs colonnes.</p>
-<p>.SDcols : sélection des colonnes sur lesquelles appliquer l’opération (par défaut elles sont toutes prises)</p>
+<p><strong>.SD</strong> permet d’appliquer la même opération sur plusieurs colonnes.</p>
+<p><strong>.SDcols</strong> : sélection des colonnes sur lesquelles appliquer l’opération (par défaut elles sont toutes prises)</p>
 <p>-&gt; syntaxe très puissante, compact et lisible</p>
 </div>
 <div id="lapply.sd-pour-des-fonctions-de-statistiques-descriptives" class="section level3" number="2.24.4">
 <h3><span class="header-section-number">2.24.4</span> lapply+.SD pour des fonctions de statistiques descriptives</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="datatable-functions.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fabriquer une table statistique</span></span>
-<span id="cb11-2"><a href="datatable-functions.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="datatable-functions.html#cb11-3" aria-hidden="true" tabindex="-1"></a>DT[, <span class="fu">lapply</span>(.SD, min), .SDcol <span class="ot">=</span> <span class="st">&quot;a&quot;</span>, by <span class="ot">=</span> c]</span>
-<span id="cb11-4"><a href="datatable-functions.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="datatable-functions.html#cb11-5" aria-hidden="true" tabindex="-1"></a>mes_statistiques <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">return</span>(<span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">var</span>(x), <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">5</span>,.<span class="dv">75</span>))))</span>
-<span id="cb11-6"><a href="datatable-functions.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="datatable-functions.html#cb11-7" aria-hidden="true" tabindex="-1"></a>data_agregee <span class="ot">&lt;-</span> dt[, <span class="do">## i</span></span>
-<span id="cb11-8"><a href="datatable-functions.html#cb11-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">lapply</span>(.SD, mes_statistiques), <span class="do">## j (expression)</span></span>
-<span id="cb11-9"><a href="datatable-functions.html#cb11-9" aria-hidden="true" tabindex="-1"></a>                    by <span class="ot">=</span> <span class="st">&quot;Species&quot;</span>, <span class="do">## by (group)</span></span>
-<span id="cb11-10"><a href="datatable-functions.html#cb11-10" aria-hidden="true" tabindex="-1"></a>                   .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Petal.Width&quot;</span>,<span class="st">&quot;Petal.Length&quot;</span>)] </span>
-<span id="cb11-11"><a href="datatable-functions.html#cb11-11" aria-hidden="true" tabindex="-1"></a>data_agregee[, <span class="st">&#39;stat&#39;</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">c</span>(<span class="st">&quot;moyenne&quot;</span>,<span class="st">&quot;variance&quot;</span>,<span class="st">&quot;P25&quot;</span>,<span class="st">&quot;P50&quot;</span>,<span class="st">&quot;P75&quot;</span>), by <span class="ot">=</span> <span class="st">&quot;Species&quot;</span>] <span class="do">## add a col to define the values in rows</span></span>
-<span id="cb11-12"><a href="datatable-functions.html#cb11-12" aria-hidden="true" tabindex="-1"></a>data_agregee</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="datatable-functions.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fabriquer une table statistique</span></span>
+<span id="cb19-2"><a href="datatable-functions.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="datatable-functions.html#cb19-3" aria-hidden="true" tabindex="-1"></a>DT[, <span class="fu">lapply</span>(.SD, min), .SDcol <span class="ot">=</span> <span class="st">&quot;a&quot;</span>, by <span class="ot">=</span> c]</span>
+<span id="cb19-4"><a href="datatable-functions.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="datatable-functions.html#cb19-5" aria-hidden="true" tabindex="-1"></a>mes_statistiques <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">return</span>(<span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">var</span>(x), <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">5</span>,.<span class="dv">75</span>))))</span>
+<span id="cb19-6"><a href="datatable-functions.html#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="datatable-functions.html#cb19-7" aria-hidden="true" tabindex="-1"></a>data_agregee <span class="ot">&lt;-</span> dt[, <span class="do">## i</span></span>
+<span id="cb19-8"><a href="datatable-functions.html#cb19-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">lapply</span>(.SD, mes_statistiques), <span class="do">## j (expression)</span></span>
+<span id="cb19-9"><a href="datatable-functions.html#cb19-9" aria-hidden="true" tabindex="-1"></a>                    by <span class="ot">=</span> <span class="st">&quot;Species&quot;</span>, <span class="do">## by (group)</span></span>
+<span id="cb19-10"><a href="datatable-functions.html#cb19-10" aria-hidden="true" tabindex="-1"></a>                   .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Petal.Width&quot;</span>,<span class="st">&quot;Petal.Length&quot;</span>)] </span>
+<span id="cb19-11"><a href="datatable-functions.html#cb19-11" aria-hidden="true" tabindex="-1"></a>data_agregee[, <span class="st">&#39;stat&#39;</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">c</span>(<span class="st">&quot;moyenne&quot;</span>,<span class="st">&quot;variance&quot;</span>,<span class="st">&quot;P25&quot;</span>,<span class="st">&quot;P50&quot;</span>,<span class="st">&quot;P75&quot;</span>), by <span class="ot">=</span> <span class="st">&quot;Species&quot;</span>] <span class="do">## add a col to define the values in rows</span></span>
+<span id="cb19-12"><a href="datatable-functions.html#cb19-12" aria-hidden="true" tabindex="-1"></a>data_agregee</span></code></pre></div>
 </div>
 <div id="des-data.table-poupées-russes" class="section level3" number="2.24.5">
 <h3><span class="header-section-number">2.24.5</span> Des data.table poupées russes</h3>
 <p>Facilite la parallélisation</p>
-<p><em>DT[, list(list(.SD)), by = Group]</em></p>
-<p>cl &lt;- makeCluster(2)</p>
-<p>DT[,
-clust := list(parLapplyLB(cl, V1,
-function(X){kmeans(X,2)$cluster}))]</p>
+<p><strong>DT[, list(list(.SD)), by = Group]</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="datatable-functions.html#cb20-1" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">2</span>)</span>
+<span id="cb20-2"><a href="datatable-functions.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="datatable-functions.html#cb20-3" aria-hidden="true" tabindex="-1"></a>DT[,</span>
+<span id="cb20-4"><a href="datatable-functions.html#cb20-4" aria-hidden="true" tabindex="-1"></a>clust <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(<span class="fu">parLapplyLB</span>(cl, V1,</span>
+<span id="cb20-5"><a href="datatable-functions.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(X){<span class="fu">kmeans</span>(X,<span class="dv">2</span>)<span class="sc">$</span>cluster}))]</span></code></pre></div>
 
 </div>
 </div>

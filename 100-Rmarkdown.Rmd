@@ -36,6 +36,8 @@ _**gras&italique**_
 
 <!--commentaire -->
 
+Pour passer à la ligne suivante/faire un noyveau paragraphe : finir par 
+ espaces la ligne
 ## Chunk 
 
 raccourci clavier pour générer un chunk : *CTRL + ALT + I*

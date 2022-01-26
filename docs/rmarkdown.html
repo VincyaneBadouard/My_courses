@@ -223,10 +223,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#sous-titre"><i class="fa fa-check"></i><b>5.1.1</b> Sous-titre</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#chunk"><i class="fa fa-check"></i><b>5.2</b> Chunk</a></li>
-<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.3</b> Table</a></li>
-<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.4</b> Figure</a></li>
-<li class="chapter" data-level="5.5" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.5</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.2</b> Table</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.3</b> Figure</a></li>
+<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.4</b> Equations</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>6</b> Bookdown</a>
 <ul>
@@ -427,30 +426,30 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <p>citation</p>
 </blockquote>
 <!--commentaire -->
-</div>
-</div>
-<div id="chunk" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Chunk</h2>
+<p>Pour passer à la ligne suivante/faire un noyveau paragraphe : finir par
+espaces la ligne
+## Chunk</p>
 <p>raccourci clavier pour générer un chunk : <em>CTRL + ALT + I</em></p>
 <p>Chunk options</p>
 <p>Afficher une valeur dans le texte :
 1+2 = ‘r 1+2’</p>
 </div>
-<div id="table" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Table</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmarkdown.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
-<span id="cb22-2"><a href="rmarkdown.html#cb22-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
-<span id="cb22-3"><a href="rmarkdown.html#cb22-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">caption =</span> </span>
-<span id="cb22-4"><a href="rmarkdown.html#cb22-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
 </div>
-<div id="figure" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Figure</h2>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmarkdown.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb23-2"><a href="rmarkdown.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
-<span id="cb23-3"><a href="rmarkdown.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div id="table" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Table</h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rmarkdown.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
+<span id="cb31-2"><a href="rmarkdown.html#cb31-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
+<span id="cb31-3"><a href="rmarkdown.html#cb31-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">caption =</span> </span>
+<span id="cb31-4"><a href="rmarkdown.html#cb31-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
 </div>
-<div id="equations" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Equations</h2>
+<div id="figure" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Figure</h2>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rmarkdown.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-2"><a href="rmarkdown.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
+<span id="cb32-3"><a href="rmarkdown.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</div>
+<div id="equations" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Equations</h2>
 <p><span class="math inline">\(\alpha\)</span>
 <span class="math display">\[Y \sim\mathcal N(\mu,\sigma)\frac{1}{1+e}\]</span></p>
 

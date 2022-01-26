@@ -197,6 +197,8 @@ Pour compiler la vignette (Build ne le fait pas) (et la voir dans la page d'aide
 installer le package à partir de sa source :
 
 + Pour mettre une copie de la vignette dans /doc (durant le dvp) : *devtools::build_vignettes()*
+On peut détruire ce qui est dans doc/ après usage. Le dossier est déclaré dans .Rbuildignore et .gitignore.
+
 + Push sur Github puis *devtools::install_github("DeveloperName/PackageName", build_vignettes = TRUE)*
 Cette methode le permet aussi, mais plus triviale : https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/
 
@@ -240,17 +242,25 @@ src/*.dll"
 
 ## Biblio
 
-réf biblio (sauf celles des .rmd (vignette, site) gérées automatiquement avec *Rdpack* et *roxygen2*
+Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec *Rdpack* et *roxygen2*  
 
-De notre zotero/mendeley vers :
-REFERENCES.bib dans le dossier "inst"
+De notre zotero/mendeley vers : *REFERENCES.bib* dans le dossier *inst*
 
-DESCRIPTION : ajouter
-"RdMacros: Rdpack
-Imports: Rdpack"
+Ajouter dans le fichier DESCRIPTION : 
+```{r, eval = F}
+RdMacros: Rdpack
+Imports: Rdpack
+```
 
 Comment citer :
 citation(packagename)
+
+Biblio de la vignette :
++ créer un fichier bib
++ le déclarer dans l'entête
++ citer avec @citation.
+
+On peut éviter de multiplier les fichiers bib en utilisant celui de *RdPack* qui est *inst/REFERENCES.bib* : dans la vignette, tu déclares le chemin relatif : *bibliography: ../inst/REFERENCES.bib*
 
 ## Where stock my data in my package 
 

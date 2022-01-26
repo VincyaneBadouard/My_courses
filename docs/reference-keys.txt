@@ -73,7 +73,6 @@ c
 rmarkdown
 titre
 sous-titre
-chunk
 table
 figure
 equations

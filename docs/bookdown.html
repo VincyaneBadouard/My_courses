@@ -223,10 +223,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#sous-titre"><i class="fa fa-check"></i><b>5.1.1</b> Sous-titre</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#chunk"><i class="fa fa-check"></i><b>5.2</b> Chunk</a></li>
-<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.3</b> Table</a></li>
-<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.4</b> Figure</a></li>
-<li class="chapter" data-level="5.5" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.5</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.2</b> Table</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.3</b> Figure</a></li>
+<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.4</b> Equations</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>6</b> Bookdown</a>
 <ul>
@@ -411,26 +410,26 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <li><p>index.rmd : fichier pour indiquer le header de ts les fichiers, écrit la “préface”</p></li>
 <li><p>_bookdown.yml : def construction livre</p></li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="bookdown.html#cb24-1" aria-hidden="true" tabindex="-1"></a>book_filename<span class="sc">:</span> <span class="st">&quot;My_cours&quot;</span></span>
-<span id="cb24-2"><a href="bookdown.html#cb24-2" aria-hidden="true" tabindex="-1"></a>delete_merged_file<span class="sc">:</span> true <span class="co"># supprimer le fichier intermediaire de la compilation</span></span>
-<span id="cb24-3"><a href="bookdown.html#cb24-3" aria-hidden="true" tabindex="-1"></a>language<span class="sc">:</span></span>
-<span id="cb24-4"><a href="bookdown.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  ui<span class="sc">:</span></span>
-<span id="cb24-5"><a href="bookdown.html#cb24-5" aria-hidden="true" tabindex="-1"></a>    chapter_name<span class="sc">:</span> <span class="st">&quot;Cours &quot;</span></span>
-<span id="cb24-6"><a href="bookdown.html#cb24-6" aria-hidden="true" tabindex="-1"></a>output_dir<span class="sc">:</span> <span class="st">&quot;docs&quot;</span> <span class="co"># dossier de stockage de la compilation</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="bookdown.html#cb33-1" aria-hidden="true" tabindex="-1"></a>book_filename<span class="sc">:</span> <span class="st">&quot;My_cours&quot;</span></span>
+<span id="cb33-2"><a href="bookdown.html#cb33-2" aria-hidden="true" tabindex="-1"></a>delete_merged_file<span class="sc">:</span> true <span class="co"># supprimer le fichier intermediaire de la compilation</span></span>
+<span id="cb33-3"><a href="bookdown.html#cb33-3" aria-hidden="true" tabindex="-1"></a>language<span class="sc">:</span></span>
+<span id="cb33-4"><a href="bookdown.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  ui<span class="sc">:</span></span>
+<span id="cb33-5"><a href="bookdown.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    chapter_name<span class="sc">:</span> <span class="st">&quot;Cours &quot;</span></span>
+<span id="cb33-6"><a href="bookdown.html#cb33-6" aria-hidden="true" tabindex="-1"></a>output_dir<span class="sc">:</span> <span class="st">&quot;docs&quot;</span> <span class="co"># dossier de stockage de la compilation</span></span></code></pre></div>
 <ul>
 <li>_output.yml : def construction des sorties</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bookdown.html#cb25-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span>gitbook<span class="sc">:</span></span>
-<span id="cb25-2"><a href="bookdown.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  config<span class="sc">:</span></span>
-<span id="cb25-3"><a href="bookdown.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span></span>
-<span id="cb25-4"><a href="bookdown.html#cb25-4" aria-hidden="true" tabindex="-1"></a>      before<span class="sc">:</span> <span class="er">|</span></span>
-<span id="cb25-5"><a href="bookdown.html#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;./&quot;</span><span class="sc">&gt;</span>My_cours<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
-<span id="cb25-6"><a href="bookdown.html#cb25-6" aria-hidden="true" tabindex="-1"></a>      after<span class="sc">:</span> <span class="er">|</span> <span class="co"># lien &quot;source&quot; vers le dépot Github</span></span>
-<span id="cb25-7"><a href="bookdown.html#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;https://github.com/VincyaneBadouard/My_cours&quot;</span> target<span class="ot">=</span><span class="st">&quot;blank&quot;</span><span class="sc">&gt;</span>Source<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
-<span id="cb25-8"><a href="bookdown.html#cb25-8" aria-hidden="true" tabindex="-1"></a>      collapse<span class="sc">:</span> section <span class="co"># pour ne pas afficher les sous-parties ds le menu deroulant</span></span>
-<span id="cb25-9"><a href="bookdown.html#cb25-9" aria-hidden="true" tabindex="-1"></a>  includes<span class="sc">:</span></span>
-<span id="cb25-10"><a href="bookdown.html#cb25-10" aria-hidden="true" tabindex="-1"></a>    in_header<span class="sc">:</span> hypothesis.html <span class="co"># permet les comentaires dans le doc (open review)</span></span>
-<span id="cb25-11"><a href="bookdown.html#cb25-11" aria-hidden="true" tabindex="-1"></a>    before_body<span class="sc">:</span> open_review_block.html</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="bookdown.html#cb34-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span>gitbook<span class="sc">:</span></span>
+<span id="cb34-2"><a href="bookdown.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  config<span class="sc">:</span></span>
+<span id="cb34-3"><a href="bookdown.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span></span>
+<span id="cb34-4"><a href="bookdown.html#cb34-4" aria-hidden="true" tabindex="-1"></a>      before<span class="sc">:</span> <span class="er">|</span></span>
+<span id="cb34-5"><a href="bookdown.html#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;./&quot;</span><span class="sc">&gt;</span>My_cours<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
+<span id="cb34-6"><a href="bookdown.html#cb34-6" aria-hidden="true" tabindex="-1"></a>      after<span class="sc">:</span> <span class="er">|</span> <span class="co"># lien &quot;source&quot; vers le dépot Github</span></span>
+<span id="cb34-7"><a href="bookdown.html#cb34-7" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;https://github.com/VincyaneBadouard/My_cours&quot;</span> target<span class="ot">=</span><span class="st">&quot;blank&quot;</span><span class="sc">&gt;</span>Source<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
+<span id="cb34-8"><a href="bookdown.html#cb34-8" aria-hidden="true" tabindex="-1"></a>      collapse<span class="sc">:</span> section <span class="co"># pour ne pas afficher les sous-parties ds le menu deroulant</span></span>
+<span id="cb34-9"><a href="bookdown.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  includes<span class="sc">:</span></span>
+<span id="cb34-10"><a href="bookdown.html#cb34-10" aria-hidden="true" tabindex="-1"></a>    in_header<span class="sc">:</span> hypothesis.html <span class="co"># permet les comentaires dans le doc (open review)</span></span>
+<span id="cb34-11"><a href="bookdown.html#cb34-11" aria-hidden="true" tabindex="-1"></a>    before_body<span class="sc">:</span> open_review_block.html</span></code></pre></div>
 <p>scroll_hillight: yes # mise en couleur qd on est dans la partie</p>
 
 </div>

@@ -223,10 +223,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#sous-titre"><i class="fa fa-check"></i><b>5.1.1</b> Sous-titre</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#chunk"><i class="fa fa-check"></i><b>5.2</b> Chunk</a></li>
-<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.3</b> Table</a></li>
-<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.4</b> Figure</a></li>
-<li class="chapter" data-level="5.5" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.5</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>5.2</b> Table</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.3</b> Figure</a></li>
+<li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.4</b> Equations</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>6</b> Bookdown</a>
 <ul>
@@ -415,29 +414,29 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="les-packages-r-nécessaires" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Les packages R nécessaires</h2>
 <p>Télécharger des packages d’aide à l’organisation et structure, nécessaire à l’écriture d’un package :</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="package-creation.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
-<span id="cb42-2"><a href="package-creation.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-3"><a href="package-creation.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
-<span id="cb42-4"><a href="package-creation.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-5"><a href="package-creation.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
-<span id="cb42-6"><a href="package-creation.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-7"><a href="package-creation.html#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
-<span id="cb42-8"><a href="package-creation.html#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
-<span id="cb42-9"><a href="package-creation.html#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-10"><a href="package-creation.html#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
-<span id="cb42-11"><a href="package-creation.html#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-12"><a href="package-creation.html#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
-<span id="cb42-13"><a href="package-creation.html#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-14"><a href="package-creation.html#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
-<span id="cb42-15"><a href="package-creation.html#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-16"><a href="package-creation.html#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
-<span id="cb42-17"><a href="package-creation.html#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb42-18"><a href="package-creation.html#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
-<span id="cb42-19"><a href="package-creation.html#cb42-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-20"><a href="package-creation.html#cb42-20" aria-hidden="true" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="package-creation.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
-<span id="cb43-2"><a href="package-creation.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
-<span id="cb43-3"><a href="package-creation.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="package-creation.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
+<span id="cb51-2"><a href="package-creation.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-3"><a href="package-creation.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
+<span id="cb51-4"><a href="package-creation.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-5"><a href="package-creation.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
+<span id="cb51-6"><a href="package-creation.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-7"><a href="package-creation.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
+<span id="cb51-8"><a href="package-creation.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
+<span id="cb51-9"><a href="package-creation.html#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-10"><a href="package-creation.html#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
+<span id="cb51-11"><a href="package-creation.html#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-12"><a href="package-creation.html#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
+<span id="cb51-13"><a href="package-creation.html#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-14"><a href="package-creation.html#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
+<span id="cb51-15"><a href="package-creation.html#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-16"><a href="package-creation.html#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
+<span id="cb51-17"><a href="package-creation.html#cb51-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb51-18"><a href="package-creation.html#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
+<span id="cb51-19"><a href="package-creation.html#cb51-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-20"><a href="package-creation.html#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="package-creation.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
+<span id="cb52-2"><a href="package-creation.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
+<span id="cb52-3"><a href="package-creation.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
 </div>
 <div id="creation-du-package" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Creation du package</h2>
@@ -545,20 +544,20 @@ d’autres packages dans le code avec la syntaxe <em>package::fonction()</em> (S
 <h2><span class="header-section-number">9.9</span> Créer une “méthode générique”</h2>
 <p>méthode générique = modèle de fonction, sans code, à décliner selon la classe d’objet à traiter (ex : “plot”).</p>
 <p>Une méthode générique est plus lente en calcul que ses fonctions dérivées qui sont spécialisées à une classe d’objet.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="package-creation.html#cb44-1" aria-hidden="true" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb44-2"><a href="package-creation.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
-<span id="cb44-3"><a href="package-creation.html#cb44-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb44-4"><a href="package-creation.html#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-5"><a href="package-creation.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
-<span id="cb44-6"><a href="package-creation.html#cb44-6" aria-hidden="true" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb44-7"><a href="package-creation.html#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
-<span id="cb44-8"><a href="package-creation.html#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
-<span id="cb44-9"><a href="package-creation.html#cb44-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb44-10"><a href="package-creation.html#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-11"><a href="package-creation.html#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
-<span id="cb44-12"><a href="package-creation.html#cb44-12" aria-hidden="true" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb44-13"><a href="package-creation.html#cb44-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
-<span id="cb44-14"><a href="package-creation.html#cb44-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="package-creation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb53-2"><a href="package-creation.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
+<span id="cb53-3"><a href="package-creation.html#cb53-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-4"><a href="package-creation.html#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="package-creation.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
+<span id="cb53-6"><a href="package-creation.html#cb53-6" aria-hidden="true" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb53-7"><a href="package-creation.html#cb53-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
+<span id="cb53-8"><a href="package-creation.html#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
+<span id="cb53-9"><a href="package-creation.html#cb53-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-10"><a href="package-creation.html#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-11"><a href="package-creation.html#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
+<span id="cb53-12"><a href="package-creation.html#cb53-12" aria-hidden="true" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb53-13"><a href="package-creation.html#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
+<span id="cb53-14"><a href="package-creation.html#cb53-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Sa signature : ensemble de ses arguments
 Les fonctions dérivées de cette méthode devront obligatoirement avoir les <em>mêmes arguments</em> dans le <em>même ordre</em> et pourront seulement ajouter des arguments supplémentaires avant “…” (qui est obligatoire).</p>
 <p>1er argument : “x”. Dépend de la classe de l’objet</p>
@@ -591,7 +590,8 @@ autoplot() : permet de visualiser tt type d’objet, meilleur que ggplot2.</p></
 <p>Pour compiler la vignette (Build ne le fait pas) (et la voir dans la page d’aide du package):
 installer le package à partir de sa source :</p>
 <ul>
-<li><p>Pour mettre une copie de la vignette dans /doc (durant le dvp) : <em>devtools::build_vignettes()</em></p></li>
+<li><p>Pour mettre une copie de la vignette dans /doc (durant le dvp) : <em>devtools::build_vignettes()</em>
+On peut détruire ce qui est dans doc/ après usage. Le dossier est déclaré dans .Rbuildignore et .gitignore.</p></li>
 <li><p>Push sur Github puis <em>devtools::install_github(“DeveloperName/PackageName”, build_vignettes = TRUE)</em>
 Cette methode le permet aussi, mais plus triviale : <a href="https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/" class="uri">https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/</a></p></li>
 <li><p>Pour que le check ne construise pas la vignette : <em>–no-build-vignettes</em> dans options &gt; check et build pckg</p></li>
@@ -635,14 +635,18 @@ src/*.dll"</li>
 </div>
 <div id="biblio" class="section level2" number="9.15">
 <h2><span class="header-section-number">9.15</span> Biblio</h2>
-<p>réf biblio (sauf celles des .rmd (vignette, site) gérées automatiquement avec <em>Rdpack</em> et <em>roxygen2</em></p>
-<p>De notre zotero/mendeley vers :
-REFERENCES.bib dans le dossier “inst”</p>
-<p>DESCRIPTION : ajouter
-“RdMacros: Rdpack
-Imports: Rdpack”</p>
+<p>Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec <em>Rdpack</em> et <em>roxygen2</em></p>
+<p>De notre zotero/mendeley vers : <em>REFERENCES.bib</em> dans le dossier <em>inst</em></p>
+<p>Ajouter dans le fichier DESCRIPTION :</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="package-creation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
+<span id="cb54-2"><a href="package-creation.html#cb54-2" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
 <p>Comment citer :
 citation(packagename)</p>
+<p>Biblio de la vignette :
++ créer un fichier bib
++ le déclarer dans l’entête
++ citer avec <span class="citation">@citation</span>.</p>
+<p>On peut éviter de multiplier les fichiers bib en utilisant celui de <em>RdPack</em> qui est <em>inst/REFERENCES.bib</em> : dans la vignette, tu déclares le chemin relatif : <em>bibliography: ../inst/REFERENCES.bib</em></p>
 </div>
 <div id="where-stock-my-data-in-my-package" class="section level2" number="9.16">
 <h2><span class="header-section-number">9.16</span> Where stock my data in my package</h2>
@@ -740,11 +744,11 @@ citation(packagename)</p>
 <li>écrire des tests à nos fonctions dans tests/testthat : <em>usethis::use_test(name = “nomdelafct”)</em></li>
 <li>The test name should complete the sentence “Test that …”.</li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="package-creation.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
-<span id="cb46-2"><a href="package-creation.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
-<span id="cb46-3"><a href="package-creation.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
-<span id="cb46-4"><a href="package-creation.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
-<span id="cb46-5"><a href="package-creation.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="package-creation.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
+<span id="cb56-2"><a href="package-creation.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
+<span id="cb56-3"><a href="package-creation.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
+<span id="cb56-4"><a href="package-creation.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
+<span id="cb56-5"><a href="package-creation.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
 <ul>
 <li>lancer tous les tests : devtools::test() (Ctrl + Shift + T)</li>
 <li>Each test is run in its own environment and is self-contained.</li>
