@@ -196,7 +196,7 @@ which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat
 
 + au moins 1 vrai : **any()** ne prend pas de liste (enfin si mais il n'est pas cntent)!
 
-+ renvoyer les éléments dupliqué : **duplicated()** (booléen) y_data[!duplicated(my_data$var), ] (dataframe)
++ renvoyer les éléments dupliqué : **duplicated()** (booléen) data[!duplicated(data$var), ] (dataframe)
 **anyDuplicated**
 
 

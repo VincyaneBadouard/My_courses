@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 15 Bayesian and Stan langage | My cours</title>
+  <title>Cours 16 Bayesian and Stan langage | My cours</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 15 Bayesian and Stan langage | My cours" />
+  <meta property="og:title" content="Cours 16 Bayesian and Stan langage | My cours" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 15 Bayesian and Stan langage | My cours" />
+  <meta name="twitter:title" content="Cours 16 Bayesian and Stan langage | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2022-01-26" />
+<meta name="date" content="2022-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="bayesian-stats-cours.html"/>
 
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,7 +51,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script async defer src="https://hypothes.is/embed.js"></script>
 
 
@@ -117,6 +119,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 </head>
 
@@ -227,156 +230,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>5.3</b> Figure</a></li>
 <li class="chapter" data-level="5.4" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>5.4</b> Equations</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>6</b> Bookdown</a>
+<li class="chapter" data-level="6" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6</b> Github</a></li>
+<li class="chapter" data-level="7" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>7</b> Bookdown</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="bookdown.html"><a href="bookdown.html#fichiers-particuliers"><i class="fa fa-check"></i><b>6.1</b> Fichiers particuliers</a></li>
+<li class="chapter" data-level="7.1" data-path="bookdown.html"><a href="bookdown.html#fichiers-particuliers"><i class="fa fa-check"></i><b>7.1</b> Fichiers particuliers</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="intégration-continue.html"><a href="intégration-continue.html"><i class="fa fa-check"></i><b>7</b> Intégration continue</a>
+<li class="chapter" data-level="8" data-path="intégration-continue.html"><a href="intégration-continue.html"><i class="fa fa-check"></i><b>8</b> Intégration continue</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="intégration-continue.html"><a href="intégration-continue.html#travis"><i class="fa fa-check"></i><b>7.1</b> Travis</a>
+<li class="chapter" data-level="8.1" data-path="intégration-continue.html"><a href="intégration-continue.html#travis"><i class="fa fa-check"></i><b>8.1</b> Travis</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="intégration-continue.html"><a href="intégration-continue.html#script-de-contrôle-de-travis"><i class="fa fa-check"></i><b>7.1.1</b> Script de contrôle de Travis</a></li>
+<li class="chapter" data-level="8.1.1" data-path="intégration-continue.html"><a href="intégration-continue.html#script-de-contrôle-de-travis"><i class="fa fa-check"></i><b>8.1.1</b> Script de contrôle de Travis</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="intégration-continue.html"><a href="intégration-continue.html#codecov"><i class="fa fa-check"></i><b>7.2</b> Codecov</a></li>
+<li class="chapter" data-level="8.2" data-path="intégration-continue.html"><a href="intégration-continue.html#codecov"><i class="fa fa-check"></i><b>8.2</b> Codecov</a></li>
 </ul></li>
 <li class="part"><span><b>III Developper sous R</b></span></li>
-<li class="chapter" data-level="8" data-path="function-creation.html"><a href="function-creation.html"><i class="fa fa-check"></i><b>8</b> Function creation</a>
+<li class="chapter" data-level="9" data-path="function-creation.html"><a href="function-creation.html"><i class="fa fa-check"></i><b>9</b> Function creation</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="function-creation.html"><a href="function-creation.html#étapes-de-développement"><i class="fa fa-check"></i><b>8.1</b> Étapes de développement :</a></li>
-<li class="chapter" data-level="8.2" data-path="function-creation.html"><a href="function-creation.html#structure"><i class="fa fa-check"></i><b>8.2</b> Structure :</a></li>
-<li class="chapter" data-level="8.3" data-path="function-creation.html"><a href="function-creation.html#nommer-ses-arguments"><i class="fa fa-check"></i><b>8.3</b> Nommer ses arguments</a></li>
-<li class="chapter" data-level="8.4" data-path="function-creation.html"><a href="function-creation.html#valeurs-par-défaut"><i class="fa fa-check"></i><b>8.4</b> Valeurs par défaut</a></li>
-<li class="chapter" data-level="8.5" data-path="function-creation.html"><a href="function-creation.html#évaluation-de-la-fonction"><i class="fa fa-check"></i><b>8.5</b> évaluation de la fonction</a></li>
-<li class="chapter" data-level="8.6" data-path="function-creation.html"><a href="function-creation.html#vérification-de-la-classe-des-arguments"><i class="fa fa-check"></i><b>8.6</b> Vérification de la classe des arguments</a></li>
-<li class="chapter" data-level="8.7" data-path="function-creation.html"><a href="function-creation.html#largument-fun"><i class="fa fa-check"></i><b>8.7</b> L’argument ‘fun’</a></li>
-<li class="chapter" data-level="8.8" data-path="function-creation.html"><a href="function-creation.html#largument"><i class="fa fa-check"></i><b>8.8</b> L’argument ‘…’</a></li>
-<li class="chapter" data-level="8.9" data-path="function-creation.html"><a href="function-creation.html#types-de-fonction"><i class="fa fa-check"></i><b>8.9</b> Types de fonction</a>
+<li class="chapter" data-level="9.1" data-path="function-creation.html"><a href="function-creation.html#étapes-de-développement"><i class="fa fa-check"></i><b>9.1</b> Étapes de développement :</a></li>
+<li class="chapter" data-level="9.2" data-path="function-creation.html"><a href="function-creation.html#structure"><i class="fa fa-check"></i><b>9.2</b> Structure :</a></li>
+<li class="chapter" data-level="9.3" data-path="function-creation.html"><a href="function-creation.html#nommer-ses-arguments"><i class="fa fa-check"></i><b>9.3</b> Nommer ses arguments</a></li>
+<li class="chapter" data-level="9.4" data-path="function-creation.html"><a href="function-creation.html#valeurs-par-défaut"><i class="fa fa-check"></i><b>9.4</b> Valeurs par défaut</a></li>
+<li class="chapter" data-level="9.5" data-path="function-creation.html"><a href="function-creation.html#évaluation-de-la-fonction"><i class="fa fa-check"></i><b>9.5</b> évaluation de la fonction</a></li>
+<li class="chapter" data-level="9.6" data-path="function-creation.html"><a href="function-creation.html#vérification-de-la-classe-des-arguments"><i class="fa fa-check"></i><b>9.6</b> Vérification de la classe des arguments</a></li>
+<li class="chapter" data-level="9.7" data-path="function-creation.html"><a href="function-creation.html#largument-fun"><i class="fa fa-check"></i><b>9.7</b> L’argument ‘fun’</a></li>
+<li class="chapter" data-level="9.8" data-path="function-creation.html"><a href="function-creation.html#largument"><i class="fa fa-check"></i><b>9.8</b> L’argument ‘…’</a></li>
+<li class="chapter" data-level="9.9" data-path="function-creation.html"><a href="function-creation.html#types-de-fonction"><i class="fa fa-check"></i><b>9.9</b> Types de fonction</a>
 <ul>
-<li class="chapter" data-level="8.9.1" data-path="function-creation.html"><a href="function-creation.html#appel-récursif"><i class="fa fa-check"></i><b>8.9.1</b> Appel récursif</a></li>
-<li class="chapter" data-level="8.9.2" data-path="function-creation.html"><a href="function-creation.html#fct-anonyme-dans-une-autre-fonction"><i class="fa fa-check"></i><b>8.9.2</b> Fct anonyme dans une autre fonction</a></li>
+<li class="chapter" data-level="9.9.1" data-path="function-creation.html"><a href="function-creation.html#appel-récursif"><i class="fa fa-check"></i><b>9.9.1</b> Appel récursif</a></li>
+<li class="chapter" data-level="9.9.2" data-path="function-creation.html"><a href="function-creation.html#fct-anonyme-dans-une-autre-fonction"><i class="fa fa-check"></i><b>9.9.2</b> Fct anonyme dans une autre fonction</a></li>
 </ul></li>
-<li class="chapter" data-level="8.10" data-path="function-creation.html"><a href="function-creation.html#retourner-un-résultat"><i class="fa fa-check"></i><b>8.10</b> Retourner un résultat</a></li>
-<li class="chapter" data-level="8.11" data-path="function-creation.html"><a href="function-creation.html#fonctions-de-message-et-darrêt-de-fonction"><i class="fa fa-check"></i><b>8.11</b> Fonctions de message et d’arrêt de fonction</a></li>
-<li class="chapter" data-level="8.12" data-path="function-creation.html"><a href="function-creation.html#interaction-avec-lutilisateur"><i class="fa fa-check"></i><b>8.12</b> Interaction avec l’utilisateur</a></li>
-<li class="chapter" data-level="8.13" data-path="function-creation.html"><a href="function-creation.html#iteration"><i class="fa fa-check"></i><b>8.13</b> Iteration</a></li>
-<li class="chapter" data-level="8.14" data-path="function-creation.html"><a href="function-creation.html#parallelisation"><i class="fa fa-check"></i><b>8.14</b> Parallelisation</a></li>
-<li class="chapter" data-level="8.15" data-path="function-creation.html"><a href="function-creation.html#choses-à-savoir"><i class="fa fa-check"></i><b>8.15</b> Choses à savoir</a></li>
-<li class="chapter" data-level="8.16" data-path="function-creation.html"><a href="function-creation.html#débogage-tips"><i class="fa fa-check"></i><b>8.16</b> Débogage tips</a></li>
-<li class="chapter" data-level="8.17" data-path="function-creation.html"><a href="function-creation.html#où-écrire-ses-fcts"><i class="fa fa-check"></i><b>8.17</b> Où écrire ses fcts ?</a></li>
-<li class="chapter" data-level="8.18" data-path="function-creation.html"><a href="function-creation.html#comment-les-utiliser"><i class="fa fa-check"></i><b>8.18</b> Comment les utiliser ?</a></li>
-<li class="chapter" data-level="8.19" data-path="function-creation.html"><a href="function-creation.html#plusieurs-fonctions-internes---passation-dinfos"><i class="fa fa-check"></i><b>8.19</b> Plusieurs fonctions internes - passation d’infos</a></li>
+<li class="chapter" data-level="9.10" data-path="function-creation.html"><a href="function-creation.html#retourner-un-résultat"><i class="fa fa-check"></i><b>9.10</b> Retourner un résultat</a></li>
+<li class="chapter" data-level="9.11" data-path="function-creation.html"><a href="function-creation.html#fonctions-de-message-et-darrêt-de-fonction"><i class="fa fa-check"></i><b>9.11</b> Fonctions de message et d’arrêt de fonction</a></li>
+<li class="chapter" data-level="9.12" data-path="function-creation.html"><a href="function-creation.html#interaction-avec-lutilisateur"><i class="fa fa-check"></i><b>9.12</b> Interaction avec l’utilisateur</a></li>
+<li class="chapter" data-level="9.13" data-path="function-creation.html"><a href="function-creation.html#iteration"><i class="fa fa-check"></i><b>9.13</b> Iteration</a></li>
+<li class="chapter" data-level="9.14" data-path="function-creation.html"><a href="function-creation.html#parallelisation"><i class="fa fa-check"></i><b>9.14</b> Parallelisation</a></li>
+<li class="chapter" data-level="9.15" data-path="function-creation.html"><a href="function-creation.html#choses-à-savoir"><i class="fa fa-check"></i><b>9.15</b> Choses à savoir</a></li>
+<li class="chapter" data-level="9.16" data-path="function-creation.html"><a href="function-creation.html#débogage-tips"><i class="fa fa-check"></i><b>9.16</b> Débogage tips</a></li>
+<li class="chapter" data-level="9.17" data-path="function-creation.html"><a href="function-creation.html#où-écrire-ses-fcts"><i class="fa fa-check"></i><b>9.17</b> Où écrire ses fcts ?</a></li>
+<li class="chapter" data-level="9.18" data-path="function-creation.html"><a href="function-creation.html#comment-les-utiliser"><i class="fa fa-check"></i><b>9.18</b> Comment les utiliser ?</a></li>
+<li class="chapter" data-level="9.19" data-path="function-creation.html"><a href="function-creation.html#plusieurs-fonctions-internes---passation-dinfos"><i class="fa fa-check"></i><b>9.19</b> Plusieurs fonctions internes - passation d’infos</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="package-creation.html"><a href="package-creation.html"><i class="fa fa-check"></i><b>9</b> Package creation</a>
+<li class="chapter" data-level="10" data-path="package-creation.html"><a href="package-creation.html"><i class="fa fa-check"></i><b>10</b> Package creation</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="package-creation.html"><a href="package-creation.html#references"><i class="fa fa-check"></i><b>9.1</b> References</a></li>
-<li class="chapter" data-level="9.2" data-path="package-creation.html"><a href="package-creation.html#les-packages-r-nécessaires"><i class="fa fa-check"></i><b>9.2</b> Les packages R nécessaires</a></li>
-<li class="chapter" data-level="9.3" data-path="package-creation.html"><a href="package-creation.html#creation-du-package"><i class="fa fa-check"></i><b>9.3</b> Creation du package</a></li>
-<li class="chapter" data-level="9.4" data-path="package-creation.html"><a href="package-creation.html#tips-de-codeur-1"><i class="fa fa-check"></i><b>9.4</b> Tips de codeur</a></li>
-<li class="chapter" data-level="9.5" data-path="package-creation.html"><a href="package-creation.html#eviter-les-messages-derreurs"><i class="fa fa-check"></i><b>9.5</b> Eviter les messages d’erreurs</a></li>
-<li class="chapter" data-level="9.6" data-path="package-creation.html"><a href="package-creation.html#commandes"><i class="fa fa-check"></i><b>9.6</b> Commandes</a>
+<li class="chapter" data-level="10.1" data-path="package-creation.html"><a href="package-creation.html#references"><i class="fa fa-check"></i><b>10.1</b> References</a></li>
+<li class="chapter" data-level="10.2" data-path="package-creation.html"><a href="package-creation.html#les-packages-r-nécessaires"><i class="fa fa-check"></i><b>10.2</b> Les packages R nécessaires</a></li>
+<li class="chapter" data-level="10.3" data-path="package-creation.html"><a href="package-creation.html#creation-du-package"><i class="fa fa-check"></i><b>10.3</b> Creation du package</a></li>
+<li class="chapter" data-level="10.4" data-path="package-creation.html"><a href="package-creation.html#tips-de-codeur-1"><i class="fa fa-check"></i><b>10.4</b> Tips de codeur</a></li>
+<li class="chapter" data-level="10.5" data-path="package-creation.html"><a href="package-creation.html#eviter-les-messages-derreurs"><i class="fa fa-check"></i><b>10.5</b> Eviter les messages d’erreurs</a></li>
+<li class="chapter" data-level="10.6" data-path="package-creation.html"><a href="package-creation.html#commandes"><i class="fa fa-check"></i><b>10.6</b> Commandes</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="package-creation.html"><a href="package-creation.html#comprendre-le-skeleton"><i class="fa fa-check"></i><b>9.6.1</b> Comprendre le Skeleton</a></li>
-<li class="chapter" data-level="9.6.2" data-path="package-creation.html"><a href="package-creation.html#r-folfer"><i class="fa fa-check"></i><b>9.6.2</b> R folfer</a></li>
-<li class="chapter" data-level="9.6.3" data-path="package-creation.html"><a href="package-creation.html#nompackage.r-file"><i class="fa fa-check"></i><b>9.6.3</b> nompackage.R file</a></li>
-<li class="chapter" data-level="9.6.4" data-path="package-creation.html"><a href="package-creation.html#namespace-file"><i class="fa fa-check"></i><b>9.6.4</b> NAMESPACE file</a></li>
-<li class="chapter" data-level="9.6.5" data-path="package-creation.html"><a href="package-creation.html#description-file"><i class="fa fa-check"></i><b>9.6.5</b> DESCRIPTION file</a></li>
-<li class="chapter" data-level="9.6.6" data-path="package-creation.html"><a href="package-creation.html#rbuildignore"><i class="fa fa-check"></i><b>9.6.6</b> .Rbuildignore</a></li>
+<li class="chapter" data-level="10.6.1" data-path="package-creation.html"><a href="package-creation.html#comprendre-le-skeleton"><i class="fa fa-check"></i><b>10.6.1</b> Comprendre le Skeleton</a></li>
+<li class="chapter" data-level="10.6.2" data-path="package-creation.html"><a href="package-creation.html#r-folfer"><i class="fa fa-check"></i><b>10.6.2</b> R folfer</a></li>
+<li class="chapter" data-level="10.6.3" data-path="package-creation.html"><a href="package-creation.html#nompackage.r-file"><i class="fa fa-check"></i><b>10.6.3</b> nompackage.R file</a></li>
+<li class="chapter" data-level="10.6.4" data-path="package-creation.html"><a href="package-creation.html#namespace-file"><i class="fa fa-check"></i><b>10.6.4</b> NAMESPACE file</a></li>
+<li class="chapter" data-level="10.6.5" data-path="package-creation.html"><a href="package-creation.html#description-file"><i class="fa fa-check"></i><b>10.6.5</b> DESCRIPTION file</a></li>
+<li class="chapter" data-level="10.6.6" data-path="package-creation.html"><a href="package-creation.html#rbuildignore"><i class="fa fa-check"></i><b>10.6.6</b> .Rbuildignore</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="package-creation.html"><a href="package-creation.html#importation-de-fonctions"><i class="fa fa-check"></i><b>9.7</b> Importation de fonctions</a></li>
-<li class="chapter" data-level="9.8" data-path="package-creation.html"><a href="package-creation.html#créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base"><i class="fa fa-check"></i><b>9.8</b> Créer des classes pour ses objets en plus de ceux de base</a></li>
-<li class="chapter" data-level="9.9" data-path="package-creation.html"><a href="package-creation.html#créer-une-méthode-générique"><i class="fa fa-check"></i><b>9.9</b> Créer une “méthode générique”</a></li>
-<li class="chapter" data-level="9.10" data-path="package-creation.html"><a href="package-creation.html#tidyverse"><i class="fa fa-check"></i><b>9.10</b> tidyverse</a></li>
-<li class="chapter" data-level="9.11" data-path="package-creation.html"><a href="package-creation.html#vignette"><i class="fa fa-check"></i><b>9.11</b> Vignette</a></li>
-<li class="chapter" data-level="9.12" data-path="package-creation.html"><a href="package-creation.html#site-du-package-pkgdown"><i class="fa fa-check"></i><b>9.12</b> Site du package : Pkgdown</a></li>
-<li class="chapter" data-level="9.13" data-path="package-creation.html"><a href="package-creation.html#des-petits-messages-à-lutilisateur"><i class="fa fa-check"></i><b>9.13</b> Des petits messages à l’utilisateur</a></li>
-<li class="chapter" data-level="9.14" data-path="package-creation.html"><a href="package-creation.html#c-1"><i class="fa fa-check"></i><b>9.14</b> C++</a></li>
-<li class="chapter" data-level="9.15" data-path="package-creation.html"><a href="package-creation.html#biblio"><i class="fa fa-check"></i><b>9.15</b> Biblio</a></li>
-<li class="chapter" data-level="9.16" data-path="package-creation.html"><a href="package-creation.html#where-stock-my-data-in-my-package"><i class="fa fa-check"></i><b>9.16</b> Where stock my data in my package</a>
+<li class="chapter" data-level="10.7" data-path="package-creation.html"><a href="package-creation.html#importation-de-fonctions"><i class="fa fa-check"></i><b>10.7</b> Importation de fonctions</a></li>
+<li class="chapter" data-level="10.8" data-path="package-creation.html"><a href="package-creation.html#créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base"><i class="fa fa-check"></i><b>10.8</b> Créer des classes pour ses objets en plus de ceux de base</a></li>
+<li class="chapter" data-level="10.9" data-path="package-creation.html"><a href="package-creation.html#créer-une-méthode-générique"><i class="fa fa-check"></i><b>10.9</b> Créer une “méthode générique”</a></li>
+<li class="chapter" data-level="10.10" data-path="package-creation.html"><a href="package-creation.html#tidyverse"><i class="fa fa-check"></i><b>10.10</b> tidyverse</a></li>
+<li class="chapter" data-level="10.11" data-path="package-creation.html"><a href="package-creation.html#vignette"><i class="fa fa-check"></i><b>10.11</b> Vignette</a></li>
+<li class="chapter" data-level="10.12" data-path="package-creation.html"><a href="package-creation.html#site-du-package-pkgdown"><i class="fa fa-check"></i><b>10.12</b> Site du package : Pkgdown</a></li>
+<li class="chapter" data-level="10.13" data-path="package-creation.html"><a href="package-creation.html#des-petits-messages-à-lutilisateur"><i class="fa fa-check"></i><b>10.13</b> Des petits messages à l’utilisateur</a></li>
+<li class="chapter" data-level="10.14" data-path="package-creation.html"><a href="package-creation.html#c-1"><i class="fa fa-check"></i><b>10.14</b> C++</a></li>
+<li class="chapter" data-level="10.15" data-path="package-creation.html"><a href="package-creation.html#biblio"><i class="fa fa-check"></i><b>10.15</b> Biblio</a></li>
+<li class="chapter" data-level="10.16" data-path="package-creation.html"><a href="package-creation.html#where-stock-my-data-in-my-package"><i class="fa fa-check"></i><b>10.16</b> Where stock my data in my package</a>
 <ul>
-<li class="chapter" data-level="9.16.1" data-path="package-creation.html"><a href="package-creation.html#testing-data"><i class="fa fa-check"></i><b>9.16.1</b> <em>Testing data</em>:</a></li>
-<li class="chapter" data-level="9.16.2" data-path="package-creation.html"><a href="package-creation.html#default-data"><i class="fa fa-check"></i><b>9.16.2</b> <em>Default data</em>:</a></li>
-<li class="chapter" data-level="9.16.3" data-path="package-creation.html"><a href="package-creation.html#exported-data-in-data"><i class="fa fa-check"></i><b>9.16.3</b> Exported data (in <em>data/</em>)</a></li>
-<li class="chapter" data-level="9.16.4" data-path="package-creation.html"><a href="package-creation.html#documenter-ces-données-exportées"><i class="fa fa-check"></i><b>9.16.4</b> Documenter ces données exportées</a></li>
-<li class="chapter" data-level="9.16.5" data-path="package-creation.html"><a href="package-creation.html#internal-data-for-a-function-in-rsysdata.rda"><i class="fa fa-check"></i><b>9.16.5</b> Internal data for a function (in <em>R/sysdata.rda</em>)</a></li>
+<li class="chapter" data-level="10.16.1" data-path="package-creation.html"><a href="package-creation.html#testing-data"><i class="fa fa-check"></i><b>10.16.1</b> <strong>Testing data</strong>:</a></li>
+<li class="chapter" data-level="10.16.2" data-path="package-creation.html"><a href="package-creation.html#default-data"><i class="fa fa-check"></i><b>10.16.2</b> <strong>Default data</strong>:</a></li>
+<li class="chapter" data-level="10.16.3" data-path="package-creation.html"><a href="package-creation.html#exported-data-in-data"><i class="fa fa-check"></i><b>10.16.3</b> Exported data (in <strong>data/</strong>)</a></li>
+<li class="chapter" data-level="10.16.4" data-path="package-creation.html"><a href="package-creation.html#documenter-ces-données-exportées"><i class="fa fa-check"></i><b>10.16.4</b> Documenter ces données exportées</a></li>
+<li class="chapter" data-level="10.16.5" data-path="package-creation.html"><a href="package-creation.html#internal-data-for-a-function-in-rsysdata.rda"><i class="fa fa-check"></i><b>10.16.5</b> Internal data for a function (in <strong>R/sysdata.rda</strong>)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.17" data-path="package-creation.html"><a href="package-creation.html#charger-ces-data"><i class="fa fa-check"></i><b>9.17</b> Charger ces data</a></li>
-<li class="chapter" data-level="9.18" data-path="package-creation.html"><a href="package-creation.html#tests"><i class="fa fa-check"></i><b>9.18</b> Tests</a></li>
-<li class="chapter" data-level="9.19" data-path="package-creation.html"><a href="package-creation.html#un-package-pour-tous"><i class="fa fa-check"></i><b>9.19</b> Un package pour tous</a></li>
-<li class="chapter" data-level="9.20" data-path="package-creation.html"><a href="package-creation.html#cran"><i class="fa fa-check"></i><b>9.20</b> CRAN</a>
+<li class="chapter" data-level="10.17" data-path="package-creation.html"><a href="package-creation.html#charger-ces-data"><i class="fa fa-check"></i><b>10.17</b> Charger ces data</a></li>
+<li class="chapter" data-level="10.18" data-path="package-creation.html"><a href="package-creation.html#tests"><i class="fa fa-check"></i><b>10.18</b> Tests</a></li>
+<li class="chapter" data-level="10.19" data-path="package-creation.html"><a href="package-creation.html#un-package-pour-tous"><i class="fa fa-check"></i><b>10.19</b> Un package pour tous</a></li>
+<li class="chapter" data-level="10.20" data-path="package-creation.html"><a href="package-creation.html#cran"><i class="fa fa-check"></i><b>10.20</b> CRAN</a>
 <ul>
-<li class="chapter" data-level="9.20.1" data-path="package-creation.html"><a href="package-creation.html#les-tests"><i class="fa fa-check"></i><b>9.20.1</b> Les tests</a></li>
+<li class="chapter" data-level="10.20.1" data-path="package-creation.html"><a href="package-creation.html#les-tests"><i class="fa fa-check"></i><b>10.20.1</b> Les tests</a></li>
 </ul></li>
-<li class="chapter" data-level="9.21" data-path="package-creation.html"><a href="package-creation.html#debugger"><i class="fa fa-check"></i><b>9.21</b> Debugger</a></li>
-<li class="chapter" data-level="9.22" data-path="package-creation.html"><a href="package-creation.html#versioning"><i class="fa fa-check"></i><b>9.22</b> Versioning</a></li>
+<li class="chapter" data-level="10.21" data-path="package-creation.html"><a href="package-creation.html#debugger"><i class="fa fa-check"></i><b>10.21</b> Debugger</a></li>
+<li class="chapter" data-level="10.22" data-path="package-creation.html"><a href="package-creation.html#versioning"><i class="fa fa-check"></i><b>10.22</b> Versioning</a></li>
+<li class="chapter" data-level="10.23" data-path="package-creation.html"><a href="package-creation.html#renommer-un-dépôt"><i class="fa fa-check"></i><b>10.23</b> Renommer un dépôt</a></li>
+<li class="chapter" data-level="10.24" data-path="package-creation.html"><a href="package-creation.html#installer-le-package"><i class="fa fa-check"></i><b>10.24</b> Installer le package</a></li>
+<li class="chapter" data-level="10.25" data-path="package-creation.html"><a href="package-creation.html#générer-la-citation-du-package"><i class="fa fa-check"></i><b>10.25</b> Générer la citation du package</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="shiny-cours.html"><a href="shiny-cours.html"><i class="fa fa-check"></i><b>10</b> Shiny cours</a>
+<li class="chapter" data-level="11" data-path="shiny-cours.html"><a href="shiny-cours.html"><i class="fa fa-check"></i><b>11</b> Shiny cours</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="shiny-cours.html"><a href="shiny-cours.html#packages"><i class="fa fa-check"></i><b>10.1</b> Packages</a></li>
-<li class="chapter" data-level="10.2" data-path="shiny-cours.html"><a href="shiny-cours.html#tips-codeur"><i class="fa fa-check"></i><b>10.2</b> Tips codeur</a></li>
-<li class="chapter" data-level="10.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shiny"><i class="fa fa-check"></i><b>10.3</b> Shiny:</a></li>
-<li class="chapter" data-level="10.4" data-path="shiny-cours.html"><a href="shiny-cours.html#structurer-lappli"><i class="fa fa-check"></i><b>10.4</b> Structurer l’appli</a></li>
-<li class="chapter" data-level="10.5" data-path="shiny-cours.html"><a href="shiny-cours.html#créer-linterface"><i class="fa fa-check"></i><b>10.5</b> Créer l’interface</a>
+<li class="chapter" data-level="11.1" data-path="shiny-cours.html"><a href="shiny-cours.html#packages"><i class="fa fa-check"></i><b>11.1</b> Packages</a></li>
+<li class="chapter" data-level="11.2" data-path="shiny-cours.html"><a href="shiny-cours.html#tips-codeur"><i class="fa fa-check"></i><b>11.2</b> Tips codeur</a></li>
+<li class="chapter" data-level="11.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shiny"><i class="fa fa-check"></i><b>11.3</b> Shiny:</a></li>
+<li class="chapter" data-level="11.4" data-path="shiny-cours.html"><a href="shiny-cours.html#structurer-lappli"><i class="fa fa-check"></i><b>11.4</b> Structurer l’appli</a></li>
+<li class="chapter" data-level="11.5" data-path="shiny-cours.html"><a href="shiny-cours.html#créer-linterface"><i class="fa fa-check"></i><b>11.5</b> Créer l’interface</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-page"><i class="fa fa-check"></i><b>10.5.1</b> Mise en page</a></li>
-<li class="chapter" data-level="10.5.2" data-path="shiny-cours.html"><a href="shiny-cours.html#inputs-ouputs"><i class="fa fa-check"></i><b>10.5.2</b> INPUTS &amp; OUPUTS</a></li>
+<li class="chapter" data-level="11.5.1" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-page"><i class="fa fa-check"></i><b>11.5.1</b> Mise en page</a></li>
+<li class="chapter" data-level="11.5.2" data-path="shiny-cours.html"><a href="shiny-cours.html#inputs-ouputs"><i class="fa fa-check"></i><b>11.5.2</b> INPUTS &amp; OUPUTS</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="shiny-cours.html"><a href="shiny-cours.html#gérer-les-intéractions"><i class="fa fa-check"></i><b>10.6</b> Gérer les intéractions</a></li>
-<li class="chapter" data-level="10.7" data-path="shiny-cours.html"><a href="shiny-cours.html#enrichir-lappli"><i class="fa fa-check"></i><b>10.7</b> Enrichir l’appli</a>
+<li class="chapter" data-level="11.6" data-path="shiny-cours.html"><a href="shiny-cours.html#gérer-les-intéractions"><i class="fa fa-check"></i><b>11.6</b> Gérer les intéractions</a></li>
+<li class="chapter" data-level="11.7" data-path="shiny-cours.html"><a href="shiny-cours.html#enrichir-lappli"><i class="fa fa-check"></i><b>11.7</b> Enrichir l’appli</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="shiny-cours.html"><a href="shiny-cours.html#leaflet"><i class="fa fa-check"></i><b>10.7.1</b> Leaflet</a></li>
-<li class="chapter" data-level="10.7.2" data-path="shiny-cours.html"><a href="shiny-cours.html#chargerenregistrer-des-fichiers"><i class="fa fa-check"></i><b>10.7.2</b> Charger/enregistrer des fichiers</a></li>
-<li class="chapter" data-level="10.7.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shinydashboard"><i class="fa fa-check"></i><b>10.7.3</b> Shinydashboard</a></li>
+<li class="chapter" data-level="11.7.1" data-path="shiny-cours.html"><a href="shiny-cours.html#leaflet"><i class="fa fa-check"></i><b>11.7.1</b> Leaflet</a></li>
+<li class="chapter" data-level="11.7.2" data-path="shiny-cours.html"><a href="shiny-cours.html#chargerenregistrer-des-fichiers"><i class="fa fa-check"></i><b>11.7.2</b> Charger/enregistrer des fichiers</a></li>
+<li class="chapter" data-level="11.7.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shinydashboard"><i class="fa fa-check"></i><b>11.7.3</b> Shinydashboard</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-packages"><i class="fa fa-check"></i><b>10.8</b> Autres packages</a></li>
-<li class="chapter" data-level="10.9" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-ligne-et-partage-de-lappli"><i class="fa fa-check"></i><b>10.9</b> Mise en ligne et partage de l’appli</a>
+<li class="chapter" data-level="11.8" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-packages"><i class="fa fa-check"></i><b>11.8</b> Autres packages</a></li>
+<li class="chapter" data-level="11.9" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-ligne-et-partage-de-lappli"><i class="fa fa-check"></i><b>11.9</b> Mise en ligne et partage de l’appli</a>
 <ul>
-<li class="chapter" data-level="10.9.1" data-path="shiny-cours.html"><a href="shiny-cours.html#en-local-cest-mieux-plus-rapide-car-outils-de-calcul-et-on-y-est-seul"><i class="fa fa-check"></i><b>10.9.1</b> En local : c’est mieux, plus rapide car outils de calcul et on y est seul</a></li>
-<li class="chapter" data-level="10.9.2" data-path="shiny-cours.html"><a href="shiny-cours.html#a-distance"><i class="fa fa-check"></i><b>10.9.2</b> A distance</a></li>
+<li class="chapter" data-level="11.9.1" data-path="shiny-cours.html"><a href="shiny-cours.html#en-local-cest-mieux-plus-rapide-car-outils-de-calcul-et-on-y-est-seul"><i class="fa fa-check"></i><b>11.9.1</b> En local : c’est mieux, plus rapide car outils de calcul et on y est seul</a></li>
+<li class="chapter" data-level="11.9.2" data-path="shiny-cours.html"><a href="shiny-cours.html#a-distance"><i class="fa fa-check"></i><b>11.9.2</b> A distance</a></li>
 </ul></li>
-<li class="chapter" data-level="10.10" data-path="shiny-cours.html"><a href="shiny-cours.html#module"><i class="fa fa-check"></i><b>10.10</b> Module</a></li>
-<li class="chapter" data-level="10.11" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-sources-cours"><i class="fa fa-check"></i><b>10.11</b> Autres sources cours</a></li>
+<li class="chapter" data-level="11.10" data-path="shiny-cours.html"><a href="shiny-cours.html#module"><i class="fa fa-check"></i><b>11.10</b> Module</a></li>
+<li class="chapter" data-level="11.11" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-sources-cours"><i class="fa fa-check"></i><b>11.11</b> Autres sources cours</a></li>
 </ul></li>
 <li class="part"><span><b>IV Statistics</b></span></li>
-<li class="chapter" data-level="11" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html"><i class="fa fa-check"></i><b>11</b> Stats à ne plus chercher</a>
+<li class="chapter" data-level="12" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html"><i class="fa fa-check"></i><b>12</b> Stats à ne plus chercher</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#corrélations"><i class="fa fa-check"></i><b>11.1</b> Corrélations</a></li>
-<li class="chapter" data-level="11.2" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#evaluer-la-performance-dune-prédiction"><i class="fa fa-check"></i><b>11.2</b> Evaluer la performance d’une prédiction</a>
+<li class="chapter" data-level="12.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#corrélations"><i class="fa fa-check"></i><b>12.1</b> Corrélations</a></li>
+<li class="chapter" data-level="12.2" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#evaluer-la-performance-dune-prédiction"><i class="fa fa-check"></i><b>12.2</b> Evaluer la performance d’une prédiction</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#validation-croisée-rééchantillonage"><i class="fa fa-check"></i><b>11.2.1</b> Validation croisée (rééchantillonage)</a></li>
+<li class="chapter" data-level="12.2.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#validation-croisée-rééchantillonage"><i class="fa fa-check"></i><b>12.2.1</b> Validation croisée (rééchantillonage)</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#processus-gaussiens"><i class="fa fa-check"></i><b>11.3</b> Processus gaussiens</a></li>
+<li class="chapter" data-level="12.3" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#processus-gaussiens"><i class="fa fa-check"></i><b>12.3</b> Processus gaussiens</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html"><i class="fa fa-check"></i><b>12</b> Introduction à Stan</a>
+<li class="chapter" data-level="13" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html"><i class="fa fa-check"></i><b>13</b> Introduction à Stan</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes"><i class="fa fa-check"></i><b>12.1</b> Pourquoi les stats bayesiennes ?</a></li>
-<li class="chapter" data-level="12.2" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#stan-program"><i class="fa fa-check"></i><b>12.2</b> Stan program :</a></li>
+<li class="chapter" data-level="13.1" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes"><i class="fa fa-check"></i><b>13.1</b> Pourquoi les stats bayesiennes ?</a></li>
+<li class="chapter" data-level="13.2" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#stan-program"><i class="fa fa-check"></i><b>13.2</b> Stan program :</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html"><i class="fa fa-check"></i><b>13</b> I am a modeler</a>
+<li class="chapter" data-level="14" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html"><i class="fa fa-check"></i><b>14</b> I am a modeler</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#la-modélisation"><i class="fa fa-check"></i><b>13.1</b> La modélisation</a></li>
-<li class="chapter" data-level="13.2" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-linéaire-simple"><i class="fa fa-check"></i><b>13.2</b> Modèle linéaire simple</a></li>
-<li class="chapter" data-level="13.3" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#lois-de-probabilité-de-la-fonction-de-réponse"><i class="fa fa-check"></i><b>13.3</b> Lois de probabilité de la fonction de réponse</a></li>
-<li class="chapter" data-level="13.4" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#glm-modèles-linéaires-généralisés"><i class="fa fa-check"></i><b>13.4</b> GLM (modèles linéaires généralisés)</a></li>
-<li class="chapter" data-level="13.5" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-mixte"><i class="fa fa-check"></i><b>13.5</b> Modèle mixte</a></li>
-<li class="chapter" data-level="13.6" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#créer-nos-prédicteurs-selon-leffet-que-lon-veut-tester"><i class="fa fa-check"></i><b>13.6</b> Créer nos prédicteurs selon l’effet que l’on veut tester</a></li>
-<li class="chapter" data-level="13.7" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#tests-1"><i class="fa fa-check"></i><b>13.7</b> tests</a></li>
-<li class="chapter" data-level="13.8" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#estimations-des-paramètres"><i class="fa fa-check"></i><b>13.8</b> Estimations des paramètres</a></li>
-<li class="chapter" data-level="13.9" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#variable-réponse-qualitatite"><i class="fa fa-check"></i><b>13.9</b> Variable réponse qualitatite</a></li>
+<li class="chapter" data-level="14.1" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#la-modélisation"><i class="fa fa-check"></i><b>14.1</b> La modélisation</a></li>
+<li class="chapter" data-level="14.2" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-linéaire-simple"><i class="fa fa-check"></i><b>14.2</b> Modèle linéaire simple</a></li>
+<li class="chapter" data-level="14.3" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#lois-de-probabilité-de-la-fonction-de-réponse"><i class="fa fa-check"></i><b>14.3</b> Lois de probabilité de la fonction de réponse</a></li>
+<li class="chapter" data-level="14.4" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#glm-modèles-linéaires-généralisés"><i class="fa fa-check"></i><b>14.4</b> GLM (modèles linéaires généralisés)</a></li>
+<li class="chapter" data-level="14.5" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-mixte"><i class="fa fa-check"></i><b>14.5</b> Modèle mixte</a></li>
+<li class="chapter" data-level="14.6" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#créer-nos-prédicteurs-selon-leffet-que-lon-veut-tester"><i class="fa fa-check"></i><b>14.6</b> Créer nos prédicteurs selon l’effet que l’on veut tester</a></li>
+<li class="chapter" data-level="14.7" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#tests-1"><i class="fa fa-check"></i><b>14.7</b> tests</a></li>
+<li class="chapter" data-level="14.8" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#estimations-des-paramètres"><i class="fa fa-check"></i><b>14.8</b> Estimations des paramètres</a></li>
+<li class="chapter" data-level="14.9" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#variable-réponse-qualitatite"><i class="fa fa-check"></i><b>14.9</b> Variable réponse qualitatite</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html"><i class="fa fa-check"></i><b>14</b> Bayesian stats cours</a>
+<li class="chapter" data-level="15" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html"><i class="fa fa-check"></i><b>15</b> Bayesian stats cours</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html#grid-approximation-to-define-posterior"><i class="fa fa-check"></i><b>14.1</b> Grid approximation (to define posterior) :</a></li>
+<li class="chapter" data-level="15.1" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html#grid-approximation-to-define-posterior"><i class="fa fa-check"></i><b>15.1</b> Grid approximation (to define posterior) :</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html"><i class="fa fa-check"></i><b>15</b> Bayesian and Stan langage</a>
+<li class="chapter" data-level="16" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html"><i class="fa fa-check"></i><b>16</b> Bayesian and Stan langage</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#règles"><i class="fa fa-check"></i><b>15.1</b> Règles</a></li>
-<li class="chapter" data-level="15.2" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#les-données"><i class="fa fa-check"></i><b>15.2</b> Les données</a></li>
-<li class="chapter" data-level="15.3" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#definitions"><i class="fa fa-check"></i><b>15.3</b> Definitions</a></li>
-<li class="chapter" data-level="15.4" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-poisson-positif-discret-par-exemble-un-abondance"><i class="fa fa-check"></i><b>15.4</b> Loi Poisson (positif &amp; discret) (par exemble un abondance)</a></li>
-<li class="chapter" data-level="15.5" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-bernouilli-logistique-blogit-réponse-binaire"><i class="fa fa-check"></i><b>15.5</b> Loi Bernouilli-logistique (Blogit) (réponse binaire)</a></li>
-<li class="chapter" data-level="15.6" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#tools"><i class="fa fa-check"></i><b>15.6</b> Tools</a></li>
-<li class="chapter" data-level="15.7" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#rapidité"><i class="fa fa-check"></i><b>15.7</b> Rapidité</a></li>
-<li class="chapter" data-level="15.8" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#non-identifiabilité"><i class="fa fa-check"></i><b>15.8</b> Non-identifiabilité</a></li>
+<li class="chapter" data-level="16.1" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#règles"><i class="fa fa-check"></i><b>16.1</b> Règles</a></li>
+<li class="chapter" data-level="16.2" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#les-données"><i class="fa fa-check"></i><b>16.2</b> Les données</a></li>
+<li class="chapter" data-level="16.3" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#definitions"><i class="fa fa-check"></i><b>16.3</b> Definitions</a></li>
+<li class="chapter" data-level="16.4" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-poisson-positif-discret-par-exemble-un-abondance"><i class="fa fa-check"></i><b>16.4</b> Loi Poisson (positif &amp; discret) (par exemble un abondance)</a></li>
+<li class="chapter" data-level="16.5" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-bernouilli-logistique-blogit-réponse-binaire"><i class="fa fa-check"></i><b>16.5</b> Loi Bernouilli-logistique (Blogit) (réponse binaire)</a></li>
+<li class="chapter" data-level="16.6" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#tools"><i class="fa fa-check"></i><b>16.6</b> Tools</a></li>
+<li class="chapter" data-level="16.7" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#rapidité"><i class="fa fa-check"></i><b>16.7</b> Rapidité</a></li>
+<li class="chapter" data-level="16.8" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#non-identifiabilité"><i class="fa fa-check"></i><b>16.8</b> Non-identifiabilité</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
@@ -401,17 +408,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="bayesian-and-stan-langage" class="section level1" number="15">
-<h1><span class="header-section-number">Cours 15</span> Bayesian and Stan langage</h1>
-<div id="règles" class="section level2" number="15.1">
-<h2><span class="header-section-number">15.1</span> Règles</h2>
+<div id="bayesian-and-stan-langage" class="section level1" number="16">
+<h1><span class="header-section-number">Cours 16</span> Bayesian and Stan langage</h1>
+<div id="règles" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Règles</h2>
 <ul>
 <li><p>Ne pas comparer des effets de modèles de var réponses diffentes entre eux</p></li>
 <li><p>Ne pas comparer des modèles utilisant des données différentes</p></li>
 </ul>
 </div>
-<div id="les-données" class="section level2" number="15.2">
-<h2><span class="header-section-number">15.2</span> Les données</h2>
+<div id="les-données" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Les données</h2>
 <ul>
 <li><p>Toutes les variables doivent être mises sous forme numeric</p></li>
 <li><p>Regarder la distribution de nos variables pour identifier la loi qu’elles suivent et les transformations possibles à leur appliquer.</p></li>
@@ -422,8 +429,8 @@ Dans le cas d’un <em>modèle prédictif</em> on veut garder les dimensions de 
 -&gt; gain de rapidité</p></li>
 </ul>
 </div>
-<div id="definitions" class="section level2" number="15.3">
-<h2><span class="header-section-number">15.3</span> Definitions</h2>
+<div id="definitions" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Definitions</h2>
 <ul>
 <li><p><em>theta0</em> : c’est l’intercept du modèle. C’est dans certains cas l’esperance predite de la var réponse, c’est le témoin. A regarder pour juger de l’importance des autres paramètres.</p></li>
 <li><p><em>Vraissemblance</em> (totale): sum de toutes les vraissemblances particulières (=pour chaque observation). Vraissemblance totale = nbr d’obs si vraissemblance parfaite du modèle. “la petite montagne que forme la marche aléatoire pour trouver LA valeur de chaque paramètre”</p></li>
@@ -438,8 +445,8 @@ Il peut être nécessaire de borner les paramètres lorsqu’il n’y a pas d’
 <li><p><em>Erreur</em> du modèle = Var réponse/esperance du modèle</p></li>
 </ul>
 </div>
-<div id="loi-poisson-positif-discret-par-exemble-un-abondance" class="section level2" number="15.4">
-<h2><span class="header-section-number">15.4</span> Loi Poisson (positif &amp; discret) (par exemble un abondance)</h2>
+<div id="loi-poisson-positif-discret-par-exemble-un-abondance" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> Loi Poisson (positif &amp; discret) (par exemble un abondance)</h2>
 <ul>
 <li><p>Var reponse suit une loi <span class="math inline">\(P\)</span> de paramètre <span class="math inline">\(\lambda\)</span></p></li>
 <li><p>le paramètre <span class="math inline">\(\lambda\)</span> suit une loi exp dans laquelle on met les covaraints et leur paramètres pour les faire passer de <span class="math inline">\(R\)</span> à <span class="math inline">\(R+\)</span> nécessaire à <span class="math inline">\(\lambda\)</span></p></li>
@@ -450,14 +457,14 @@ Qd modele trés chargé en paramètres (vecteurs de parmètres) (pas 1 valeurs m
 l’effet nul (theta0) n’a pas besoin d’etre emboité pour etre comparé aux autres paramètres
 Interet : faciliter la convergence et faire suivre le meme chemin à tout ceux qui doivent le suivre</p>
 </div>
-<div id="loi-bernouilli-logistique-blogit-réponse-binaire" class="section level2" number="15.5">
-<h2><span class="header-section-number">15.5</span> Loi Bernouilli-logistique (Blogit) (réponse binaire)</h2>
+<div id="loi-bernouilli-logistique-blogit-réponse-binaire" class="section level2" number="16.5">
+<h2><span class="header-section-number">16.5</span> Loi Bernouilli-logistique (Blogit) (réponse binaire)</h2>
 <ul>
 <li>logit (=fct de lien) car il faut linéariser les facteurs</li>
 </ul>
 </div>
-<div id="tools" class="section level2" number="15.6">
-<h2><span class="header-section-number">15.6</span> Tools</h2>
+<div id="tools" class="section level2" number="16.6">
+<h2><span class="header-section-number">16.6</span> Tools</h2>
 <ul>
 <li><p>Comparer prior et posterior : <em>ppc_dens_overlay()</em></p></li>
 <li><p>Validation de modèle selon la capacité de prédiction : <em>loo_compare(loo(mod1), loo(mod2)) %&gt;% kable()</em>
@@ -475,8 +482,8 @@ generated quantities {
   }
 </code></pre>
 </div>
-<div id="rapidité" class="section level2" number="15.7">
-<h2><span class="header-section-number">15.7</span> Rapidité</h2>
+<div id="rapidité" class="section level2" number="16.7">
+<h2><span class="header-section-number">16.7</span> Rapidité</h2>
 <ul>
 <li>Réduire la taille des données</li>
 <li>2 chaines et une 100aine d’itérations</li>
@@ -484,8 +491,8 @@ generated quantities {
 <li>l’argument <em>save_warmup = F</em> (ne pas renvoyer la période de chauffe)</li>
 </ul>
 </div>
-<div id="non-identifiabilité" class="section level2" number="15.8">
-<h2><span class="header-section-number">15.8</span> Non-identifiabilité</h2>
+<div id="non-identifiabilité" class="section level2" number="16.8">
+<h2><span class="header-section-number">16.8</span> Non-identifiabilité</h2>
 <p>= vraisemblance reste cste malgrè changement des paramètres, incapcité à donner une valeur aux paramètres (variance trop grande)</p>
 <p>Symptomes :
 - chaines ne semélangent pas
@@ -515,7 +522,6 @@ prior non informatif</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -534,6 +540,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -554,6 +561,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

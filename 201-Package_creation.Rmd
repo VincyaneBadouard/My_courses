@@ -38,24 +38,24 @@ Télécharger des packages d'aide à l'organisation et structure, nécessaire à
 ```
 ## Creation du package 
 
-+ *New Project > New Directory > R package using devtools…*
++ **New Project > New Directory > R package using devtools…**
 
 + Nom du package : pas d’espace, pas d’underscore, ne pas commencer par un chiffre et en minuscule
 
 
-+ *Build > Install and restart* construit et charge le package dans R 
++ **Build > Install and restart** construit et charge le package dans R 
 
 ## Tips de codeur
 
-+ Mesurer le temps d’exécution d’un code : *system.time* ou *microbenchmark (fct1,fct2)* pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.
++ Mesurer le temps d’exécution d’un code : **system.time** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.
 
-+ Détacher un package de l'environnement : *unloadNamespace()*
++ Détacher un package de l'environnement : **unloadNamespace()**
 Définitions "Charger/Attacher" un package :
 - pkg::fct = pas attaché
 - library(pkg) = attaché
 dans un cas comme dans l'autre, le package est chargé (load) : on l'utilise.
 
-+ Trouver les non ASCII characters : *tools::showNonASCIIfile("R/zzz.R")*
++ Trouver les non ASCII characters : **tools::showNonASCIIfile("R/zzz.R")**
   
 + les lignes doivent faire 80 charactères max
 
@@ -65,13 +65,14 @@ dans un cas comme dans l'autre, le package est chargé (load) : on l'utilise.
 
 ## Commandes
 
-+ *Build > Install and restart* permet de tester des modifications de code
-+ *check* ou *devtools::check()* permet de vérifier son code (màj de la documentation (dossier "man"), tests sur le code, renvoie erreurs et avertissements)
++ **Build > Install and restart** permet de tester des modifications de code
++ **check** ou **devtools::check()** permet de vérifier son code (màj de la documentation (dossier "man"), tests sur le code, renvoie erreurs et avertissements)
++ checker uniquement les exemples : **devtools::run_examples()**
 + *git branch -d main* dans la console permet de supprimer la branche "main" de git
 
-+ Documentation-exporter une fonction : placer le curseur dans la fonction et appeler le menu “Code > *Insert Roxygen Skeleton*” (ou  CTRL + ALT + SHIFT + R): roxygen2 la déclarera dans "NAMESPACE" après un "check"
++ Documentation-exporter une fonction : placer le curseur dans la fonction et appeler le menu “Code > **Insert Roxygen Skeleton**” (ou  CTRL + ALT + SHIFT + R): roxygen2 la déclarera dans "NAMESPACE" après un "check"
 
-+ raccourcir les lignes du squelette : *ctrl + shift + /*
++ raccourcir les lignes du squelette : **ctrl + shift + /**
 
 
 ### Comprendre le Skeleton 
@@ -84,7 +85,7 @@ dans un cas comme dans l'autre, le package est chargé (load) : on l'utilise.
 @return décrire le résultat de la fonction
 @export déclare que la fonction est exportée : elle sera donc utilisable dans l’environnement de travail
 
-+ Pour un exemple qu'on ne veut pas encore "checké" *\dontrun{l'exemple}*
++ Pour un exemple qu'on ne veut pas encore "checké" **\dontrun{l'exemple}**
 
 ### R folfer
 
@@ -95,7 +96,7 @@ ou on peut y rassembler plsrs fonctions regroupables
 ### nompackage.R file
 
 = commentaires pour roxygen2
-= page d'aide du package (=1er bloc) (visible avec *package?Maria*)
+= page d'aide du package (=1er bloc) (visible avec **package?Maria**)
 = supplément de la vignette
 
 ### NAMESPACE file
@@ -118,23 +119,23 @@ Les alinéas sont nécessaires
 
 ## Importation de fonctions
 + le package d’appartenance de la fonction doit obligatoirement être déclaré :
-*DESCRIPTION < Imports: nom package, nom package*
-*Le package tydiverse ne doit pas être importé car trés changeant*
+**DESCRIPTION < Imports: nom package, nom package**
+**Le package tydiverse ne doit pas être importé car trés changeant**
 
-Import du pipe : *usethis::use_pipe()*
+Import du pipe : **usethis::use_pipe()**
 
-Pour ne pas le faire à la main (préférable): *usethis::use_package("stats")*
+Pour ne pas le faire à la main (préférable): **usethis::use_package("stats")**
 
-+ Importer la fonction dans *nompackage.R* : 
-*#' @importFrom package fct* dans le squelette de la fct (fichier.R)
++ Importer la fonction dans **nompackage.R** : 
+**#' @importFrom package fct** dans le squelette de la fct (fichier.R)
 
 + la fonction importée doit être trouvable dans
 l’environnement du package en création : la meilleure pratique est de qualifier systématiquement les fonctions
-d’autres packages dans le code avec la syntaxe *package::fonction()* (Sylvain dit que non)
+d’autres packages dans le code avec la syntaxe **package::fonction()** (Sylvain dit que non)
 
 ## Créer des classes pour ses objets en plus de ceux de base
-*class(x) <- "MyClass"* ou 
-*class(y) <- c("MyClass", class(y))* si on veut ajouter une classe aux classes de l'objet déjà existantes
+**class(x) <- "MyClass"** ou 
+**class(y) <- c("MyClass", class(y))** si on veut ajouter une classe aux classes de l'objet déjà existantes
 
 ## Créer une "méthode générique"
 méthode générique = modèle de fonction, sans code, à décliner selon la classe d’objet à traiter (ex : "plot").
@@ -159,7 +160,7 @@ print.multiple <- function(x, ...) {
 ```
 
 Sa signature : ensemble de ses arguments
-Les fonctions dérivées de cette méthode devront obligatoirement avoir les *mêmes arguments* dans le *même ordre* et pourront seulement ajouter des arguments supplémentaires avant "..." (qui est obligatoire).
+Les fonctions dérivées de cette méthode devront obligatoirement avoir les **mêmes arguments** dans le **même ordre** et pourront seulement ajouter des arguments supplémentaires avant "..." (qui est obligatoire).
 
 1er argument : "x". Dépend de la classe de l'objet
 
@@ -173,20 +174,20 @@ Tout package doit être compatible avec le tydiverse.
 retourner un objet du même format
 
 + les méthodes plot() doivent être doublées de méthodes
-*autoplot()* avec les mêmes arguments qui produisent le
+**autoplot()** avec les mêmes arguments qui produisent le
 même graphique qu'avec ggplot2.
 autoplot() : permet de visualiser tt type d'objet, meilleur que ggplot2.
 
-+ aes() devient *aes_()* et ajouter un *~* devant les noms des variables.
++ aes() devient **aes_()** et ajouter un **~** devant les noms des variables.
 
-+ R CMD CHECK NOTE "no visible binding for global variable" : mettre *@importFrom rlang .data*
++ R CMD CHECK NOTE "no visible binding for global variable" : mettre **@importFrom rlang .data**
 
 
 
 ## Vignette
 
-+ Création *usethis::use_vignette("nomdupackage")*
-+ *library(monpackage)* dans le premier chunk.
++ Création **usethis::use_vignette("nomdupackage")**
++ **library(monpackage)** dans le premier chunk.
 + introduction à l'utilisation du package
 + chunk avec un exemple d’utilisation 
 + Les packages utilisés par la vignette doivent apparaitre dans DESCRIPTION
@@ -196,27 +197,27 @@ autoplot() : permet de visualiser tt type d'objet, meilleur que ggplot2.
 Pour compiler la vignette (Build ne le fait pas) (et la voir dans la page d'aide du package):
 installer le package à partir de sa source :
 
-+ Pour mettre une copie de la vignette dans /doc (durant le dvp) : *devtools::build_vignettes()*
++ Pour mettre une copie de la vignette dans /doc (durant le dvp) : **devtools::build_vignettes()**
 On peut détruire ce qui est dans doc/ après usage. Le dossier est déclaré dans .Rbuildignore et .gitignore.
 
-+ Push sur Github puis *devtools::install_github("DeveloperName/PackageName", build_vignettes = TRUE)*
++ Push sur Github puis **devtools::install_github("DeveloperName/PackageName", build_vignettes = TRUE)**
 Cette methode le permet aussi, mais plus triviale : https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/
 
 
-+ Pour que le check ne construise pas la vignette : *--no-build-vignettes* dans options > check et build pckg
++ Pour que le check ne construise pas la vignette : **--no-build-vignettes** dans options > check et build pckg
 
 + Si le build renvoie une erreur relative à qpdf : il faut installer les Rtools et au bon endroit (voir 1.1.2 Rtools TravailleR d'Eric Marcon)
 
 ## Site du package : Pkgdown
 https://pkgdown.r-lib.org/articles/pkgdown.html 
 
-! le dépot doit être *public* !
+! le dépot doit être **public** !
 
-+ Création site du package (dossier "docs"): *usethis::use_pkgdown()* puis *pkgdown::build_site()*
++ Création site du package (dossier "docs"): **usethis::use_pkgdown()** puis **pkgdown::build_site()**
 
-+ Use GitHub actions to automatically build and publish the site every time you make a change *usethis::use_pkgdown_github_pages()*
++ Use GitHub actions to automatically build and publish the site every time you make a change **usethis::use_pkgdown_github_pages()**
 
-+ Configures a GitHub Action to automatically build the pkgdown site and deploy it via GitHub Pages : *usethis::use_github_action("pkgdown")*
++ Configures a GitHub Action to automatically build the pkgdown site and deploy it via GitHub Pages : **usethis::use_github_action("pkgdown")**
 
 Home page : index.md or README.md
 Reference : liens vers les pages d'aide de toutes les fcts du package. On peut les organiser voir le lien.
@@ -227,7 +228,7 @@ News : NEWS.md
 
 ## Des petits messages à l'utilisateur
 
-+ Afficher des messages informatifs : *cat()*
++ Afficher des messages informatifs : **cat()**
 ex : cat("multiplied by", object$times, "is:\n") donne "multiplied by 2 is:"
 
 
@@ -242,9 +243,9 @@ src/*.dll"
 
 ## Biblio
 
-Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec *Rdpack* et *roxygen2*  
+Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec **Rdpack** et **roxygen2**  
 
-De notre zotero/mendeley vers : *REFERENCES.bib* dans le dossier *inst*
+De notre zotero/mendeley vers : **REFERENCES.bib** dans le dossier **inst**
 
 Ajouter dans le fichier DESCRIPTION : 
 ```{r, eval = F}
@@ -260,30 +261,30 @@ Biblio de la vignette :
 + le déclarer dans l'entête
 + citer avec @citation.
 
-On peut éviter de multiplier les fichiers bib en utilisant celui de *RdPack* qui est *inst/REFERENCES.bib* : dans la vignette, tu déclares le chemin relatif : *bibliography: ../inst/REFERENCES.bib*
+On peut éviter de multiplier les fichiers bib en utilisant celui de **RdPack** qui est **inst/REFERENCES.bib** : dans la vignette, tu déclares le chemin relatif : **bibliography: ../inst/REFERENCES.bib**
 
 ## Where stock my data in my package 
 
-### *Testing data*:
+### **Testing data**:
 
-- Just for me : in *inst/extdata* ('inst' pour 'installed') : external data (private) (en csv) -> no need to document
+- Just for me : in **inst/extdata** ('inst' pour 'installed') : external data (private) (en csv) -> no need to document
 - For the user (and me) : in "data" : internal data (= deliver with the package) (public) -> need to document
 
-### *Default data*:
+### **Default data**:
 
 - Dataset : in "data" : internal data (= deliver with the package) (public) -> need to document
 
 - Valeurs par default d'arguments de fct : 
 
-  * Fct d'arguments : si on veut passer des valeurs par défaut dans une fct, on peut les proposer en arguments de celle-ci. S'il y en a bcp, on peut créer *une autre fct* qui aura pour arguments ces valeurs par défaut et qui créé une *liste* de celles-ci. Cette dernière fct sera entrée comme argument de la 1ère. Ainsi n'importe quelle valeur peut être modifiée sans avoir à tout réécrire. *fun1(A, B, arg = fun2(arg10 = FALSE))*
+  * Fct d'arguments : si on veut passer des valeurs par défaut dans une fct, on peut les proposer en arguments de celle-ci. S'il y en a bcp, on peut créer **une autre fct** qui aura pour arguments ces valeurs par défaut et qui créé une **liste** de celles-ci. Cette dernière fct sera entrée comme argument de la 1ère. Ainsi n'importe quelle valeur peut être modifiée sans avoir à tout réécrire. **fun1(A, B, arg = fun2(arg10 = FALSE))**
 
   * Liste dans data : on peut aussi juste créer la liste et en faire un data que l'utilisateur loadera, modifira, et injectera dans la fct en argument, mais ça lui demande donc du travail préliminaire.
 
-- "Global options" in *zzz file*
+- "Global options" in **zzz file**
 
 #### "Global options"
 
-Where write options: in *zzz file* (in R folder), as a named list or vector (eg. pars <- list(track_size = 2, method = "EFI"). Then you called pars$method.).
+Where write options: in **zzz file** (in R folder), as a named list or vector (eg. pars <- list(track_size = 2, method = "EFI"). Then you called pars$method.).
 
 Options = an object (here a list/vector)
 
@@ -296,28 +297,28 @@ Inconvénients des options : on ne peut pas appliquer de apply sur différentes 
 
 + Documenter les "options" du package : dans un fichier .R dons le dossier R (regarder ?rstan_options pour inspiration)
 
-+ Modification des options par l'utilisateur : *options()* http://www.endmemo.com/r/options.php
++ Modification des options par l'utilisateur : **options()** http://www.endmemo.com/r/options.php
 
 + If you modify global options() or graphics par(), save the old values and reset when you’re done:
-*old <- options(optionsname = defaultvalue)* save the old values
-*on.exit(options(old), add = TRUE)* reset when you’re done
+**old <- options(optionsname = defaultvalue)** save the old values
+**on.exit(options(old), add = TRUE)** reset when you’re done
 
 + To access the value of a single option, one should use, e.g., getOption("width") rather than options("width") which is a list of length one.
 
 
-### Exported data (in *data/*)
+### Exported data (in **data/**)
 
 + accessible à l'utilisateur !
 
-+ *usethis::use_data(data1, data2)* : crée un fichier (.rda) pour chaque jeu de données/variable, dans le dossier *data*
++ **usethis::use_data(data1, data2)** : crée un fichier (.rda) pour chaque jeu de données/variable, dans le dossier **data**
 
 + pas conseillé de prendre un autre format de fichier, celui-ci est pertinent (rapide et léger).
 
-+ DESCRIPTION file : *LazyData: true* -> data dispo dès le chargement du package, ne chargeront qu'au besoin.
++ DESCRIPTION file : **LazyData: true** -> data dispo dès le chargement du package, ne chargeront qu'au besoin.
 
-+ comprésser un fichier : *bzip2*, *gzip* ou *xz*
++ comprésser un fichier : **bzip2**, **gzip** ou **xz**
 
-+ si le fichier data est une version transformée d'une base de donnée, il est conseillé de mettre le code de transformation dans *data-raw/* grace à : *usethis::use_data_raw("nom du data")*
++ si le fichier data est une version transformée d'une base de donnée, il est conseillé de mettre le code de transformation dans **data-raw/** grace à : **usethis::use_data_raw("nom du data")**
 
 
 ### Documenter ces données exportées
@@ -340,34 +341,34 @@ Inconvénients des options : on ne peut pas appliquer de apply sur différentes 
 "name"
 ```
 
-### Internal data for a function (in *R/sysdata.rda*)
+### Internal data for a function (in **R/sysdata.rda**)
 
 + Pour : stocker une base de données analysée/pré-calculée, dont a besoin une fonction.
 
 + non-accessible à l'utilisateur ! -> pas à être documenté
 
-+ mise dans *R/sysdata.rda* grace à *usethis::use_data(, internal = TRUE)*
++ mise dans **R/sysdata.rda** grace à **usethis::use_data(, internal = TRUE)**
 
-+ si le fichier data est une version transformée d'une base de donnée, il est conseillé de mettre le code de transformation dans *data-raw/* grace à : *usethis::use_data_raw()*
++ si le fichier data est une version transformée d'une base de donnée, il est conseillé de mettre le code de transformation dans **data-raw/** grace à : **usethis::use_data_raw()**
 
 ## Charger ces data
 
 + Quand : pour les exemples et les tests, pas dans les fonctions ! Les fonctions ne manipulent que leurs propres objets (en 1er lieu leurs arguments).
 (Le mieux c'est de garder son environnement global vide lors de la création de la fonction.)
 
-+ *system.file("dossier", "fichier", package = "nompackage")* : donne le chemin vers un fichier d'un package, pour tout système d'exploitation.
++ **system.file("dossier", "fichier", package = "nompackage")** : donne le chemin vers un fichier d'un package, pour tout système d'exploitation.
 
 + load() : pour charcher les .rda. Ex : load(system.file("extdata", "BrokenParacou6_2016.rda", package = "Maria"))
 + read_csv : pour charcher les csv
 
-+ *data(nomdufichier)* : charge le fichier s'il est dans le dossier "data" du package
++ **data(nomdufichier)** : charge le fichier s'il est dans le dossier "data" du package
 
 
 
 ## Tests 
 
-+ Créer un dossier "tests" : *usethis::use_testthat()* 
-+ écrire des tests à nos fonctions dans tests/testthat :  *usethis::use_test(name = "nomdelafct")*
++ Créer un dossier "tests" : **usethis::use_testthat()** 
++ écrire des tests à nos fonctions dans tests/testthat :  **usethis::use_test(name = "nomdelafct")**
 + The test name should complete the sentence “Test that …”.
 ```{r exemple test}
 ## test_that("Math works", {
@@ -380,7 +381,7 @@ Inconvénients des options : on ne peut pas appliquer de apply sur différentes 
 + Each test is run in its own environment and is self-contained.
 + chaque test s'applique sur les outputs de la fct testée, pas sur les objets internes
 + dans les test, ne charger la function qu'1 fois si possible pour limiter le temps de calcul (limité sur CRAN)
-+ Ne pas afficher les messages renvoyées par les fcts testées dans les tests : *suppressMessages(fun())*
++ Ne pas afficher les messages renvoyées par les fcts testées dans les tests : **suppressMessages(fun())**
 
 
 
@@ -388,23 +389,23 @@ package "teststat" : vérification que la fonction fonctionne et renvoie les val
 package “covr” (juste copier report() dans la console) : qui dit quelle proportion du code est sous unités de tests (couverture)
 
 Devtools (https://testthat.r-lib.org/reference/index.html):
-expect_equal() is equal within small *numerical tolerance*?
-expect_identical() is *exactly equal*?
+expect_equal() is equal within small **numerical tolerance**?
+expect_identical() is **exactly equal**?
 expect_match() matches specified string or regular
 expect_message() displays specified message?
 expect_warning() displays specified warning?
 expect_error() throws specified error?
-expect_type() output inherits from certain *class*?
+expect_type() output inherits from certain **class**?
 expect_false() returns FALSE?
 expect_true() returns TRUE?
 logical-expectations() : Does code return TRUE or FALSE?
-expect_null() : Does code return *NULL*?
+expect_null() : Does code return **NULL**?
 expect_length : code return a vector with the specified length?
 equality-expectations() : code return the expected value?
 expect_vector() : Does code return a vector with the expected size and/or prototype?
 expect_named() : Does code return a vector with (given) names?
 comparison-expectations() : Does code return a number greater/less than the expected value?
-expect_setequal() : Does code return a vector containing the *expected values*?
+expect_setequal() : Does code return a vector containing the **expected values**?
 expect_output() : Does code print output to the console?
 try_again() : Try evaluating an expressing multiple times until it succeeds.
 make_expectation() : Make an equality test.
@@ -422,7 +423,7 @@ these functions have two arguments: the 1st is the actual result, the 2nd is wha
 + 0 notes/warning/error
 
 ### Les tests 
-+ Githubactions : pour un contrôle standard :*usethis::use_github_action_check_standard()* -> R-CMD-check.yaml creation
++ Githubactions : pour un contrôle standard :**usethis::use_github_action_check_standard()** -> R-CMD-check.yaml creation
 https://youtu.be/K4x-uqLl_m4
 
 + Codecov : test-coverage.yaml (https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow) (créer un "secret" pour le token sur github si le dépot est privé)
@@ -431,12 +432,12 @@ Il faut créer un compte codecov
 ## Debugger
 
 + tapper ligne par ligne dans la console la partie qui coince
-+ Lorsque *Browse[1]>* s'affiche dans la console, on peut écrire des commandes utilisant l'environnement de la fonction en bug, et donc la travailler.
++ Lorsque **Browse[1]>** s'affiche dans la console, on peut écrire des commandes utilisant l'environnement de la fonction en bug, et donc la travailler.
 
 ## Versioning
 https://r-pkgs.org/release.html#release-version
 
-*major.minor.patch.9000*
+**major.minor.patch.9000**
 
 .9000 only for dvlmpt version
 major, nimor, patch for released version
@@ -447,12 +448,31 @@ For development version:
 9000 +1 / commit for example. You can choose your unit
 
 For released version: 
-*patch* : just debuging, no addings
+**patch** : just debuging, no addings
 
-*minor* : debuging, addings, with backward compatibility (same functions and arguments names)
+**minor** : debuging, addings, with backward compatibility (same functions and arguments names)
 
-*major* : substantive changes, not backward compatible, affect many users
+**major** : substantive changes, not backward compatible, affect many users
 
+## Renommer un dépôt
+https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository
+
+## Installer le package
+Dépot public :
+```{r}
+devtools::install_github("DeveloperName/PackageName", build_vignettes = TRUE)
+```
+Dépot privé :
+Create an access token in: https://github.com/settings/tokens
+```{r}
+devtools::install_github("user/repo"
+,ref="master"
+,auth_token = "tokenstring" # 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
+)
+```
+
+## Générer la citation du package
+mettre un onglet **Date** dans le fichier DESCRIPTION, y écrire une date dans le format yyyy-mm-dd et runer **citation("nom du package")**
 
 
 

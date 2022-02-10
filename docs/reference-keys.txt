@@ -76,6 +76,7 @@ sous-titre
 table
 figure
 equations
+github
 bookdown
 fichiers-particuliers
 intégration-continue
@@ -140,6 +141,9 @@ cran
 les-tests
 debugger
 versioning
+renommer-un-dépôt
+installer-le-package
+générer-la-citation-du-package
 shiny-cours
 packages
 tips-codeur

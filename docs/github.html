@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 5 Rmarkdown | My cours</title>
+  <title>Cours 6 Github | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 5 Rmarkdown | My cours" />
+  <meta property="og:title" content="Cours 6 Github | My cours" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 5 Rmarkdown | My cours" />
+  <meta name="twitter:title" content="Cours 6 Github | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="c.html"/>
-<link rel="next" href="github.html"/>
+<link rel="prev" href="rmarkdown.html"/>
+<link rel="next" href="bookdown.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -408,67 +408,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="rmarkdown" class="section level1" number="5">
-<h1><span class="header-section-number">Cours 5</span> Rmarkdown</h1>
-<p>texte</p>
-<div id="titre" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Titre</h2>
-<div id="sous-titre" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Sous-titre</h3>
-<p>Liste :</p>
-<ul>
-<li>chat</li>
-<li>chien</li>
-<li>oiseau</li>
-</ul>
-<p>Liste numérotée :</p>
-<ol style="list-style-type: decimal">
-<li>Liste numérotée</li>
-<li>on peut laisser 1. et il met les bons numéros</li>
-</ol>
-<p><em>italique</em> ou <em>italique</em></p>
-<p><strong>gras</strong> ou <strong>gras</strong></p>
-<p><em><strong>gras&amp;italique</strong></em></p>
-<blockquote>
-<p>citation</p>
-</blockquote>
-<!--commentaire -->
-<p>Pour passer à la ligne suivante/faire un noyveau paragraphe : finir par
-espaces la ligne
-## Chunk</p>
-<p>raccourci clavier pour générer un chunk : <em>CTRL + ALT + I</em></p>
-<p>Chunk options</p>
-<p>Afficher une valeur dans le texte :
-1+2 = ‘r 1+2’</p>
-</div>
-</div>
-<div id="table" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Table</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rmarkdown.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
-<span id="cb29-2"><a href="rmarkdown.html#cb29-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
-<span id="cb29-3"><a href="rmarkdown.html#cb29-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">caption =</span> </span>
-<span id="cb29-4"><a href="rmarkdown.html#cb29-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
-</div>
-<div id="figure" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Figure</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rmarkdown.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb30-2"><a href="rmarkdown.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
-<span id="cb30-3"><a href="rmarkdown.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</div>
-<div id="equations" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Equations</h2>
-<p><span class="math inline">\(\alpha\)</span>
-<span class="math display">\[Y \sim\mathcal N(\mu,\sigma)\frac{1}{1+e}\]</span></p>
+<div id="github" class="section level1" number="6">
+<h1><span class="header-section-number">Cours 6</span> Github</h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="c.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
