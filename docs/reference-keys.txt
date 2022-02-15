@@ -5,7 +5,7 @@ charger-les-données
 corection-préliminaires-des-données
 transformation-de-données
 histoire-de-characters
-la-syntaxe-qui-fait-chier-du-balai
+la-syntaxe-qui-fait-chr-du-balai
 comparaison-de-tables
 tirage
 yo-arrange-mes-données
@@ -141,7 +141,7 @@ cran
 les-tests
 debugger
 versioning
-renommer-un-dépôt
+renommer-le-package
 installer-le-package
 générer-la-citation-du-package
 shiny-cours

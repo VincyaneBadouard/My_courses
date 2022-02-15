@@ -24,7 +24,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2022-02-10" />
+<meta name="date" content="2022-02-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,7 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#corection-préliminaires-des-données"><i class="fa fa-check"></i><b>1.4</b> Corection préliminaires des données</a></li>
 <li class="chapter" data-level="1.5" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#transformation-de-données"><i class="fa fa-check"></i><b>1.5</b> Transformation de données !</a></li>
 <li class="chapter" data-level="1.6" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#histoire-de-characters"><i class="fa fa-check"></i><b>1.6</b> Histoire de characters</a></li>
-<li class="chapter" data-level="1.7" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#la-syntaxe-qui-fait-chier-du-balai"><i class="fa fa-check"></i><b>1.7</b> La syntaxe qui fait chier, du balai !</a></li>
+<li class="chapter" data-level="1.7" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#la-syntaxe-qui-fait-chr-du-balai"><i class="fa fa-check"></i><b>1.7</b> La syntaxe qui fait ch**r, du balai !</a></li>
 <li class="chapter" data-level="1.8" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#comparaison-de-tables"><i class="fa fa-check"></i><b>1.8</b> Comparaison de tables</a></li>
 <li class="chapter" data-level="1.9" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#tirage"><i class="fa fa-check"></i><b>1.9</b> Tirage</a></li>
 <li class="chapter" data-level="1.10" data-path="fonctions-bien-sympatiques-trés-cher.html"><a href="fonctions-bien-sympatiques-trés-cher.html#yo-arrange-mes-données"><i class="fa fa-check"></i><b>1.10</b> Yo ! arrange mes données !</a></li>
@@ -312,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.21" data-path="package-creation.html"><a href="package-creation.html#debugger"><i class="fa fa-check"></i><b>10.21</b> Debugger</a></li>
 <li class="chapter" data-level="10.22" data-path="package-creation.html"><a href="package-creation.html#versioning"><i class="fa fa-check"></i><b>10.22</b> Versioning</a></li>
-<li class="chapter" data-level="10.23" data-path="package-creation.html"><a href="package-creation.html#renommer-un-dépôt"><i class="fa fa-check"></i><b>10.23</b> Renommer un dépôt</a></li>
+<li class="chapter" data-level="10.23" data-path="package-creation.html"><a href="package-creation.html#renommer-le-package"><i class="fa fa-check"></i><b>10.23</b> Renommer le package</a></li>
 <li class="chapter" data-level="10.24" data-path="package-creation.html"><a href="package-creation.html#installer-le-package"><i class="fa fa-check"></i><b>10.24</b> Installer le package</a></li>
 <li class="chapter" data-level="10.25" data-path="package-creation.html"><a href="package-creation.html#générer-la-citation-du-package"><i class="fa fa-check"></i><b>10.25</b> Générer la citation du package</a></li>
 </ul></li>
@@ -588,20 +588,21 @@ autoplot() : permet de visualiser tt type d’objet, meilleur que ggplot2.</p></
 <div id="vignette" class="section level2" number="10.11">
 <h2><span class="header-section-number">10.11</span> Vignette</h2>
 <ul>
-<li><p>Création <strong>usethis::use_vignette(“nomdupackage”)</strong></p></li>
-<li><p><strong>library(monpackage)</strong> dans le premier chunk.</p></li>
-<li><p>introduction à l’utilisation du package</p></li>
-<li><p>chunk avec un exemple d’utilisation</p></li>
-<li><p>Les packages utilisés par la vignette doivent apparaitre dans DESCRIPTION</p></li>
-<li><p>C’est un rmd donc ne pas oublier de kniter souvent</p></li>
+<li>Création <strong>usethis::use_vignette(“nomdupackage”)</strong></li>
+<li>Les packages utilisés par la vignette doivent apparaitre dans DESCRIPTION</li>
+<li>C’est un rmd donc ne pas oublier de kniter souvent</li>
 </ul>
-<p>Pour compiler la vignette (Build ne le fait pas) (et la voir dans la page d’aide du package):
-installer le package à partir de sa source :</p>
+<p>Contenu :<br />
++ <strong>library(monpackage)</strong> dans le premier chunk.
++ introduction à l’utilisation du package
++ chunk avec un exemple d’utilisation</p>
+<p>Compilation :<br />
+Pour compiler la vignette (<em>Build</em> ne le fait pas) (et la voir dans la page d’aide du package):</p>
 <ul>
 <li><p>Pour mettre une copie de la vignette dans /doc (durant le dvp) : <strong>devtools::build_vignettes()</strong>
 On peut détruire ce qui est dans doc/ après usage. Le dossier est déclaré dans .Rbuildignore et .gitignore.</p></li>
 <li><p>Push sur Github puis <strong>devtools::install_github(“DeveloperName/PackageName”, build_vignettes = TRUE)</strong>
-Cette methode le permet aussi, mais plus triviale : <a href="https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/" class="uri">https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/</a></p></li>
+Cette methode (installer le package à partir de sa source) le permet aussi, mais plus triviale : <a href="https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/" class="uri">https://www.r-bloggers.com/2020/05/how-to-add-a-vignette-to-a-package-in-rstudio/</a></p></li>
 <li><p>Pour que le check ne construise pas la vignette : <strong>–no-build-vignettes</strong> dans options &gt; check et build pckg</p></li>
 <li><p>Si le build renvoie une erreur relative à qpdf : il faut installer les Rtools et au bon endroit (voir 1.1.2 Rtools TravailleR d’Eric Marcon)</p></li>
 </ul>
@@ -833,9 +834,12 @@ major, nimor, patch for released version</p>
 <p><strong>minor</strong> : debuging, addings, with backward compatibility (same functions and arguments names)</p>
 <p><strong>major</strong> : substantive changes, not backward compatible, affect many users</p>
 </div>
-<div id="renommer-un-dépôt" class="section level2" number="10.23">
-<h2><span class="header-section-number">10.23</span> Renommer un dépôt</h2>
-<p><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository" class="uri">https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository</a></p>
+<div id="renommer-le-package" class="section level2" number="10.23">
+<h2><span class="header-section-number">10.23</span> Renommer le package</h2>
+<p><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository" class="uri">https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository</a>
++ Renommer le dépôt Github puis
++ <strong>$ git remote set-url origin new_url</strong> in the shell
++ ctrl + shift + F remplacer l’ancien nom par le nouveau dans tous le package</p>
 </div>
 <div id="installer-le-package" class="section level2" number="10.24">
 <h2><span class="header-section-number">10.24</span> Installer le package</h2>

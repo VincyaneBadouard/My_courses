@@ -26,6 +26,8 @@
 
 + (obt <- code) : affiche l'objet
 
++ Empecher l'affichage d'un message d'erreur : try( , silent=TRUE)  # no error printed
+
 ## Charger les données
 
 + Chemin absolu : écriture de l’entièreté du chemin
@@ -85,7 +87,7 @@ Sous plusieurs conditions : séparer les conditions d'un **&**
 
 + Mettre le nom d'un objet sous forme de chararters : **deparse(substitute(obj))**
 
-## La syntaxe qui fait chier, du balai !
+## La syntaxe qui fait ch**r, du balai !
 
 + Enlever un espace avant et/ou apres un character : **trimws(x, which = c("both", "left", "right"))**
 

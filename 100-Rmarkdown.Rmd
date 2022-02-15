@@ -42,12 +42,14 @@ Pour passer à la ligne suivante/faire un noyveau paragraphe : finir par
 
 raccourci clavier pour générer un chunk : *CTRL + ALT + I*
 
-Chunk options
+Chunk options :
+
+echo = F : ne pas voir le code
+eval = F : ne pas faire tourner le code
+include = F : ne pas afficher les sorties console
+
+le reste à voir dans le petit engrenage du chunk
 ```{r, echo=FALSE, warning=FALSE, include=TRUE}
-## echo=F : ne pas mettre le contenu du chunk dans le rendu (pour ne pas voir le code)
-## eval = F : ne pas faire tourner le code
-## include = F : ne pas afficher les sorties console
-## le reste à voir dans le petit engrenage du chunk
 1+2
 ```
 
