@@ -2,7 +2,10 @@
 
 # Fonctions bien sympatiques trés cher
 
-**ICI JE METS JUSTE LE NOM DES FONCTIONS, MAIS FAUT CHERCHER SUR INTERNET LES MODALITES D'UTILISATION !!**  
+**Description** : du R base, des fonctions de "base", du tidyverse.  
+Pour du data.table voir le cours concerné.  
+
+**ICI JE METS JUSTE LE NOM DES FONCTIONS, MAIS FAUT CHERCHER SUR INTERNET/LES PAGES D'AIDE LES MODALITES D'UTILISATION !!**  
 
 ## Conseils
 
@@ -14,17 +17,35 @@
 
 ## Tips de codeur
 
++ **Selectionner tout ce qu'il ya dans la parenthèse/crochet/accolade** : double clic à l'interieur de la 1ère/dernière  
+
 + Mesurer le temps d’exécution d’un code : **system.time** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.
 
 + détacher un package de l'environnement : **unloadNamespace()**
 
 + connaitre le code d'une fct : **trace(pkgname::fct, edit=T)**
 
-+ tout bien aligner le code : ctrl A puis ctrl I
-
-+ recherche sur toutes les pages : Ctrl shift F (on peut faire du replace !)
-
 + (obt <- code) : affiche l'objet
+
++ Empecher l'affichage d'un message d'erreur : try( , silent=TRUE)  # no error printed
+
+## Packages inédits!
+
++ Shiny pour trouver des packages R dans le milieu forestier : **ForestAnalysisInR::launchRFA()**
+
+## Mes raccourcis claviers
+
++ Tout selectionner : Ctrl + A
++ Indenter :  Ctrl + I
++ Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)
+
++ **%in%** : Ctrl + Shift + I (nécéssite un package)
++ **%>%** : Ctrl + Shift + M 
+
+## Symbol/name, charactères, variable/objet tout le bazar
++ nom d'objet -> ce nom en characteres : **deparse(substitute(var))**
++ chaine de characteres -> nom d'objet : **as.name("name")**
++ chaine de characteres -> objet : **get("var")**
 
 ## Charger les données
 
@@ -85,7 +106,12 @@ Sous plusieurs conditions : séparer les conditions d'un **&**
 
 + Mettre le nom d'un objet sous forme de chararters : **deparse(substitute(obj))**
 
-## La syntaxe qui fait chier, du balai !
++ Extraire un élément d'une chaine de chrtr :
+si data$idtree = "site_plot"
+**data$site = tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt
+**data$plot = tstrsplit(data$idtree, split = "_")[[2]]** 2nd
+
+## La syntaxe qui fait ch**r, du balai !
 
 + Enlever un espace avant et/ou apres un character : **trimws(x, which = c("both", "left", "right"))**
 
@@ -127,7 +153,7 @@ inventory[!is.na(inventory[,column_name]),] %>%
   st_as_sf(wkt = column_name)
 
 ## Vdplyr
-col_name <- deparse(substitute(var)) ## object name to this name in character
+col_name <- deparse(substitute(var)) ## object name to this name in character(get() pour faire l'inverse)
 inventory %>%
   filter(!is.na( {{ var }} )) %>% ## {{var}} pour réccupérer l'objet mis en argument "var"
   st_as_sf(wkt = col_name) ## quand t'as besoin du nom de la colonne en charactère
@@ -163,6 +189,7 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 
 + Effectifs par ordre croissant : **arrange(N)**
 + Effectifs par ordre décroissant : **arrange(desc(N))**
++ Ordonner un vecteur : **sort(, decreasing = FALSE)**
 + Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis **arrange(var)**
 + Selectionner les n valeurs maximales : **top_n**
 + Afficher les 30 1ères lignes : **slice(1:30)**
@@ -173,6 +200,8 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 + Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()**
 + Savoir si ttes les valeurs d'une colonne sont les mêmes: **length(unique(data$var)) == 1**
 ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales à la 1ère
+
++ Répliquer une ligne n fois : **do.call("rbind", replicate(n, df, simplify = FALSE))**
 
 
 
@@ -199,6 +228,8 @@ which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat
 + renvoyer les éléments dupliqué : **duplicated()** (booléen) data[!duplicated(data$var), ] (dataframe)
 **anyDuplicated**
 
++ Générer la numérotation/les id des lignes : **seq.int(nrow(df))** 
+
 
 ## Calcul informatif
 
@@ -206,6 +237,15 @@ which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat
 
 + Appliquer une fonction sur une liste/vecteur : **lapply(liste, function(elementdelaliste) la fonction dépendante de l'élement)** ou **lapply(liste, function, autres arguments de la fct)**  
 ex :  
+```{r, eval=F}
+multiply <- function(x, factor, div) {
+  (x * factor)/div
+}
+
+lapply(list(1,2,3), multiply, x = 5, factor = 3) # the list is for the "div" argument
+
+```
+
 ```{r, eval=F}
 lapply(a, function(element) bcDiversity(element$N, q = 1, Correction = "Best"))
 ```
@@ -215,9 +255,9 @@ ptit tips : la version fonction d'extraction d'élément d'un objet ($) : **getE
 ```{r, eval=F}
 lapply(x, function(x) x$var) 
 =  
-lapply(x, function(x) getElement(x, "var"))  
+  lapply(x, function(x) getElement(x, "var"))  
 =  
-lapply(x, getElement, "var") 
+  lapply(x, getElement, "var") 
 ```
 
 + Appliquer une fonction sur plsrs listes/vecteurs : **mapply(function(X,Y) {la fonction(X, Y)}, X=list1, Y=list2, SIMPLIFY = F)**  
@@ -301,7 +341,7 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 ```{r, eval=F}
 resultat <- rep(NA, 3)
 for(i in seq_len(3)) {
-resultat[i] <- i
+  resultat[i] <- i
 }
 ```
 
@@ -341,9 +381,9 @@ while (condition) {
 
 ```{r, eval = F}
 function(arguments){
-operation1
-operation2
-return()  ## préciser ce que la fonction doit renvoyer
+  operation1
+  operation2
+  return()  ## préciser ce que la fonction doit renvoyer
 }
 ```
 
@@ -357,16 +397,16 @@ Les **if** sont des booléens qui vérifient si la "condition" est "TRUE", donc 
 
 
 ```{r, eval = F}
- if(case1) {
-expression1
+if(case1) {
+  expression1
 } else {
-expression2
+  expression2
 }
 
 if(case1) {
-expression1
+  expression1
 } else if(case2) {
-expression2
+  expression2
 }
 ...
 else last.expression

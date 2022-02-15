@@ -128,7 +128,7 @@ col_summary(df, mean)
 
 ## L'argument '...'
 
-Il est possible d’utiliser le symbole '...' dans les paramètres d’une fct pour indiquer que tous les paramètres supplémentaires seront transmis aux autres fonctions internes.
+Il est possible d’utiliser le symbole '...' (ellipsis) dans les paramètres d’une fct pour indiquer que tous les paramètres supplémentaires seront transmis aux autres fonctions internes.
 
 
 ```{r Trouver un exemple à mon niveau}
@@ -381,8 +381,7 @@ Dans un fichier .R indépendant
 
 ## Comment les utiliser ?
 
-Enregistrer le code de la fct dans l'envmt :
-source("nomfct/file.R")
+Enregistrer le code de la fct dans l'envmt : **source("nomfct/file.R")**
 
 
 ## Plusieurs fonctions internes - passation d'infos

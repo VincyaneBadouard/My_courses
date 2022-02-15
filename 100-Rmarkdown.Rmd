@@ -7,9 +7,16 @@ opts_chunk$set(echo=F, message=F)#pour ne pas voir le code et les message pour t
 
 # Rmarkdown
 
+Reprise du cours de Sylvain Schmitt
+Autres cours:  
+https://bookdown.org/yihui/rmarkdown-cookbook/  
+
+## Packages
+```{r pkgs, eval=FALSE}
+install.packages(c("rmarkdown", "knitr", "blogdown", "tidyverse", "citr"))
+```
+
 texte
-
-
 ## Titre
 
 
@@ -36,18 +43,23 @@ _**gras&italique**_
 
 <!--commentaire -->
 
-Pour passer à la ligne suivante/faire un noyveau paragraphe : finir par 
- espaces la ligne
-## Chunk 
+Pour passer à la ligne suivante/faire un nouveau paragraphe : finir par 2 espaces la ligne  
 
-raccourci clavier pour générer un chunk : *CTRL + ALT + I*
+## Chunk  
 
-Chunk options
+Raccourci clavier pour générer un chunk : *CTRL + ALT + I*  
+
+Chunk options :
+
+echo = F : ne pas voir le code  
+eval = F : ne pas faire tourner le code  
+include = F : ne pas afficher les sorties console  
+
+[Voir documentation](https://yihui.org/knitr/options/)  
+
+
+le reste à voir dans le petit engrenage du chunk  
 ```{r, echo=FALSE, warning=FALSE, include=TRUE}
-## echo=F : ne pas mettre le contenu du chunk dans le rendu (pour ne pas voir le code)
-## eval = F : ne pas faire tourner le code
-## include = F : ne pas afficher les sorties console
-## le reste à voir dans le petit engrenage du chunk
 1+2
 ```
 
@@ -66,6 +78,10 @@ knitr::kable(head(cars), #les en-têtes de "cars"
 
 ## Figure 
 
+`fig.cap = "Caption."` pour la légende d'une figure
+`fig.height = 8, fig.width=4` pour la taille de la figure
+
+
 ```{r, figure, fi.cap="c'est une légende"}
 library(tidyverse)
 ggplot(cars, aes(speed, dist))+
@@ -74,5 +90,42 @@ ggplot(cars, aes(speed, dist))+
 
 ## Equations
 
-$\alpha$
++ Dans le texte : $\alpha$, $\gamma = \alpha + \beta$
++ En bande centrale :
 $$Y \sim\mathcal N(\mu,\sigma)\frac{1}{1+e}$$
+$$Y \sim \mathcal N(\frac{\mu_s}{\beta \times X}, \sigma^2)$$
+
+[Voir le latex maths wiki](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+
+## Des diagrammes avec Mermaid !
+https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
+https://mermaid-js.github.io/mermaid/#/
+
+## Bibliographie
+
+La bilbliographie est lu à partir d'un fichier `.bib` préciser dans l'en-tête YAML et peut être généré automatiquement avec Mendeley, Endnote, etc ...  
+On peut aussi préciser le formation de citation avec un fichier `.csl` défini en ligne pour chaque journal.  
+
+La référence [@Cochrane2003] se fait avec **@ + [ + code bib + ]** mais on peut utiliser l'addin `citr` pour le faire de manière interactive. Je recommande même de définir un raccourcit clavier personnel pour facilement effectuer une citation (par exemple CTRL + SHIFT + G). Enfin on place un titre Référence à la fin du document après lequel se placera la bibliographie mise en forme.
+
+## Références croisées
+
+Les références croisées nécessite d'utiliser le package `bookdown` même sans faire un livre à partir des formats `documents2`. Elle se font avec **SLASH + @ + ref + ( + type + : + nom du chunk + )**. Par exemple je fais référence à la table \@ref(tab:tableRef) et la figure \@ref(fig:figureRef).
+
+```{r tableRef}
+knitr::kable(head(cars), caption = "Ceci est une table.")
+```
+
+```{r figureRef, fig.cap="Ceci est une figure."}
+ggplot(cars, aes(speed, dist)) + geom_point()
+```
+
+## Cache
+
+Le cache vous permet d'enregistrer les sorties d'un fragment de code pour que lors des prochaines compilation il ne soit pas recalculer. Il créé un dossier `_files`  et `_cache` avec les images R des objets du chunk et les figures respectives. **Attention**, si votre chunk dépend d'un chunk qui est mise à jour et que vous ne précisez pas la dépendance il ne sera pas mis à jour. Utilisez l'option `dependson` ou nettoyez le cache pour éviter cela.
+
+```{r, cache=TRUE}
+```
+
+
+

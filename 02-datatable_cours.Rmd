@@ -4,6 +4,7 @@
 https://www.rdocumentation.org/packages/data.table/versions/1.14.2 (R doc)  
 https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html (French, trés bien!)  
 https://linogaliana.netlify.app/post/datatable/datatable-intro/ (French, trop bien !!)  
+https://www.listendata.com/2016/10/r-data-table.html (efficace)  
 https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html (vignette)  
 https://stackoverflow.com/questions/tagged/data.table (stackoverflow)  
 https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html (frequent questions in dt)  
@@ -42,7 +43,7 @@ dt[, `:=`(c = 1 , d = 2, e = c(1, 2))]
 dt <- dt[, -c(2)] ## remove b column (il faut assigner sinon il ne l'enregistre pas)
 dt[, e := NULL] ## là non
 
-dt[, c, by = .(a)]
+dt[, c, by = .(a)] # group
 dt[, c, keyby = .(a)] ## group and order
 
 ```
@@ -67,13 +68,13 @@ C'est mieux car ne garde pas de copie en mémoire.
 
 ## Subset rows :
 - by rows positions : **dt[1:2, ]**  
-- by values in one or more columns : **dt[a > 5, ]**  
+- by values in one or more columns : **dt[a > 5, ]**
+- both : **dt[1:2][a > 5]**  (ne marche pas pour calculer une colonne, utiliser ifelse)
+- values between two values : **dt[a %between% c(2,6)]**
+- patern match : **dt[a %like% "dep"]**
 
 ! ne renvoie pas les NA contrairement au data.frame !  
 La virgule n'est pas obligatoire si pas de colonnes à spécifier.  
-
-**%like%**  
-**%between%**  
 
 ## Extract columns :
 Les colonnes sont des listes.
@@ -84,12 +85,24 @@ Les colonnes sont des listes.
 + return as vector : **dt[, b]** ou **dt[[b]]**  
 + return as data.table : **dt[, list(b)]**  
 
-On ne peut pas directement selctionner un var par sa position ou avec une chaine de charactères car compris comme des cstes  
+On ne peut pas directement selctionner un var par sa position ou avec une chaine de charactères car compris comme des cstes :  
+**dt[, c("a"), with = FALSE]**  
+**dt[, !c("a", "b"), with = FALSE]** remove "a" and "b" columns  
+**dt[, c(2:4), with = FALSE]**  
+
++ To find patern (like grepl()) **%like%**  
+ex : **dt[,names(dt) %like% "dep", with=FALSE]** patern : "dep"
+
+**%between%**  
 
 ## Summarize
 
 **dt[, .(x = sum(a))]** create a data.table with new columns based on the summarized values of rows.
 Summary functions ex : mean(), median(), min(), max(), etc  
+
+**dt[, lapply(.SD, mean), .SDcols = c("a", "b")]** for several columns  
+**dt[, lapply(.SD, mean)]** for all the columns
+**dt[, sapply(.SD, function(x) c(mean=mean(x), median=median(x)))]** multiple statistics
 
 **.N** pour obtenir le nombres d'observations  
 **,by =** par sous-groupe  
@@ -97,7 +110,7 @@ Summary functions ex : mean(), median(), min(), max(), etc
 ## Compute columns
 
 + **:=** permet de modifier une variable en assignation directe, donc pas besoin de "<-".
-+ **()** pour dire que ce sont des colonnes existantes et non des nouvelles a creer 
++ **("c")** pour dire que ce sont des colonnes existantes et non des nouvelles a creer 
 
 
 **dt[, c := 1 + 2]** : compute a column based on an expression (c = col name)  
@@ -105,11 +118,13 @@ Summary functions ex : mean(), median(), min(), max(), etc
 **dt[a == 1, c := 1 + 2]** : compute a column based on an expression but only for a subset
 of rows
 
- + Si on veut mettre des NA : **:= NA_real_**
+ + Si on veut mettre des NA :  **NA_integer_**, **NA_real_**, **NA_character_**
 
 **dt[, `:=`(c = 1 , d = 2)]** : compute multiple columns based on separate expressions (se créent en meme temps donc ne peut pas dépendre de l'autre)
 
-ou **dt[ , c("newcol1", "newcol2") := list(col1 ** 10, col2 ** 20)]**
+ou **dt[ , c("newcol1", "newcol2") := list(col1 * 10, col2 * 20)]**
+
++ With an ifelse : **dt[, c := ifelse(min < 50, 1,0)]** (1 if TRUE, 0 if FALSE)
 
 + Delete a column : **dt[, c := NULL]** (trés rapide)
 
@@ -164,8 +179,8 @@ avec ":=" : **dt[ , col_min := tolower(col)]**
 
 + on equal and unequal : **dt_a[dt_b, on = .(b = y, c > z)]**
 + Rolling join
-+ Combine rows of 2 datatables : **rbind(dt_a, dt_b)**
-+ Combine columns of 2 datatables : **cbind(dt_a, dt_b)**
++ Combine rows of 2 datatables : **rbind(dt1, dt2)** or **rbindlist(list(dt1, dt2), use.names=TRUE, fill=TRUE)** (+ rapide)
++ Combine columns of 2 datatables : **cbind(dt1, dt2)**
 
 ## Indexation
 Très puissant pour accélérer les opérations sur les lignes (filtres, jointures)
@@ -175,6 +190,8 @@ Très puissant pour accélérer les opérations sur les lignes (filtres, jointur
 Peut prendre bcp de temps (qqmin)mais gros gain de temps pour les opérations ultérieures.  
 
 + Pour savoir si un data.table est déjà indexé : **key(dt)** qui renvoie le nom des clés ou NULL.  
+
++ Supprimer la clef : 
 
 
 ## Reshape
@@ -217,7 +234,7 @@ with :
 + **%in%**	: nbr dans la liste
 + **%chin%**	: character dans la liste
 + **%between%**	: valeur entre deux nombres
-+ **%like% "^x"** :	Reconnaissance d’une chaîne de caractères
++ **%like% "^x"** :	Reconnaissance d’une chaîne de caractères (comme grepl())
 + **rowid(var1, var2)** : créer un identifiant de ligne unique pour un goupe de variables (= un compteur)
 
 
@@ -234,6 +251,7 @@ with :
 **.SDcols** : columns on which to apply  
 
 ## Sequential rows
+Sub Queries (like SQL) : **DT[ ] [ ] [ ]**
 
 
 ## Maniement de chaines de caractères
