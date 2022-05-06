@@ -26,3 +26,6 @@ Statistics
 - I'm a modeler
 - Bayesian stats cours
 - Bayesian & stan
+
+Rédaction
+- Distinction britanique/americain

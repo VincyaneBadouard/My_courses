@@ -29,6 +29,8 @@ Pour du data.table voir le cours concerné.
 
 + Empecher l'affichage d'un message d'erreur : try( , silent=TRUE)  # no error printed
 
++ Progress bar : **pb = txtProgressBar(min = 0, max = length(ind), style = 3)** then **close(pb)**
+
 ## Packages inédits!
 
 + Shiny pour trouver des packages R dans le milieu forestier : **ForestAnalysisInR::launchRFA()**
@@ -316,6 +318,7 @@ Voir les palettes : **RColorBrewer::display.brewer.all()**
 ## Télécharger mon bébé dans le bon format, au bon endroit !
 
 + PNG : **png()** avant commande du plot & **dev.off()** après commande du plot
++ ggsave()
 
 ## Nettoyage
 

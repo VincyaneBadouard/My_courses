@@ -5,6 +5,11 @@ library(tidyverse)
 library(sf)
 ```
 
+# Tips
+
++ Le CRS est souvent une source de bug : absent, pas le bon, contenant des accents
+
+# Mapper des données
 Mapper des points dont on a la longitude et la latitude :
 ```{r}
 ggplot(mapping = aes(x = lon, y = lat)) +
@@ -28,7 +33,7 @@ geom_point(data = weather, mapping = aes(x = lon, y = lat))
 ggmap(east_canada,
       base_layer = ggplot(weather, aes(x = lon, y = lat))) + 
   geom_point()
-##base_layer permet d’effectuer des fecettes et d’éviter de spécifier la source des données dans toutes les couches subséquentes.
+##base_layer permet d’effectuer des facettes et d’éviter de spécifier la source des données dans toutes les couches subséquentes.
 
 ```
 
@@ -241,6 +246,10 @@ fichier .prj : informations du système de coordonnées
 
 
 ## Systèmes de coordonnées de références (CRS)
+
++ Le vérifier
++ en UTM c'est en mètres
+
 
 ### Système de coordonnées géographiques
 
