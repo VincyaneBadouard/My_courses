@@ -28,4 +28,5 @@ Statistics
 - Bayesian & stan
 
 Rédaction
+- Conseils de rédaction scientifique
 - Distinction britanique/americain

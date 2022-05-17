@@ -296,7 +296,9 @@ objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))
 
 + Faire des graphs ggplot en clic bouton : **esquisse::esquisser()**
 
-+ Relier le label au point quuand c'est pas visible : **geom_text_repel**
++ Des plots tout beau prêts à publier : **ggpubr**
+
++ Relier le label au point quand c'est pas visible : **geom_text_repel**
 
 + Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**
 

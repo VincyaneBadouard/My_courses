@@ -157,6 +157,8 @@ ggplot2,
 graphics
 Les alinéas sont nécessaires
 
+Attention : les dépendences appartenant à *R core* (ex: stats, parallel) doivent être de meme version munimum que celle de R demandée.
+
 ### .Rbuildignore
 
 = fichiers dans le package pour le constructeur, mais qui ne seront pas chargés avec le package pour l'utilisateur. 

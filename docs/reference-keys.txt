@@ -204,6 +204,7 @@ loi-bernouilli-logistique-blogit-réponse-binaire
 tools
 rapidité
 non-identifiabilité
+conseils-de-rédaction-scientifique
 distinction-britaniqueamericain
 our-uk-ou--or-us
 re-uk-ou--er-us

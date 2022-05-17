@@ -1,0 +1,10 @@
+# (PART) Rédaction {.unnumbered}
+
+# Conseils de rédaction scientifique
+
++ **1 idée**/phrase/paragraphe
++ 1 **phrase d'intro** au début de chaque paragraphe donnant l'info du paragraphe
+
++ Eviter la répétition de contenu -> plan à revoir
+
++ Les articles ne font pas des sous-sous-sous parties -> simplifier le plan
