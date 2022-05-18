@@ -2,9 +2,332 @@
 
 # Conseils de rédaction scientifique
 
+https://docs.google.com/document/d/1Ny_bmW094guCzg8x11Td7pAbqv9EIwCB6iUyIm4WXUY/edit?usp=sharing  
+
+Cours par : Hervé Maisonneuve (médecin)  
+lire la BD humoristique “carnet de thèse”
+
+## Conseils généraux:
+
 + **1 idée**/phrase/paragraphe
 + 1 **phrase d'intro** au début de chaque paragraphe donnant l'info du paragraphe
 
 + Eviter la répétition de contenu -> plan à revoir
 
 + Les articles ne font pas des sous-sous-sous parties -> simplifier le plan
+
++ il faut pas trop attendre après l’écriture pour soumettre car la littérature elle avance
++ une recherche non publiée n’existe pas
++ n’écrivez jamais sans savoir vers quelle **revue** on se dirige 
++ la réanalyse...prend du temps 
++ citer plutôt la 1ère étude 
++ faire d’abord tjrs lire par un **naïf** avant soumission
++ restez focus dans le sujet dans la rédaction 
+
+
+## Pq écrire ? / Pq publier ?
++ partage
++ valoriser son labo, se donner des “points” -> poursuite de carrière
++avancer dans la science
++ former les autres et se former
++ pour faire évaluer son travail
+
+## Les barrières pour écrire et publier :
++ éviter le plagiat
++ mobiliser les sources, la citation
++ expliquer clairement et simplement
++ proposer une mise en perspective
++ l’anglais
++ la procrastination
++ collaboration avec co-auteurs
+
+## Que veulent les rédacteurs ?
++ **innovation**/originalité
++ dans certaines disciplines la réplication d’une recherche est valorisée
++ **clair**/**simple**/**concis**
+
+50-70% de ce qui est publié n’est pas reproductible 
+
+
+## Fonctionnement d’une revue :
+peer-review, aveugle ou non (60% simple aveugle (auteur connu reviewer inconnu), ouvert tt le monde connu)
+
+Impact factor basées sur les citations
+
+rédacteur en chef : pouvoir de régulation
+
+relecteur récupère des idées, régule lui aussi
+
+propriétaire de la revue a des intérêts économique 
+
+le lecteur n’a aucun pouvoir car il ne paye pas et on ne lui demande pas son avis
+
+### Différents types d’articles :
+- éditorial
+- article
+- revue de la litt
+- thèses, mémoires
+- notes techniques, méthodes
+- correspondances
+- livres, chapitres
+
+Article scientifique : 
+- réponse à une **question**
+- modèle IMRaD : intro, mat, results, discu
+- tout au **passé**
+- **voie active** 
+- 4000 mots environ sans résumé et ref
+- 7-8 pages
+- 30-40 citations
+
+
+## Introduction (3 paragraphes) (250 mots) (¼ des refs)
+
+1) **Etat de l’art** (connu) : contextualiser le sujet **du plus général** (pas des faits ridiculement trop large et surconnu) **au plus ciblé**
+
+2) gaps (inconnu) : **les manques** dans la littérature +  hypothèses
+
+3) La **question**
+
+4) (les **hypothèses**)
+5) Réponse à la question dans certaines disciplines
+
++ au **passé**, parfois présent 
+
++ les refs : pas des tartines seulement les plus originales, importantes, pas tt le monde
+25-30% des refs ne contiennent pas ce qu’on leur fait dire
+
+
+## Méthodes (pour que ce soit reproductible) ()
+
++ *Sélection* (nos choix éclairés) : design, temporalité, lieu, sélection des caractéristiques de l’objet d’étude
+
++ *Data availability* : accès aux données
+
++ *Interventions*/*manipulations*/*observations* : ce qu’on y a appliqué 
+  1) description de l’outil (marque, n°série, année)
+  2) méthode (durée, temp, etc)
+  3) investigateurs et la lecture : qui a manipé, combien de personnes, (juniors/seniors)
+  
++ Evaluation : quelles *vars* évaluées 
++ les *tests* préliminaires peuvent y être mis si courts sinon résultats
++ comment : les *stats*
++ considération *éthique* : y avait t-il des régulations
++ le *protocole* peut se mettre en annexe
+
+## Résultats (pas de plan par défaut, voir les consignes de la revue)
++ au **passé** 
++ **pas de ref**
+
++ présentation des **résultats originaux**, les autres en annexes
++ tableau en priorité (données numériques) (ind en lignes, vars en col en général)
++ figures (certaines en annexe si trop long)
++ **la figure ou le tab doit se suffir à elle même avec sa légende**
++ texte parle de l’info principale du tab ou de la figure, **ne doit pas expliquer les fig/tab**
++ 1 résultat n’est présenté qu’1 fois (tableau ou figure)
++ présenter nos figures à collègue **naïf** pour vérifier leur indépendance
++ la lecture commence **en haut à gauche**
++ prendre en compte ce que l’**oeil doit comparer**
++ **unités** des axes 
+
++ éviter les 3 dimensions, les camemberts, la perspective
++ la double unité est moins lisible
++ mettre des délimitations pour indiquer où regarder sur les photos
++ **éviter les noms d’axes verticaux**
++ qd on n'a pas de 0 il faut couper l’axe
++ enlever le vide inutile
++ **utiliser la police de la revue**
+
+Les figures : 
+*couleurs* : couleurs de la revue, penser aux daltoniens et impression noir et blanc (symboles)
+
+## Discussion on discute le résultat tout le long (10-20h de travail
++ passé/présent/conditionnel **pas de future**
+
++ pas de rappel de la question
+1) répondre à la question (1 paragraphe) (on répète le résultat)
+2) forces puis faiblesses du travail (dans chacune des parties)
+3) comparaison avec la littérature
+4) signification de ce travail (optionnel) (changement de pratiques, nouvelles hypothèses, implications générales)
+5) perspectives
+
+*spin* : abus de langage en disant que qqchose marche pas mais que ça aurait marché si… enduit le lecteur en erreur.  
+Les résultats positifs en plus de ça plus représentés dans la littérature que les résultats négatifs. 
+
+
+## Annexes
+
+
+## Les auteurs (les 4 pts validé, international)
+- contribution à la conception ou aux méthodes, ou à l’acquisition, l’analyse ou interprétation des résultats 
+- a rédigé ou participé à la révision critique 
+- approbation pour la dernière version
+- engagement à assumer l’imputabilité (droits) pour tous les aspects de la recherche
+
+Ordre des auteurs (pas de recommandations, mais de pratiques, négociation entre auteurs) :  
+- celui qui a dirigé l’étude
+- entre les deux : ordre d’implication
+- le dernier : superviseur général
+
+Si contribution égale : on le spécifie et l’ordre des auteurs on peut tirer au sort  
+
+Les revues n’exigent rien mais :  
+- auteurs cadeaux/honoraires : n’ont pas participé mais mis en auteurs
+- auteurs fantômes : ont participé mais ne sont pas mis en auteurs  
+40% des conflits dans les équipes est dû à l’ordre des auteurs.  
+
+Remerciements : demander l’autorisation consentement  
+
+## Références :
+- tt ce qu’on utilise doit être cité
+- règles selon la revue 
+- logiciels : zotero (très bien pour une thèse), mendeley, endnote (payant mais plus professionel)
+- citation alphabétique (en ttes lettres) ou numérique (ac des numéros)
+- communication personnelle cité avec son nom et avec son accord
+- “données non publiées” ça n’existe plus
+
+## Titre de l’article :
+- court (10 mots max)
+- l’info essentiel de l’article (**sujet**, **rslt principal**), **le message**
+
+- **mots clefs** bien choisis pour les moteurs de recherche
+- types, informatif, neutres, marketing (jeux de mots)
+- abréviations que si connues
+- lieu mit s’il est important dans le résulat en vu de la littérature  (peut faire perdre des lecteurs)
+- humour : pas le même selon les cultures
+- question ? a voir
+- sous-titre si besoin
+- effectif si original pour la thématique 
+- running title : titre revient au début de chaque page 
+
+## science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)
+principe FAIR : Findable Accessible Interoperable Reusable
+Dataverse Cirad : dépot de données institutionnel
+Si les financements sont publiques, l’étude doit être ouverte
+voie verte : arrêter les revues et publier sur des serveurs institutionnels
+voie dorée : l’institution de l’auteur paye pour publier (2000-5000e/article), pour le lecteur c’est gratuit (=open accès)
+voie diamant : “gratuit pour tt le monde”, c’est la revue de l’institution et c’est elle donc qui paye le personnel.
+ Preprint : pré publication soumis ou non, relus par les pairs ou non, ou rejeté après soumission (HAL dépôt de preprint). Risques d’erreurs et de leur propagation, certaines plateformes proposent des corrections et le statut de l’article. On peut citer un préprint en précisant.
+PubPeer : critiques par les pairs sur des articles acceptés, en téléchargeant le plugin on est informé des critiques faites sur les articles qu’on télécharge
+
+Revues prédatrices (surtout indiennes) (14 000) : but de faire de l’argent en proposant des prix plus bas (200-400e) mais un travail de moindre qualité (2-3 semaines), porte un nom ressemblant à celui d’une revue connue, procède par des propositions par mail (ne pas se désabonner pcq c’est pire, juste les jeter), les procédures ne sont pas transparentes. Risque pour la réputation
+
+Orcid : open researcher and contributor iD = syst d’identification pour les chercheurs, prévient des cas de changements de noms, d’homonymie, permet de s’identifier rapidement et tout rassembler, fait son CV
+
+## Data availability:
+accès aux données nécessaires à la reproductibilité, fournir les images originales 
+déposer dans des référentiels de données publics selon thématique 
+se conformer aux normes/fichiers d’info complémentaires, instructions aux auteurs
+mention “demande des données aux auteurs" ils ne les donne svt pas
+il est bien de donner accès sous motif d’utilisation
+
+## Résumé :
+- 250-400 mots max
+- à rédiger après l’article
+- clarté et mots clefs
+- objectifs, question, méthodes, principaux résultats (chiffrés), réponse à la question (pas discussion)
+- faire du copié-collé de phrases fortes (hilights) de l’article (c’est pas du plagiat)
+  - dernière phrase de l’intro
+  - 1ère phrase de chaque paragraphe 
+  - ...
+- qqfois des “graphical abstract” (schéma bilan) (bien pour publier sur Twitter)
+- ou sous forme de podcast mtn !
+
+## Choix d’une revue (Coopist, “journal selector”)
+A remplir !
+
+## Remerciement :
+- les financeurs
+- relecture par un anglophone
+- non émotionnel (thèse oui)
+
+## CRediT/contributeurs :
+- contributions des auteurs
+- et des non auteurs qui remplissent 1 des points (collecte, analyse, recherche financements, consulté pour la méthodo, ressource matériel, supervision, rédac, relecture)
+
+## Conflit d’intérêt (relations et activités qui ont pu influencer) :
+- préciser les discordances entre chercheurs
+- préciser ses opinions dans le cas où ça pourrait jouer (décisionnaire, actif, dons économiques)
+- préciser qui a financé
+- préciser si certains relecteurs sont contre indiqués
+- c’est le lecteur qui se fait un avis sur les liens exposés
+
+## Gestion du temps
+combien d'heures pour écrire un manuscrit (heures étalées sur x mois)
+comment optimiser, s'organiser :
+où écrire : endroit où on y est tranquil, isolé
+recherche documentaire doit être faite avant et il faut arrêter
+temps social important pour s’ouvrir
+Quand écrire :
+même si la recherche n’est pas terminée 
+ux moments de la journée où on est le plus productif
+régulièrement (un peu ts les jours) sinon on perd du temps à s’y replonger et ça démotive (dont interruption continue) .
+Les temps de repos sont essentiels.
+Ne pas attendre d’avoir une journée de libre, sinon on n’écrit jamais.
+25min minimum, 3h maximum (relecture, plans, relire notes, écriture)
+s'arrêter avec des idées pour la suite (qu’on note) pour mieux s’y remettre
+effet Zeigernik : on se souvient mieux de ce qui est inachevé que de ce qu’on a terminé, le cerveau continu à y travailler 
+conseils : discuter régulièrement avec les coauteurs pour alimenter la réflexion 
+
+Procrastination, 6 conseils :
+1) pensez au futur, au calendrier, imaginez l’article accepté, etc…
+2) apprendre à gérer vos émotions et les sentiments négatifs
+3) Diminuer les distractions…  
+4) Responsabilité : revoir et préciser les objectifs
+5) Demander de l’aide, car écrire est assez facile, quand on a appris… 
+6) Renforcez votre volonté.… de l'entraînement et des ressources et ce sera facile
+
+## Gestion des coauteurs :
+constitution équipe
+- transparence
+- choix de l’ordre
+- plan des gestion des données
+- stratégie de rédaction
+- prendre en compte diversité culturelle et linguistique 
+- éthique 
+- avoir une date limite
+- écrire sur un drive pour écrire sur  seule version 
+
+## Ecriture (qqsoit la langue) :
+- phrase simple courte (1 action par phrase)
+- chaque mot doit être utile (enlever : kind of, really, basically, practically, actually, virtually etc)
+- 15-20 mots/phrase
+- pas de style
+- **position forte : info principale : au début de la phrase, au début du paragraphe (pas de suspens)**
+- utiliser le même mot à chaque fois pour caractériser qqchose (les répétitions c’est ok)
+- les mots scientifiques doivent utiliser que dans leur cadre
+- pas de double négatifs
+- précision : mots, chiffres, totaux, faits, opinions, ref
+- pas d'expressions émotionnelle
+- peu d'adverbe
+
+## Embellissement de l’article (pas bien)
+- sélection de ce qu’ils mettents dans l’article
+- p-value arrangée
+- images modifiées
+- données enlevées
+- salami : segmentation d’articles en plusieurs petits
+- empêche la reproductibilité
+
+
+## Lettre de motivation de soumission (pas tjrs demandée) :
+- 1 seule page
+- regarder si modèle pour la revue
+- accompagne l’article
+- pour attirer l’attention de la revue
+- mise en évidence des découvertes et résultats importants, des objectifs communs avec la revue
+- on peut dire pq on a choisi leur revue, qu’on l’a connait
+- ne pas parler négativement d’un concurrent ou de politique, on ne parle que de son étude
+- italique nom de la revue et des espèces
+- éviter de parler de notre matériel de travail
+- le manuscrit doit être original, pas déjà publié, 
+- pas de conflits d'intérêt
+- liste des relecteurs si demandée, ou ceux qui ne devraient pas relire notre manuscrit
+
+
+## Au Cirad
+aide à la publication à la DIST au Cirad “portail du libre accès” du site cirad
+
+Agritrop : archives ouvertes (base de données) en ligne du CIRAD
+
+Mme Fovet-Rabot : s’occupe de l’archivage au cirad Montpellier
