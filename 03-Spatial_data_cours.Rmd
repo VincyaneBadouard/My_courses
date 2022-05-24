@@ -5,11 +5,11 @@ library(tidyverse)
 library(sf)
 ```
 
-# Tips
+## Tips
 
 + Le CRS est souvent une source de bug : absent, pas le bon, contenant des accents
 
-# Mapper des données
+## Mapper des données
 Mapper des points dont on a la longitude et la latitude :
 ```{r}
 ggplot(mapping = aes(x = lon, y = lat)) +
@@ -42,7 +42,7 @@ Maptype :
 - "toner-lite" : pour l'impression
 - "watercolor" : pour le web
 
-## Types de données spatiales
+### Types de données spatiales
 
 Les données spatiales sont des données localisées dans un système de coordonnées de référence (CRS)
 
@@ -56,7 +56,7 @@ Les données spatiales sont des données localisées dans un système de coordon
 * Données génériques : *shapefiles* et *geojson* 
 * Données spécialement conçus pour R : *sf*
 
-## ggplot
+### ggplot
 
 *geom_polygon : : pour créer des polygones
 *coord_map
@@ -67,7 +67,7 @@ Les données spatiales sont des données localisées dans un système de coordon
 Cartes intéractives (mode leaflet) : *tmap_mode("view")*
 Pour revenir en mode statique : *tmap_mode("plot")*
 
-## Les rasters
+### Les rasters
 
 = données (variable(s)) associées à une grille comprenant les *combinaisons de longitudes et latitudes*.
 
@@ -105,9 +105,9 @@ Géostatistique = étude statistique des variables spatiales
 
 
 
-## Les objets spatialisés en R
+### Les objets spatialisés en R
 
-### Données vectorielles
+#### Données vectorielles
 
 Objets géoréférencés R (=variables (data.frame) liés à des coordonées (sfc)): *sf*
 Packages : *sp*, *sf* (mieux adapté au tidy)
@@ -168,7 +168,7 @@ plot(st_geometrycollection(gemetrycollection_list))
 ##>   LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2))
 ```
 
-#### Simple feature columns (sfc)
+##### Simple feature columns (sfc)
 
 une *sfc* est une liste d'objets *sfg*, de meme type géométrique ou non.
 ```{r}
@@ -204,7 +204,7 @@ quebec %>%
 Si la géométrie n’est pas consituée de points, il faudra préalablement transformer les polygones en points avec *st_cast()*
 
 
-### Données raster
+#### Données raster
 
 Package : *raster*
 grilles svt enchasées dans des images *tif* géoréférencées.
@@ -220,11 +220,11 @@ La fonction plot() permet d’explorer les données en créant *1 graphique par 
 
 Les tif sont trés volumineux. Si l'on n'as pas besoin d'une si haute résolution, on peut simplifier le raster avec *raster::aggregate()*
 
-### Travailler sur du vectoriel & du raster 
+#### Travailler sur du vectoriel & du raster 
 
 Le package "raster" ne supporte pas le format sf, il faut donc préalablement convertir en sp : *poly_sp <- as(poly, "Spatial")* (poly étant ici un polygone)
 
-### Opérations sur Raster
+#### Opérations sur Raster
 
 + Intersection (ce qu'il y a en commun) entre un polygone et un raster : *mask()*
 + Découper (rectangulaire selon les limites de l’objet) : *crop()*
@@ -238,20 +238,20 @@ extract(canopy, poly_sp, fun = mean) # "canopy" =  raster, "poly_sp" = polygone
 
 
 
-## Shapefiles
+### Shapefiles
 
 Contiennent plsrs fichiers :
 fichier .prj : informations du système de coordonnées 
 
 
 
-## Systèmes de coordonnées de références (CRS)
+### Systèmes de coordonnées de références (CRS)
 
 + Le vérifier
 + en UTM c'est en mètres
 
 
-### Système de coordonnées géographiques
+#### Système de coordonnées géographiques
 
 Valeurs : Longitude/latitude
 
@@ -261,7 +261,7 @@ Modele ellipsoïde, 2 paramètres:
 - rayon équatorial
 - rayon polaire
 
-### Système de référence de coordonnées pojetées
+#### Système de référence de coordonnées pojetées
 
 basé sur des coordonées catésiennes sur une surface plane.
 et basés sur les systèmes de coordonnées géographiques

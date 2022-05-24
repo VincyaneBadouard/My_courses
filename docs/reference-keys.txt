@@ -229,6 +229,7 @@ conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer
 gestion-du-temps
 gestion-des-coauteurs
 ecriture-qqsoit-la-langue
+en-englais
 embellissement-de-larticle-pas-bien
 lettre-de-motivation-de-soumission-pas-tjrs-demandée
 au-cirad

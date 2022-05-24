@@ -301,6 +301,9 @@ constitution équipe
 - pas d'expressions émotionnelle
 - peu d'adverbe
 
+### En englais
+pas d'appositions en début de phrase
+
 ## Embellissement de l’article (pas bien)
 - sélection de ce qu’ils mettents dans l’article
 - p-value arrangée
