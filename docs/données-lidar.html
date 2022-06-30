@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 1 Fonctions bien sympatiques trés cher | My cours</title>
+  <title>Cours 4 Données LIDAR | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 1 Fonctions bien sympatiques trés cher | My cours" />
+  <meta property="og:title" content="Cours 4 Données LIDAR | My cours" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 1 Fonctions bien sympatiques trés cher | My cours" />
+  <meta name="twitter:title" content="Cours 4 Données LIDAR | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction.html"/>
-<link rel="next" href="datatable-functions.html"/>
+<link rel="prev" href="spatial-data-cours.html"/>
+<link rel="next" href="c.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -466,437 +466,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="fonctions-bien-sympatiques-trés-cher" class="section level1" number="1">
-<h1><span class="header-section-number">Cours 1</span> Fonctions bien sympatiques trés cher</h1>
-<p><strong>Description</strong> : du R base, des fonctions de “base”, du tidyverse.<br />
-Pour du data.table voir le cours concerné.</p>
-<p><strong>ICI JE METS JUSTE LE NOM DES FONCTIONS, MAIS FAUT CHERCHER SUR INTERNET/LES PAGES D’AIDE LES MODALITES D’UTILISATION !!</strong></p>
-<div id="conseils" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Conseils</h2>
-<ul>
-<li><p>Eviter de donner le meme nom au pipe que la base qu’on utilise dedans, ça écrase les données, et c’est la galere pour les reccuperer</p></li>
-<li><p>Les fonctions tidy sont pas faites pour s’imbriquer. Utiliser des fonctions base à l’int des fcts tidy.</p></li>
-<li><p>Qd un prblm est trop gros, découper le travail (ex: faire des soustables)</p></li>
-</ul>
-</div>
-<div id="tips-de-codeur" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Tips de codeur</h2>
-<ul>
-<li><p><strong>Selectionner tout ce qu’il ya dans la parenthèse/crochet/accolade</strong> : double clic à l’interieur de la 1ère/dernière</p></li>
-<li><p>Mesurer le temps d’exécution d’un code : <strong>system.time</strong> ou <strong>microbenchmark (fct1,fct2)</strong> pour des codes trés courts. Ce sont les médianes des temps de calcul qu’il faut comparer.</p></li>
-<li><p>détacher un package de l’environnement : <strong>unloadNamespace()</strong></p></li>
-<li><p>connaitre le code d’une fct : <strong>trace(pkgname::fct, edit=T)</strong></p></li>
-<li><p>(obt &lt;- code) : affiche l’objet</p></li>
-<li><p>Empecher l’affichage d’un message d’erreur : try( , silent=TRUE) # no error printed</p></li>
-<li><p>Progress bar : <strong>pb = txtProgressBar(min = 0, max = length(ind), style = 3)</strong> then <strong>close(pb)</strong></p></li>
-<li><p>debuger : <strong>traceback()</strong></p></li>
-<li><p>Tracer un warning : <strong>options(warn = 2)</strong> (le transforme en erreur) quand fin de debuger <strong>options(warn = 0)</strong></p></li>
-</ul>
-</div>
-<div id="packages-inédits" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Packages inédits!</h2>
-<ul>
-<li>Shiny pour trouver des packages R dans le milieu forestier : <strong>ForestAnalysisInR::launchRFA()</strong></li>
-</ul>
-</div>
-<div id="mes-raccourcis-claviers" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mes raccourcis claviers</h2>
-<ul>
-<li><p>Tout selectionner : Ctrl + A</p></li>
-<li><p>Indenter : Ctrl + I</p></li>
-<li><p>Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)</p></li>
-<li><p><strong>%in%</strong> : Ctrl + Shift + I (nécéssite un package)</p></li>
-<li><p><strong>%&gt;%</strong> : Ctrl + Shift + M</p></li>
-</ul>
-</div>
-<div id="symbolname-charactères-variableobjet-tout-le-bazar" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Symbol/name, charactères, variable/objet tout le bazar</h2>
-<ul>
-<li>nom d’objet -&gt; ce nom en characteres : <strong>deparse(substitute(var))</strong></li>
-<li>chaine de characteres -&gt; nom d’objet : <strong>as.name(“name”)</strong></li>
-<li>chaine de characteres -&gt; objet : <strong>get(“var”)</strong></li>
-</ul>
-</div>
-<div id="charger-les-données" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Charger les données</h2>
-<ul>
-<li>Chemin absolu : écriture de l’entièreté du chemin</li>
-<li>Chemin relatif :
-<strong>~</strong> = le dossier du setwd<br />
-<strong>./</strong> = là où je suis<br />
-Les .rmd ont leur propre racine, donc pas celle de leur projet.<br />
-<strong>« ../</strong> = dossier parent (du niv de dessus) et je mets autant de <strong>../</strong> que de niveau à remonter.<br />
-Puis tabulation pour qu’il propose mes fichiers.<br />
-Stocker mon chemin relatif dans un objet « path ».<br />
-file.path(path, “dossier”, “file”) function pour lire mon chemin stocké.</li>
-</ul>
-<p>!!!!!!Environment &gt; import dataset &gt; <strong>tjrs spécifier le séparateur (delimiter) et le marqueur de décimale (locale &gt; decimal mark)!!!!!!!!!</strong> (franchement ça fait trop de la m**rd sinon)</p>
-<ul>
-<li><p>Importer avec les accents : <strong>locale = locale(encoding = “latin1”)</strong></p></li>
-<li><p>Importer du shapefile (shp) :<br />
-<strong>readORG(dsn = “/path/to/your/file”, layer = “filename”)</strong> ou<br />
-<strong>shapefile(“path/to/your/file.shp”)</strong></p></li>
-</ul>
-</div>
-<div id="corection-préliminaires-des-données" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Corection préliminaires des données</h2>
-<ul>
-<li>Corriger les arbres non touvées mais vivants dans inventaires : package <strong>forestdata</strong> sur github ecofog</li>
-</ul>
-</div>
-<div id="transformation-de-données" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> Transformation de données !</h2>
-<ul>
-<li><p>De character à factor : <strong>mutate(Vernacular = factor(as.character(Vernacular)))</strong></p></li>
-<li><p>Séparer 1 colonne en plsrs : **separate(data, col à séparer, sep = "_", into = c(nom des new col), remove = F)** remove = F pour conserver la colonne qu’on sépare</p></li>
-<li><p>Combiner des colonnes en une : <strong>unite(col1, col2, col = “sp”, sep = " ", remove = T)</strong></p></li>
-<li><p>La même qd ya pas de séparateur : <strong>mutate(variable = substr(x, start, stop))</strong> ou<br />
-<strong>StrLeft(x, n)</strong><br />
-<strong>StrRight(x, n)</strong> en partant de la fin. -n pour enlever n paramètre</p></li>
-<li><p>Recoder une variable : <strong>mutate(var = recode(var, “1” = “A” , “2” = “B”))</strong> le nouveau code derière le =
-si ya erreur essayer : <strong>“‘1’ = ‘A’ ; ‘2’ = ‘B’”</strong> guillemets double et simple et point virgule</p></li>
-<li><p>Changer une variable sous condition : <strong>mutate(var = ifelse(condition, si oui, sinon))</strong>
-Sous plusieurs conditions : séparer les conditions d’un <strong>&amp;</strong></p></li>
-<li><p>Changer le nombre de décimales : <strong>format(x, digits = 0, scientific = F)</strong> ou <strong>round(x, digits = 0)</strong></p></li>
-<li><p>effectuer par ligne : <strong>rowise</strong></p></li>
-<li><p>Remplir une colonne à partir d’une fonction dont l’input est une table : <strong>do()</strong></p></li>
-<li><p>déplie la une sous-table existant dans une table : <strong>unnest()</strong></p></li>
-</ul>
-</div>
-<div id="histoire-de-characters" class="section level2" number="1.9">
-<h2><span class="header-section-number">1.9</span> Histoire de characters</h2>
-<ul>
-<li><p>Extraire un element numeric dans une chaîne de characters : <strong>extract_numeric(var)</strong></p></li>
-<li><p>Mettre le nom d’un objet sous forme de chararters : <strong>deparse(substitute(obj))</strong></p></li>
-<li><p>Extraire un élément d’une chaine de chrtr :
-si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span>site = tstrsplit(data<span class="math inline">\(idtree, split = &quot;_&quot;)[[1]]** 1er elmt **data\)</span>plot = tstrsplit(data$idtree, split = "_")[[2]]** 2nd</p></li>
-</ul>
-</div>
-<div id="la-syntaxe-qui-fait-chr-du-balai" class="section level2" number="1.10">
-<h2><span class="header-section-number">1.10</span> La syntaxe qui fait ch**r, du balai !</h2>
-<ul>
-<li><p>Enlever un espace avant et/ou apres un character : <strong>trimws(x, which = c(“both”, “left”, “right”))</strong></p></li>
-<li><p>Mettre en minuscule/majuscule : <strong>tolower()/toupper()</strong></p></li>
-<li><p>1ère lettre de l’expression en majuscule : <strong>str_to_sentence()</strong></p></li>
-<li><p>Enlever accent : <strong>sub(“é”,“e”,vector))</strong></p></li>
-</ul>
-</div>
-<div id="comparaison-de-tables" class="section level2" number="1.11">
-<h2><span class="header-section-number">1.11</span> Comparaison de tables</h2>
-<ul>
-<li><strong>diffdf(,)</strong></li>
-</ul>
-</div>
-<div id="tirage" class="section level2" number="1.12">
-<h2><span class="header-section-number">1.12</span> Tirage</h2>
-<ul>
-<li>Tirer aléatoirement n individus sans remplacement : <strong>sample_n(n, replace = F)</strong></li>
-</ul>
-</div>
-<div id="yo-arrange-mes-données" class="section level2" number="1.13">
-<h2><span class="header-section-number">1.13</span> Yo ! arrange mes données !</h2>
-<ul>
-<li>Vincyane la base…</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Quand tu veux passer une collone de df en argument de fonction :</span></span>
-<span id="cb2-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## V0</span></span>
-<span id="cb2-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-3" aria-hidden="true" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span> <span class="do">## character string in an object</span></span>
-<span id="cb2-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-4" aria-hidden="true" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name] <span class="do">## character vector</span></span>
-<span id="cb2-5"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-5" aria-hidden="true" tabindex="-1"></a>line_nonna <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(column)) <span class="do">## which rows different of NA</span></span>
-<span id="cb2-6"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-6" aria-hidden="true" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[line_nonna,] <span class="do">## filter base version</span></span>
-<span id="cb2-7"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## V1</span></span>
-<span id="cb2-9"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-9" aria-hidden="true" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
-<span id="cb2-10"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-10" aria-hidden="true" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name]</span>
-<span id="cb2-11"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-11" aria-hidden="true" tabindex="-1"></a>nonna <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(column) <span class="do">## logical vector </span></span>
-<span id="cb2-12"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-12" aria-hidden="true" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[nonna,] <span class="do">## take only the TRUE</span></span>
-<span id="cb2-13"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">## V2</span></span>
-<span id="cb2-15"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-15" aria-hidden="true" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
-<span id="cb2-16"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-16" aria-hidden="true" tabindex="-1"></a>inventory[<span class="sc">!</span><span class="fu">is.na</span>(inventory[,column_name]),] <span class="sc">%&gt;%</span></span>
-<span id="cb2-17"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> column_name)</span>
-<span id="cb2-18"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Vdplyr</span></span>
-<span id="cb2-20"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-20" aria-hidden="true" tabindex="-1"></a>col_name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(var)) <span class="do">## object name to this name in character(get() pour faire l&#39;inverse)</span></span>
-<span id="cb2-21"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-21" aria-hidden="true" tabindex="-1"></a>inventory <span class="sc">%&gt;%</span></span>
-<span id="cb2-22"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>( {{ var }} )) <span class="sc">%&gt;%</span> <span class="do">## {{var}} pour réccupérer l&#39;objet mis en argument &quot;var&quot;</span></span>
-<span id="cb2-23"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> col_name) <span class="do">## quand t&#39;as besoin du nom de la colonne en charactère</span></span>
-<span id="cb2-24"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#ou</span></span>
-<span id="cb2-26"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-27" aria-hidden="true" tabindex="-1"></a>modif_var <span class="ot">&lt;-</span> <span class="cf">function</span>(data, nom_variable){</span>
-<span id="cb2-28"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-28" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">nouveau_nom =</span> <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(nom_variable)<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb2-29"><a href="fonctions-bien-sympatiques-trés-cher.html#cb2-29" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<ul>
-<li><p>Inverser lignes &amp; colonnes (retourner) (transposer) : <strong>t()</strong></p></li>
-<li><p>Mettre une colonne en colonne “rownames” : <strong>column_to_rownames(data, varàdéplacer)</strong></p></li>
-<li><p>Metrre l’information de plusieurs colonnes en 1 : <strong>melt()</strong></p></li>
-<li><p>Inverse : <strong>dcast(col1 + col2 ~ newcol)</strong></p></li>
-<li><p>Ne prendre qu’une partie des données : <strong>filter()</strong> ou <strong>subset()</strong>
-Si on veut garder les NA, comme filter les vire d’office, rajouter <strong>| is.na(var)</strong></p></li>
-<li><p>Pour filtrer beaucoup de valeurs d’une même var:</p></li>
-</ul>
-<p>values &lt;- c(“Tom”, “Lynn”) vecteur de n’importe quoi<br />
-<strong>filter(dat, var %in% values)</strong></p>
-<ul>
-<li><p>Ne pas prendre une partie des données (valeurs) : <strong>filter(!(Vernacular %in% remove))</strong> (enlever remove dans vernacular)</p></li>
-<li><p>Quand dans un booléen les Na dérangent, utiliser plutot <strong>%in%</strong> que <strong>==</strong> (ex: a %in% TRUE)</p></li>
-<li><p>Enlever des colonnes : <strong>select(-colname)</strong></p></li>
-<li><p>Réaliser les opérations suivantes par groupes de modalités : <strong>group_by</strong></p></li>
-<li><p>Créer une variable résumant les effectifs des éléments d’une variable : <strong>summarise(N = n())</strong> ou <strong>count()</strong></p></li>
-<li><p>Effectifs par ordre croissant : <strong>arrange(N)</strong></p></li>
-<li><p>Effectifs par ordre décroissant : <strong>arrange(desc(N))</strong></p></li>
-<li><p>Ordonner un vecteur : <strong>sort(, decreasing = FALSE)</strong></p></li>
-<li><p>Ranger par ordre alphabétique : d’abord transformer la variable character en factor, puis <strong>arrange(var)</strong></p></li>
-<li><p>Selectionner les n valeurs maximales : <strong>top_n</strong></p></li>
-<li><p>Afficher les 30 1ères lignes : <strong>slice(1:30)</strong></p></li>
-<li><p>Changer ordre des colonnes : <strong>select(c(a, y, x, b : w))</strong></p></li>
-<li><p>Séparer une base de données, selon un facteur, en une liste de bases de données : <strong>split(data, data$fact)</strong></p></li>
-<li><p>Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : <strong>unique()</strong></p></li>
-<li><p>Savoir si ttes les valeurs d’une colonne sont les mêmes: <strong>length(unique(data<span class="math inline">\(var)) == 1** ou **all(data\)</span>var == data$var[1])</strong> = est-ce que toutes les valeurs sont égales à la 1ère</p></li>
-<li><p>Répliquer une ligne n fois : <strong>do.call(“rbind”, replicate(n, df, simplify = FALSE))</strong></p></li>
-</ul>
-</div>
-<div id="donne-moi-des-infos-sur-mes-données" class="section level2" number="1.14">
-<h2><span class="header-section-number">1.14</span> Donne moi des infos sur mes données</h2>
-<ul>
-<li>pH[pH&gt;7] : afficher les ph&gt;7<br />
-length(pH[pH&gt;7]) : combien de ph&gt;7<br />
-data[pH&gt;7,] : afficher les lignes dont les ph&gt;7</li>
-</ul>
-<p>which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat de l’opération logique est vrai</p>
-<ul>
-<li><p>Indicer selon une modalité : <strong>data[data$var ==“modalite”,]</strong></p></li>
-<li><p>Nombre de NA dans 1 colonne : <strong>sum(is.na(data$x_num))</strong></p></li>
-<li><p>Nombre de lignes ayant pour valeur “truc” dans telle variable <strong>sum(as.numeric(data$var == “truc”), na.rm = TRUE)</strong> pcq as.numeric transforme un vecteur de booléen en vecteur de 0 et 1.</p></li>
-<li><p>Nombre de NA dans le jeu de de données, dans chaque colonne : <strong>colSums(is.na(data))</strong></p></li>
-<li><p>est-ce que tt ça est vrai : <strong>all()</strong></p></li>
-<li><p>au moins 1 vrai : <strong>any()</strong> ne prend pas de liste (enfin si mais il n’est pas cntent)!</p></li>
-<li><p>renvoyer les éléments dupliqué : <strong>duplicated()</strong> (booléen) data[!duplicated(data$var), ] (dataframe)
-<strong>anyDuplicated</strong></p></li>
-<li><p>Générer la numérotation/les id des lignes : <strong>seq.int(nrow(df))</strong></p></li>
-</ul>
-</div>
-<div id="calcul-informatif" class="section level2" number="1.15">
-<h2><span class="header-section-number">1.15</span> Calcul informatif</h2>
-<ul>
-<li><p>Faire la somme/moyenne/autre de chaque ligne/colonne : <strong>apply(data, c(1,2), sum)</strong> 1 : par ligne ou 2 : par colonne</p></li>
-<li><p>Appliquer une fonction sur une liste/vecteur : <strong>lapply(liste, function(elementdelaliste) la fonction dépendante de l’élement)</strong> ou <strong>lapply(liste, function, autres arguments de la fct)</strong><br />
-ex :</p></li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-1" aria-hidden="true" tabindex="-1"></a>multiply <span class="ot">&lt;-</span> <span class="cf">function</span>(x, factor, div) {</span>
-<span id="cb3-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">*</span> factor)<span class="sc">/</span>div</span>
-<span id="cb3-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), multiply, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">factor =</span> <span class="dv">3</span>) <span class="co"># the list is for the &quot;div&quot; argument</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(a, <span class="cf">function</span>(element) <span class="fu">bcDiversity</span>(element<span class="sc">$</span>N, <span class="at">q =</span> <span class="dv">1</span>, <span class="at">Correction =</span> <span class="st">&quot;Best&quot;</span>))</span></code></pre></div>
-<p>ptit tips : la version fonction d’extraction d’élément d’un objet ($) : <strong>getElement(object, var)</strong> ex :</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(x, <span class="cf">function</span>(x) x<span class="sc">$</span>var) </span>
-<span id="cb5-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">=</span>  </span>
-<span id="cb5-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(x, <span class="cf">function</span>(x) <span class="fu">getElement</span>(x, <span class="st">&quot;var&quot;</span>))  </span>
-<span id="cb5-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ot">=</span>  </span>
-<span id="cb5-5"><a href="fonctions-bien-sympatiques-trés-cher.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(x, getElement, <span class="st">&quot;var&quot;</span>) </span></code></pre></div>
-<ul>
-<li><p>Appliquer une fonction sur plsrs listes/vecteurs : <strong>mapply(function(X,Y) {la fonction(X, Y)}, X=list1, Y=list2, SIMPLIFY = F)</strong><br />
-SIMPLIFY = F : laisse la structure initiale de la liste</p></li>
-<li><p><strong>map</strong> functions family font apriori la même chose que les apply avec plus de possiblités et + rapides car écrites en C (<a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a>)<br />
-Les map ne produisent que des vecteurs, pas de matrice)</p></li>
-</ul>
-<p>Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu’il ne va pas : <strong>map(safely(fct))</strong> qui renvoie le résultat et le message d’erreur</p>
-</div>
-<div id="sf-package" class="section level2" number="1.16">
-<h2><span class="header-section-number">1.16</span> sf package</h2>
-<ul>
-<li><p>Passer d’un sf à un dataframe (supprimer la col géométrie) : <strong>st_geometry(sf) &lt;- NULL</strong></p></li>
-<li><p>sfg to sfc : <strong>st_sfc(sfg)</strong></p></li>
-<li><p>sfc to sfg : <strong>st_point(as.numeric(unlist(sfc)))</strong> (ex ici point)</p></li>
-<li><p>MULTIPOINT to POINT : <strong>st_cast(st_sfc(mutipoint), “POINT”, group_or_split = TRUE)</strong></p></li>
-<li><p>Simplification d’objet : <strong>st_cast(objet, “objt + simple”</strong> (ex : polygon to linestring)</p></li>
-<li><p>Attribuer un crs à un objt sf ou sfc : <strong>st_set_crs(objtsanscrs, st_crs(objtaveccrs))</strong></p></li>
-<li><p>st_union ne préserve pas l’ordre des géométries dans la géométrie finale, il faut utiliser :</p></li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb6-1" aria-hidden="true" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> objt_sf_1 <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(objt_sf_2)  </span>
-<span id="cb6-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb6-3" aria-hidden="true" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> <span class="fu">do.call</span>(c, <span class="fu">st_geometry</span>(objt_sf_12))  </span></code></pre></div>
-</div>
-<div id="eh-oh-cest-moi-qui-décide-illustre-moi-ça-comme-il-faut" class="section level2" number="1.17">
-<h2><span class="header-section-number">1.17</span> Eh oh c’est moi qui décide ! illustre moi ça comme il faut !</h2>
-<ul>
-<li><p>Faire des graphs ggplot en clic bouton : <strong>esquisse::esquisser()</strong></p></li>
-<li><p>Des plots tout beau prêts à publier : <strong>ggpubr</strong></p></li>
-<li><p>Relier le label au point quand c’est pas visible : <strong>geom_text_repel</strong></p></li>
-<li><p>Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de ‘Wide-format’ à ‘long-format’ (<a href="https://seananderson.ca/2013/10/19/reshape/" class="uri">https://seananderson.ca/2013/10/19/reshape/</a>): <strong>melt()</strong></p></li>
-<li><p>Séparer un facet_wrap en plusieurs pages : <strong>facet_wrap_paginate()</strong></p></li>
-<li><p>Echelles différentes sur un facet :<br />
-</p></li>
-<li><p><strong>scales = “free” “free_x” “free_y” or “fixed”</strong><br />
-</p></li>
-<li><p>qd on veut personnaliser :<br />
-on crée un data pour un geom_blank : blank_data &lt;- data.frame(group = c(“var1”, “var1”, “var2”, “var2”), x = c(min commun,<br />
-max commun, min commun, max commun), y = c(min commun, max commun, min commun, max commun))</p></li>
-</ul>
-<p>puis <strong>geom_blank(data = blank_data, aes(x = x, y = y))</strong></p>
-<ul>
-<li>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories
-ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white”)</strong><br />
-Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
-</ul>
-</div>
-<div id="télécharger-mon-bébé-dans-le-bon-format-au-bon-endroit" class="section level2" number="1.18">
-<h2><span class="header-section-number">1.18</span> Télécharger mon bébé dans le bon format, au bon endroit !</h2>
-<ul>
-<li>PNG : <strong>png()</strong> avant commande du plot &amp; <strong>dev.off()</strong> après commande du plot</li>
-<li>ggsave()</li>
-</ul>
-</div>
-<div id="nettoyage" class="section level2" number="1.19">
-<h2><span class="header-section-number">1.19</span> Nettoyage</h2>
-<ul>
-<li>Enlever un élément de l’environement : <strong>remove()</strong></li>
-<li>Vider tt l’envrmt global : <strong>rm(list = ls())</strong> ls() renvoie ts les objets de l’envmt</li>
-</ul>
-</div>
-<div id="boucle" class="section level2" number="1.20">
-<h2><span class="header-section-number">1.20</span> Boucle</h2>
-<ol style="list-style-type: decimal">
-<li>Output : créer un objet vide de la classe, voire de la taille que l’on souhaite pour notre output (+ rapide)<br />
-</li>
-</ol>
-<ul>
-<li><p>chaine de charactère vide : <strong>""</strong><br />
-</p></li>
-<li><p>vecteur/liste : <strong>vector(“numeric”, length(x)), ou juste vector(), list()</strong></p></li>
-<li><p>Quand on ne connait pas la longeur de l’output apriori, on peut l’aggrandir progressivement dans le corps de la boucle : <strong>output &lt;- c(output, action qu’on boucle)</strong><br />
-ou on stocke les outputs de chaque itération dans un élément d’une liste crée en amont (<strong>vector(“list”, length(x))</strong>), puis qd la loop est finie on unlist (+efficace).<br />
-En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers à chaque iteration puis tout coller ensemble après la boucle (-lourd).</p></li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Sequence : créer un vecteur dans lequel puiser s’il n’existe déjà<br />
-</li>
-</ol>
-<ul>
-<li>pour agir sur chaque col d’un df : <strong>seq_along(df)</strong><br />
-</li>
-<li>boucler sur indice, value ou names</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Body : Pour chaque valeur que peut prendre trait dans All_traits :<br />
-<strong>for(trait in All_traits){}</strong></li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb7-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>)</span>
-<span id="cb7-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="dv">3</span>)) {</span>
-<span id="cb7-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  resultat[i] <span class="ot">&lt;-</span> i</span>
-<span id="cb7-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<ul>
-<li>utiliser <strong>[[]]</strong> plutot que <strong>[]</strong> même pour les vecteurs</li>
-</ul>
-<p><strong>seq_along()</strong> : permet dans le cas où la sequence est de taille 0 ou 1 de bien avoir un output de cette taille sinon avec <strong>1:length(1 ou 0)</strong> on optiendra <strong>1 0</strong> ou <strong>1 1</strong></p>
-<ul>
-<li><p>faire une boucle dont les résultats sont mis dans une liste: <strong>foreach()</strong></p></li>
-<li><p>Boucle while : boucle jusq’à ce que la condition soit fausse. Peut être utilisée lorsqu’on ne connait pas la longueur de la séquence.</p></li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (condition) {</span>
-<span id="cb8-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## body</span></span>
-<span id="cb8-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<ul>
-<li>Arrêter la boucle : <strong>break()</strong></li>
-<li>Arreter l’itération actuelle et asser à la prochaine : <strong>next()</strong></li>
-</ul>
-</div>
-<div id="les-objets" class="section level2" number="1.21">
-<h2><span class="header-section-number">1.21</span> Les objets</h2>
-<div id="des-infos-sur-mon-objet" class="section level4" number="1.21.0.1">
-<h4><span class="header-section-number">1.21.0.1</span> des infos sur mon objet</h4>
-<ul>
-<li>Présence d’une variable <strong>“varName” %in% names(df)</strong></li>
-<li>Type : <strong>class(a)</strong>, pour ttes les variables d’une table <strong>lapply(data, class)</strong></li>
-<li>Structure : <strong>str(a, 1)</strong> 1 c’est le niveau de structure, yen a plsrs, c’est pas obligatoire</li>
-</ul>
-</div>
-<div id="list" class="section level4" number="1.21.0.2">
-<h4><span class="header-section-number">1.21.0.2</span> List</h4>
-<p>“a” la liste.<br />
-+ Voir les éléments de la liste : <strong>a$</strong>
-+ Indicer une liste : <strong>a[[position]]</strong></p>
-<ul>
-<li>Transposer une liste (inverser la tructure) : purr::transpose()</li>
-</ul>
-</div>
-<div id="fonction" class="section level4" number="1.21.0.3">
-<h4><span class="header-section-number">1.21.0.3</span> Fonction</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(arguments){</span>
-<span id="cb9-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  operation1</span>
-<span id="cb9-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  operation2</span>
-<span id="cb9-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>()  <span class="do">## préciser ce que la fonction doit renvoyer</span></span>
-<span id="cb9-5"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-</div>
-<div id="condition" class="section level2" number="1.22">
-<h2><span class="header-section-number">1.22</span> Condition</h2>
-<p>Les <strong>if</strong> sont des booléens qui vérifient si la “condition” est “TRUE”, donc il n’est pas nécessaire “x == TRUE” mais seulement “x” ou “!x”<br />
-+ <strong>if(condition) {action}</strong>
-+ <strong>if(condition1 &amp;&amp; condition2) { expression }</strong>
-+ <strong>if(condition1 || condition2) { expression }</strong></p>
-<ul>
-<li>Dans les <strong>if else</strong> la place des brackets est importante:</li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
-<span id="cb10-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  expression1</span>
-<span id="cb10-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb10-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  expression2</span>
-<span id="cb10-5"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-6"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
-<span id="cb10-8"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  expression1</span>
-<span id="cb10-9"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(case2) {</span>
-<span id="cb10-10"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  expression2</span>
-<span id="cb10-11"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-12"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-12" aria-hidden="true" tabindex="-1"></a>...</span>
-<span id="cb10-13"><a href="fonctions-bien-sympatiques-trés-cher.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> last.expression</span></code></pre></div>
-<ul>
-<li><strong>ifelse(condition, expression1, expression2)</strong> vectorized version of the if() statement. Warning: ifelse() is designed to work with vectors and matrices – not data frames.</li>
-</ul>
-</div>
-<div id="logical-operators" class="section level2" number="1.23">
-<h2><span class="header-section-number">1.23</span> Logical Operators</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">|</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE FALSE  TRUE</span></span>
-<span id="cb11-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE</span></span>
-<span id="cb11-4"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## FALSE</span></span>
-<span id="cb11-6"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(T, F, T) <span class="do">## TRUE</span></span>
-<span id="cb11-8"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="do">## |/&amp; to compare each value of different bolean vectors</span></span>
-<span id="cb11-10"><a href="fonctions-bien-sympatiques-trés-cher.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="do">## ||/&amp;&amp; to compare single value conditions </span></span></code></pre></div>
-</div>
-<div id="stan---modelo---bayes" class="section level2" number="1.24">
-<h2><span class="header-section-number">1.24</span> Stan - Modelo - Bayes</h2>
-<ul>
-<li>Chercher une fct dans Rstan : <strong>lookup(“bernoulli”)</strong></li>
-</ul>
-</div>
-<div id="faire-de-la-biblio-comme-une-déesse" class="section level2" number="1.25">
-<h2><span class="header-section-number">1.25</span> Faire de la biblio comme une déesse</h2>
-<ul>
-<li>package bibliometrix</li>
-</ul>
-</div>
-<div id="date-time" class="section level2" number="1.26">
-<h2><span class="header-section-number">1.26</span> Date &amp; time</h2>
-<ul>
-<li>convertir une date (y, m, d) en année numeric : <strong>as.numeric(format(ExactDate, “%Y”))</strong></li>
-</ul>
+<div id="données-lidar" class="section level1" number="4">
+<h1><span class="header-section-number">Cours 4</span> Données LIDAR</h1>
+<p>LiDAR : “light detection and ranging” ou “laser imaging detection and ranging”</p>
+<p>Lumière d’un laser en général : visible, infrarouge ou ultraviolet</p>
+<p>Télémétrie : détermination de la distance d’un objet</p>
+<p>Principe d’écholocalisation : La distance est donnée par la mesure du délai entre l’émission d’une impulsion et la détection d’une impulsion réfléchie, connaissant la vitesse de la lumière.</p>
+<p>Mesure de la matière : isoler l’effet des différentes interactions entre la lumière et la matière le long du faisceau laser.</p>
+<p>On appelle « équation lidar » le bilan de liaison du lidar entre son émission et sa réception, c’est-à-dire l’énergie lumineuse E (en J) de l’impulsion rétrodiffusée par une cible (supposée lambertienne, i.e. qui diffuse la lumière uniformément) située à une distance z et captée par le lidar</p>
+<p>Emet de plusieurs dizaines à plusieurs centaines de milliers d’impulsions chaque seconde</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="datatable-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="spatial-data-cours.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="c.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

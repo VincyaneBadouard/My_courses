@@ -300,6 +300,7 @@ constitution équipe
 - précision : mots, chiffres, totaux, faits, opinions, ref
 - pas d'expressions émotionnelle
 - peu d'adverbe
+- ne pas utiliser des mots indéfinis : *it/these/that*
 
 ### En englais
 pas d'appositions en début de phrase

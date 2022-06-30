@@ -1,0 +1,18 @@
+# Données LIDAR
+
+
+LiDAR : "light detection and ranging"  ou  "laser imaging detection and ranging"  
+
+Lumière d'un laser en général : visible, infrarouge ou ultraviolet  
+
+
+Télémétrie : détermination de la distance d’un objet  
+
+Principe d'écholocalisation : La distance est donnée par la mesure du délai entre l’émission d’une impulsion et la détection d’une impulsion réfléchie, connaissant la vitesse de la lumière.  
+
+
+Mesure de la matière : isoler l’effet des différentes interactions entre la lumière et la matière le long du faisceau laser.  
+
+On appelle « équation lidar » le bilan de liaison du lidar entre son émission et sa réception, c’est-à-dire l’énergie lumineuse E (en J) de l’impulsion rétrodiffusée par une cible (supposée lambertienne, i.e. qui diffuse la lumière uniformément) située à une distance z et captée par le lidar  
+
+Emet de plusieurs dizaines à plusieurs centaines de milliers d’impulsions chaque seconde  

@@ -8,6 +8,7 @@ Coder sous R
 - fcts bien sympathiques tres cher
 - data.table
 - spatial dat cours
+- Données LIDAR
 - cpp
 
 Outils autour de R

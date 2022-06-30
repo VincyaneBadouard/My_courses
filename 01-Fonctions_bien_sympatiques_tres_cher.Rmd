@@ -31,6 +31,10 @@ Pour du data.table voir le cours concerné.
 
 + Progress bar : **pb = txtProgressBar(min = 0, max = length(ind), style = 3)** then **close(pb)**
 
++ debuger : **traceback()**
+
++ Tracer un warning : **options(warn = 2)** (le transforme en erreur) quand fin de debuger **options(warn = 0)**  
+
 ## Packages inédits!
 
 + Shiny pour trouver des packages R dans le milieu forestier : **ForestAnalysisInR::launchRFA()**

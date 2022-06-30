@@ -74,6 +74,7 @@ shapefiles
 systèmes-de-coordonnées-de-références-crs
 système-de-coordonnées-géographiques
 système-de-référence-de-coordonnées-pojetées
+données-lidar
 c
 rmarkdown
 packages
@@ -147,7 +148,7 @@ internal-data-for-a-function-in-rsysdata.rda
 charger-ces-data
 tests
 un-package-pour-tous
-cran
+mettre-le-package-sur-cran
 les-tests
 debugger
 versioning

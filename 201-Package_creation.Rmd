@@ -150,30 +150,32 @@ NULL
 
 ### DESCRIPTION file
 
-Depends: liste des packages d’origine de chaque générique
-Depends: 
-R (>= 2.10),
-ggplot2,
-graphics
-Les alinéas sont nécessaires
+Depends: liste des packages d’origine de chaque générique  
+Depends:  
+R (>= 2.10),  
+ggplot2,  
+graphics  
+Les alinéas sont nécessaires  
 
-Attention : les dépendences appartenant à *R core* (ex: stats, parallel) doivent être de meme version munimum que celle de R demandée.
+**Tout package utilisé (dépendances) doit être mentionné dans le fichier DESCRIPTION, section 'Imports'**  
+
+Attention : les dépendences appartenant à *R core* (ex: stats, parallel) doivent être de meme version munimum que celle de R demandée.  
 
 ### .Rbuildignore
 
 = fichiers dans le package pour le constructeur, mais qui ne seront pas chargés avec le package pour l'utilisateur. 
 
 ## Importation de fonctions
-+ le package d’appartenance de la fonction doit obligatoirement être déclaré :
-**DESCRIPTION < Imports: nom package, nom package**
-**Le package tydiverse ne doit pas être importé car trés changeant**
++ le package d’appartenance de la fonction doit obligatoirement être déclaré :  
+**DESCRIPTION < Imports: nom package, nom package**  
+**Le package tydiverse ne doit pas être importé car trés changeant**  
 
-Import du pipe : **usethis::use_pipe()**
+Import du pipe : **usethis::use_pipe()**  
 
-Pour ne pas le faire à la main (préférable): **usethis::use_package("stats")**
+Pour ne pas le faire à la main (préférable): **usethis::use_package("stats")**  
 
 + Importer la fonction dans **nompackage.R** : 
-**#' @importFrom package fct** dans le squelette de la fct (fichier.R)
+**#' @importFrom package fct** dans le squelette de la fct (fichier.R)  
 
 + la fonction importée doit être trouvable dans
 l’environnement du package en création : la meilleure pratique est de qualifier systématiquement les fonctions
@@ -464,10 +466,25 @@ these functions have two arguments: the 1st is the actual result, the 2nd is wha
 
 + Pour tout système d'exploitation : mentionnés dans le yaml de githubactions : il fait les tests pour chacun d'eux
 
-## CRAN
+## Mettre le package sur CRAN
 
-+ tous les tests doivent êtres réussis sur min 2 syst d'exploitation
++ *Version number* : changer le numéro en version (plus en dévelopement = sans le 9000) (major.minor.patch)
+(1.0.0)
+
++ *Test environments* : tous les tests doivent êtres réussis sur min 2 syst d'exploitation
 + 0 notes/warning/error
+
+
+
++ *Backward compatibility* : pas important pour la première version mais important pour la suite si le package évolue
+
++ *Submission* : je déconseille d'utiliser devtools::release() mais plutôt de le faire à la main pour bien contrôler les étapes
+
++ *comments.md* : très important
+
++ *Dépendances* : toutes les dépendances hors *base* doivent être inclue, y compris des packages *core* comme *stat* ou *utils* (à discuter).
+
++ Prepare for *next version* : je pense que c'est super important et que la plupart des gens ne le font pas. En gros une fois que CRAN a dit oui tu es contente et tu vas vouloir t'arrêter là. Sauf qu'un package est souvent destiné à évoluer et cette petite étape te permettra juste de réattaquer facilement, donc je trouve ça vitale.
 
 ### Les tests 
 + Githubactions : pour un contrôle standard :**usethis::use_github_action_check_standard()** -> R-CMD-check.yaml creation
