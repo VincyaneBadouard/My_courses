@@ -76,7 +76,7 @@ C'est mieux car ne garde pas de copie en mémoire.
 ! ne renvoie pas les NA contrairement au data.frame !  
 La virgule n'est pas obligatoire si pas de colonnes à spécifier.  
 
-## Extract columns :
+## Extract columns
 Les colonnes sont des listes.
 
 + by position : **dt[, c(2)]**, prefix "-" to drop  
@@ -173,7 +173,8 @@ avec ":=" : **dt[ , col_min := tolower(col)]**
 
 ## Combine data.tables
 
-+ Avec une fct : **data.table::merge(x, y, [options])** (comme les join tidy, voir les options)
++ Avec une fct : **data.table::merge(x, y, all.x = TRUE, [options])** (comme les join tidy, voir les options)
+**all.x = TRUE** permet de garder les colonnes de x même si elles ne matchent pas avec y
 
 + Join on rows with equal values : **dt_a[dt_b, on = .(b = y)]** 'on' pour spécifier les col équivalentes mais de noms différents
 

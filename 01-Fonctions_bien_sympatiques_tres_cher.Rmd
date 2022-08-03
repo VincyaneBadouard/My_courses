@@ -65,6 +65,7 @@ Puis tabulation pour qu’il propose mes fichiers.
 Stocker mon chemin relatif dans un objet « path ».  
 file.path(path, "dossier", "file") function pour lire mon chemin stocké.  
 
++ fonction pour aller chercher le fichier : **nomObjt <- file.choose()**  
 
 !!!!!!Environment > import dataset > **tjrs spécifier le séparateur (delimiter) et le marqueur de décimale (locale > decimal mark)!!!!!!!!!** (franchement ça fait trop de la m**rd sinon)  
 
@@ -108,14 +109,30 @@ Sous plusieurs conditions : séparer les conditions d'un **&**
 
 ## Histoire de characters
 
++ Detect special charcters (logical) :
+x <- "!"
+**grepl('[[:punct:]]', x)** # TRUE if there are any special character, FALSE if not.
+
++ Remove special characters :
+x <- "a-,_b/"
+**gsub("[[:punct:]]", "", x)** x la chaine de characters à modifier, entre " " mettre par quoi remplacer les special charcters enlevés (ou ne rien mettre)
+
 + Extraire un element numeric dans une chaîne de characters : **extract_numeric(var)**
 
-+ Mettre le nom d'un objet sous forme de chararters : **deparse(substitute(obj))**
++ Mettre le nom d'un objet sous forme de characters : **deparse(substitute(obj))**
 
-+ Extraire un élément d'une chaine de chrtr :
++ Extraire un élément d'une chaine de characters :
 si data$idtree = "site_plot"
 **data$site = tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt
 **data$plot = tstrsplit(data$idtree, split = "_")[[2]]** 2nd
+
++ afficher un data.frame en characters :
+```{r}
+a <- data.frame(x=runif(4), y=runif(4), z=runif(4))
+b <- capture.output(a)
+c <- paste(b, "\n", sep="")
+cat("Your data set is:\n", c, "\n")
+```
 
 ## La syntaxe qui fait ch**r, du balai !
 
@@ -325,6 +342,7 @@ Voir les palettes : **RColorBrewer::display.brewer.all()**
 
 + PNG : **png()** avant commande du plot & **dev.off()** après commande du plot
 + ggsave()
++ compresser : **save(objt, file = "objt.rda", compress = "xz")**
 
 ## Nettoyage
 

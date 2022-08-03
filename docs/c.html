@@ -24,7 +24,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2022-06-30" />
+<meta name="date" content="2022-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,7 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="datatable-functions.html"><a href="datatable-functions.html#convert-a-data.frame-or-list-to-a-data.table"><i class="fa fa-check"></i><b>2.5</b> Convert a data.frame or list to a data.table</a></li>
 <li class="chapter" data-level="2.6" data-path="datatable-functions.html"><a href="datatable-functions.html#punctuation"><i class="fa fa-check"></i><b>2.6</b> Punctuation</a></li>
 <li class="chapter" data-level="2.7" data-path="datatable-functions.html"><a href="datatable-functions.html#subset-rows"><i class="fa fa-check"></i><b>2.7</b> Subset rows :</a></li>
-<li class="chapter" data-level="2.8" data-path="datatable-functions.html"><a href="datatable-functions.html#extract-columns"><i class="fa fa-check"></i><b>2.8</b> Extract columns :</a></li>
+<li class="chapter" data-level="2.8" data-path="datatable-functions.html"><a href="datatable-functions.html#extract-columns"><i class="fa fa-check"></i><b>2.8</b> Extract columns</a></li>
 <li class="chapter" data-level="2.9" data-path="datatable-functions.html"><a href="datatable-functions.html#summarize"><i class="fa fa-check"></i><b>2.9</b> Summarize</a></li>
 <li class="chapter" data-level="2.10" data-path="datatable-functions.html"><a href="datatable-functions.html#compute-columns"><i class="fa fa-check"></i><b>2.10</b> Compute columns</a></li>
 <li class="chapter" data-level="2.11" data-path="datatable-functions.html"><a href="datatable-functions.html#change-column-class"><i class="fa fa-check"></i><b>2.11</b> Change column class</a></li>
@@ -482,14 +482,14 @@ Inconvénients : difficile à débugger
 <p><em>sourceCpp()</em> : compilation du .cpp</p>
 <p>Créer une fonction C++ :
 calculer le double d’un vecteur numérique</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="c.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb28-2"><a href="c.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp;</span>
-<span id="cb28-3"><a href="c.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb28-4"><a href="c.html#cb28-4" aria-hidden="true" tabindex="-1"></a>NumericVector timesTwo(NumericVector x) {</span>
-<span id="cb28-5"><a href="c.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> x * <span class="dv">2</span>;</span>
-<span id="cb28-6"><a href="c.html#cb28-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="c.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb29-2"><a href="c.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp;</span>
+<span id="cb29-3"><a href="c.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb29-4"><a href="c.html#cb29-4" aria-hidden="true" tabindex="-1"></a>NumericVector timesTwo(NumericVector x) {</span>
+<span id="cb29-5"><a href="c.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> x * <span class="dv">2</span>;</span>
+<span id="cb29-6"><a href="c.html#cb29-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>-&gt; Une fct R du meme nom que la fct C++ s’est créée</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="c.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="c.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 
 </div>
 
