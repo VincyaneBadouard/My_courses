@@ -467,7 +467,7 @@ Pour du data.table voir le cours concerné.</p>
 <ul>
 <li><p>Eviter de donner le meme nom au pipe que la base qu’on utilise dedans, ça écrase les données, et c’est la galere pour les reccuperer</p></li>
 <li><p>Les fonctions tidy sont pas faites pour s’imbriquer. Utiliser des fonctions base à l’int des fcts tidy.</p></li>
-<li><p>Qd un prblm est trop gros, découper le travail (ex: faire des soustables)</p></li>
+<li><p>Qd un prblm est trop gros, découper le travail (ex: faire des sous-tables)</p></li>
 </ul>
 </div>
 <div id="tips-de-codeur" class="section level2 hasAnchor" number="1.2">
@@ -493,26 +493,32 @@ Pour du data.table voir le cours concerné.</p>
 <div id="mes-raccourcis-claviers" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Mes raccourcis claviers<a href="fonctions-bien-sympatiques-trés-cher.html#mes-raccourcis-claviers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>Tout selectionner : Ctrl + A</p></li>
-<li><p>Indenter : Ctrl + I</p></li>
+<li><p>Tout selectionner : Ctrl + A<br />
+</p></li>
+<li><p>Indenter : Ctrl + I<br />
+</p></li>
 <li><p>Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)</p></li>
-<li><p><strong>%in%</strong> : Ctrl + Shift + I (nécéssite un package)</p></li>
+<li><p><strong>%in%</strong> : Ctrl + Shift + I (nécéssite un package)<br />
+</p></li>
 <li><p><strong>%&gt;%</strong> : Ctrl + Shift + M</p></li>
 </ul>
 </div>
 <div id="symbolname-charactères-variableobjet-tout-le-bazar" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Symbol/name, charactères, variable/objet tout le bazar<a href="fonctions-bien-sympatiques-trés-cher.html#symbolname-charactères-variableobjet-tout-le-bazar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>nom d’objet -&gt; ce nom en characteres : <strong>deparse(substitute(var))</strong></li>
-<li>chaine de characteres -&gt; nom d’objet : <strong>as.name(“name”)</strong></li>
+<li>nom d’objet -&gt; ce nom en characteres : <strong>deparse(substitute(var))</strong><br />
+</li>
+<li>chaine de characteres -&gt; nom d’objet : <strong>as.name(“name”)</strong><br />
+</li>
 <li>chaine de characteres -&gt; objet : <strong>get(“var”)</strong></li>
 </ul>
 </div>
 <div id="charger-les-données" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Charger les données<a href="fonctions-bien-sympatiques-trés-cher.html#charger-les-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>Chemin absolu : écriture de l’entièreté du chemin</p></li>
-<li><p>Chemin relatif :
+<li><p>Chemin absolu : écriture de l’entièreté du chemin<br />
+</p></li>
+<li><p>Chemin relatif :<br />
 <strong>~</strong> = le dossier du setwd<br />
 <strong>./</strong> = là où je suis<br />
 Les .rmd ont leur propre racine, donc pas celle de leur projet.<br />
@@ -533,7 +539,7 @@ file.path(path, “dossier”, “file”) function pour lire mon chemin stocké
 <div id="corection-préliminaires-des-données" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> Corection préliminaires des données<a href="fonctions-bien-sympatiques-trés-cher.html#corection-préliminaires-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Corriger les arbres non touvées mais vivants dans inventaires : package <strong>forestdata</strong> sur github ecofog</li>
+<li>Corriger les arbres non touvés mais vivants dans inventaires : package <strong>forestdata</strong> sur github ecofog</li>
 </ul>
 </div>
 <div id="transformation-de-données" class="section level2 hasAnchor" number="1.8">
@@ -545,9 +551,9 @@ file.path(path, “dossier”, “file”) function pour lire mon chemin stocké
 <li><p>La même qd ya pas de séparateur : <strong>mutate(variable = substr(x, start, stop))</strong> ou<br />
 <strong>StrLeft(x, n)</strong><br />
 <strong>StrRight(x, n)</strong> en partant de la fin. -n pour enlever n paramètre</p></li>
-<li><p>Recoder une variable : <strong>mutate(var = recode(var, “1” = “A” , “2” = “B”))</strong> le nouveau code derière le =
+<li><p>Recoder une variable : <strong>mutate(var = recode(var, “1” = “A” , “2” = “B”))</strong> le nouveau code derière le =<br />
 si ya erreur essayer : <strong>“‘1’ = ‘A’ ; ‘2’ = ‘B’”</strong> guillemets double et simple et point virgule</p></li>
-<li><p>Changer une variable sous condition : <strong>mutate(var = ifelse(condition, si oui, sinon))</strong>
+<li><p>Changer une variable sous condition : <strong>mutate(var = ifelse(condition, si oui, sinon))</strong><br />
 Sous plusieurs conditions : séparer les conditions d’un <strong>&amp;</strong></p></li>
 <li><p>Changer le nombre de décimales : <strong>format(x, digits = 0, scientific = F)</strong> ou <strong>round(x, digits = 0)</strong></p></li>
 <li><p>effectuer par ligne : <strong>rowise</strong></p></li>
@@ -559,15 +565,15 @@ Sous plusieurs conditions : séparer les conditions d’un <strong>&amp;</strong
 <div id="histoire-de-characters" class="section level2 hasAnchor" number="1.9">
 <h2><span class="header-section-number">1.9</span> Histoire de characters<a href="fonctions-bien-sympatiques-trés-cher.html#histoire-de-characters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>Detect special charcters (logical) :
-x &lt;- “!”
+<li><p>Detect special charcters (logical) :<br />
+x &lt;- “!”<br />
 <strong>grepl(‘[[:punct:]]’, x)</strong> # TRUE if there are any special character, FALSE if not.</p></li>
-<li><p>Remove special characters :
-x &lt;- “a-,_b/”
+<li><p>Remove special characters :<br />
+x &lt;- “a-,_b/”<br />
 **gsub(“[[:punct:]]”, ““, x)** x la chaine de characters à modifier, entre” ” mettre par quoi remplacer les special charcters enlevés (ou ne rien mettre)</p></li>
 <li><p>Extraire un element numeric dans une chaîne de characters : <strong>extract_numeric(var)</strong></p></li>
 <li><p>Mettre le nom d’un objet sous forme de characters : <strong>deparse(substitute(obj))</strong></p></li>
-<li><p>Extraire un élément d’une chaine de characters :
+<li><p>Extraire un élément d’une chaine de characters :<br />
 si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span>site = tstrsplit(data<span class="math inline">\(idtree, split = &quot;_&quot;)[[1]]** 1er elmt **data\)</span>plot = tstrsplit(data$idtree, split = “_“)[[2]]** 2nd</p></li>
 <li><p>afficher un data.frame en characters :</p></li>
 </ul>
@@ -632,31 +638,44 @@ si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span
 <span id="cb3-28"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-28" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">nouveau_nom =</span> <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(nom_variable)<span class="sc">+</span><span class="dv">1</span>)</span>
 <span id="cb3-29"><a href="fonctions-bien-sympatiques-trés-cher.html#cb3-29" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
-<li><p>Inverser lignes &amp; colonnes (retourner) (transposer) : <strong>t()</strong></p></li>
-<li><p>Mettre une colonne en colonne “rownames” : <strong>column_to_rownames(data, varàdéplacer)</strong></p></li>
-<li><p>Metrre l’information de plusieurs colonnes en 1 : <strong>melt()</strong></p></li>
-<li><p>Inverse : <strong>dcast(col1 + col2 ~ newcol)</strong></p></li>
-<li><p>Ne prendre qu’une partie des données : <strong>filter()</strong> ou <strong>subset()</strong>
+<li><p>Inverser lignes &amp; colonnes (retourner) (transposer) : <strong>t()</strong><br />
+</p></li>
+<li><p>Mettre une colonne en colonne “rownames” : <strong>column_to_rownames(data, varàdéplacer)</strong><br />
+</p></li>
+<li><p>Metrre l’information de plusieurs colonnes en 1 : <strong>melt()</strong><br />
+</p></li>
+<li><p>Inverse : <strong>dcast(col1 + col2 ~ newcol)</strong><br />
+</p></li>
+<li><p>Ne prendre qu’une partie des données : <strong>filter()</strong> ou <strong>subset()</strong><br />
 Si on veut garder les NA, comme filter les vire d’office, rajouter <strong>| is.na(var)</strong></p></li>
 <li><p>Pour filtrer beaucoup de valeurs d’une même var:</p></li>
 </ul>
 <p>values &lt;- c(“Tom”, “Lynn”) vecteur de n’importe quoi<br />
 <strong>filter(dat, var %in% values)</strong></p>
 <ul>
-<li><p>Ne pas prendre une partie des données (valeurs) : <strong>filter(!(Vernacular %in% remove))</strong> (enlever remove dans vernacular)</p></li>
-<li><p>Quand dans un booléen les Na dérangent, utiliser plutot <strong>%in%</strong> que <strong>==</strong> (ex: a %in% TRUE)</p></li>
+<li><p>Ne pas prendre une partie des données (valeurs) : <strong>filter(!(Vernacular %in% remove))</strong> (enlever remove dans vernacular)<br />
+</p></li>
+<li><p>Quand dans un booléen les Na dérangent, utiliser plutot <strong>%in%</strong> que <strong>==</strong> (ex: a %in% TRUE)<br />
+</p></li>
 <li><p>Enlever des colonnes : <strong>select(-colname)</strong></p></li>
 <li><p>Réaliser les opérations suivantes par groupes de modalités : <strong>group_by</strong></p></li>
 <li><p>Créer une variable résumant les effectifs des éléments d’une variable : <strong>summarise(N = n())</strong> ou <strong>count()</strong></p></li>
-<li><p>Effectifs par ordre croissant : <strong>arrange(N)</strong></p></li>
-<li><p>Effectifs par ordre décroissant : <strong>arrange(desc(N))</strong></p></li>
-<li><p>Ordonner un vecteur : <strong>sort(, decreasing = FALSE)</strong></p></li>
-<li><p>Ranger par ordre alphabétique : d’abord transformer la variable character en factor, puis <strong>arrange(var)</strong></p></li>
-<li><p>Selectionner les n valeurs maximales : <strong>top_n</strong></p></li>
-<li><p>Afficher les 30 1ères lignes : <strong>slice(1:30)</strong></p></li>
+<li><p>Effectifs par ordre croissant : <strong>arrange(N)</strong><br />
+</p></li>
+<li><p>Effectifs par ordre décroissant : <strong>arrange(desc(N))</strong><br />
+</p></li>
+<li><p>Ordonner un vecteur : <strong>sort(, decreasing = FALSE)</strong><br />
+</p></li>
+<li><p>Ranger par ordre alphabétique : d’abord transformer la variable character en factor, puis <strong>arrange(var)</strong><br />
+</p></li>
+<li><p>Selectionner les n valeurs maximales : <strong>top_n</strong><br />
+</p></li>
+<li><p>Afficher les 30 1ères lignes : <strong>slice(1:30)</strong><br />
+</p></li>
 <li><p>Changer ordre des colonnes : <strong>select(c(a, y, x, b : w))</strong></p></li>
 <li><p>Séparer une base de données, selon un facteur, en une liste de bases de données : <strong>split(data, data$fact)</strong></p></li>
-<li><p>Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : <strong>unique()</strong></p></li>
+<li><p>Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : <strong>unique()</strong><br />
+</p></li>
 <li><p>Savoir si ttes les valeurs d’une colonne sont les mêmes: <strong>length(unique(data<span class="math inline">\(var)) == 1** ou **all(data\)</span>var == data$var[1])</strong> = est-ce que toutes les valeurs sont égales à la 1ère</p></li>
 <li><p>Répliquer une ligne n fois : <strong>do.call(“rbind”, replicate(n, df, simplify = FALSE))</strong></p></li>
 </ul>
@@ -676,7 +695,7 @@ data[pH&gt;7,] : afficher les lignes dont les ph&gt;7</li>
 <li><p>Nombre de NA dans le jeu de de données, dans chaque colonne : <strong>colSums(is.na(data))</strong></p></li>
 <li><p>est-ce que tt ça est vrai : <strong>all()</strong></p></li>
 <li><p>au moins 1 vrai : <strong>any()</strong> ne prend pas de liste (enfin si mais il n’est pas cntent)!</p></li>
-<li><p>renvoyer les éléments dupliqué : <strong>duplicated()</strong> (booléen) data[!duplicated(data$var), ] (dataframe)
+<li><p>renvoyer les éléments dupliqué : <strong>duplicated()</strong> (booléen) data[!duplicated(data$var), ] (dataframe)<br />
 <strong>anyDuplicated</strong></p></li>
 <li><p>Générer la numérotation/les id des lignes : <strong>seq.int(nrow(df))</strong></p></li>
 </ul>
@@ -741,7 +760,7 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 </ul>
 <p>puis <strong>geom_blank(data = blank_data, aes(x = x, y = y))</strong></p>
 <ul>
-<li>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories
+<li>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories<br />
 ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white”)</strong><br />
 Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
 </ul>
@@ -749,15 +768,18 @@ Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
 <div id="télécharger-mon-bébé-dans-le-bon-format-au-bon-endroit" class="section level2 hasAnchor" number="1.18">
 <h2><span class="header-section-number">1.18</span> Télécharger mon bébé dans le bon format, au bon endroit !<a href="fonctions-bien-sympatiques-trés-cher.html#télécharger-mon-bébé-dans-le-bon-format-au-bon-endroit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>PNG : <strong>png()</strong> avant commande du plot &amp; <strong>dev.off()</strong> après commande du plot</li>
-<li>ggsave()</li>
+<li>PNG : <strong>png()</strong> avant commande du plot &amp; <strong>dev.off()</strong> après commande du plot<br />
+</li>
+<li>ggsave()<br />
+</li>
 <li>compresser : <strong>save(objt, file = “objt.rda”, compress = “xz”)</strong></li>
 </ul>
 </div>
 <div id="nettoyage" class="section level2 hasAnchor" number="1.19">
 <h2><span class="header-section-number">1.19</span> Nettoyage<a href="fonctions-bien-sympatiques-trés-cher.html#nettoyage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Enlever un élément de l’environement : <strong>remove()</strong></li>
+<li>Enlever un élément de l’environement : <strong>remove()</strong><br />
+</li>
 <li>Vider tt l’envrmt global : <strong>rm(list = ls())</strong> ls() renvoie ts les objets de l’envmt</li>
 </ul>
 </div>
@@ -804,7 +826,8 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <span id="cb9-2"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## body</span></span>
 <span id="cb9-3"><a href="fonctions-bien-sympatiques-trés-cher.html#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
-<li>Arrêter la boucle : <strong>break()</strong></li>
+<li>Arrêter la boucle : <strong>break()</strong><br />
+</li>
 <li>Arreter l’itération actuelle et asser à la prochaine : <strong>next()</strong></li>
 </ul>
 </div>
@@ -813,15 +836,17 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <div id="des-infos-sur-mon-objet" class="section level4 hasAnchor" number="1.21.0.1">
 <h4><span class="header-section-number">1.21.0.1</span> des infos sur mon objet<a href="fonctions-bien-sympatiques-trés-cher.html#des-infos-sur-mon-objet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li>Présence d’une variable <strong>“varName” %in% names(df)</strong></li>
-<li>Type : <strong>class(a)</strong>, pour ttes les variables d’une table <strong>lapply(data, class)</strong></li>
+<li>Présence d’une variable <strong>“varName” %in% names(df)</strong><br />
+</li>
+<li>Type : <strong>class(a)</strong>, pour ttes les variables d’une table <strong>lapply(data, class)</strong><br />
+</li>
 <li>Structure : <strong>str(a, 1)</strong> 1 c’est le niveau de structure, yen a plsrs, c’est pas obligatoire</li>
 </ul>
 </div>
 <div id="list" class="section level4 hasAnchor" number="1.21.0.2">
 <h4><span class="header-section-number">1.21.0.2</span> List<a href="fonctions-bien-sympatiques-trés-cher.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>“a” la liste.<br />
-+ Voir les éléments de la liste : <strong>a$</strong>
++ Voir les éléments de la liste : <strong>a$</strong><br />
 + Indicer une liste : <strong>a[[position]]</strong></p>
 <ul>
 <li>Transposer une liste (inverser la tructure) : purr::transpose()</li>
@@ -839,8 +864,8 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <div id="condition" class="section level2 hasAnchor" number="1.22">
 <h2><span class="header-section-number">1.22</span> Condition<a href="fonctions-bien-sympatiques-trés-cher.html#condition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Les <strong>if</strong> sont des booléens qui vérifient si la “condition” est “TRUE”, donc il n’est pas nécessaire “x == TRUE” mais seulement “x” ou “!x”<br />
-+ <strong>if(condition) {action}</strong>
-+ <strong>if(condition1 &amp;&amp; condition2) { expression }</strong>
++ <strong>if(condition) {action}</strong><br />
++ <strong>if(condition1 &amp;&amp; condition2) { expression }</strong><br />
 + <strong>if(condition1 || condition2) { expression }</strong></p>
 <ul>
 <li>Dans les <strong>if else</strong> la place des brackets est importante:</li>
@@ -891,9 +916,9 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <h2><span class="header-section-number">1.26</span> Date &amp; time<a href="fonctions-bien-sympatiques-trés-cher.html#date-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>convertir une date (y, m, d) en année numeric : <strong>as.numeric(format(ExactDate, “%Y”))</strong></p></li>
-<li><p>Wrong system time : <strong>Sys.time()</strong> <strong>Sys.timezone()</strong>
-To find our time zone : <em>OlsonNames()</em>
-Set the new time zone : <strong>Sys.setenv(TZ = “America/Cayenne”)</strong>
+<li><p>Wrong system time : <strong>Sys.time()</strong> <strong>Sys.timezone()</strong><br />
+To find our time zone : <strong>OlsonNames()</strong><br />
+Set the new time zone : <strong>Sys.setenv(TZ = “America/Cayenne”)</strong><br />
 To change permanently : change time zone of your computer</p></li>
 </ul>
 

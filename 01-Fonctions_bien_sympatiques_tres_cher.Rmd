@@ -1,6 +1,11 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # (PART) Coder sous R {-}
 
-# Fonctions bien sympatiques trés cher
+# Fonctions bien sympatiques tres cher
 
 **Description** : du R base, des fonctions de "base", du tidyverse.  
 Pour du data.table voir le cours concerné.  
@@ -9,59 +14,59 @@ Pour du data.table voir le cours concerné.
 
 ## Conseils
 
-+ Eviter de donner le meme nom au pipe que la base qu'on utilise dedans, ça écrase les données, et c'est la galere pour les reccuperer
++ Eviter de donner le meme nom au pipe que la base qu'on utilise dedans, ça écrase les données, et c'est la galere pour les reccuperer  
 
-+ Les fonctions tidy sont pas faites pour s'imbriquer. Utiliser des fonctions base à l'int des fcts tidy.
++ Les fonctions tidy sont pas faites pour s'imbriquer. Utiliser des fonctions base à l'int des fcts tidy.  
 
-+ Qd un prblm est trop gros, découper le travail (ex: faire des soustables)
++ Qd un prblm est trop gros, découper le travail (ex: faire des sous-tables)  
 
 ## Tips de codeur
 
 + **Selectionner tout ce qu'il ya dans la parenthèse/crochet/accolade** : double clic à l'interieur de la 1ère/dernière  
 
-+ Mesurer le temps d’exécution d’un code : **system.time** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.
++ Mesurer le temps d’exécution d’un code : **system.time** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.  
 
-+ détacher un package de l'environnement : **unloadNamespace()**
++ détacher un package de l'environnement : **unloadNamespace()**  
 
-+ connaitre le code d'une fct : **trace(pkgname::fct, edit=T)**
++ connaitre le code d'une fct : **trace(pkgname::fct, edit=T)**  
 
-+ (obt <- code) : affiche l'objet
++ (obt <- code) : affiche l'objet  
 
-+ Empecher l'affichage d'un message d'erreur : try( , silent=TRUE)  # no error printed
++ Empecher l'affichage d'un message d'erreur : try( , silent=TRUE)  # no error printed  
 
-+ Progress bar : **pb = txtProgressBar(min = 0, max = length(ind), style = 3)** then **close(pb)**
++ Progress bar : **pb = txtProgressBar(min = 0, max = length(ind), style = 3)** then **close(pb)**  
 
-+ debuger : **traceback()**
++ debuger : **traceback()**  
 
 + Tracer un warning : **options(warn = 2)** (le transforme en erreur) quand fin de debuger **options(warn = 0)**  
 
 ## Packages inédits!
 
-+ Shiny pour trouver des packages R dans le milieu forestier : **ForestAnalysisInR::launchRFA()**
++ Shiny pour trouver des packages R dans le milieu forestier : **ForestAnalysisInR::launchRFA()**  
 
 ## Mes raccourcis claviers
 
-+ Tout selectionner : Ctrl + A
-+ Indenter :  Ctrl + I
-+ Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)
++ Tout selectionner : Ctrl + A  
++ Indenter :  Ctrl + I  
++ Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)  
 
-+ **%in%** : Ctrl + Shift + I (nécéssite un package)
-+ **%>%** : Ctrl + Shift + M 
++ **%in%** : Ctrl + Shift + I (nécéssite un package)  
++ **%>%** : Ctrl + Shift + M  
 
 ## Symbol/name, charactères, variable/objet tout le bazar
-+ nom d'objet -> ce nom en characteres : **deparse(substitute(var))**
-+ chaine de characteres -> nom d'objet : **as.name("name")**
-+ chaine de characteres -> objet : **get("var")**
++ nom d'objet -> ce nom en characteres : **deparse(substitute(var))**  
++ chaine de characteres -> nom d'objet : **as.name("name")**  
++ chaine de characteres -> objet : **get("var")**  
 
 ## Charger les données
 
-+ Chemin absolu : écriture de l’entièreté du chemin
-+ Chemin relatif :
++ Chemin absolu : écriture de l’entièreté du chemin  
++ Chemin relatif :  
 **~** = le dossier du setwd  
 **./** = là où je suis  
 Les .rmd ont leur propre racine, donc pas celle de leur projet.  
 **« ../** = dossier parent (du niv de dessus)  et je mets autant de **../** que de niveau à remonter.  
-Puis tabulation pour qu’il propose mes fichiers.  
+Puis tabulation pour qu’il propose mes fichiers.   
 Stocker mon chemin relatif dans un objet « path ».  
 file.path(path, "dossier", "file") function pour lire mon chemin stocké.  
 
@@ -77,58 +82,58 @@ file.path(path, "dossier", "file") function pour lire mon chemin stocké.
 
 ## Corection préliminaires des données
 
-+ Corriger les arbres non touvées mais vivants dans inventaires : package **forestdata** sur github ecofog
++ Corriger les arbres non touvés mais vivants dans inventaires : package **forestdata** sur github ecofog  
 
 
 ## Transformation de données !
 
-+ De character à factor : **mutate(Vernacular = factor(as.character(Vernacular)))**
++ De character à factor : **mutate(Vernacular = factor(as.character(Vernacular)))**  
 
-+ Séparer 1 colonne en plsrs : **separate(data, col à séparer, sep = "_", into = c(nom des new col), remove = F)** remove = F pour conserver la colonne qu'on sépare
++ Séparer 1 colonne en plsrs : **separate(data, col à séparer, sep = "_", into = c(nom des new col), remove = F)** remove = F pour conserver la colonne qu'on sépare  
 
-+ Combiner des colonnes en une : **unite(col1, col2, col = "sp", sep = " ", remove = T)**
++ Combiner des colonnes en une : **unite(col1, col2, col = "sp", sep = " ", remove = T)**  
 
-+ La même qd ya pas de séparateur : **mutate(variable = substr(x, start, stop))** ou  
++ La même qd ya pas de séparateur : **mutate(variable = substr(x, start, stop))** ou    
 **StrLeft(x, n)**   
 **StrRight(x, n)** en partant de la fin. -n pour enlever n paramètre  
 
-+ Recoder une variable : **mutate(var = recode(var, "1" = "A" , "2" = "B"))** le nouveau code derière le =
-si ya erreur essayer : **"'1' = 'A' ; '2' = 'B'"** guillemets double et simple et point virgule
++ Recoder une variable : **mutate(var = recode(var, "1" = "A" , "2" = "B"))** le nouveau code derière le =  
+si ya erreur essayer : **"'1' = 'A' ; '2' = 'B'"** guillemets double et simple et point virgule  
 
-+ Changer une variable sous condition : **mutate(var = ifelse(condition, si oui, sinon))**
-Sous plusieurs conditions : séparer les conditions d'un **&**
++ Changer une variable sous condition : **mutate(var = ifelse(condition, si oui, sinon))**  
+Sous plusieurs conditions : séparer les conditions d'un **&**  
 
-+ Changer le nombre de décimales : **format(x, digits = 0, scientific = F)** ou **round(x, digits = 0)**
++ Changer le nombre de décimales : **format(x, digits = 0, scientific = F)** ou **round(x, digits = 0)**  
 
-+ effectuer par ligne : **rowise**
++ effectuer par ligne : **rowise**  
 
-+ Remplir une colonne à partir d'une fonction dont l'input est une table : **do()**
++ Remplir une colonne à partir d'une fonction dont l'input est une table : **do()**  
 
-+ déplie la une sous-table existant dans une table : **unnest()**
++ déplie la une sous-table existant dans une table : **unnest()**  
 
-+  Encode a column in utf8 : **tidyft::utf8_encoding(datatable, colname)**
++  Encode a column in utf8 : **tidyft::utf8_encoding(datatable, colname)**  
 
 
 ## Histoire de characters
 
-+ Detect special charcters (logical) :
-x <- "!"
-**grepl('[[:punct:]]', x)** # TRUE if there are any special character, FALSE if not.
++ Detect special charcters (logical) :  
+x <- "!"  
+**grepl('[[:punct:]]', x)** # TRUE if there are any special character, FALSE if not.  
 
-+ Remove special characters :
-x <- "a-,_b/"
-**gsub("[[:punct:]]", "", x)** x la chaine de characters à modifier, entre " " mettre par quoi remplacer les special charcters enlevés (ou ne rien mettre)
++ Remove special characters :  
+x <- "a-,_b/"  
+**gsub("[[:punct:]]", "", x)** x la chaine de characters à modifier, entre " "   mettre par quoi remplacer les special charcters enlevés (ou ne rien mettre)  
 
-+ Extraire un element numeric dans une chaîne de characters : **extract_numeric(var)**
++ Extraire un element numeric dans une chaîne de characters :   **extract_numeric(var)**  
 
-+ Mettre le nom d'un objet sous forme de characters : **deparse(substitute(obj))**
++ Mettre le nom d'un objet sous forme de characters : **deparse(substitute(obj))**  
 
-+ Extraire un élément d'une chaine de characters :
-si data$idtree = "site_plot"
-**data$site = tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt
-**data$plot = tstrsplit(data$idtree, split = "_")[[2]]** 2nd
++ Extraire un élément d'une chaine de characters :  
+si data$idtree = "site_plot"  
+**data$site = tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt  
+**data$plot = tstrsplit(data$idtree, split = "_")[[2]]** 2nd  
 
-+ afficher un data.frame en characters :
++ afficher un data.frame en characters :  
 ```{r}
 a <- data.frame(x=runif(4), y=runif(4), z=runif(4))
 b <- capture.output(a)
@@ -138,26 +143,26 @@ cat("Your data set is:\n", c, "\n")
 
 ## La syntaxe qui fait ch**r, du balai !
 
-+ Enlever un espace avant et/ou apres un character : **trimws(x, which = c("both", "left", "right"))**
++ Enlever un espace avant et/ou apres un character : **trimws(x, which = c("both", "left", "right"))**  
 
-+ Mettre en minuscule/majuscule : **tolower()/toupper()**
++ Mettre en minuscule/majuscule : **tolower()/toupper()**  
 
-+ 1ère lettre de l'expression en majuscule : **str_to_sentence()**
++ 1ère lettre de l'expression en majuscule : **str_to_sentence()**  
 
-+ Enlever accent : **sub("é","e",vector))** 
++ Enlever accent : **sub("é","e",vector))**  
 
 ## Comparaison de tables
 
-+ **diffdf(,)**
++ **diffdf(,)**  
 
 ## Tirage
 
-+  Tirer aléatoirement n individus sans remplacement : **sample_n(n, replace = F)**
++  Tirer aléatoirement n individus sans remplacement : **sample_n(n, replace = F)**  
 
 
 ## Yo ! arrange mes données !
 
-+ Vincyane la base...
++ Vincyane la base...  
 ```{r, eval=F}
 ## Quand tu veux passer une collone de df en argument de fonction :
 ## V0
@@ -192,41 +197,41 @@ modif_var <- function(data, nom_variable){
 ```
 
 
-+ Inverser lignes & colonnes (retourner) (transposer) : **t()**
-+ Mettre une colonne en colonne "rownames" : **column_to_rownames(data, varàdéplacer)**
-+ Metrre l'information de plusieurs colonnes en 1 : **melt()**
-+ Inverse : **dcast(col1 + col2 ~ newcol)**
-+ Ne prendre qu'une partie des données : **filter()** ou **subset()**
-Si on veut garder les NA, comme filter les vire d'office, rajouter **| is.na(var)**
++ Inverser lignes & colonnes (retourner) (transposer) : **t()**  
++ Mettre une colonne en colonne "rownames" : **column_to_rownames(data, varàdéplacer)**  
++ Metrre l'information de plusieurs colonnes en 1 : **melt()**  
++ Inverse : **dcast(col1 + col2 ~ newcol)**  
++ Ne prendre qu'une partie des données : **filter()** ou **subset()**  
+Si on veut garder les NA, comme filter les vire d'office, rajouter **| is.na(var)**  
 
-+ Pour filtrer beaucoup de valeurs d'une même var: 
++ Pour filtrer beaucoup de valeurs d'une même var:  
 
 values <- c("Tom", "Lynn") vecteur de n'importe quoi  
 **filter(dat, var %in% values)**  
 
-+ Ne pas prendre une partie des données (valeurs) : **filter(!(Vernacular %in% remove))** (enlever remove dans vernacular)
-+ Quand dans un booléen les Na dérangent, utiliser plutot **%in%** que **==** (ex: a %in% TRUE)
-+ Enlever des colonnes : **select(-colname)**
++ Ne pas prendre une partie des données (valeurs) : **filter(!(Vernacular %in% remove))** (enlever remove dans vernacular)  
++ Quand dans un booléen les Na dérangent, utiliser plutot **%in%** que **==** (ex: a %in% TRUE)  
++ Enlever des colonnes : **select(-colname)**  
 
-+ Réaliser les opérations suivantes par groupes de modalités : **group_by**
++ Réaliser les opérations suivantes par groupes de modalités : **group_by**  
 
-+ Créer une variable résumant les effectifs des éléments d'une variable : **summarise(N = n())** ou **count()**
++ Créer une variable résumant les effectifs des éléments d'une variable : **summarise(N = n())** ou **count()**  
 
-+ Effectifs par ordre croissant : **arrange(N)**
-+ Effectifs par ordre décroissant : **arrange(desc(N))**
-+ Ordonner un vecteur : **sort(, decreasing = FALSE)**
-+ Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis **arrange(var)**
-+ Selectionner les n valeurs maximales : **top_n**
-+ Afficher les 30 1ères lignes : **slice(1:30)**
-+ Changer ordre des colonnes :   **select(c(a, y, x, b : w))**
++ Effectifs par ordre croissant : **arrange(N)**  
++ Effectifs par ordre décroissant : **arrange(desc(N))**  
++ Ordonner un vecteur : **sort(, decreasing = FALSE)**  
++ Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis **arrange(var)**  
++ Selectionner les n valeurs maximales : **top_n**  
++ Afficher les 30 1ères lignes : **slice(1:30)**  
++ Changer ordre des colonnes :   **select(c(a, y, x, b : w))**  
 
-+ Séparer une base de données, selon un facteur, en une liste de bases de données : **split(data, data$fact)**
++ Séparer une base de données, selon un facteur, en une liste de bases de données : **split(data, data$fact)**  
 
-+ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()**
-+ Savoir si ttes les valeurs d'une colonne sont les mêmes: **length(unique(data$var)) == 1**
-ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales à la 1ère
++ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()**  
++ Savoir si ttes les valeurs d'une colonne sont les mêmes: **length(unique(data$var)) == 1**  
+ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales à la 1ère  
 
-+ Répliquer une ligne n fois : **do.call("rbind", replicate(n, df, simplify = FALSE))**
++ Répliquer une ligne n fois : **do.call("rbind", replicate(n, df, simplify = FALSE))**  
 
 
 
@@ -238,27 +243,27 @@ data[pH>7,] : afficher les lignes dont les ph>7
 
 which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat de l’opération logique est vrai  
 
-+ Indicer selon une modalité : **data[data$var =="modalite",]**
++ Indicer selon une modalité : **data[data$var =="modalite",]**  
 
-+ Nombre de NA dans 1 colonne : **sum(is.na(data$x_num))**
++ Nombre de NA dans 1 colonne : **sum(is.na(data$x_num))**  
 
-+ Nombre de lignes ayant pour valeur "truc" dans telle variable **sum(as.numeric(data$var == "truc"), na.rm = TRUE)** pcq as.numeric transforme un vecteur de booléen en vecteur de 0 et 1.
++ Nombre de lignes ayant pour valeur "truc" dans telle variable   **sum(as.numeric(data$var == "truc"), na.rm = TRUE)** pcq as.numeric transforme un vecteur de booléen en vecteur de 0 et 1.  
 
-+ Nombre de NA dans le jeu de de données, dans chaque colonne : **colSums(is.na(data))**
++ Nombre de NA dans le jeu de de données, dans chaque colonne :   **colSums(is.na(data))**  
 
-+ est-ce que tt ça est vrai : **all()**
++ est-ce que tt ça est vrai : **all()**  
 
-+ au moins 1 vrai : **any()** ne prend pas de liste (enfin si mais il n'est pas cntent)!
++ au moins 1 vrai : **any()** ne prend pas de liste (enfin si mais il n'est pas cntent)!  
 
-+ renvoyer les éléments dupliqué : **duplicated()** (booléen) data[!duplicated(data$var), ] (dataframe)
-**anyDuplicated**
++ renvoyer les éléments dupliqué : **duplicated()** (booléen)   data[!duplicated(data$var), ] (dataframe)  
+**anyDuplicated**  
 
-+ Générer la numérotation/les id des lignes : **seq.int(nrow(df))** 
++ Générer la numérotation/les id des lignes : **seq.int(nrow(df))**  
 
 
 ## Calcul informatif
 
-+ Faire la somme/moyenne/autre de chaque ligne/colonne : **apply(data, c(1,2), sum)** 1 : par ligne ou 2 : par colonne 
++ Faire la somme/moyenne/autre de chaque ligne/colonne : **apply(data, c(1,2), sum)** 1 : par ligne ou 2 : par colonne  
 
 + Appliquer une fonction sur une liste/vecteur : **lapply(liste, function(elementdelaliste) la fonction dépendante de l'élement)** ou **lapply(liste, function, autres arguments de la fct)**  
 ex :  
@@ -275,7 +280,7 @@ lapply(list(1,2,3), multiply, x = 5, factor = 3) # the list is for the "div" arg
 lapply(a, function(element) bcDiversity(element$N, q = 1, Correction = "Best"))
 ```
 
-ptit tips : la version fonction d'extraction d'élément d'un objet ($) : **getElement(object, var)** ex :  
+ptit tips : la version fonction d'extraction d'élément d'un objet ($) :   **getElement(object, var)** ex :  
 
 ```{r, eval=F}
 lapply(x, function(x) x$var) 
@@ -295,17 +300,17 @@ Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu'il ne va pas
 
 ## sf package
 
-+ Passer d'un sf à un dataframe (supprimer la col géométrie) : **st_geometry(sf) <- NULL**
++ Passer d'un sf à un dataframe (supprimer la col géométrie) : **st_geometry(sf) <- NULL**  
 
-+ sfg to sfc : **st_sfc(sfg)**
++ sfg to sfc : **st_sfc(sfg)**  
 
-+ sfc to sfg : **st_point(as.numeric(unlist(sfc)))** (ex ici point)
++ sfc to sfg : **st_point(as.numeric(unlist(sfc)))** (ex ici point)  
 
-+ MULTIPOINT to POINT : **st_cast(st_sfc(mutipoint), "POINT", group_or_split = TRUE)**
++ MULTIPOINT to POINT : **st_cast(st_sfc(mutipoint), "POINT", group_or_split = TRUE)**  
 
-+ Simplification d'objet : **st_cast(objet, "objt + simple"** (ex : polygon to linestring)
++ Simplification d'objet : **st_cast(objet, "objt + simple"** (ex : polygon to linestring)  
 
-+ Attribuer un crs à un objt sf ou sfc : **st_set_crs(objtsanscrs, st_crs(objtaveccrs))**
++ Attribuer un crs à un objt sf ou sfc : **st_set_crs(objtsanscrs, st_crs(objtaveccrs))**  
 
 + st_union ne préserve pas l'ordre des géométries dans la géométrie finale, il faut utiliser :  
 
@@ -317,15 +322,15 @@ objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))
 
 ## Eh oh c'est moi qui décide ! illustre moi ça comme il faut !
 
-+ Faire des graphs ggplot en clic bouton : **esquisse::esquisser()**
++ Faire des graphs ggplot en clic bouton : **esquisse::esquisser()**  
 
-+ Des plots tout beau prêts à publier : **ggpubr**
++ Des plots tout beau prêts à publier : **ggpubr**  
 
-+ Relier le label au point quand c'est pas visible : **geom_text_repel**
++ Relier le label au point quand c'est pas visible : **geom_text_repel**  
 
-+ Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**
++ Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**  
 
-+ Séparer un facet_wrap en plusieurs pages : **facet_wrap_paginate()** 
++ Séparer un facet_wrap en plusieurs pages : **facet_wrap_paginate()**  
 
 + Echelles différentes sur un facet :  
 - **scales = "free" "free_x" "free_y" or "fixed"**  
@@ -335,21 +340,21 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 
 puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
 
-+ Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories
++ Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
 ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**  
 Voir les palettes : **RColorBrewer::display.brewer.all()**  
 
 
 ## Télécharger mon bébé dans le bon format, au bon endroit !
 
-+ PNG : **png()** avant commande du plot & **dev.off()** après commande du plot
-+ ggsave()
-+ compresser : **save(objt, file = "objt.rda", compress = "xz")**
++ PNG : **png()** avant commande du plot & **dev.off()** après commande du plot  
++ ggsave()  
++ compresser : **save(objt, file = "objt.rda", compress = "xz")**  
 
 ## Nettoyage
 
-+ Enlever un élément de l'environement : **remove()**
-+ Vider tt l'envrmt global : **rm(list = ls())** ls() renvoie ts les objets de l'envmt
++ Enlever un élément de l'environement : **remove()**  
++ Vider tt l'envrmt global : **rm(list = ls())** ls() renvoie ts les objets de l'envmt  
 
 ## Boucle
 
@@ -378,7 +383,7 @@ for(i in seq_len(3)) {
 
 **seq_along()** : permet dans le cas où la sequence est de taille 0 ou 1 de bien avoir un output de cette taille sinon avec **1:length(1 ou 0)** on optiendra **1 0** ou **1 1**  
 
-+ faire une boucle dont les résultats sont mis dans une liste: **foreach()** 
++ faire une boucle dont les résultats sont mis dans une liste: **foreach()**  
 
 + Boucle while : boucle jusq'à ce que la condition soit fausse. Peut être utilisée lorsqu'on ne connait pas la longueur de la séquence.  
 ```{r, eval=F}
@@ -387,23 +392,23 @@ while (condition) {
 }
 ```
 
-+ Arrêter la boucle : **break()**
-+ Arreter l'itération actuelle et asser à la prochaine : **next()**
++ Arrêter la boucle : **break()**  
++ Arreter l'itération actuelle et asser à la prochaine : **next()**  
 
 ## Les objets
 
 #### des infos sur mon objet
 
-+ Présence d'une variable **"varName" %in% names(df)**
-+ Type : **class(a)**, pour ttes les variables d'une table **lapply(data, class)**
-+ Structure : **str(a, 1)** 1 c'est le niveau de structure, yen a plsrs, c'est pas obligatoire
++ Présence d'une variable **"varName" %in% names(df)**  
++ Type : **class(a)**, pour ttes les variables d'une table **lapply(data, class)**  
++ Structure : **str(a, 1)** 1 c'est le niveau de structure, yen a plsrs, c'est pas obligatoire  
 
 #### List
 "a" la liste.  
-+ Voir les éléments de la liste : **a$**
-+ Indicer une liste : **a[[position]]** 
++ Voir les éléments de la liste : **a$**  
++ Indicer une liste : **a[[position]]**  
 
-+ Transposer une liste (inverser la tructure) : purr::transpose()
++ Transposer une liste (inverser la tructure) : purr::transpose()  
 
 
 #### Fonction
@@ -418,11 +423,11 @@ function(arguments){
 
 ## Condition
 Les **if** sont des booléens qui vérifient si la "condition" est "TRUE", donc il n'est pas nécessaire "x == TRUE" mais seulement "x" ou "!x"  
-+ **if(condition) {action}**
-+ **if(condition1 && condition2) { expression }**
-+ **if(condition1 || condition2) { expression }**
++ **if(condition) {action}**  
++ **if(condition1 && condition2) { expression }**  
++ **if(condition1 || condition2) { expression }**  
 
-+ Dans les **if else** la place des brackets est importante:
++ Dans les **if else** la place des brackets est importante:  
 
 
 ```{r, eval = F}
@@ -460,18 +465,18 @@ c(F, F, T) || c(T, F, T) ## TRUE
 
 ## Stan - Modelo - Bayes
 
-+ Chercher une fct dans Rstan : **lookup("bernoulli")**
++ Chercher une fct dans Rstan : **lookup("bernoulli")**  
 
 ## Faire de la biblio comme une déesse
 
-+ package bibliometrix
++ package bibliometrix  
 
 ## Date & time
 
-+ convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**
++ convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**  
 
-+ Wrong system time : **Sys.time()** **Sys.timezone()**
-  To find our time zone : *OlsonNames()*
-  Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**
-  To change permanently : change time zone of your computer
++ Wrong system time : **Sys.time()** **Sys.timezone()**  
+  To find our time zone : **OlsonNames()**  
+  Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**  
+  To change permanently : change time zone of your computer  
   
