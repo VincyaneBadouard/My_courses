@@ -43,18 +43,6 @@ change-column-class
 group
 common-grouped-operations
 a-sequence-operation-on-a-datatable
-functions
-combine-data.tables
-indexation
-reshape
-avoir-des-infoscalculer-des-statistiques
-apply-functions
-sequential-rows
-maniement-de-chaines-de-caractères
-read-and-write-files
-programmer-des-fonctions-avec-data.table
-sécuriser
-variables-en-argument
 sd-subset-of-data
 lapply.sd-pour-des-fonctions-de-statistiques-descriptives
 des-data.table-poupées-russes
@@ -80,6 +68,7 @@ rmarkdown
 packages
 sous-titre
 chunk
+spécifier-un-working-directory-différent-de-celui-du-fichier
 table
 figure
 equations

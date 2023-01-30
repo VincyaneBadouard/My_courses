@@ -106,6 +106,8 @@ Sous plusieurs conditions : séparer les conditions d'un **&**
 
 + déplie la une sous-table existant dans une table : **unnest()**
 
++  Encode a column in utf8 : **tidyft::utf8_encoding(datatable, colname)**
+
 
 ## Histoire de characters
 
@@ -467,3 +469,9 @@ c(F, F, T) || c(T, F, T) ## TRUE
 ## Date & time
 
 + convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**
+
++ Wrong system time : **Sys.time()** **Sys.timezone()**
+  To find our time zone : *OlsonNames()*
+  Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**
+  To change permanently : change time zone of your computer
+  

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 15 Introduction à Stan | My cours</title>
+  <title>Cours 7 Spécifier un working directory différent de celui du fichier | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 15 Introduction à Stan | My cours" />
+  <meta property="og:title" content="Cours 7 Spécifier un working directory différent de celui du fichier | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 15 Introduction à Stan | My cours" />
+  <meta name="twitter:title" content="Cours 7 Spécifier un working directory différent de celui du fichier | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="stats-à-ne-plus-chercher.html"/>
-<link rel="next" href="i-am-a-modeler.html"/>
+<link rel="prev" href="rmarkdown.html"/>
+<link rel="next" href="github.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -457,111 +457,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="introduction-à-stan" class="section level1 hasAnchor" number="15">
-<h1><span class="header-section-number">Cours 15</span> Introduction à Stan<a href="introduction-à-stan.html#introduction-à-stan" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="introduction-à-stan.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb64-2"><a href="introduction-à-stan.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb64-3"><a href="introduction-à-stan.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb64-4"><a href="introduction-à-stan.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>) <span class="co">#option pour ne pas recompiler à chaque fois !!! gain de temps</span></span>
-<span id="cb64-5"><a href="introduction-à-stan.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()) <span class="co">#option pour ajouter des coeurs au calcul</span></span>
-<span id="cb64-6"><a href="introduction-à-stan.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot) <span class="co">#visualiser la chaine de Markov</span></span>
-<span id="cb64-7"><a href="introduction-à-stan.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinystan) <span class="co">#for interactive stan output visualization</span></span>
-<span id="cb64-8"><a href="introduction-à-stan.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm) <span class="co">#for Bayesian automatic regression modelling using stan</span></span>
-<span id="cb64-9"><a href="introduction-à-stan.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms) <span class="co">#Bayesian generalized multivariate non-linear multilevel models using stan</span></span></code></pre></div>
-<div id="pourquoi-les-stats-bayesiennes" class="section level2 hasAnchor" number="15.1">
-<h2><span class="header-section-number">15.1</span> Pourquoi les stats bayesiennes ?<a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>on peut exprimer nos croyances/expertises sur les paramètres (prior)</li>
-<li>prend en compte l’incertitude proprement</li>
-<li>permet de prendre tout niveau de complexité de modele</li>
-</ul>
-<p><em>Theoreme de Bayes</em>
-* Prior : proba des paramètres apriori
-* Vraissemblance : proba des données sachant les paramètres
-* Posterior : distribution des paramètres sachant les données</p>
-<p>Stan = un language :
-- entre crochet
-- un point-virgule à la fin de chaque ligne
-- // pour commencer un commentaire
-- &lt;lower=0&gt; : pour borner la variable</p>
+<div id="spécifier-un-working-directory-différent-de-celui-du-fichier" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Cours 7</span> Spécifier un working directory différent de celui du fichier<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#spécifier-un-working-directory-différent-de-celui-du-fichier" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb30-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">&#39;chemin&#39;</span>)</span></code></pre></div>
+<div id="table" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Table<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
+<span id="cb31-2"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb31-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
+<span id="cb31-3"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb31-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">caption =</span> </span>
+<span id="cb31-4"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb31-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
 </div>
-<div id="stan-program" class="section level2 hasAnchor" number="15.2">
-<h2><span class="header-section-number">15.2</span> Stan program :<a href="introduction-à-stan.html#stan-program" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Ôuvrir un fichier stan.
-3 blocks de commande :</p>
-<p><em>data block</em>
-on déclare :
-- la taille du jeu de donnée
-- les differentes variables</p>
-<p><em>parameters block</em>
-On déclare le nom des paramètres et leurs bornes si on le souhaite</p>
-<p><em>model block</em>
-- on déclare le prior (loi que suit le paramètre) (permet d’augmenter la vitesse d’analyse)
-- sinon prior non-informatif
-- écriture du modèle (vraissemenblance)</p>
-<p><em>Les priors doivent être définis sous sens biologique/écologique</em></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="introduction-à-stan.html#cb65-1" aria-hidden="true" tabindex="-1"></a>GLOPNET <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;GLOPNET.csv&quot;</span>, <span class="at">skip=</span><span class="dv">10</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="introduction-à-stan.html#cb66-1" aria-hidden="true" tabindex="-1"></a>LES <span class="ot">&lt;-</span> GLOPNET <span class="sc">%&gt;%</span> </span>
-<span id="cb66-2"><a href="introduction-à-stan.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(BIOME<span class="sc">==</span><span class="st">&quot;TROP_RF&quot;</span>, GF <span class="sc">==</span> <span class="st">&quot;T&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-3"><a href="introduction-à-stan.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Dataset, Species, <span class="st">&quot;log LL&quot;</span>, <span class="st">&quot;log LMA&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-4"><a href="introduction-à-stan.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="co">#le bayesien ne supporte pas les NA</span></span></code></pre></div>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="introduction-à-stan.html#cb67-1" aria-hidden="true" tabindex="-1"></a>LES <span class="sc">%&gt;%</span> </span>
-<span id="cb67-2"><a href="introduction-à-stan.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">log LMA</span><span class="st">`</span>, <span class="st">`</span><span class="at">log LL</span><span class="st">`</span>, <span class="at">col=</span>Dataset)) <span class="sc">+</span></span>
-<span id="cb67-3"><a href="introduction-à-stan.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb67-4"><a href="introduction-à-stan.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithm of Leaf Mass per Area (LMA)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb67-5"><a href="introduction-à-stan.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Logarythm of Leaf Lifespan (LL)&quot;</span>)</span></code></pre></div>
-<p>Modèle proposé :</p>
-<p>_log LL ~ N(alpha + beta *log LMA, sigma^2)_ -&gt; régression linéaire
-à mettre dans un fichier stan</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="introduction-à-stan.html#cb68-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb68-2"><a href="introduction-à-stan.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(LES) [<span class="dv">1</span>], <span class="co">#les noms des var doivent etre les memes que dans le fichier stan</span></span>
-<span id="cb68-3"><a href="introduction-à-stan.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">logLMA =</span> LES<span class="sc">$</span><span class="st">&quot;log LMA&quot;</span>,</span>
-<span id="cb68-4"><a href="introduction-à-stan.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">logLL =</span> LES<span class="sc">$</span><span class="st">&quot;log LL&quot;</span></span>
-<span id="cb68-5"><a href="introduction-à-stan.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb68-6"><a href="introduction-à-stan.html#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-7"><a href="introduction-à-stan.html#cb68-7" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;stan.stan&quot;</span>, <span class="at">data =</span> data) <span class="co">#LET&#39;S GOOOO! Données injectées, compilation lancée !</span></span></code></pre></div>
+<div id="figure" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Figure<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#figure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>fig.cap = "Caption."</code> pour la légende d’une figure
+<code>fig.height = 8, fig.width=4</code> pour la taille de la figure</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-2"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
+<span id="cb32-3"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</div>
+<div id="equations" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Equations<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#equations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Nombre de chaine par défaut mais on peut choisir, 4 c’est le minimum pour interpréter les graphes.</li>
-<li>thin = période d’amaigrissement = pas de l’itération</li>
-<li>warmup = periode de chauffe : petite balade aléatoire</li>
-<li>lp_ = log de la vraisemblance</li>
-<li>n_eff = nbr d’itérations effectives : qui sont relevantes</li>
-<li>Rhat doit être égal à 1 (ou 1.1): ça veut dire que l’estimation des paramètres a réussi à converger</li>
+<li>Dans le texte : <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\gamma = \alpha + \beta\)</span></li>
+<li>En bande centrale :
+<span class="math display">\[Y \sim\mathcal N(\mu,\sigma)\frac{1}{1+e}\]</span>
+<span class="math display">\[Y \sim \mathcal N(\frac{\mu_s}{\beta \times X}, \sigma^2)\]</span></li>
 </ul>
-<p>Ici les chaînes n’ont pas réusi à converger, et ce sont perdues (tres peu de chaînes effectives).</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="introduction-à-stan.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit1), <span class="co">#as.array = comme vecteurs</span></span>
-<span id="cb69-2"><a href="introduction-à-stan.html#cb69-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="co">#pour mettre en lettre greques</span></span>
-<span id="cb69-3"><a href="introduction-à-stan.html#cb69-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">np =</span> <span class="fu">nuts_params</span>(fit1)) <span class="co"># np pour afficher la divergeance</span></span></code></pre></div>
-<p>MCMC : diagnostic des chaines
-PPC : comparaison de modèles</p>
-<p>Il faut une exploration <em>indépendante</em> des paramètres pour trouver le point où ça cohabite = <em>maximum de vraissemblance</em> (voir dessin carnet)</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="introduction-à-stan.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co">#les paramètres doivent être indépendants et former une patate à leur valeur correspondant aux données.</span></span>
-<span id="cb70-2"><a href="introduction-à-stan.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit1))</span></code></pre></div>
-<p>On voit que alpha et lp_ sont liés par une relation.
-On voit sur les graphes des chaines, que alpha veut aller dans le négatif mais ne peut pas car défini sur R+ (loi gamma)</p>
-<p><em>Logique biologique</em> : alpha doit être égal à 0 quand LMA est égal à 0 puisque s’il n’y a pas de masse il n’y pas de feuille dont pas de duree de vie !!! Donc on vire alpha du modèle.</p>
-<p>Nouveau modele :
-_log LL ~ N( beta *log LMA, sigma^2)_
-A mettre dans un fichier stan
-On peut faire une copie de l’ancien fichier : file &gt; coche le stan file &gt; more &gt; copy</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="introduction-à-stan.html#cb71-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;LLLMA.stan&quot;</span>, <span class="at">data =</span> data)</span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="introduction-à-stan.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit2), <span class="co">#as.array : comme vecteurs</span></span>
-<span id="cb72-2"><a href="introduction-à-stan.html#cb72-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="at">np =</span> <span class="fu">nuts_params</span>(fit2))<span class="co">#pour mettre en lettre greques</span></span></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="introduction-à-stan.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit2))</span></code></pre></div>
-<p>Ca fait des belles patates donc c’est bon !!!! Et de beaux histos !</p>
-<p>On veut mtn connaitre les <em>distributions des paramètres à posteriori</em>:
-on veux des paramètres :
-- différents de 0 (pour une relation entre var expli et var réponse)
-- et un sigma petit (pour un bon fit)</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="introduction-à-stan.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_areas</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co"># pars pour n&#39;afficher que les paramètres que je veux, pas la vraissemblance</span></span></code></pre></div>
-<p>Posteriors sont normaux et significatifs.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introduction-à-stan.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co">#vu du dessus</span></span></code></pre></div>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introduction-à-stan.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_shinystan</span>(fit2) </span></code></pre></div>
-<p>Conclusion :
-- se renseigner sur les formes de lois, de modèle
-- la définition des lois
-- centrer-réduire les variables pour faire converger plus vite (meme echelle)
-- borner les paramètres si possible</p>
+<p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">Voir le latex maths wiki</a></p>
+</div>
+<div id="des-diagrammes-avec-mermaid" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Des diagrammes avec Mermaid !<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#des-diagrammes-avec-mermaid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/" class="uri">https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/</a>
+<a href="https://mermaid-js.github.io/mermaid/#/" class="uri">https://mermaid-js.github.io/mermaid/#/</a></p>
+</div>
+<div id="bibliographie" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Bibliographie<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#bibliographie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La bilbliographie est lu à partir d’un fichier <code>.bib</code> préciser dans l’en-tête YAML et peut être généré automatiquement avec Mendeley, Endnote, etc …<br />
+On peut aussi préciser le formation de citation avec un fichier <code>.csl</code> défini en ligne pour chaque journal.</p>
+<p>La référence <span class="citation">[@Cochrane2003]</span> se fait avec <strong>@ + [ + code bib + ]</strong> mais on peut utiliser l’addin <code>citr</code> pour le faire de manière interactive. Je recommande même de définir un raccourcit clavier personnel pour facilement effectuer une citation (par exemple CTRL + SHIFT + G). Enfin on place un titre Référence à la fin du document après lequel se placera la bibliographie mise en forme.</p>
+</div>
+<div id="références-croisées" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Références croisées<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#références-croisées" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les références croisées nécessite d’utiliser le package <code>bookdown</code> même sans faire un livre à partir des formats <code>documents2</code>. Elle se font avec <strong>SLASH + @ + ref + ( + type + : + nom du chunk + )</strong>. Par exemple je fais référence à la table <a href="#tab:tableRef"><strong>??</strong></a> et la figure <a href="#fig:figureRef"><strong>??</strong></a>.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb33-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="at">caption =</span> <span class="st">&quot;Ceci est une table.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+</div>
+<div id="cache" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Cache<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cache" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le cache vous permet d’enregistrer les sorties d’un fragment de code pour que lors des prochaines compilation il ne soit pas recalculer. Il créé un dossier <code>_files</code> et <code>_cache</code> avec les images R des objets du chunk et les figures respectives. <strong>Attention</strong>, si votre chunk dépend d’un chunk qui est mise à jour et que vous ne précisez pas la dépendance il ne sera pas mis à jour. Utilisez l’option <code>dependson</code> ou nettoyez le cache pour éviter cela.</p>
 
 </div>
 </div>
@@ -570,8 +513,8 @@ on veux des paramètres :
           </div>
         </div>
       </div>
-<a href="stats-à-ne-plus-chercher.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="i-am-a-modeler.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
