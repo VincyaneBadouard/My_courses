@@ -8,7 +8,7 @@ Coder sous R
 - fcts bien sympathiques tres cher
 - data.table
 - spatial dat cours
-- Données LIDAR
+- Work with LiDAR data
 - cpp
 
 Outils autour de R
@@ -27,6 +27,7 @@ Statistics
 - I'm a modeler
 - Bayesian stats cours
 - Bayesian & stan
+- statistiques bayésiennes spatialisées avec Inla et Inlabru 
 
 Rédaction
 - Conseils de rédaction scientifique

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 17 Bayesian stats cours | My cours</title>
+  <title>Cours 4 Work with LiDAR data | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 17 Bayesian stats cours | My cours" />
+  <meta property="og:title" content="Cours 4 Work with LiDAR data | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 17 Bayesian stats cours | My cours" />
+  <meta name="twitter:title" content="Cours 4 Work with LiDAR data | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="i-am-a-modeler.html"/>
-<link rel="next" href="bayesian-and-stan-langage.html"/>
+<link rel="prev" href="spatial-data-cours.html"/>
+<link rel="next" href="c.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -478,37 +478,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="bayesian-stats-cours" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">Cours 17</span> Bayesian stats cours<a href="bayesian-stats-cours.html#bayesian-stats-cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<ol style="list-style-type: decimal">
-<li>design the model (data story)</li>
-<li>condition on the data (update the model)</li>
-<li>evaluate the model (critique)</li>
-</ol>
-<p>ex : 9 times
-dta : W (water) or L (land)</p>
-<p>p = proba de W
-proba de L = 1-p</p>
-<p><em>prior</em> : information before the data (p in [0;1])
-<em>posterior</em> : update info of each value of p conditional on data</p>
-<p>chaque postérior est le prior du prochain posterior
-plus on a de données plus il est aisé d’avoir un résulat précis</p>
-<p>Define generative relations between the variables</p>
-<p>W, L, W
-p * (1-p) *p = p<sup>2(1-p)</sup>1 : relative number to see W</p>
-<p><em>Vraissemblance</em> :</p>
-<div id="grid-approximation-to-define-posterior" class="section level2 hasAnchor" number="17.1">
-<h2><span class="header-section-number">17.1</span> Grid approximation (to define posterior) :<a href="bayesian-stats-cours.html#grid-approximation-to-define-posterior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>posterior proba = standardizez product of proba of the data and prior proba
-standardisé : add up all the products and divide by this sum</p>
-<p>grid approximation uses finite grid of parameter values instead of continuous space
-too expensive with more yhan a few parameters</p>
-<p>Sampling from the posterior</p>
-<p>Intervals : how much mass</p>
-<p>Percentile intervals (PI): equal area in each tail
-Hightest posterior density intervals (HPDI) : narrowest interval containing mass</p>
-<p>Mean nearly always more sensible than the mode</p>
-<p>Model :</p>
+<div id="work-with-lidar-data" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Cours 4</span> Work with LiDAR data<a href="work-with-lidar-data.html#work-with-lidar-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>LiDAR : “light detection and ranging” ou “laser imaging detection and ranging”</p>
+<p>Lumière d’un laser en général : visible, infrarouge ou ultraviolet</p>
+<p>Télémétrie : détermination de la distance d’un objet</p>
+<p>Principe d’écholocalisation : La distance est donnée par la mesure du délai entre l’émission d’une impulsion et la détection d’une impulsion réfléchie, connaissant la vitesse de la lumière.</p>
+<p>Mesure de la matière : isoler l’effet des différentes interactions entre la lumière et la matière le long du faisceau laser.</p>
+<p>On appelle « équation lidar » le bilan de liaison du lidar entre son émission et sa réception, c’est-à-dire l’énergie lumineuse E (en J) de l’impulsion rétrodiffusée par une cible (supposée lambertienne, i.e. qui diffuse la lumière uniformément) située à une distance z et captée par le lidar</p>
+<p>Emet de plusieurs dizaines à plusieurs centaines de milliers d’impulsions chaque seconde</p>
+<div id="load-laz" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Load laz<a href="work-with-lidar-data.html#load-laz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://r-lidar.github.io/lidRbook/io.html" class="uri">https://r-lidar.github.io/lidRbook/io.html</a></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="work-with-lidar-data.html#cb27-1" aria-hidden="true" tabindex="-1"></a>las1 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">readLAS</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span>
+<span id="cb27-2"><a href="work-with-lidar-data.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
+<span id="cb27-3"><a href="work-with-lidar-data.html#cb27-3" aria-hidden="true" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> rlas<span class="sc">::</span><span class="fu">read.las</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span></code></pre></div>
+</div>
+<div id="check-if-the-las-is-complete" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Check if the las is complete<a href="work-with-lidar-data.html#check-if-the-las-is-complete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="work-with-lidar-data.html#cb28-1" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span>
+<span id="cb28-2"><a href="work-with-lidar-data.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lidR::las_check(las2)</span></span></code></pre></div>
+</div>
+<div id="see-their-summaries" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> See their summaries<a href="work-with-lidar-data.html#see-their-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="work-with-lidar-data.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
+<span id="cb29-2"><a href="work-with-lidar-data.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
+<span id="cb29-3"><a href="work-with-lidar-data.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
+<span id="cb29-4"><a href="work-with-lidar-data.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
+<span id="cb29-5"><a href="work-with-lidar-data.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
+<span id="cb29-6"><a href="work-with-lidar-data.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="work-with-lidar-data.html#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="work-with-lidar-data.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
+<span id="cb29-9"><a href="work-with-lidar-data.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
+<span id="cb29-10"><a href="work-with-lidar-data.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
+<span id="cb29-11"><a href="work-with-lidar-data.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
+<span id="cb29-12"><a href="work-with-lidar-data.html#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
+<span id="cb29-13"><a href="work-with-lidar-data.html#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
+</div>
+<div id="plot" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Plot<a href="work-with-lidar-data.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="work-with-lidar-data.html#cb30-1" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
+<span id="cb30-2"><a href="work-with-lidar-data.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="work-with-lidar-data.html#cb31-1" aria-hidden="true" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
+<span id="cb31-2"><a href="work-with-lidar-data.html#cb31-2" aria-hidden="true" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
+<span id="cb31-3"><a href="work-with-lidar-data.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="work-with-lidar-data.html#cb31-4" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
 
 </div>
 </div>
@@ -517,8 +531,8 @@ Hightest posterior density intervals (HPDI) : narrowest interval containing mass
           </div>
         </div>
       </div>
-<a href="i-am-a-modeler.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bayesian-and-stan-langage.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="spatial-data-cours.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="c.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

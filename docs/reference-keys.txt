@@ -62,7 +62,11 @@ shapefiles
 systèmes-de-coordonnées-de-références-crs
 système-de-coordonnées-géographiques
 système-de-référence-de-coordonnées-pojetées
-données-lidar
+work-with-lidar-data
+load-laz
+check-if-the-las-is-complete
+see-their-summaries
+plot
 c
 rmarkdown
 packages
@@ -194,6 +198,13 @@ loi-bernouilli-logistique-blogit-réponse-binaire
 tools
 rapidité
 non-identifiabilité
+inla-inlabru-statistiques-bayésiennes-spatialisées
+install-inla-r-package
+other-packages
+load-packages
+cours
+approche-bayésienne
+inlabru
 conseils-de-rédaction-scientifique
 conseils-généraux
 pq-écrire-pq-publier

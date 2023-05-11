@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Cours 12 Package creation | My cours</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Cours 12 Package creation | My cours" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-01-30" />
+<meta name="date" content="2023-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -120,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -203,7 +207,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.6" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#systèmes-de-coordonnées-de-références-crs"><i class="fa fa-check"></i><b>3.2.6</b> Systèmes de coordonnées de références (CRS)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="données-lidar.html"><a href="données-lidar.html"><i class="fa fa-check"></i><b>4</b> Données LIDAR</a></li>
+<li class="chapter" data-level="4" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html"><i class="fa fa-check"></i><b>4</b> Work with LiDAR data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>4.1</b> Load laz</a></li>
+<li class="chapter" data-level="4.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#check-if-the-las-is-complete"><i class="fa fa-check"></i><b>4.2</b> Check if the las is complete</a></li>
+<li class="chapter" data-level="4.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#see-their-summaries"><i class="fa fa-check"></i><b>4.3</b> See their summaries</a></li>
+<li class="chapter" data-level="4.4" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#plot"><i class="fa fa-check"></i><b>4.4</b> Plot</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>5</b> C++</a></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="6" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>6</b> Rmarkdown</a>
@@ -379,60 +389,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#rapidité"><i class="fa fa-check"></i><b>18.7</b> Rapidité</a></li>
 <li class="chapter" data-level="18.8" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#non-identifiabilité"><i class="fa fa-check"></i><b>18.8</b> Non-identifiabilité</a></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><i class="fa fa-check"></i><b>19</b> Inla-Inlabru statistiques bayésiennes spatialisées</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#install-inla-r-package"><i class="fa fa-check"></i><b>19.1</b> Install INLA R package</a></li>
+<li class="chapter" data-level="19.2" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#other-packages"><i class="fa fa-check"></i><b>19.2</b> Other packages</a></li>
+<li class="chapter" data-level="19.3" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#load-packages"><i class="fa fa-check"></i><b>19.3</b> Load packages</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="cours.html"><a href="cours.html"><i class="fa fa-check"></i><b>20</b> Cours</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="cours.html"><a href="cours.html#approche-bayésienne"><i class="fa fa-check"></i><b>20.1</b> Approche bayésienne</a></li>
+<li class="chapter" data-level="20.2" data-path="cours.html"><a href="cours.html#inlabru"><i class="fa fa-check"></i><b>20.2</b> inlabru</a></li>
+</ul></li>
 <li class="part"><span><b>V Rédaction</b></span></li>
-<li class="chapter" data-level="19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html"><i class="fa fa-check"></i><b>19</b> Conseils de rédaction scientifique</a>
+<li class="chapter" data-level="21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html"><i class="fa fa-check"></i><b>21</b> Conseils de rédaction scientifique</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conseils-généraux"><i class="fa fa-check"></i><b>19.1</b> Conseils généraux:</a></li>
-<li class="chapter" data-level="19.2" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#pq-écrire-pq-publier"><i class="fa fa-check"></i><b>19.2</b> Pq écrire ? / Pq publier ?</a></li>
-<li class="chapter" data-level="19.3" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-barrières-pour-écrire-et-publier"><i class="fa fa-check"></i><b>19.3</b> Les barrières pour écrire et publier :</a></li>
-<li class="chapter" data-level="19.4" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#que-veulent-les-rédacteurs"><i class="fa fa-check"></i><b>19.4</b> Que veulent les rédacteurs ?</a></li>
-<li class="chapter" data-level="19.5" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#fonctionnement-dune-revue"><i class="fa fa-check"></i><b>19.5</b> Fonctionnement d’une revue :</a>
+<li class="chapter" data-level="21.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conseils-généraux"><i class="fa fa-check"></i><b>21.1</b> Conseils généraux:</a></li>
+<li class="chapter" data-level="21.2" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#pq-écrire-pq-publier"><i class="fa fa-check"></i><b>21.2</b> Pq écrire ? / Pq publier ?</a></li>
+<li class="chapter" data-level="21.3" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-barrières-pour-écrire-et-publier"><i class="fa fa-check"></i><b>21.3</b> Les barrières pour écrire et publier :</a></li>
+<li class="chapter" data-level="21.4" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#que-veulent-les-rédacteurs"><i class="fa fa-check"></i><b>21.4</b> Que veulent les rédacteurs ?</a></li>
+<li class="chapter" data-level="21.5" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#fonctionnement-dune-revue"><i class="fa fa-check"></i><b>21.5</b> Fonctionnement d’une revue :</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#différents-types-darticles"><i class="fa fa-check"></i><b>19.5.1</b> Différents types d’articles :</a></li>
+<li class="chapter" data-level="21.5.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#différents-types-darticles"><i class="fa fa-check"></i><b>21.5.1</b> Différents types d’articles :</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#introduction-3-paragraphes-250-mots-¼-des-refs"><i class="fa fa-check"></i><b>19.6</b> Introduction (3 paragraphes) (250 mots) (¼ des refs)</a></li>
-<li class="chapter" data-level="19.7" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#méthodes-pour-que-ce-soit-reproductible"><i class="fa fa-check"></i><b>19.7</b> Méthodes (pour que ce soit reproductible) ()</a></li>
-<li class="chapter" data-level="19.8" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résultats-pas-de-plan-par-défaut-voir-les-consignes-de-la-revue"><i class="fa fa-check"></i><b>19.8</b> Résultats (pas de plan par défaut, voir les consignes de la revue)</a></li>
-<li class="chapter" data-level="19.9" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#discussion-on-discute-le-résultat-tout-le-long-10-20h-de-travail"><i class="fa fa-check"></i><b>19.9</b> Discussion on discute le résultat tout le long (10-20h de travail</a></li>
-<li class="chapter" data-level="19.10" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#annexes"><i class="fa fa-check"></i><b>19.10</b> Annexes</a></li>
-<li class="chapter" data-level="19.11" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-auteurs-les-4-pts-validé-international"><i class="fa fa-check"></i><b>19.11</b> Les auteurs (les 4 pts validé, international)</a></li>
-<li class="chapter" data-level="19.12" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#références"><i class="fa fa-check"></i><b>19.12</b> Références :</a></li>
-<li class="chapter" data-level="19.13" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#titre-de-larticle"><i class="fa fa-check"></i><b>19.13</b> Titre de l’article :</a></li>
-<li class="chapter" data-level="19.14" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#science-ouverte-diffusion-des-produits-scientifiques-résultats-données-écrits-et-code-source"><i class="fa fa-check"></i><b>19.14</b> science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)</a></li>
-<li class="chapter" data-level="19.15" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#data-availability"><i class="fa fa-check"></i><b>19.15</b> Data availability:</a></li>
-<li class="chapter" data-level="19.16" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résumé"><i class="fa fa-check"></i><b>19.16</b> Résumé :</a></li>
-<li class="chapter" data-level="19.17" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#choix-dune-revue-coopist-journal-selector"><i class="fa fa-check"></i><b>19.17</b> Choix d’une revue (Coopist, “journal selector”)</a></li>
-<li class="chapter" data-level="19.18" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#remerciement"><i class="fa fa-check"></i><b>19.18</b> Remerciement :</a></li>
-<li class="chapter" data-level="19.19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#creditcontributeurs"><i class="fa fa-check"></i><b>19.19</b> CRediT/contributeurs :</a></li>
-<li class="chapter" data-level="19.20" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer"><i class="fa fa-check"></i><b>19.20</b> Conflit d’intérêt (relations et activités qui ont pu influencer) :</a></li>
-<li class="chapter" data-level="19.21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-du-temps"><i class="fa fa-check"></i><b>19.21</b> Gestion du temps</a></li>
-<li class="chapter" data-level="19.22" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-des-coauteurs"><i class="fa fa-check"></i><b>19.22</b> Gestion des coauteurs :</a></li>
-<li class="chapter" data-level="19.23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#ecriture-qqsoit-la-langue"><i class="fa fa-check"></i><b>19.23</b> Ecriture (qqsoit la langue) :</a>
+<li class="chapter" data-level="21.6" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#introduction-3-paragraphes-250-mots-¼-des-refs"><i class="fa fa-check"></i><b>21.6</b> Introduction (3 paragraphes) (250 mots) (¼ des refs)</a></li>
+<li class="chapter" data-level="21.7" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#méthodes-pour-que-ce-soit-reproductible"><i class="fa fa-check"></i><b>21.7</b> Méthodes (pour que ce soit reproductible) ()</a></li>
+<li class="chapter" data-level="21.8" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résultats-pas-de-plan-par-défaut-voir-les-consignes-de-la-revue"><i class="fa fa-check"></i><b>21.8</b> Résultats (pas de plan par défaut, voir les consignes de la revue)</a></li>
+<li class="chapter" data-level="21.9" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#discussion-on-discute-le-résultat-tout-le-long-10-20h-de-travail"><i class="fa fa-check"></i><b>21.9</b> Discussion on discute le résultat tout le long (10-20h de travail</a></li>
+<li class="chapter" data-level="21.10" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#annexes"><i class="fa fa-check"></i><b>21.10</b> Annexes</a></li>
+<li class="chapter" data-level="21.11" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-auteurs-les-4-pts-validé-international"><i class="fa fa-check"></i><b>21.11</b> Les auteurs (les 4 pts validé, international)</a></li>
+<li class="chapter" data-level="21.12" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#références"><i class="fa fa-check"></i><b>21.12</b> Références :</a></li>
+<li class="chapter" data-level="21.13" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#titre-de-larticle"><i class="fa fa-check"></i><b>21.13</b> Titre de l’article :</a></li>
+<li class="chapter" data-level="21.14" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#science-ouverte-diffusion-des-produits-scientifiques-résultats-données-écrits-et-code-source"><i class="fa fa-check"></i><b>21.14</b> science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)</a></li>
+<li class="chapter" data-level="21.15" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#data-availability"><i class="fa fa-check"></i><b>21.15</b> Data availability:</a></li>
+<li class="chapter" data-level="21.16" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résumé"><i class="fa fa-check"></i><b>21.16</b> Résumé :</a></li>
+<li class="chapter" data-level="21.17" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#choix-dune-revue-coopist-journal-selector"><i class="fa fa-check"></i><b>21.17</b> Choix d’une revue (Coopist, “journal selector”)</a></li>
+<li class="chapter" data-level="21.18" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#remerciement"><i class="fa fa-check"></i><b>21.18</b> Remerciement :</a></li>
+<li class="chapter" data-level="21.19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#creditcontributeurs"><i class="fa fa-check"></i><b>21.19</b> CRediT/contributeurs :</a></li>
+<li class="chapter" data-level="21.20" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer"><i class="fa fa-check"></i><b>21.20</b> Conflit d’intérêt (relations et activités qui ont pu influencer) :</a></li>
+<li class="chapter" data-level="21.21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-du-temps"><i class="fa fa-check"></i><b>21.21</b> Gestion du temps</a></li>
+<li class="chapter" data-level="21.22" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-des-coauteurs"><i class="fa fa-check"></i><b>21.22</b> Gestion des coauteurs :</a></li>
+<li class="chapter" data-level="21.23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#ecriture-qqsoit-la-langue"><i class="fa fa-check"></i><b>21.23</b> Ecriture (qqsoit la langue) :</a>
 <ul>
-<li class="chapter" data-level="19.23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#en-englais"><i class="fa fa-check"></i><b>19.23.1</b> En englais</a></li>
+<li class="chapter" data-level="21.23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#en-englais"><i class="fa fa-check"></i><b>21.23.1</b> En englais</a></li>
 </ul></li>
-<li class="chapter" data-level="19.24" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#embellissement-de-larticle-pas-bien"><i class="fa fa-check"></i><b>19.24</b> Embellissement de l’article (pas bien)</a></li>
-<li class="chapter" data-level="19.25" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#lettre-de-motivation-de-soumission-pas-tjrs-demandée"><i class="fa fa-check"></i><b>19.25</b> Lettre de motivation de soumission (pas tjrs demandée) :</a></li>
-<li class="chapter" data-level="19.26" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#au-cirad"><i class="fa fa-check"></i><b>19.26</b> Au Cirad</a></li>
+<li class="chapter" data-level="21.24" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#embellissement-de-larticle-pas-bien"><i class="fa fa-check"></i><b>21.24</b> Embellissement de l’article (pas bien)</a></li>
+<li class="chapter" data-level="21.25" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#lettre-de-motivation-de-soumission-pas-tjrs-demandée"><i class="fa fa-check"></i><b>21.25</b> Lettre de motivation de soumission (pas tjrs demandée) :</a></li>
+<li class="chapter" data-level="21.26" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#au-cirad"><i class="fa fa-check"></i><b>21.26</b> Au Cirad</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html"><i class="fa fa-check"></i><b>20</b> Distinction britanique/americain</a>
+<li class="chapter" data-level="22" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html"><i class="fa fa-check"></i><b>22</b> Distinction britanique/americain</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#our-uk-ou--or-us"><i class="fa fa-check"></i><b>20.1</b> -our (UK) ou -or (US)</a></li>
-<li class="chapter" data-level="20.2" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#re-uk-ou--er-us"><i class="fa fa-check"></i><b>20.2</b> -re (UK) ou -er (US)</a></li>
-<li class="chapter" data-level="20.3" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ise-uk-ou--ize-us"><i class="fa fa-check"></i><b>20.3</b> -ise (UK) ou -ize (US)</a></li>
-<li class="chapter" data-level="20.4" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#nce-uk-ou--nse-us"><i class="fa fa-check"></i><b>20.4</b> -nce (UK) ou -nse (US)</a></li>
-<li class="chapter" data-level="20.5" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ge-uk-ou--g-us"><i class="fa fa-check"></i><b>20.5</b> -ge (UK) ou -g (US)</a></li>
-<li class="chapter" data-level="20.6" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ae-uk-ou--e-us"><i class="fa fa-check"></i><b>20.6</b> -ae (UK) ou -e (US)</a></li>
-<li class="chapter" data-level="20.7" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ogue-uk-ou--og-us"><i class="fa fa-check"></i><b>20.7</b> -ogue (UK) ou -og (US)</a></li>
-<li class="chapter" data-level="20.8" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#que-uk-ou--ck-us"><i class="fa fa-check"></i><b>20.8</b> -que (UK) ou -ck (US)</a></li>
-<li class="chapter" data-level="20.9" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#voyelle-l"><i class="fa fa-check"></i><b>20.9</b> voyelle + L</a></li>
-<li class="chapter" data-level="20.10" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#past-simple"><i class="fa fa-check"></i><b>20.10</b> Past simple</a></li>
-<li class="chapter" data-level="20.11" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#get"><i class="fa fa-check"></i><b>20.11</b> Get</a></li>
-<li class="chapter" data-level="20.12" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#prépositions"><i class="fa fa-check"></i><b>20.12</b> Prépositions</a></li>
-<li class="chapter" data-level="20.13" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#have-got-uk-vs-have-us"><i class="fa fa-check"></i><b>20.13</b> have got (UK) vs have (US)</a></li>
-<li class="chapter" data-level="20.14" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#as-uklike-us"><i class="fa fa-check"></i><b>20.14</b> as (UK)/like (US)</a></li>
-<li class="chapter" data-level="20.15" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-dates"><i class="fa fa-check"></i><b>20.15</b> Les dates</a></li>
-<li class="chapter" data-level="20.16" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-contractions"><i class="fa fa-check"></i><b>20.16</b> Les contractions</a></li>
+<li class="chapter" data-level="22.1" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#our-uk-ou--or-us"><i class="fa fa-check"></i><b>22.1</b> -our (UK) ou -or (US)</a></li>
+<li class="chapter" data-level="22.2" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#re-uk-ou--er-us"><i class="fa fa-check"></i><b>22.2</b> -re (UK) ou -er (US)</a></li>
+<li class="chapter" data-level="22.3" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ise-uk-ou--ize-us"><i class="fa fa-check"></i><b>22.3</b> -ise (UK) ou -ize (US)</a></li>
+<li class="chapter" data-level="22.4" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#nce-uk-ou--nse-us"><i class="fa fa-check"></i><b>22.4</b> -nce (UK) ou -nse (US)</a></li>
+<li class="chapter" data-level="22.5" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ge-uk-ou--g-us"><i class="fa fa-check"></i><b>22.5</b> -ge (UK) ou -g (US)</a></li>
+<li class="chapter" data-level="22.6" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ae-uk-ou--e-us"><i class="fa fa-check"></i><b>22.6</b> -ae (UK) ou -e (US)</a></li>
+<li class="chapter" data-level="22.7" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ogue-uk-ou--og-us"><i class="fa fa-check"></i><b>22.7</b> -ogue (UK) ou -og (US)</a></li>
+<li class="chapter" data-level="22.8" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#que-uk-ou--ck-us"><i class="fa fa-check"></i><b>22.8</b> -que (UK) ou -ck (US)</a></li>
+<li class="chapter" data-level="22.9" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#voyelle-l"><i class="fa fa-check"></i><b>22.9</b> voyelle + L</a></li>
+<li class="chapter" data-level="22.10" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#past-simple"><i class="fa fa-check"></i><b>22.10</b> Past simple</a></li>
+<li class="chapter" data-level="22.11" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#get"><i class="fa fa-check"></i><b>22.11</b> Get</a></li>
+<li class="chapter" data-level="22.12" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#prépositions"><i class="fa fa-check"></i><b>22.12</b> Prépositions</a></li>
+<li class="chapter" data-level="22.13" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#have-got-uk-vs-have-us"><i class="fa fa-check"></i><b>22.13</b> have got (UK) vs have (US)</a></li>
+<li class="chapter" data-level="22.14" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#as-uklike-us"><i class="fa fa-check"></i><b>22.14</b> as (UK)/like (US)</a></li>
+<li class="chapter" data-level="22.15" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-dates"><i class="fa fa-check"></i><b>22.15</b> Les dates</a></li>
+<li class="chapter" data-level="22.16" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-contractions"><i class="fa fa-check"></i><b>22.16</b> Les contractions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
@@ -470,29 +491,29 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="les-packages-r-nécessaires" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Les packages R nécessaires<a href="package-creation.html#les-packages-r-nécessaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Télécharger des packages d’aide à l’organisation et structure, nécessaire à l’écriture d’un package :</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="package-creation.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
-<span id="cb53-2"><a href="package-creation.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-3"><a href="package-creation.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
-<span id="cb53-4"><a href="package-creation.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-5"><a href="package-creation.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
-<span id="cb53-6"><a href="package-creation.html#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-7"><a href="package-creation.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
-<span id="cb53-8"><a href="package-creation.html#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
-<span id="cb53-9"><a href="package-creation.html#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-10"><a href="package-creation.html#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
-<span id="cb53-11"><a href="package-creation.html#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-12"><a href="package-creation.html#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
-<span id="cb53-13"><a href="package-creation.html#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-14"><a href="package-creation.html#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
-<span id="cb53-15"><a href="package-creation.html#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-16"><a href="package-creation.html#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
-<span id="cb53-17"><a href="package-creation.html#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb53-18"><a href="package-creation.html#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
-<span id="cb53-19"><a href="package-creation.html#cb53-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-20"><a href="package-creation.html#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="package-creation.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
-<span id="cb54-2"><a href="package-creation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
-<span id="cb54-3"><a href="package-creation.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="package-creation.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
+<span id="cb58-2"><a href="package-creation.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-3"><a href="package-creation.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
+<span id="cb58-4"><a href="package-creation.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-5"><a href="package-creation.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
+<span id="cb58-6"><a href="package-creation.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-7"><a href="package-creation.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
+<span id="cb58-8"><a href="package-creation.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
+<span id="cb58-9"><a href="package-creation.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-10"><a href="package-creation.html#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
+<span id="cb58-11"><a href="package-creation.html#cb58-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-12"><a href="package-creation.html#cb58-12" aria-hidden="true" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
+<span id="cb58-13"><a href="package-creation.html#cb58-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-14"><a href="package-creation.html#cb58-14" aria-hidden="true" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
+<span id="cb58-15"><a href="package-creation.html#cb58-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-16"><a href="package-creation.html#cb58-16" aria-hidden="true" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
+<span id="cb58-17"><a href="package-creation.html#cb58-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-18"><a href="package-creation.html#cb58-18" aria-hidden="true" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
+<span id="cb58-19"><a href="package-creation.html#cb58-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-20"><a href="package-creation.html#cb58-20" aria-hidden="true" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="package-creation.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
+<span id="cb59-2"><a href="package-creation.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
+<span id="cb59-3"><a href="package-creation.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
 </div>
 <div id="creation-du-package" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> Creation du package<a href="package-creation.html#creation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -573,25 +594,25 @@ ou on peut y rassembler plsrs fonctions regroupables</p>
 = supplément de la vignette
 C’est aussi là qu’on renseigne les global variables</p>
 <p>La générer : <strong>usethis::use_package_doc()</strong></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="package-creation.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; TreeData-package</span></span>
-<span id="cb55-2"><a href="package-creation.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb55-3"><a href="package-creation.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Forest Inventories Harmonization &amp; Correction</span></span>
-<span id="cb55-4"><a href="package-creation.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb55-5"><a href="package-creation.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @name TreeData</span></span>
-<span id="cb55-6"><a href="package-creation.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @docType package</span></span>
-<span id="cb55-7"><a href="package-creation.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb55-8"><a href="package-creation.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @section TreeData functions:</span></span>
-<span id="cb55-9"><a href="package-creation.html#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; RequiredFormat</span></span>
-<span id="cb55-10"><a href="package-creation.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb55-11"><a href="package-creation.html#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @keywords internal</span></span>
-<span id="cb55-12"><a href="package-creation.html#cb55-12" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;_PACKAGE&quot;</span></span>
-<span id="cb55-13"><a href="package-creation.html#cb55-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-14"><a href="package-creation.html#cb55-14" aria-hidden="true" tabindex="-1"></a><span class="do">## usethis namespace: start</span></span>
-<span id="cb55-15"><a href="package-creation.html#cb55-15" aria-hidden="true" tabindex="-1"></a><span class="do">### quiets concerns of R CMD check &quot;no visible binding for global variables&quot;</span></span>
-<span id="cb55-16"><a href="package-creation.html#cb55-16" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">globalVariables</span>(<span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
-<span id="cb55-17"><a href="package-creation.html#cb55-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-18"><a href="package-creation.html#cb55-18" aria-hidden="true" tabindex="-1"></a><span class="do">## usethis namespace: end</span></span>
-<span id="cb55-19"><a href="package-creation.html#cb55-19" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="package-creation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; TreeData-package</span></span>
+<span id="cb60-2"><a href="package-creation.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb60-3"><a href="package-creation.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Forest Inventories Harmonization &amp; Correction</span></span>
+<span id="cb60-4"><a href="package-creation.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb60-5"><a href="package-creation.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @name TreeData</span></span>
+<span id="cb60-6"><a href="package-creation.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @docType package</span></span>
+<span id="cb60-7"><a href="package-creation.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb60-8"><a href="package-creation.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @section TreeData functions:</span></span>
+<span id="cb60-9"><a href="package-creation.html#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; RequiredFormat</span></span>
+<span id="cb60-10"><a href="package-creation.html#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb60-11"><a href="package-creation.html#cb60-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @keywords internal</span></span>
+<span id="cb60-12"><a href="package-creation.html#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;_PACKAGE&quot;</span></span>
+<span id="cb60-13"><a href="package-creation.html#cb60-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-14"><a href="package-creation.html#cb60-14" aria-hidden="true" tabindex="-1"></a><span class="do">## usethis namespace: start</span></span>
+<span id="cb60-15"><a href="package-creation.html#cb60-15" aria-hidden="true" tabindex="-1"></a><span class="do">### quiets concerns of R CMD check &quot;no visible binding for global variables&quot;</span></span>
+<span id="cb60-16"><a href="package-creation.html#cb60-16" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">globalVariables</span>(<span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
+<span id="cb60-17"><a href="package-creation.html#cb60-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-18"><a href="package-creation.html#cb60-18" aria-hidden="true" tabindex="-1"></a><span class="do">## usethis namespace: end</span></span>
+<span id="cb60-19"><a href="package-creation.html#cb60-19" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
 </div>
 <div id="namespace-file" class="section level3 hasAnchor" number="12.6.4">
 <h3><span class="header-section-number">12.6.4</span> NAMESPACE file<a href="package-creation.html#namespace-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -640,20 +661,20 @@ d’autres packages dans le code avec la syntaxe <strong>package::fonction()</st
 <h2><span class="header-section-number">12.9</span> Créer une “méthode générique”<a href="package-creation.html#créer-une-méthode-générique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>méthode générique = modèle de fonction, sans code, à décliner selon la classe d’objet à traiter (ex : “plot”).</p>
 <p>Une méthode générique est plus lente en calcul que ses fonctions dérivées qui sont spécialisées à une classe d’objet.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="package-creation.html#cb56-1" aria-hidden="true" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb56-2"><a href="package-creation.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
-<span id="cb56-3"><a href="package-creation.html#cb56-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb56-4"><a href="package-creation.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="package-creation.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
-<span id="cb56-6"><a href="package-creation.html#cb56-6" aria-hidden="true" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb56-7"><a href="package-creation.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
-<span id="cb56-8"><a href="package-creation.html#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
-<span id="cb56-9"><a href="package-creation.html#cb56-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb56-10"><a href="package-creation.html#cb56-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-11"><a href="package-creation.html#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
-<span id="cb56-12"><a href="package-creation.html#cb56-12" aria-hidden="true" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb56-13"><a href="package-creation.html#cb56-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
-<span id="cb56-14"><a href="package-creation.html#cb56-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="package-creation.html#cb61-1" aria-hidden="true" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb61-2"><a href="package-creation.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
+<span id="cb61-3"><a href="package-creation.html#cb61-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb61-4"><a href="package-creation.html#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="package-creation.html#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
+<span id="cb61-6"><a href="package-creation.html#cb61-6" aria-hidden="true" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb61-7"><a href="package-creation.html#cb61-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
+<span id="cb61-8"><a href="package-creation.html#cb61-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
+<span id="cb61-9"><a href="package-creation.html#cb61-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb61-10"><a href="package-creation.html#cb61-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-11"><a href="package-creation.html#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
+<span id="cb61-12"><a href="package-creation.html#cb61-12" aria-hidden="true" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb61-13"><a href="package-creation.html#cb61-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
+<span id="cb61-14"><a href="package-creation.html#cb61-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Sa signature : ensemble de ses arguments
 Les fonctions dérivées de cette méthode devront obligatoirement avoir les <strong>mêmes arguments</strong> dans le <strong>même ordre</strong> et pourront seulement ajouter des arguments supplémentaires avant “…” (qui est obligatoire).</p>
 <p>1er argument : “x”. Dépend de la classe de l’objet</p>
@@ -735,8 +756,8 @@ src/*.dll”</li>
 <p>Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec <strong>Rdpack</strong> et <strong>roxygen2</strong></p>
 <p>De notre zotero/mendeley vers : <strong>REFERENCES.bib</strong> dans le dossier <strong>inst</strong></p>
 <p>Ajouter dans le fichier DESCRIPTION :</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="package-creation.html#cb57-1" aria-hidden="true" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
-<span id="cb57-2"><a href="package-creation.html#cb57-2" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="package-creation.html#cb62-1" aria-hidden="true" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
+<span id="cb62-2"><a href="package-creation.html#cb62-2" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
 <p>Comment citer :
 citation(packagename)</p>
 <p>Biblio de la vignette :
@@ -839,11 +860,11 @@ citation(packagename)</p>
 <li>écrire des tests à nos fonctions dans tests/testthat : <strong>usethis::use_test(name = “nomdelafct”)</strong></li>
 <li>The test name should complete the sentence “Test that …”.</li>
 </ul>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="package-creation.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
-<span id="cb59-2"><a href="package-creation.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
-<span id="cb59-3"><a href="package-creation.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
-<span id="cb59-4"><a href="package-creation.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
-<span id="cb59-5"><a href="package-creation.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="package-creation.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
+<span id="cb64-2"><a href="package-creation.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
+<span id="cb64-3"><a href="package-creation.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
+<span id="cb64-4"><a href="package-creation.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
+<span id="cb64-5"><a href="package-creation.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
 <ul>
 <li>lancer tous les tests : devtools::test() (Ctrl + Shift + T)</li>
 <li>Each test is run in its own environment and is self-contained.</li>
@@ -903,12 +924,13 @@ test_examples() : Test package examples</p>
 <a href="https://youtu.be/K4x-uqLl_m4" class="uri">https://youtu.be/K4x-uqLl_m4</a></p></li>
 <li><p>Si les Github Actions Windows ne fctnent pas (ne trouve pas les fcts du package), alors que ça marche sur les autres OS, dans le R-CMD-check.yaml:</p></li>
 </ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="package-creation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/privefl/minipkg/commit/50224bcf5f1fd4e30a8c15d2a10534fb247fef4b</span></span>
-<span id="cb60-2"><a href="package-creation.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Install dependencies</span>
-<span id="cb60-3"><a href="package-creation.html#cb60-3" aria-hidden="true" tabindex="-1"></a>        run<span class="sc">:</span> Rscript <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;devtools&#39;)&quot;</span> <span class="sc">-</span>e <span class="st">&quot;devtools::install(dependencies = TRUE)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="package-creation.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/privefl/minipkg/commit/50224bcf5f1fd4e30a8c15d2a10534fb247fef4b</span></span>
+<span id="cb65-2"><a href="package-creation.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Install dependencies</span>
+<span id="cb65-3"><a href="package-creation.html#cb65-3" aria-hidden="true" tabindex="-1"></a>        run<span class="sc">:</span> Rscript <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;devtools&#39;)&quot;</span> <span class="sc">-</span>e <span class="st">&quot;devtools::install(dependencies = TRUE)&quot;</span></span></code></pre></div>
 <ul>
-<li>Codecov : test-coverage.yaml (<a href="https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow" class="uri">https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow</a>) (créer un “secret” pour le token sur github si le dépot est privé)
-Il faut créer un compte codecov</li>
+<li><p>Codecov : test-coverage.yaml (<a href="https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow" class="uri">https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow</a>) (créer un “secret” pour le token sur github si le dépot est privé)
+Il faut créer un compte codecov</p></li>
+<li><p>afficher le rapport de couverture du package : <strong>covr::report()</strong></p></li>
 </ul>
 </div>
 </div>
@@ -943,13 +965,13 @@ major, nimor, patch for released version</p>
 <div id="installer-le-package" class="section level2 hasAnchor" number="12.24">
 <h2><span class="header-section-number">12.24</span> Installer le package<a href="package-creation.html#installer-le-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dépot public :</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="package-creation.html#cb61-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DeveloperName/PackageName&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="package-creation.html#cb66-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DeveloperName/PackageName&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Dépot privé :
 Create an access token in: <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="package-creation.html#cb62-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;user/repo&quot;</span></span>
-<span id="cb62-2"><a href="package-creation.html#cb62-2" aria-hidden="true" tabindex="-1"></a>                         ,<span class="at">ref=</span><span class="st">&quot;master&quot;</span></span>
-<span id="cb62-3"><a href="package-creation.html#cb62-3" aria-hidden="true" tabindex="-1"></a>                         ,<span class="at">auth_token =</span> <span class="st">&quot;tokenstring&quot;</span> <span class="co"># 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</span></span>
-<span id="cb62-4"><a href="package-creation.html#cb62-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="package-creation.html#cb67-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;user/repo&quot;</span></span>
+<span id="cb67-2"><a href="package-creation.html#cb67-2" aria-hidden="true" tabindex="-1"></a>                         ,<span class="at">ref=</span><span class="st">&quot;master&quot;</span></span>
+<span id="cb67-3"><a href="package-creation.html#cb67-3" aria-hidden="true" tabindex="-1"></a>                         ,<span class="at">auth_token =</span> <span class="st">&quot;tokenstring&quot;</span> <span class="co"># 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</span></span>
+<span id="cb67-4"><a href="package-creation.html#cb67-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="générer-la-citation-du-package" class="section level2 hasAnchor" number="12.25">
 <h2><span class="header-section-number">12.25</span> Générer la citation du package<a href="package-creation.html#générer-la-citation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>

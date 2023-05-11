@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Cours 15 Introduction à Stan | My cours</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Cours 15 Introduction à Stan | My cours" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-01-30" />
+<meta name="date" content="2023-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -120,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -203,7 +207,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.6" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#systèmes-de-coordonnées-de-références-crs"><i class="fa fa-check"></i><b>3.2.6</b> Systèmes de coordonnées de références (CRS)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="données-lidar.html"><a href="données-lidar.html"><i class="fa fa-check"></i><b>4</b> Données LIDAR</a></li>
+<li class="chapter" data-level="4" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html"><i class="fa fa-check"></i><b>4</b> Work with LiDAR data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>4.1</b> Load laz</a></li>
+<li class="chapter" data-level="4.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#check-if-the-las-is-complete"><i class="fa fa-check"></i><b>4.2</b> Check if the las is complete</a></li>
+<li class="chapter" data-level="4.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#see-their-summaries"><i class="fa fa-check"></i><b>4.3</b> See their summaries</a></li>
+<li class="chapter" data-level="4.4" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#plot"><i class="fa fa-check"></i><b>4.4</b> Plot</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>5</b> C++</a></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="6" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>6</b> Rmarkdown</a>
@@ -379,60 +389,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#rapidité"><i class="fa fa-check"></i><b>18.7</b> Rapidité</a></li>
 <li class="chapter" data-level="18.8" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#non-identifiabilité"><i class="fa fa-check"></i><b>18.8</b> Non-identifiabilité</a></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><i class="fa fa-check"></i><b>19</b> Inla-Inlabru statistiques bayésiennes spatialisées</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#install-inla-r-package"><i class="fa fa-check"></i><b>19.1</b> Install INLA R package</a></li>
+<li class="chapter" data-level="19.2" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#other-packages"><i class="fa fa-check"></i><b>19.2</b> Other packages</a></li>
+<li class="chapter" data-level="19.3" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#load-packages"><i class="fa fa-check"></i><b>19.3</b> Load packages</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="cours.html"><a href="cours.html"><i class="fa fa-check"></i><b>20</b> Cours</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="cours.html"><a href="cours.html#approche-bayésienne"><i class="fa fa-check"></i><b>20.1</b> Approche bayésienne</a></li>
+<li class="chapter" data-level="20.2" data-path="cours.html"><a href="cours.html#inlabru"><i class="fa fa-check"></i><b>20.2</b> inlabru</a></li>
+</ul></li>
 <li class="part"><span><b>V Rédaction</b></span></li>
-<li class="chapter" data-level="19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html"><i class="fa fa-check"></i><b>19</b> Conseils de rédaction scientifique</a>
+<li class="chapter" data-level="21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html"><i class="fa fa-check"></i><b>21</b> Conseils de rédaction scientifique</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conseils-généraux"><i class="fa fa-check"></i><b>19.1</b> Conseils généraux:</a></li>
-<li class="chapter" data-level="19.2" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#pq-écrire-pq-publier"><i class="fa fa-check"></i><b>19.2</b> Pq écrire ? / Pq publier ?</a></li>
-<li class="chapter" data-level="19.3" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-barrières-pour-écrire-et-publier"><i class="fa fa-check"></i><b>19.3</b> Les barrières pour écrire et publier :</a></li>
-<li class="chapter" data-level="19.4" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#que-veulent-les-rédacteurs"><i class="fa fa-check"></i><b>19.4</b> Que veulent les rédacteurs ?</a></li>
-<li class="chapter" data-level="19.5" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#fonctionnement-dune-revue"><i class="fa fa-check"></i><b>19.5</b> Fonctionnement d’une revue :</a>
+<li class="chapter" data-level="21.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conseils-généraux"><i class="fa fa-check"></i><b>21.1</b> Conseils généraux:</a></li>
+<li class="chapter" data-level="21.2" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#pq-écrire-pq-publier"><i class="fa fa-check"></i><b>21.2</b> Pq écrire ? / Pq publier ?</a></li>
+<li class="chapter" data-level="21.3" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-barrières-pour-écrire-et-publier"><i class="fa fa-check"></i><b>21.3</b> Les barrières pour écrire et publier :</a></li>
+<li class="chapter" data-level="21.4" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#que-veulent-les-rédacteurs"><i class="fa fa-check"></i><b>21.4</b> Que veulent les rédacteurs ?</a></li>
+<li class="chapter" data-level="21.5" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#fonctionnement-dune-revue"><i class="fa fa-check"></i><b>21.5</b> Fonctionnement d’une revue :</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#différents-types-darticles"><i class="fa fa-check"></i><b>19.5.1</b> Différents types d’articles :</a></li>
+<li class="chapter" data-level="21.5.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#différents-types-darticles"><i class="fa fa-check"></i><b>21.5.1</b> Différents types d’articles :</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#introduction-3-paragraphes-250-mots-¼-des-refs"><i class="fa fa-check"></i><b>19.6</b> Introduction (3 paragraphes) (250 mots) (¼ des refs)</a></li>
-<li class="chapter" data-level="19.7" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#méthodes-pour-que-ce-soit-reproductible"><i class="fa fa-check"></i><b>19.7</b> Méthodes (pour que ce soit reproductible) ()</a></li>
-<li class="chapter" data-level="19.8" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résultats-pas-de-plan-par-défaut-voir-les-consignes-de-la-revue"><i class="fa fa-check"></i><b>19.8</b> Résultats (pas de plan par défaut, voir les consignes de la revue)</a></li>
-<li class="chapter" data-level="19.9" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#discussion-on-discute-le-résultat-tout-le-long-10-20h-de-travail"><i class="fa fa-check"></i><b>19.9</b> Discussion on discute le résultat tout le long (10-20h de travail</a></li>
-<li class="chapter" data-level="19.10" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#annexes"><i class="fa fa-check"></i><b>19.10</b> Annexes</a></li>
-<li class="chapter" data-level="19.11" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-auteurs-les-4-pts-validé-international"><i class="fa fa-check"></i><b>19.11</b> Les auteurs (les 4 pts validé, international)</a></li>
-<li class="chapter" data-level="19.12" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#références"><i class="fa fa-check"></i><b>19.12</b> Références :</a></li>
-<li class="chapter" data-level="19.13" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#titre-de-larticle"><i class="fa fa-check"></i><b>19.13</b> Titre de l’article :</a></li>
-<li class="chapter" data-level="19.14" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#science-ouverte-diffusion-des-produits-scientifiques-résultats-données-écrits-et-code-source"><i class="fa fa-check"></i><b>19.14</b> science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)</a></li>
-<li class="chapter" data-level="19.15" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#data-availability"><i class="fa fa-check"></i><b>19.15</b> Data availability:</a></li>
-<li class="chapter" data-level="19.16" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résumé"><i class="fa fa-check"></i><b>19.16</b> Résumé :</a></li>
-<li class="chapter" data-level="19.17" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#choix-dune-revue-coopist-journal-selector"><i class="fa fa-check"></i><b>19.17</b> Choix d’une revue (Coopist, “journal selector”)</a></li>
-<li class="chapter" data-level="19.18" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#remerciement"><i class="fa fa-check"></i><b>19.18</b> Remerciement :</a></li>
-<li class="chapter" data-level="19.19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#creditcontributeurs"><i class="fa fa-check"></i><b>19.19</b> CRediT/contributeurs :</a></li>
-<li class="chapter" data-level="19.20" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer"><i class="fa fa-check"></i><b>19.20</b> Conflit d’intérêt (relations et activités qui ont pu influencer) :</a></li>
-<li class="chapter" data-level="19.21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-du-temps"><i class="fa fa-check"></i><b>19.21</b> Gestion du temps</a></li>
-<li class="chapter" data-level="19.22" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-des-coauteurs"><i class="fa fa-check"></i><b>19.22</b> Gestion des coauteurs :</a></li>
-<li class="chapter" data-level="19.23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#ecriture-qqsoit-la-langue"><i class="fa fa-check"></i><b>19.23</b> Ecriture (qqsoit la langue) :</a>
+<li class="chapter" data-level="21.6" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#introduction-3-paragraphes-250-mots-¼-des-refs"><i class="fa fa-check"></i><b>21.6</b> Introduction (3 paragraphes) (250 mots) (¼ des refs)</a></li>
+<li class="chapter" data-level="21.7" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#méthodes-pour-que-ce-soit-reproductible"><i class="fa fa-check"></i><b>21.7</b> Méthodes (pour que ce soit reproductible) ()</a></li>
+<li class="chapter" data-level="21.8" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résultats-pas-de-plan-par-défaut-voir-les-consignes-de-la-revue"><i class="fa fa-check"></i><b>21.8</b> Résultats (pas de plan par défaut, voir les consignes de la revue)</a></li>
+<li class="chapter" data-level="21.9" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#discussion-on-discute-le-résultat-tout-le-long-10-20h-de-travail"><i class="fa fa-check"></i><b>21.9</b> Discussion on discute le résultat tout le long (10-20h de travail</a></li>
+<li class="chapter" data-level="21.10" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#annexes"><i class="fa fa-check"></i><b>21.10</b> Annexes</a></li>
+<li class="chapter" data-level="21.11" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-auteurs-les-4-pts-validé-international"><i class="fa fa-check"></i><b>21.11</b> Les auteurs (les 4 pts validé, international)</a></li>
+<li class="chapter" data-level="21.12" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#références"><i class="fa fa-check"></i><b>21.12</b> Références :</a></li>
+<li class="chapter" data-level="21.13" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#titre-de-larticle"><i class="fa fa-check"></i><b>21.13</b> Titre de l’article :</a></li>
+<li class="chapter" data-level="21.14" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#science-ouverte-diffusion-des-produits-scientifiques-résultats-données-écrits-et-code-source"><i class="fa fa-check"></i><b>21.14</b> science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)</a></li>
+<li class="chapter" data-level="21.15" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#data-availability"><i class="fa fa-check"></i><b>21.15</b> Data availability:</a></li>
+<li class="chapter" data-level="21.16" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résumé"><i class="fa fa-check"></i><b>21.16</b> Résumé :</a></li>
+<li class="chapter" data-level="21.17" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#choix-dune-revue-coopist-journal-selector"><i class="fa fa-check"></i><b>21.17</b> Choix d’une revue (Coopist, “journal selector”)</a></li>
+<li class="chapter" data-level="21.18" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#remerciement"><i class="fa fa-check"></i><b>21.18</b> Remerciement :</a></li>
+<li class="chapter" data-level="21.19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#creditcontributeurs"><i class="fa fa-check"></i><b>21.19</b> CRediT/contributeurs :</a></li>
+<li class="chapter" data-level="21.20" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer"><i class="fa fa-check"></i><b>21.20</b> Conflit d’intérêt (relations et activités qui ont pu influencer) :</a></li>
+<li class="chapter" data-level="21.21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-du-temps"><i class="fa fa-check"></i><b>21.21</b> Gestion du temps</a></li>
+<li class="chapter" data-level="21.22" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-des-coauteurs"><i class="fa fa-check"></i><b>21.22</b> Gestion des coauteurs :</a></li>
+<li class="chapter" data-level="21.23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#ecriture-qqsoit-la-langue"><i class="fa fa-check"></i><b>21.23</b> Ecriture (qqsoit la langue) :</a>
 <ul>
-<li class="chapter" data-level="19.23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#en-englais"><i class="fa fa-check"></i><b>19.23.1</b> En englais</a></li>
+<li class="chapter" data-level="21.23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#en-englais"><i class="fa fa-check"></i><b>21.23.1</b> En englais</a></li>
 </ul></li>
-<li class="chapter" data-level="19.24" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#embellissement-de-larticle-pas-bien"><i class="fa fa-check"></i><b>19.24</b> Embellissement de l’article (pas bien)</a></li>
-<li class="chapter" data-level="19.25" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#lettre-de-motivation-de-soumission-pas-tjrs-demandée"><i class="fa fa-check"></i><b>19.25</b> Lettre de motivation de soumission (pas tjrs demandée) :</a></li>
-<li class="chapter" data-level="19.26" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#au-cirad"><i class="fa fa-check"></i><b>19.26</b> Au Cirad</a></li>
+<li class="chapter" data-level="21.24" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#embellissement-de-larticle-pas-bien"><i class="fa fa-check"></i><b>21.24</b> Embellissement de l’article (pas bien)</a></li>
+<li class="chapter" data-level="21.25" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#lettre-de-motivation-de-soumission-pas-tjrs-demandée"><i class="fa fa-check"></i><b>21.25</b> Lettre de motivation de soumission (pas tjrs demandée) :</a></li>
+<li class="chapter" data-level="21.26" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#au-cirad"><i class="fa fa-check"></i><b>21.26</b> Au Cirad</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html"><i class="fa fa-check"></i><b>20</b> Distinction britanique/americain</a>
+<li class="chapter" data-level="22" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html"><i class="fa fa-check"></i><b>22</b> Distinction britanique/americain</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#our-uk-ou--or-us"><i class="fa fa-check"></i><b>20.1</b> -our (UK) ou -or (US)</a></li>
-<li class="chapter" data-level="20.2" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#re-uk-ou--er-us"><i class="fa fa-check"></i><b>20.2</b> -re (UK) ou -er (US)</a></li>
-<li class="chapter" data-level="20.3" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ise-uk-ou--ize-us"><i class="fa fa-check"></i><b>20.3</b> -ise (UK) ou -ize (US)</a></li>
-<li class="chapter" data-level="20.4" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#nce-uk-ou--nse-us"><i class="fa fa-check"></i><b>20.4</b> -nce (UK) ou -nse (US)</a></li>
-<li class="chapter" data-level="20.5" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ge-uk-ou--g-us"><i class="fa fa-check"></i><b>20.5</b> -ge (UK) ou -g (US)</a></li>
-<li class="chapter" data-level="20.6" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ae-uk-ou--e-us"><i class="fa fa-check"></i><b>20.6</b> -ae (UK) ou -e (US)</a></li>
-<li class="chapter" data-level="20.7" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ogue-uk-ou--og-us"><i class="fa fa-check"></i><b>20.7</b> -ogue (UK) ou -og (US)</a></li>
-<li class="chapter" data-level="20.8" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#que-uk-ou--ck-us"><i class="fa fa-check"></i><b>20.8</b> -que (UK) ou -ck (US)</a></li>
-<li class="chapter" data-level="20.9" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#voyelle-l"><i class="fa fa-check"></i><b>20.9</b> voyelle + L</a></li>
-<li class="chapter" data-level="20.10" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#past-simple"><i class="fa fa-check"></i><b>20.10</b> Past simple</a></li>
-<li class="chapter" data-level="20.11" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#get"><i class="fa fa-check"></i><b>20.11</b> Get</a></li>
-<li class="chapter" data-level="20.12" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#prépositions"><i class="fa fa-check"></i><b>20.12</b> Prépositions</a></li>
-<li class="chapter" data-level="20.13" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#have-got-uk-vs-have-us"><i class="fa fa-check"></i><b>20.13</b> have got (UK) vs have (US)</a></li>
-<li class="chapter" data-level="20.14" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#as-uklike-us"><i class="fa fa-check"></i><b>20.14</b> as (UK)/like (US)</a></li>
-<li class="chapter" data-level="20.15" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-dates"><i class="fa fa-check"></i><b>20.15</b> Les dates</a></li>
-<li class="chapter" data-level="20.16" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-contractions"><i class="fa fa-check"></i><b>20.16</b> Les contractions</a></li>
+<li class="chapter" data-level="22.1" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#our-uk-ou--or-us"><i class="fa fa-check"></i><b>22.1</b> -our (UK) ou -or (US)</a></li>
+<li class="chapter" data-level="22.2" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#re-uk-ou--er-us"><i class="fa fa-check"></i><b>22.2</b> -re (UK) ou -er (US)</a></li>
+<li class="chapter" data-level="22.3" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ise-uk-ou--ize-us"><i class="fa fa-check"></i><b>22.3</b> -ise (UK) ou -ize (US)</a></li>
+<li class="chapter" data-level="22.4" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#nce-uk-ou--nse-us"><i class="fa fa-check"></i><b>22.4</b> -nce (UK) ou -nse (US)</a></li>
+<li class="chapter" data-level="22.5" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ge-uk-ou--g-us"><i class="fa fa-check"></i><b>22.5</b> -ge (UK) ou -g (US)</a></li>
+<li class="chapter" data-level="22.6" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ae-uk-ou--e-us"><i class="fa fa-check"></i><b>22.6</b> -ae (UK) ou -e (US)</a></li>
+<li class="chapter" data-level="22.7" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ogue-uk-ou--og-us"><i class="fa fa-check"></i><b>22.7</b> -ogue (UK) ou -og (US)</a></li>
+<li class="chapter" data-level="22.8" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#que-uk-ou--ck-us"><i class="fa fa-check"></i><b>22.8</b> -que (UK) ou -ck (US)</a></li>
+<li class="chapter" data-level="22.9" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#voyelle-l"><i class="fa fa-check"></i><b>22.9</b> voyelle + L</a></li>
+<li class="chapter" data-level="22.10" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#past-simple"><i class="fa fa-check"></i><b>22.10</b> Past simple</a></li>
+<li class="chapter" data-level="22.11" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#get"><i class="fa fa-check"></i><b>22.11</b> Get</a></li>
+<li class="chapter" data-level="22.12" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#prépositions"><i class="fa fa-check"></i><b>22.12</b> Prépositions</a></li>
+<li class="chapter" data-level="22.13" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#have-got-uk-vs-have-us"><i class="fa fa-check"></i><b>22.13</b> have got (UK) vs have (US)</a></li>
+<li class="chapter" data-level="22.14" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#as-uklike-us"><i class="fa fa-check"></i><b>22.14</b> as (UK)/like (US)</a></li>
+<li class="chapter" data-level="22.15" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-dates"><i class="fa fa-check"></i><b>22.15</b> Les dates</a></li>
+<li class="chapter" data-level="22.16" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-contractions"><i class="fa fa-check"></i><b>22.16</b> Les contractions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
@@ -459,15 +480,15 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 </div>
 <div id="introduction-à-stan" class="section level1 hasAnchor" number="15">
 <h1><span class="header-section-number">Cours 15</span> Introduction à Stan<a href="introduction-à-stan.html#introduction-à-stan" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="introduction-à-stan.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb64-2"><a href="introduction-à-stan.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb64-3"><a href="introduction-à-stan.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb64-4"><a href="introduction-à-stan.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>) <span class="co">#option pour ne pas recompiler à chaque fois !!! gain de temps</span></span>
-<span id="cb64-5"><a href="introduction-à-stan.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()) <span class="co">#option pour ajouter des coeurs au calcul</span></span>
-<span id="cb64-6"><a href="introduction-à-stan.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot) <span class="co">#visualiser la chaine de Markov</span></span>
-<span id="cb64-7"><a href="introduction-à-stan.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinystan) <span class="co">#for interactive stan output visualization</span></span>
-<span id="cb64-8"><a href="introduction-à-stan.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm) <span class="co">#for Bayesian automatic regression modelling using stan</span></span>
-<span id="cb64-9"><a href="introduction-à-stan.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms) <span class="co">#Bayesian generalized multivariate non-linear multilevel models using stan</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="introduction-à-stan.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb69-2"><a href="introduction-à-stan.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb69-3"><a href="introduction-à-stan.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb69-4"><a href="introduction-à-stan.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>) <span class="co">#option pour ne pas recompiler à chaque fois !!! gain de temps</span></span>
+<span id="cb69-5"><a href="introduction-à-stan.html#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()) <span class="co">#option pour ajouter des coeurs au calcul</span></span>
+<span id="cb69-6"><a href="introduction-à-stan.html#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot) <span class="co">#visualiser la chaine de Markov</span></span>
+<span id="cb69-7"><a href="introduction-à-stan.html#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinystan) <span class="co">#for interactive stan output visualization</span></span>
+<span id="cb69-8"><a href="introduction-à-stan.html#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm) <span class="co">#for Bayesian automatic regression modelling using stan</span></span>
+<span id="cb69-9"><a href="introduction-à-stan.html#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms) <span class="co">#Bayesian generalized multivariate non-linear multilevel models using stan</span></span></code></pre></div>
 <div id="pourquoi-les-stats-bayesiennes" class="section level2 hasAnchor" number="15.1">
 <h2><span class="header-section-number">15.1</span> Pourquoi les stats bayesiennes ?<a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
@@ -500,26 +521,26 @@ On déclare le nom des paramètres et leurs bornes si on le souhaite</p>
 - sinon prior non-informatif
 - écriture du modèle (vraissemenblance)</p>
 <p><em>Les priors doivent être définis sous sens biologique/écologique</em></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="introduction-à-stan.html#cb65-1" aria-hidden="true" tabindex="-1"></a>GLOPNET <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;GLOPNET.csv&quot;</span>, <span class="at">skip=</span><span class="dv">10</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="introduction-à-stan.html#cb66-1" aria-hidden="true" tabindex="-1"></a>LES <span class="ot">&lt;-</span> GLOPNET <span class="sc">%&gt;%</span> </span>
-<span id="cb66-2"><a href="introduction-à-stan.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(BIOME<span class="sc">==</span><span class="st">&quot;TROP_RF&quot;</span>, GF <span class="sc">==</span> <span class="st">&quot;T&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-3"><a href="introduction-à-stan.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Dataset, Species, <span class="st">&quot;log LL&quot;</span>, <span class="st">&quot;log LMA&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-4"><a href="introduction-à-stan.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="co">#le bayesien ne supporte pas les NA</span></span></code></pre></div>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="introduction-à-stan.html#cb67-1" aria-hidden="true" tabindex="-1"></a>LES <span class="sc">%&gt;%</span> </span>
-<span id="cb67-2"><a href="introduction-à-stan.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">log LMA</span><span class="st">`</span>, <span class="st">`</span><span class="at">log LL</span><span class="st">`</span>, <span class="at">col=</span>Dataset)) <span class="sc">+</span></span>
-<span id="cb67-3"><a href="introduction-à-stan.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb67-4"><a href="introduction-à-stan.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithm of Leaf Mass per Area (LMA)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb67-5"><a href="introduction-à-stan.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Logarythm of Leaf Lifespan (LL)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="introduction-à-stan.html#cb70-1" aria-hidden="true" tabindex="-1"></a>GLOPNET <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;GLOPNET.csv&quot;</span>, <span class="at">skip=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="introduction-à-stan.html#cb71-1" aria-hidden="true" tabindex="-1"></a>LES <span class="ot">&lt;-</span> GLOPNET <span class="sc">%&gt;%</span> </span>
+<span id="cb71-2"><a href="introduction-à-stan.html#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(BIOME<span class="sc">==</span><span class="st">&quot;TROP_RF&quot;</span>, GF <span class="sc">==</span> <span class="st">&quot;T&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-3"><a href="introduction-à-stan.html#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Dataset, Species, <span class="st">&quot;log LL&quot;</span>, <span class="st">&quot;log LMA&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-4"><a href="introduction-à-stan.html#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="co">#le bayesien ne supporte pas les NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="introduction-à-stan.html#cb72-1" aria-hidden="true" tabindex="-1"></a>LES <span class="sc">%&gt;%</span> </span>
+<span id="cb72-2"><a href="introduction-à-stan.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">log LMA</span><span class="st">`</span>, <span class="st">`</span><span class="at">log LL</span><span class="st">`</span>, <span class="at">col=</span>Dataset)) <span class="sc">+</span></span>
+<span id="cb72-3"><a href="introduction-à-stan.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb72-4"><a href="introduction-à-stan.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithm of Leaf Mass per Area (LMA)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb72-5"><a href="introduction-à-stan.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Logarythm of Leaf Lifespan (LL)&quot;</span>)</span></code></pre></div>
 <p>Modèle proposé :</p>
 <p>_log LL ~ N(alpha + beta *log LMA, sigma^2)_ -&gt; régression linéaire
 à mettre dans un fichier stan</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="introduction-à-stan.html#cb68-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb68-2"><a href="introduction-à-stan.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(LES) [<span class="dv">1</span>], <span class="co">#les noms des var doivent etre les memes que dans le fichier stan</span></span>
-<span id="cb68-3"><a href="introduction-à-stan.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">logLMA =</span> LES<span class="sc">$</span><span class="st">&quot;log LMA&quot;</span>,</span>
-<span id="cb68-4"><a href="introduction-à-stan.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">logLL =</span> LES<span class="sc">$</span><span class="st">&quot;log LL&quot;</span></span>
-<span id="cb68-5"><a href="introduction-à-stan.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb68-6"><a href="introduction-à-stan.html#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-7"><a href="introduction-à-stan.html#cb68-7" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;stan.stan&quot;</span>, <span class="at">data =</span> data) <span class="co">#LET&#39;S GOOOO! Données injectées, compilation lancée !</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="introduction-à-stan.html#cb73-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb73-2"><a href="introduction-à-stan.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(LES) [<span class="dv">1</span>], <span class="co">#les noms des var doivent etre les memes que dans le fichier stan</span></span>
+<span id="cb73-3"><a href="introduction-à-stan.html#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">logLMA =</span> LES<span class="sc">$</span><span class="st">&quot;log LMA&quot;</span>,</span>
+<span id="cb73-4"><a href="introduction-à-stan.html#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">logLL =</span> LES<span class="sc">$</span><span class="st">&quot;log LL&quot;</span></span>
+<span id="cb73-5"><a href="introduction-à-stan.html#cb73-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb73-6"><a href="introduction-à-stan.html#cb73-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="introduction-à-stan.html#cb73-7" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;stan.stan&quot;</span>, <span class="at">data =</span> data) <span class="co">#LET&#39;S GOOOO! Données injectées, compilation lancée !</span></span></code></pre></div>
 <ul>
 <li>Nombre de chaine par défaut mais on peut choisir, 4 c’est le minimum pour interpréter les graphes.</li>
 <li>thin = période d’amaigrissement = pas de l’itération</li>
@@ -529,14 +550,14 @@ On déclare le nom des paramètres et leurs bornes si on le souhaite</p>
 <li>Rhat doit être égal à 1 (ou 1.1): ça veut dire que l’estimation des paramètres a réussi à converger</li>
 </ul>
 <p>Ici les chaînes n’ont pas réusi à converger, et ce sont perdues (tres peu de chaînes effectives).</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="introduction-à-stan.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit1), <span class="co">#as.array = comme vecteurs</span></span>
-<span id="cb69-2"><a href="introduction-à-stan.html#cb69-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="co">#pour mettre en lettre greques</span></span>
-<span id="cb69-3"><a href="introduction-à-stan.html#cb69-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">np =</span> <span class="fu">nuts_params</span>(fit1)) <span class="co"># np pour afficher la divergeance</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="introduction-à-stan.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit1), <span class="co">#as.array = comme vecteurs</span></span>
+<span id="cb74-2"><a href="introduction-à-stan.html#cb74-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="co">#pour mettre en lettre greques</span></span>
+<span id="cb74-3"><a href="introduction-à-stan.html#cb74-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">np =</span> <span class="fu">nuts_params</span>(fit1)) <span class="co"># np pour afficher la divergeance</span></span></code></pre></div>
 <p>MCMC : diagnostic des chaines
 PPC : comparaison de modèles</p>
 <p>Il faut une exploration <em>indépendante</em> des paramètres pour trouver le point où ça cohabite = <em>maximum de vraissemblance</em> (voir dessin carnet)</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="introduction-à-stan.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co">#les paramètres doivent être indépendants et former une patate à leur valeur correspondant aux données.</span></span>
-<span id="cb70-2"><a href="introduction-à-stan.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit1))</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introduction-à-stan.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co">#les paramètres doivent être indépendants et former une patate à leur valeur correspondant aux données.</span></span>
+<span id="cb75-2"><a href="introduction-à-stan.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit1))</span></code></pre></div>
 <p>On voit que alpha et lp_ sont liés par une relation.
 On voit sur les graphes des chaines, que alpha veut aller dans le négatif mais ne peut pas car défini sur R+ (loi gamma)</p>
 <p><em>Logique biologique</em> : alpha doit être égal à 0 quand LMA est égal à 0 puisque s’il n’y a pas de masse il n’y pas de feuille dont pas de duree de vie !!! Donc on vire alpha du modèle.</p>
@@ -544,19 +565,19 @@ On voit sur les graphes des chaines, que alpha veut aller dans le négatif mais 
 _log LL ~ N( beta *log LMA, sigma^2)_
 A mettre dans un fichier stan
 On peut faire une copie de l’ancien fichier : file &gt; coche le stan file &gt; more &gt; copy</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="introduction-à-stan.html#cb71-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;LLLMA.stan&quot;</span>, <span class="at">data =</span> data)</span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="introduction-à-stan.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit2), <span class="co">#as.array : comme vecteurs</span></span>
-<span id="cb72-2"><a href="introduction-à-stan.html#cb72-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="at">np =</span> <span class="fu">nuts_params</span>(fit2))<span class="co">#pour mettre en lettre greques</span></span></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="introduction-à-stan.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit2))</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introduction-à-stan.html#cb76-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;LLLMA.stan&quot;</span>, <span class="at">data =</span> data)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introduction-à-stan.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit2), <span class="co">#as.array : comme vecteurs</span></span>
+<span id="cb77-2"><a href="introduction-à-stan.html#cb77-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="at">np =</span> <span class="fu">nuts_params</span>(fit2))<span class="co">#pour mettre en lettre greques</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introduction-à-stan.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit2))</span></code></pre></div>
 <p>Ca fait des belles patates donc c’est bon !!!! Et de beaux histos !</p>
 <p>On veut mtn connaitre les <em>distributions des paramètres à posteriori</em>:
 on veux des paramètres :
 - différents de 0 (pour une relation entre var expli et var réponse)
 - et un sigma petit (pour un bon fit)</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="introduction-à-stan.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_areas</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co"># pars pour n&#39;afficher que les paramètres que je veux, pas la vraissemblance</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="introduction-à-stan.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_areas</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co"># pars pour n&#39;afficher que les paramètres que je veux, pas la vraissemblance</span></span></code></pre></div>
 <p>Posteriors sont normaux et significatifs.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introduction-à-stan.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co">#vu du dessus</span></span></code></pre></div>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introduction-à-stan.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_shinystan</span>(fit2) </span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="introduction-à-stan.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co">#vu du dessus</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introduction-à-stan.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_shinystan</span>(fit2) </span></code></pre></div>
 <p>Conclusion :
 - se renseigner sur les formes de lois, de modèle
 - la définition des lois

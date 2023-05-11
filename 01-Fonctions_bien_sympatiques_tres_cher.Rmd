@@ -77,8 +77,8 @@ file.path(path, "dossier", "file") function pour lire mon chemin stocké.
 + Importer avec les accents : **locale = locale(encoding = "latin1")**  
 
 + Importer du shapefile (shp) :  
-**readORG(dsn = "/path/to/your/file", layer = "filename")** ou  
-**shapefile("path/to/your/file.shp")**  
+**rgdal::readORG(dsn = "/path/to/your/file", layer = "filename")** ou  
+**raster::shapefile("path/to/your/file.shp")**  
 
 ## Corection préliminaires des données
 
@@ -310,7 +310,7 @@ Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu'il ne va pas
 
 + Simplification d'objet : **st_cast(objet, "objt + simple"** (ex : polygon to linestring)  
 
-+ Attribuer un crs à un objt sf ou sfc : **st_set_crs(objtsanscrs, st_crs(objtaveccrs))**  
++ Attribuer un crs à un objt sf ou sfc : **st_transform(objtsanscrs, st_crs(objtaveccrs))**  
 
 + st_union ne préserve pas l'ordre des géométries dans la géométrie finale, il faut utiliser :  
 

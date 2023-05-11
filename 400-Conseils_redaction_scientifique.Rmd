@@ -23,6 +23,7 @@ lire la BD humoristique “carnet de thèse”
 + citer plutôt la 1ère étude 
 + faire d’abord tjrs lire par un **naïf** avant soumission
 + restez focus dans le sujet dans la rédaction 
++ les chiffres en toutes lettres de 0 à 10 puis en numérique
 
 
 ## Pq écrire ? / Pq publier ?
@@ -190,7 +191,6 @@ Remerciements : demander l’autorisation consentement
 - court (10 mots max)
 - l’info essentiel de l’article (**sujet**, **rslt principal**), **le message**
 
-- **mots clefs** bien choisis pour les moteurs de recherche
 - types, informatif, neutres, marketing (jeux de mots)
 - abréviations que si connues
 - lieu mit s’il est important dans le résulat en vu de la littérature  (peut faire perdre des lecteurs)
@@ -198,7 +198,13 @@ Remerciements : demander l’autorisation consentement
 - question ? a voir
 - sous-titre si besoin
 - effectif si original pour la thématique 
-- running title : titre revient au début de chaque page 
+
+**Running title** : titre revient au début de chaque page 
+
+**Mots clefs** :
+- bien choisis pour les moteurs de recherche  
+- pas figurant dans le titre  
+
 
 ## science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)
 principe FAIR : Findable Accessible Interoperable Reusable
@@ -294,13 +300,17 @@ constitution équipe
 - 15-20 mots/phrase
 - pas de style
 - **position forte : info principale : au début de la phrase, au début du paragraphe (pas de suspens)**
-- utiliser le même mot à chaque fois pour caractériser qqchose (les répétitions c’est ok)
-- les mots scientifiques doivent utiliser que dans leur cadre
+- **forme active**
+- utiliser le **même mot** à chaque fois pour caractériser qqchose (les répétitions c’est ok)
+- les mots scientifiques doivent être utilisés que dans leur cadre
 - pas de double négatifs
 - précision : mots, chiffres, totaux, faits, opinions, ref
 - pas d'expressions émotionnelle
-- peu d'adverbe
+- **peu d'adverbe**
 - ne pas utiliser des mots indéfinis : *it/these/that*
+- éviter de commencer une phrase par un acronyme
+- pas faire de doubles parenthèses, mettre un ; entre les deux élements
+- pas parler de "good" ou "bad" mais de "quality of"
 
 ### En englais
 pas d'appositions en début de phrase

@@ -1,0 +1,205 @@
+# Inla-Inlabru statistiques bayésiennes spatialisées
+
+Formateur : julien.papaix@inrae.fr, Thomas Opitz
+
+## Install INLA R package
+
+https://www.r-inla.org/download-install
+```{r, INLA package, eval = F}
+install.packages("INLA", repos = c(getOption("repos"), INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
+```
+
+## Other packages
+```{r, eval = F}
+install.packages(c('inlabru', 'raster', 'tidyverse', 'sf', 'ggplot2', 'ggpolypath', 'rgeos', 'viridis'))
+
+```
+
+## Load packages
+```{r}
+library(INLA);library(inlabru);
+library(raster);library(tidyverse);library(sf)
+library(ggplot2);library(ggpolypath);library(rgeos);library(viridis)
+
+```
+
+# Cours
+
+Les grands domaines des stats spatiales :   
+- données continues irrélulièrement espacées (géostatistiques)
+- Données sur lattice (pas positions exactes, mais connaissances des relations de voisinages, mesures des corrélations)
+- processus ponctuels : présences seules dans l'espace et dans le temps
+
+* Données géostatistiques :  
+ex : variables environnmentales
+
+* Données sur réseaux :  
+ex : données de pop, épidémio
+
+* Processus ponctuels ou d'objets :  
+ ex : reapartition d'sp, cas de maladie
+ 
+Spécificités/difficultés :  
+ - données non-indépendantes
+ -  pas de realation d'ordre
+ - vraissemblance adaptée ?
+ 
+ Géostatistique classique :  
+ - échantillonage : données suffisantes 
+ - analyse structurale ou variographique
+ - interpolation
+ - modélisation
+ 
+ Champs aléatoires :  
+ - décrire la var spat
+ - interpoler (cartographier)
+ - evaluer l'erreur d'interpolation
+ 
+ Modèle :
+ un champ aléatoire Z(x) ou ....  
+ 
+ **Stationnarité** : loi invariante par translation : si la distance est la meme la loi est la meme  
+ dépend uniquement de la distance  
+ 
+ **Ergodicité** : inférer les paramètres (moments)
+ amats indépendants  
+ 
+ h : la distance  
+ 
+ **covariance** : décrit la structuration et les corrélations spatialess  
+ 
+ **Effet aléatoire pur** : bruit blanc spatial non corrélé dans l'espace
+ Modèle de covariance exponentiel : changement abrupte de valeur  
+ 
+ **Portée** : point à partir duquel la corrélation est nulle -> portée faible = petits amats  
+ 
+ Modèle de covariance gaussien : plus lisse que l'exponentiel, moins brutal  
+ 
+ Modèle de covariance gaussien avec effet pépite : ajout de variabilité locale (bruit)  
+ 
+## Approche bayésienne 
+ 
+
+**Vraissembance** : adéquation entre la distribution observée et une loi de proba supposée. La distribution des données sachant les paramètres.  
+
+le paramètre inconnu theta est une var aléatoire au meme titre que les observations  
+
+ Outis :  
+ INLA (Integrated Nested Laplace Approximations)  
+ 
+ **Modèle hiérarchique** : différentes couches :  
+ - processus d'observation (facon dont j'observe les données (ex: comptage = Poisson))
+ - processus biologique (description du processus)
+ - paramètres
+ - Hyper-paramètres (qui determinent la distribution des paramètres)  
+ 
+ 
+Ajouter du spatial :  
+prendre un effet aléatoire *ai* (résiduel, non expliqué par les covariables qui ne sera plus indépendants et leur corrélation dépend de leur distance dans l'espace. suit une loi normale multivariée.
+ce *a* permet de prendre en considaration ce qu'on n'explique pas avec les covariables en raison de covariables inconnues ou de dynamique de pop (colonisation)
+-> effets aléatoires spatiaux, "modèles mixtes"
+-> Variabilité spatiale résiduelle
+
+L'effet de pépite pourra être dispaché et expliqué par des effets fixes espèces ou autre.  
+
+
+On peut coupler plusieurs jeux d'observations :
+- 1 sp mais différents types d'observations
+- 2 sp
+- 1 sp focale ("target") + espèces de fonds ("target background")
+-> régression multi-réponse, effets aléatoires partagés
+
+Effort d'observation variable :
+- données protocolées (-> présences-absences) (effort connu)
+- données opportunistes (-> présence seule) (effort inconnu) :
+pas de protocole d'observation, pas de design, biais d'échantillonage car effort d'échantillonage irrégulier.  
+On souhaite à retrouver les chanps de l'effort de l'abondance réelle
+
+Présence seule - Différentes granularités spatiales (de la + à la - fine):  
+- coordonnées géographiques -> semis de points -> processus ponctuel
+   * fonction d'intensité (lamda): nombre d'occurences
+   * modèle classique : proessus de Poisson (indépendance des occurences)
+   
+- comptage dans des unités spatiales (dans une grille)
+- Présence-absence dans les unités spatiales -> Bernoulli (1 = au moins 1 occurence) -> perte d'information
+
+La taille de la grille va influencer la précision et la perte de l'information.  
+
+Les processus ponctuels :
+intensité (lamda(s)): nombre d'occurences moyen par unité spatiale en s.
+
+Si on veut un champ aléatoire :
+Processus de Cox : si lambda(s) est un champ aléatoire :
+- variabilité stochastique pour représenter les covaraibles inconnues
+Processus de Cox log-gaussien log(lamda(s)) est un champ gaussien
+
+Modèles de régression :  
+- un paramètre clé à estimer relié un prédicteur linéaire mui via une fonction de lien
+mui intègre les covariables et les effets aléatoires (espace, observateur, année)
+si on fait de la présence -absence on prendra le cloglog (lien complémentaire) (le lien log simple n'est pas bien adapté)
+
+
+Wo : associé à l'effort d'échantillonage, intervient dans les modèles opportunistes et pas dans les modèle protocolé
+
+Représentation des champs spatiaux :  
+- dicrétisation : construction d'un vecteur gaussien, formation d'un maille à noeuds portant les valeurs
+- interpolation entre ces points via des fcts de base, triangulation de l'espace (la pyramide sur le schéma)
+- calculs numériques allégés via des représentations de champs gaussiens markoviens (matrices de précision creuses grace à l'approche SPDE)
+Implémentation via les éléments finis (= fonctions "pyramides")
+
+SPDE (stochastic partial differential equation) :  
+-> solution approximative
+-> Matrice de précision creuse Q
+-> calculs matriciels rapides quand m (= le nbr de noeuds) est grand
+https://becarioprecario.bitbucket.io/spde-gitbook/
+
+Triangulation ("mesh") pour l'approche SPDE
+- maillage relativement dense dans le domaine d'étude D (zone intérieure)
+- possibilité d'augmenter le maillage dans les zones de forte occurence
+- zone d'extension (au maillage moins fin) pour un bord extérieur de D afin d'éviter les effets de bords
+
+L'implémentation R-INLA classique :  
+- estimation des modèles bayésiens hiérarchiques basés sur les processus latent gaussiens
+- un cadre adapté aux processus de Cox log-gaussiens
+- utilisation des approximations de Laplace (déterministes pour calculer les lois a posteriori (effets fixes champs W, hyperpaamères))
+- penalized-complexity (PC) priors pour les hyperparamètres
+
+## inlabru
+- intéret pour les études en écologie
+- syntaxe plus intuive qu'INLA
+- fcts pour les processus de Cox log-gaussiens
+- estimations et prédictions a posteriori plus faciles à coder et plus de possibilités  
+
+Sorties standards :
+- moyenne, médiane, écarts-types, quatiles a posteriori
+- ...  
+- bonne intégration des objets spatiaux de type sp
+- très complet pour les "présences seules" avec les processus cox log-gaussiens
+
+Données de présence seule massives (car sciences participatives)
+- biais d'échantillonage si on veut utiliser ces donées pour définir la niche des espèces.
+
+Technique de correction : target-group background : aproximer l'effort d'éch avec les points d'un groupe cible d'sp
+
+   
+(.qmd, une extention du rmd, plus jolie pour afficher, et compatibles avec d'autres langages)
+
+1) créer une mesh
+
+Matérn covariance : 
+LGCP :
+W0 : paramètre partagé de l'effort d'échantillonage
+
+offset : terme multiplicatif sur un effet pour montrer un effort d'échantillonage
+
+Le spatio-temporel :
+la dimension temporelle sera portée par le W, et sera à inclure dans la matrice de Matern sur le parmètre rho
+un exemble en spatio-temporel avec inlabru : https://inlabru-org.github.io/inlabru/articles/web/2d_lgcp_spatiotemporal.html
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

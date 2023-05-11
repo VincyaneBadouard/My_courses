@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 17 Bayesian stats cours | My cours</title>
+  <title>Cours 20 Cours | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 17 Bayesian stats cours | My cours" />
+  <meta property="og:title" content="Cours 20 Cours | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 17 Bayesian stats cours | My cours" />
+  <meta name="twitter:title" content="Cours 20 Cours | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="i-am-a-modeler.html"/>
-<link rel="next" href="bayesian-and-stan-langage.html"/>
+<link rel="prev" href="inla-inlabru-statistiques-bayésiennes-spatialisées.html"/>
+<link rel="next" href="conseils-de-rédaction-scientifique.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -478,47 +478,153 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="bayesian-stats-cours" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">Cours 17</span> Bayesian stats cours<a href="bayesian-stats-cours.html#bayesian-stats-cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="cours" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">Cours 20</span> Cours<a href="cours.html#cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Les grands domaines des stats spatiales :<br />
+- données continues irrélulièrement espacées (géostatistiques)
+- Données sur lattice (pas positions exactes, mais connaissances des relations de voisinages, mesures des corrélations)
+- processus ponctuels : présences seules dans l’espace et dans le temps</p>
+<ul>
+<li><p>Données géostatistiques :<br />
+ex : variables environnmentales</p></li>
+<li><p>Données sur réseaux :<br />
+ex : données de pop, épidémio</p></li>
+<li><p>Processus ponctuels ou d’objets :<br />
+ex : reapartition d’sp, cas de maladie</p></li>
+</ul>
+<p>Spécificités/difficultés :<br />
+- données non-indépendantes
+- pas de realation d’ordre
+- vraissemblance adaptée ?</p>
+<p>Géostatistique classique :<br />
+- échantillonage : données suffisantes
+- analyse structurale ou variographique
+- interpolation
+- modélisation</p>
+<p>Champs aléatoires :<br />
+- décrire la var spat
+- interpoler (cartographier)
+- evaluer l’erreur d’interpolation</p>
+<p>Modèle :
+un champ aléatoire Z(x) ou ….</p>
+<p><strong>Stationnarité</strong> : loi invariante par translation : si la distance est la meme la loi est la meme<br />
+dépend uniquement de la distance</p>
+<p><strong>Ergodicité</strong> : inférer les paramètres (moments)
+amats indépendants</p>
+<p>h : la distance</p>
+<p><strong>covariance</strong> : décrit la structuration et les corrélations spatialess</p>
+<p><strong>Effet aléatoire pur</strong> : bruit blanc spatial non corrélé dans l’espace
+Modèle de covariance exponentiel : changement abrupte de valeur</p>
+<p><strong>Portée</strong> : point à partir duquel la corrélation est nulle -&gt; portée faible = petits amats</p>
+<p>Modèle de covariance gaussien : plus lisse que l’exponentiel, moins brutal</p>
+<p>Modèle de covariance gaussien avec effet pépite : ajout de variabilité locale (bruit)</p>
+<div id="approche-bayésienne" class="section level2 hasAnchor" number="20.1">
+<h2><span class="header-section-number">20.1</span> Approche bayésienne<a href="cours.html#approche-bayésienne" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Vraissembance</strong> : adéquation entre la distribution observée et une loi de proba supposée. La distribution des données sachant les paramètres.</p>
+<p>le paramètre inconnu theta est une var aléatoire au meme titre que les observations</p>
+<p>Outis :<br />
+INLA (Integrated Nested Laplace Approximations)</p>
+<p><strong>Modèle hiérarchique</strong> : différentes couches :<br />
+- processus d’observation (facon dont j’observe les données (ex: comptage = Poisson))
+- processus biologique (description du processus)
+- paramètres
+- Hyper-paramètres (qui determinent la distribution des paramètres)</p>
+<p>Ajouter du spatial :<br />
+prendre un effet aléatoire <em>ai</em> (résiduel, non expliqué par les covariables qui ne sera plus indépendants et leur corrélation dépend de leur distance dans l’espace. suit une loi normale multivariée.
+ce <em>a</em> permet de prendre en considaration ce qu’on n’explique pas avec les covariables en raison de covariables inconnues ou de dynamique de pop (colonisation)
+-&gt; effets aléatoires spatiaux, “modèles mixtes”
+-&gt; Variabilité spatiale résiduelle</p>
+<p>L’effet de pépite pourra être dispaché et expliqué par des effets fixes espèces ou autre.</p>
+<p>On peut coupler plusieurs jeux d’observations :
+- 1 sp mais différents types d’observations
+- 2 sp
+- 1 sp focale (“target”) + espèces de fonds (“target background”)
+-&gt; régression multi-réponse, effets aléatoires partagés</p>
+<p>Effort d’observation variable :
+- données protocolées (-&gt; présences-absences) (effort connu)
+- données opportunistes (-&gt; présence seule) (effort inconnu) :
+pas de protocole d’observation, pas de design, biais d’échantillonage car effort d’échantillonage irrégulier.<br />
+On souhaite à retrouver les chanps de l’effort de l’abondance réelle</p>
+<p>Présence seule - Différentes granularités spatiales (de la + à la - fine):<br />
+- coordonnées géographiques -&gt; semis de points -&gt; processus ponctuel
+* fonction d’intensité (lamda): nombre d’occurences
+* modèle classique : proessus de Poisson (indépendance des occurences)</p>
+<ul>
+<li>comptage dans des unités spatiales (dans une grille)</li>
+<li>Présence-absence dans les unités spatiales -&gt; Bernoulli (1 = au moins 1 occurence) -&gt; perte d’information</li>
+</ul>
+<p>La taille de la grille va influencer la précision et la perte de l’information.</p>
+<p>Les processus ponctuels :
+intensité (lamda(s)): nombre d’occurences moyen par unité spatiale en s.</p>
+<p>Si on veut un champ aléatoire :
+Processus de Cox : si lambda(s) est un champ aléatoire :
+- variabilité stochastique pour représenter les covaraibles inconnues
+Processus de Cox log-gaussien log(lamda(s)) est un champ gaussien</p>
+<p>Modèles de régression :<br />
+- un paramètre clé à estimer relié un prédicteur linéaire mui via une fonction de lien
+mui intègre les covariables et les effets aléatoires (espace, observateur, année)
+si on fait de la présence -absence on prendra le cloglog (lien complémentaire) (le lien log simple n’est pas bien adapté)</p>
+<p>Wo : associé à l’effort d’échantillonage, intervient dans les modèles opportunistes et pas dans les modèle protocolé</p>
+<p>Représentation des champs spatiaux :<br />
+- dicrétisation : construction d’un vecteur gaussien, formation d’un maille à noeuds portant les valeurs
+- interpolation entre ces points via des fcts de base, triangulation de l’espace (la pyramide sur le schéma)
+- calculs numériques allégés via des représentations de champs gaussiens markoviens (matrices de précision creuses grace à l’approche SPDE)
+Implémentation via les éléments finis (= fonctions “pyramides”)</p>
+<p>SPDE (stochastic partial differential equation) :<br />
+-&gt; solution approximative
+-&gt; Matrice de précision creuse Q
+-&gt; calculs matriciels rapides quand m (= le nbr de noeuds) est grand
+<a href="https://becarioprecario.bitbucket.io/spde-gitbook/" class="uri">https://becarioprecario.bitbucket.io/spde-gitbook/</a></p>
+<p>Triangulation (“mesh”) pour l’approche SPDE
+- maillage relativement dense dans le domaine d’étude D (zone intérieure)
+- possibilité d’augmenter le maillage dans les zones de forte occurence
+- zone d’extension (au maillage moins fin) pour un bord extérieur de D afin d’éviter les effets de bords</p>
+<p>L’implémentation R-INLA classique :<br />
+- estimation des modèles bayésiens hiérarchiques basés sur les processus latent gaussiens
+- un cadre adapté aux processus de Cox log-gaussiens
+- utilisation des approximations de Laplace (déterministes pour calculer les lois a posteriori (effets fixes champs W, hyperpaamères))
+- penalized-complexity (PC) priors pour les hyperparamètres</p>
+</div>
+<div id="inlabru" class="section level2 hasAnchor" number="20.2">
+<h2><span class="header-section-number">20.2</span> inlabru<a href="cours.html#inlabru" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>intéret pour les études en écologie</li>
+<li>syntaxe plus intuive qu’INLA</li>
+<li>fcts pour les processus de Cox log-gaussiens</li>
+<li>estimations et prédictions a posteriori plus faciles à coder et plus de possibilités</li>
+</ul>
+<p>Sorties standards :
+- moyenne, médiane, écarts-types, quatiles a posteriori
+- …<br />
+- bonne intégration des objets spatiaux de type sp
+- très complet pour les “présences seules” avec les processus cox log-gaussiens</p>
+<p>Données de présence seule massives (car sciences participatives)
+- biais d’échantillonage si on veut utiliser ces donées pour définir la niche des espèces.</p>
+<p>Technique de correction : target-group background : aproximer l’effort d’éch avec les points d’un groupe cible d’sp</p>
+<p>(.qmd, une extention du rmd, plus jolie pour afficher, et compatibles avec d’autres langages)</p>
 <ol style="list-style-type: decimal">
-<li>design the model (data story)</li>
-<li>condition on the data (update the model)</li>
-<li>evaluate the model (critique)</li>
+<li>créer une mesh</li>
 </ol>
-<p>ex : 9 times
-dta : W (water) or L (land)</p>
-<p>p = proba de W
-proba de L = 1-p</p>
-<p><em>prior</em> : information before the data (p in [0;1])
-<em>posterior</em> : update info of each value of p conditional on data</p>
-<p>chaque postérior est le prior du prochain posterior
-plus on a de données plus il est aisé d’avoir un résulat précis</p>
-<p>Define generative relations between the variables</p>
-<p>W, L, W
-p * (1-p) *p = p<sup>2(1-p)</sup>1 : relative number to see W</p>
-<p><em>Vraissemblance</em> :</p>
-<div id="grid-approximation-to-define-posterior" class="section level2 hasAnchor" number="17.1">
-<h2><span class="header-section-number">17.1</span> Grid approximation (to define posterior) :<a href="bayesian-stats-cours.html#grid-approximation-to-define-posterior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>posterior proba = standardizez product of proba of the data and prior proba
-standardisé : add up all the products and divide by this sum</p>
-<p>grid approximation uses finite grid of parameter values instead of continuous space
-too expensive with more yhan a few parameters</p>
-<p>Sampling from the posterior</p>
-<p>Intervals : how much mass</p>
-<p>Percentile intervals (PI): equal area in each tail
-Hightest posterior density intervals (HPDI) : narrowest interval containing mass</p>
-<p>Mean nearly always more sensible than the mode</p>
-<p>Model :</p>
+<p>Matérn covariance :
+LGCP :
+W0 : paramètre partagé de l’effort d’échantillonage</p>
+<p>offset : terme multiplicatif sur un effet pour montrer un effort d’échantillonage</p>
+<p>Le spatio-temporel :
+la dimension temporelle sera portée par le W, et sera à inclure dans la matrice de Matern sur le parmètre rho
+un exemble en spatio-temporel avec inlabru : <a href="https://inlabru-org.github.io/inlabru/articles/web/2d_lgcp_spatiotemporal.html" class="uri">https://inlabru-org.github.io/inlabru/articles/web/2d_lgcp_spatiotemporal.html</a></p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="i-am-a-modeler.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bayesian-and-stan-langage.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conseils-de-rédaction-scientifique.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

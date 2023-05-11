@@ -500,6 +500,8 @@ https://youtu.be/K4x-uqLl_m4
 + Codecov : test-coverage.yaml (https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow) (créer un "secret" pour le token sur github si le dépot est privé)
 Il faut créer un compte codecov
 
++ afficher le rapport de couverture du package : **covr::report()**
+
 ## Debugger
 
 + tapper ligne par ligne dans la console la partie qui coince

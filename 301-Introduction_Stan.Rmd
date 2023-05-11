@@ -1,6 +1,6 @@
 # Introduction à Stan
 
-```{r, packages}
+```{r}
 
 library(readr)
 library(tidyverse)
