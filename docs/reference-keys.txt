@@ -63,10 +63,13 @@ systèmes-de-coordonnées-de-références-crs
 système-de-coordonnées-géographiques
 système-de-référence-de-coordonnées-pojetées
 work-with-lidar-data
+tools
+r-packages
 load-laz
 check-if-the-las-is-complete
 see-their-summaries
 plot
+trajectory
 c
 rmarkdown
 packages
@@ -195,7 +198,7 @@ les-données
 definitions
 loi-poisson-positif-discret-par-exemble-un-abondance
 loi-bernouilli-logistique-blogit-réponse-binaire
-tools
+tools-1
 rapidité
 non-identifiabilité
 inla-inlabru-statistiques-bayésiennes-spatialisées

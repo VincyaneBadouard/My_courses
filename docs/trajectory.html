@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 9 Github | My cours</title>
+  <title>Cours 5 Trajectory | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 9 Github | My cours" />
+  <meta property="og:title" content="Cours 5 Trajectory | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 9 Github | My cours" />
+  <meta name="twitter:title" content="Cours 5 Trajectory | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="spécifier-un-working-directory-différent-de-celui-du-fichier.html"/>
-<link rel="next" href="bookdown.html"/>
+<link rel="prev" href="work-with-lidar-data.html"/>
+<link rel="next" href="c.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -483,11 +483,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="github" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Cours 9</span> Github<a href="github.html#github" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<ul>
-<li>Un-commit (reverse commit) without losing the changes : <a href="https://stackoverflow.com/questions/19859486/how-to-un-commit-last-un-pushed-git-commit-without-losing-the-changes" class="uri">https://stackoverflow.com/questions/19859486/how-to-un-commit-last-un-pushed-git-commit-without-losing-the-changes</a></li>
-</ul>
+<div id="trajectory" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Cours 5</span> Trajectory<a href="trajectory.html#trajectory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Permet :<br />
+- de calculer les hauteurs de vol
+- d’estimer les incertitudes de positionnement des points (en fonction de la hauteur)
+- de normaliser les intensités des échos (si cela n’a pas été fait par le fournisseur)</p>
+<p>Contient :<br />
+- The X axis is tangent to the geoid and is pointing to the north, the Z axis is pointing to the center of the earth, and the Y axis is tangent to the geoid and is pointing to the East.
+- temps GPS (seconde)
+- Latitude et longitude (radian)
+- Altitude (mètre)
+- Vitesse dans l’axe X (est-ouest), Y (nord-sud), Z (verticale) (m/s)
+- Quaternions q0, q1, q2, q3
+- “r”, “g” ,“b” : red, green, blue
+- “nx” , “ny” , “nz” : coordonnées du normal vector
+- “roll” (roulis) : roll angle φ which is defined around the xb axis (radian)
+- “pitch” (tangage) : the pitch angle θ which is defined about the intermediate axis y1 (radian)
+- “yaw” (lacet) : the yaw angle ψ which is defined around the vertical axis zi (radian)
+- Angle du système d’axes par rapport au Nord (radian)
+- Accélération sur les axes X, Y, Z (m/s2)
+- Vitesse angulaire autour des axes X, Y, Z (rad/s)</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="trajectory.html#cb32-1" aria-hidden="true" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>)</span>
+<span id="cb32-2"><a href="trajectory.html#cb32-2" aria-hidden="true" tabindex="-1"></a>traj </span>
+<span id="cb32-3"><a href="trajectory.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="trajectory.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot3d</span>(traj[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">aspect=</span>F) <span class="co"># plot the trajectory (x,y,z)</span></span></code></pre></div>
 
 </div>
             </section>
@@ -495,8 +515,8 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
           </div>
         </div>
       </div>
-<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="work-with-lidar-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="c.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

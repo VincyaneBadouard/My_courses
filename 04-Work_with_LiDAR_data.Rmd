@@ -3,22 +3,52 @@
 
 LiDAR : "light detection and ranging"  ou  "laser imaging detection and ranging"  
 
-Lumière d'un laser en général : visible, infrarouge ou ultraviolet  
+Lumière d'un laser en général : visible, infrarouge ou ultraviolet.    
 
 
-Télémétrie : détermination de la distance d’un objet  
+**Télémétrie** : détermination de la distance d’un objet  
 
-Principe d'écholocalisation : La distance est donnée par la mesure du délai entre l’émission d’une impulsion et la détection d’une impulsion réfléchie, connaissant la vitesse de la lumière.  
+Principe d'**écholocalisation** : La distance est donnée par la mesure du délai entre l’émission d’une impulsion et la détection d’une impulsion réfléchie, connaissant la vitesse de la lumière.  
 
 
 Mesure de la matière : isoler l’effet des différentes interactions entre la lumière et la matière le long du faisceau laser.  
 
-On appelle « équation lidar » le bilan de liaison du lidar entre son émission et sa réception, c’est-à-dire l’énergie lumineuse E (en J) de l’impulsion rétrodiffusée par une cible (supposée lambertienne, i.e. qui diffuse la lumière uniformément) située à une distance z et captée par le lidar  
+On appelle « équation lidar » le bilan de liaison du lidar entre son émission et sa réception, c’est-à-dire l’énergie lumineuse E (en J) de l’impulsion rétrodiffusée par une cible (supposée lambertienne, i.e. qui diffuse la lumière uniformément) située à une distance z et captée par le lidar.    
 
-Emet de plusieurs dizaines à plusieurs centaines de milliers d’impulsions chaque seconde  
+Emet de plusieurs dizaines à plusieurs centaines de milliers d’impulsions chaque seconde.    
+
+Fichiers :
+- trajectoire : décrit les positions dans le temps
+- nuage de points (.las ou .laz en compréssé)
+
+## Tools
+cloudcompare (logiciel)
+
+### R packages
+```{r, include = F}
+library(zoo) # permet de synchroniser temps gps et tirs
+library(lidR)
+library(data.table)
+library(rgl) # visulaisation 3D
+```
+
 
 
 ## Load laz 
+Le format binaire ASPRS LASer (.las) est un format ouvert permettant le stockage de données à 3 dimensions sous forme binaire. En plus des coordonnées x,y,z de chaque point, ce format permet de stocker des informations propres aux données LiDAR :
+- temps GPS
+- intensité
+- angle de scan
+- numéro du retour
+- classification
+- données utilisateurs
+- nombre de retours par impulsion
+- intensité du rouge
+- intensité du vert
+- intensité du bleu
+- indicateur de bord de ligne de vol
+- ID du point source
+- couleur RGB
 https://r-lidar.github.io/lidRbook/io.html
 ```{r}
 las1 <- lidR::readLAS(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz")
@@ -62,4 +92,35 @@ las <- readLAS(LASfile)
 
 lidR::plot(las)
 ```
+
+# Trajectory
+Permet :  
+- de calculer les hauteurs de vol
+- d'estimer les incertitudes de positionnement des points (en fonction de la hauteur)
+- de normaliser les intensités des échos (si cela n'a pas été fait par le fournisseur)
+
+Contient :  
+- The X axis is tangent to the geoid and is pointing to the north, the Z axis is pointing to the center of the earth, and the Y axis is tangent to the geoid and is pointing to the East.
+- temps GPS (seconde)
+- Latitude et longitude (radian)
+- Altitude (mètre)
+- Vitesse dans l’axe X (est-ouest), Y (nord-sud), Z (verticale) (m/s)
+- Quaternions q0, q1, q2, q3
+- "r", "g" ,"b" : red, green, blue
+- "nx" , "ny" , "nz" : coordonnées du normal vector
+- "roll" (roulis) :  roll angle φ which is defined around the xb axis (radian)
+- "pitch" (tangage) : the pitch angle θ which is defined about the intermediate axis y1 (radian)
+- "yaw" (lacet) : the yaw angle ψ which is defined around the vertical axis zi  (radian)
+- Angle du système d'axes par rapport au Nord (radian)
+- Accélération sur les axes X, Y, Z (m/s2)
+- Vitesse angulaire autour des axes X, Y, Z (rad/s)
+
+
+```{r}
+traj <- fread("Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj")
+traj 
+
+plot3d(traj[,2:4], aspect=F) # plot the trajectory (x,y,z)
+```
+
 
