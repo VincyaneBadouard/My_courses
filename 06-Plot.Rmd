@@ -1,0 +1,66 @@
+# Plot
+
+## Des packages intéressants
++ Faire des graphs ggplot en clic bouton : **esquisse::esquisser()**  
+
++ Des plots tout beau prêts à publier : **ggpubr**  
+
+## Des couleurs
+
++ Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
+ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**  
+Voir les palettes : **RColorBrewer::display.brewer.all()**  
+
+
+## Des histoires de texte
+
++ Relier le label au point quand c'est pas visible : **geom_text_repel** 
+
+## Axes
+
++ customiser l'échelle d'un axe temporel (date/time) : https://ggplot2.tidyverse.org/reference/scale_date.html#ref-examples
+
+### Double axes
+
+```{r, eval=F}
+mean(Df1$Light/Df1$Temp) # find a good coeff
+coeff <- 2
+ggplot(Df1, aes(x = Date)) +
+  geom_line(aes(y = Temp), col = "red") +
+  geom_line(aes(y = Light/coeff)) +
+  scale_y_continuous(
+    # Features of the first axis
+    name = "Temperature (°C)",
+    # Add a second axis and specify its features
+    sec.axis = sec_axis(~.*coeff, name="Light (lux)")
+  ) +
+  theme(
+    axis.title.y = element_text(color = "red"),
+    axis.title.y.right = element_text(color = "orange")
+  ) 
+
+```
+
+
+## Multi-plots
+
++ Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**  
+
++ Séparer un facet_wrap en plusieurs pages : **facet_wrap_paginate()**  
+
++ Echelles différentes sur un facet :  
+- **scales = "free" "free_x" "free_y" or "fixed"**  
+- qd on veut personnaliser :  
+on crée un data pour un geom_blank : blank_data <- data.frame(group = c("var1", "var1", "var2", "var2"), x = c(min commun,  
+max commun, min commun, max commun), y = c(min commun, max commun, min commun, max commun))  
+
+puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
+
+ 
+
+
+## Télécharger dans le bon format, au bon endroit !
+
++ PNG : **png()** avant commande du plot & **dev.off()** après commande du plot  
++ ggsave()  
++ compresser : **save(objt, file = "objt.rda", compress = "xz")**  

@@ -54,6 +54,8 @@ Chunk options :
 echo = F : ne pas voir le code  
 eval = F : ne pas faire tourner le code  
 include = F : ne pas afficher les sorties console  
+results = 'hide' : ne pas afficher les sorties console
+message=FALSE  : ne pas afficher les messages
 
 [Voir documentation](https://yihui.org/knitr/options/)  
 

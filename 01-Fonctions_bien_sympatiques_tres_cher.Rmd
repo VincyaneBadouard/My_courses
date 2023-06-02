@@ -68,13 +68,22 @@ Les .rmd ont leur propre racine, donc pas celle de leur projet.
 **« ../** = dossier parent (du niv de dessus)  et je mets autant de **../** que de niveau à remonter.  
 Puis tabulation pour qu’il propose mes fichiers.   
 Stocker mon chemin relatif dans un objet « path ».  
-file.path(path, "dossier", "file") function pour lire mon chemin stocké.  
+ Pour lire mon chemin stocké : **file.path(path, "dossier", "file")**     
 
 + fonction pour aller chercher le fichier : **nomObjt <- file.choose()**  
 
 !!!!!!Environment > import dataset > **tjrs spécifier le séparateur (delimiter) et le marqueur de décimale (locale > decimal mark)!!!!!!!!!** (franchement ça fait trop de la m**rd sinon)  
 
 + Importer avec les accents : **locale = locale(encoding = "latin1")**  
+
+
+Importer tous les fichiers d'un dossier : 
+```{r,eval = F}
+filenames <- list.files(path, pattern="*.csv", full.names=TRUE) # catch the name of all the files of the folder
+
+df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the folder files
+```
+
 
 + Importer du shapefile (shp) :  
 **rgdal::readORG(dsn = "/path/to/your/file", layer = "filename")** ou  
@@ -320,36 +329,8 @@ objt_sf_12 <- objt_sf_1 %>% rbind(objt_sf_2)
 objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))  
 ```
 
-## Eh oh c'est moi qui décide ! illustre moi ça comme il faut !
+## Eh oh c'est moi qui décide ! illustre moi ça comme il faut ! (voir 06-Plot)
 
-+ Faire des graphs ggplot en clic bouton : **esquisse::esquisser()**  
-
-+ Des plots tout beau prêts à publier : **ggpubr**  
-
-+ Relier le label au point quand c'est pas visible : **geom_text_repel**  
-
-+ Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**  
-
-+ Séparer un facet_wrap en plusieurs pages : **facet_wrap_paginate()**  
-
-+ Echelles différentes sur un facet :  
-- **scales = "free" "free_x" "free_y" or "fixed"**  
-- qd on veut personnaliser :  
-on crée un data pour un geom_blank : blank_data <- data.frame(group = c("var1", "var1", "var2", "var2"), x = c(min commun,  
-max commun, min commun, max commun), y = c(min commun, max commun, min commun, max commun))  
-
-puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
-
-+ Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
-ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**  
-Voir les palettes : **RColorBrewer::display.brewer.all()**  
-
-
-## Télécharger mon bébé dans le bon format, au bon endroit !
-
-+ PNG : **png()** avant commande du plot & **dev.off()** après commande du plot  
-+ ggsave()  
-+ compresser : **save(objt, file = "objt.rda", compress = "xz")**  
 
 ## Nettoyage
 
@@ -473,10 +454,26 @@ c(F, F, T) || c(T, F, T) ## TRUE
 
 ## Date & time
 
-+ convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**  
-
 + Wrong system time : **Sys.time()** **Sys.timezone()**  
   To find our time zone : **OlsonNames()**  
   Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**  
   To change permanently : change time zone of your computer  
+
++ convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**  
+
++ convertir une chaine de charactère en date : **as_date(col_Date, format = "%m/%d/%Y")**
++ convertir une chaine de charactère en heures : **hms::as_hms(col_Hour)** ou **chron(times = col_Hour)**
++ convertir une chaine de charactère en date-time : **mdy_hms((Time))** mdy pour month, day, year, hms pour hour, minute, seconde. Modifier l'ordre des lettres selon votre format.
+
++ filtrer selon un pas de temps :
+```{r}
+Df1 %>%
+  mutate(Time = mdy_hms((Time))) %>% # format: 2023-03-30 18:15:00
+  filter(minute(Time) %in% c("00", "15", "30", "45")) # every 15 minutes
+```
+
+
++ filter par date et heures : **filter(Date >= as.Date("2023-03-30") & Hour >= chron(times="18:00:00"))**
+
+
   

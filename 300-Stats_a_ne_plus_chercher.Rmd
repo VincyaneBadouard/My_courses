@@ -4,16 +4,17 @@
 
 ## Corrélations 
 
-*Une base de traits (quantitatifs) à tester :*
+*Une base de données uniquement quantitatives à tester :*
 baseforcor <- rootsmassMarco %>% 
   select(-var quali) 
 
 *pas besoin de tester la normalité si n>30.*
 
+*Construire une matrice de corrélation :*
 CorMatrix1 <- round(cor(baseforcor, use = "pairwise.complete.obs"), digits = 2) # matrice de corrélation, avec 2 décimales
 
-*pour avoir les p-values :*
-CorMatrixS <- rcorr(as.matrix(baseforcor))
+*avec les p-values :*
+CorMatrixS <- Hmisc::rcorr(as.matrix(baseforcor))
 CorMatrix <- CorMatrixS$r
 Pval_corr <- CorMatrixS$P
 
