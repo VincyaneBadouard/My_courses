@@ -15,8 +15,7 @@ yo-arrange-mes-données
 donne-moi-des-infos-sur-mes-données
 calcul-informatif
 sf-package
-eh-oh-cest-moi-qui-décide-illustre-moi-ça-comme-il-faut
-télécharger-mon-bébé-dans-le-bon-format-au-bon-endroit
+eh-oh-cest-moi-qui-décide-illustre-moi-ça-comme-il-faut-voir-06-plot
 nettoyage
 boucle
 les-objets
@@ -71,6 +70,16 @@ see-their-summaries
 plot
 trajectory
 c
+plot-1
+des-packages-intéressants
+types
+titres
+des-couleurs
+des-histoires-de-texte
+axes
+double-axes
+multi-plots
+télécharger-dans-le-bon-format-au-bon-endroit
 rmarkdown
 packages
 sous-titre

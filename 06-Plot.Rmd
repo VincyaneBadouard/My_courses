@@ -5,6 +5,17 @@
 
 + Des plots tout beau prêts à publier : **ggpubr**  
 
+## Types
+
++ geom_point()
++ geom_line()
++ geom_bar()
+    
+
+## Titres
+
++ Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
+
 ## Des couleurs
 
 + Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
@@ -18,7 +29,14 @@ Voir les palettes : **RColorBrewer::display.brewer.all()**
 
 ## Axes
 
++ changer l'échelle des axes (ici y): **scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))**
+
 + customiser l'échelle d'un axe temporel (date/time) : https://ggplot2.tidyverse.org/reference/scale_date.html#ref-examples
+
++ un plot avec l'axe des x à échelle temporelle de toutes :
+- les 15 minutes : **+ scale_x_time(breaks = hms::hms(minutes = seq(0, 3600, 15)))**
+- les semaines : **+ scale_x_date(date_breaks = "1 week")**
+- les 4 heures : **+ scale_x_time(breaks = hms::hms(hours = seq(0, 24, 4)))**
 
 ### Double axes
 

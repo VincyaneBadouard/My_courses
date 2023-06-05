@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 6 C++ | My cours</title>
+  <title>Cours 7 Plot | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 6 C++ | My cours" />
+  <meta property="og:title" content="Cours 7 Plot | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 6 C++ | My cours" />
+  <meta name="twitter:title" content="Cours 7 Plot | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="trajectory.html"/>
-<link rel="next" href="plot-1.html"/>
+<link rel="prev" href="c.html"/>
+<link rel="next" href="rmarkdown.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -496,39 +496,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="c" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Cours 6</span> C++<a href="c.html#c" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Intérêt : + rapide</p>
-<p>Package <em>Rcpp</em> : simplifie l’intégration de code C++ dans R
-Inconvénients : difficile à débugger
--&gt; n’y écrire que du code maitrisé et méritant cet effort</p>
-<p>Sous R :
-+ préparation/vérification des données
-+ traitement et la présentation des résultats.</p>
-<p>C++ :
-+ dans un package (dossier “src”)
-+ dans un doc C++ (.cpp)
-+ dans RMarkdown avec insertion chunk Rcpp</p>
-<p><em>sourceCpp()</em> : compilation du .cpp</p>
-<p>Créer une fonction C++ :
-calculer le double d’un vecteur numérique</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="c.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb35-2"><a href="c.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
-<span id="cb35-3"><a href="c.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb35-4"><a href="c.html#cb35-4" aria-hidden="true" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb35-5"><a href="c.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb35-6"><a href="c.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>-&gt; Une fct R du meme nom que la fct C++ s’est créée</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="c.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div id="plot-1" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Cours 7</span> Plot<a href="plot-1.html#plot-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="des-packages-intéressants" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Des packages intéressants<a href="plot-1.html#des-packages-intéressants" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Faire des graphs ggplot en clic bouton : <strong>esquisse::esquisser()</strong></p></li>
+<li><p>Des plots tout beau prêts à publier : <strong>ggpubr</strong></p></li>
+</ul>
+</div>
+<div id="types" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Types<a href="plot-1.html#types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>geom_point()</li>
+<li>geom_line()</li>
+<li>geom_bar()</li>
+</ul>
+</div>
+<div id="titres" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Titres<a href="plot-1.html#titres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Titre de la figure et noms des axes : <strong>labs(title=“Figure title”, x =“x title”, y = “y title”)</strong></li>
+</ul>
+</div>
+<div id="des-couleurs" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Des couleurs<a href="plot-1.html#des-couleurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories<br />
+ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white”)</strong><br />
+Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
+</ul>
+</div>
+<div id="des-histoires-de-texte" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Des histoires de texte<a href="plot-1.html#des-histoires-de-texte" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Relier le label au point quand c’est pas visible : <strong>geom_text_repel</strong></li>
+</ul>
+</div>
+<div id="axes" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Axes<a href="plot-1.html#axes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>changer l’échelle des axes (ici y): <strong>scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))</strong></p></li>
+<li><p>customiser l’échelle d’un axe temporel (date/time) : <a href="https://ggplot2.tidyverse.org/reference/scale_date.html#ref-examples" class="uri">https://ggplot2.tidyverse.org/reference/scale_date.html#ref-examples</a></p></li>
+<li><p>un plot avec l’axe des x à échelle temporelle de toutes :</p></li>
+<li><p>les 15 minutes : <strong>+ scale_x_time(breaks = hms::hms(minutes = seq(0, 3600, 15)))</strong></p></li>
+<li><p>les semaines : <strong>+ scale_x_date(date_breaks = “1 week”)</strong></p></li>
+<li><p>les 4 heures : <strong>+ scale_x_time(breaks = hms::hms(hours = seq(0, 24, 4)))</strong></p></li>
+</ul>
+<div id="double-axes" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Double axes<a href="plot-1.html#double-axes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="plot-1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
+<span id="cb37-2"><a href="plot-1.html#cb37-2" aria-hidden="true" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb37-3"><a href="plot-1.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="plot-1.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="plot-1.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
+<span id="cb37-6"><a href="plot-1.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb37-7"><a href="plot-1.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
+<span id="cb37-8"><a href="plot-1.html#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb37-9"><a href="plot-1.html#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
+<span id="cb37-10"><a href="plot-1.html#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
+<span id="cb37-11"><a href="plot-1.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-12"><a href="plot-1.html#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb37-13"><a href="plot-1.html#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb37-14"><a href="plot-1.html#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb37-15"><a href="plot-1.html#cb37-15" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+</div>
+</div>
+<div id="multi-plots" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Multi-plots<a href="plot-1.html#multi-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de ‘Wide-format’ à ‘long-format’ (<a href="https://seananderson.ca/2013/10/19/reshape/" class="uri">https://seananderson.ca/2013/10/19/reshape/</a>): <strong>melt()</strong></p></li>
+<li><p>Séparer un facet_wrap en plusieurs pages : <strong>facet_wrap_paginate()</strong></p></li>
+<li><p>Echelles différentes sur un facet :<br />
+</p></li>
+<li><p><strong>scales = “free” “free_x” “free_y” or “fixed”</strong><br />
+</p></li>
+<li><p>qd on veut personnaliser :<br />
+on crée un data pour un geom_blank : blank_data &lt;- data.frame(group = c(“var1”, “var1”, “var2”, “var2”), x = c(min commun,<br />
+max commun, min commun, max commun), y = c(min commun, max commun, min commun, max commun))</p></li>
+</ul>
+<p>puis <strong>geom_blank(data = blank_data, aes(x = x, y = y))</strong></p>
+</div>
+<div id="télécharger-dans-le-bon-format-au-bon-endroit" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Télécharger dans le bon format, au bon endroit !<a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>PNG : <strong>png()</strong> avant commande du plot &amp; <strong>dev.off()</strong> après commande du plot<br />
+</li>
+<li>ggsave()<br />
+</li>
+<li>compresser : <strong>save(objt, file = “objt.rda”, compress = “xz”)</strong></li>
+</ul>
 
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="trajectory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="plot-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="c.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
