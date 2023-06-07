@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-06-05" />
+<meta name="date" content="2023-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -605,6 +605,7 @@ Sous plusieurs conditions : séparer les conditions d’un <strong>&amp;</strong
 <li><p>Remplir une colonne à partir d’une fonction dont l’input est une table : <strong>do()</strong></p></li>
 <li><p>déplie la une sous-table existant dans une table : <strong>unnest()</strong></p></li>
 <li><p>Encode a column in utf8 : <strong>tidyft::utf8_encoding(datatable, colname)</strong></p></li>
+<li><p>Mettre à NA 10% du jeu de donnée aléatoirement : <strong>data[sample(nrow(data), 0.1 * nrow(data)), c(“X”, “Y”, “Z”) := NA_real_]</strong></p></li>
 </ul>
 </div>
 <div id="histoire-de-characters" class="section level2 hasAnchor" number="1.9">

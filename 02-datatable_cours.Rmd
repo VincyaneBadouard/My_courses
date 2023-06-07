@@ -57,7 +57,6 @@ or
 
 ## Punctuation
 
-
 + les fonctions commençant par **set** ou contenant l'opérateur **:=** n'ont pas besoin d'être réassigné à l'objet avec "<-".  
 C'est mieux car ne garde pas de copie en mémoire.
 
@@ -288,7 +287,7 @@ https://linogaliana.netlify.app/post/datatable/datatable-nse/
 ```{r , eval = F}
 
 modif_variable <- function(dt, variable = "x"){
-  dt_copy <- data.table::copy(dt) ## une copie pour la sécurité
+  dt_copy <- data.table::copy(dt) ## on copie pour ne pas que les prochaines actions se fasse la version originale
   dt_copy[,c(variable) := get(variable) + 1] ## get() pour appeler un nom de variable entre guillemets (character)
   return(dt_copy)
 }

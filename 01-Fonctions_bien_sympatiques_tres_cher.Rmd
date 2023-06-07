@@ -122,6 +122,8 @@ Sous plusieurs conditions : séparer les conditions d'un **&**
 
 +  Encode a column in utf8 : **tidyft::utf8_encoding(datatable, colname)**  
 
++ Mettre à NA 10% du jeu de donnée aléatoirement : **data[sample(nrow(data), 0.1 * nrow(data)), c("X", "Y", "Z") := NA_real_]**
+
 
 ## Histoire de characters
 
