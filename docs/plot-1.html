@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-06-07" />
+<meta name="date" content="2023-06-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -545,21 +545,21 @@ Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
 </ul>
 <div id="double-axes" class="section level3 hasAnchor" number="7.6.1">
 <h3><span class="header-section-number">7.6.1</span> Double axes<a href="plot-1.html#double-axes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="plot-1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
-<span id="cb37-2"><a href="plot-1.html#cb37-2" aria-hidden="true" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb37-3"><a href="plot-1.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
-<span id="cb37-4"><a href="plot-1.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb37-5"><a href="plot-1.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
-<span id="cb37-6"><a href="plot-1.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb37-7"><a href="plot-1.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
-<span id="cb37-8"><a href="plot-1.html#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
-<span id="cb37-9"><a href="plot-1.html#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
-<span id="cb37-10"><a href="plot-1.html#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
-<span id="cb37-11"><a href="plot-1.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb37-12"><a href="plot-1.html#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb37-13"><a href="plot-1.html#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
-<span id="cb37-14"><a href="plot-1.html#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb37-15"><a href="plot-1.html#cb37-15" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="plot-1.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
+<span id="cb38-2"><a href="plot-1.html#cb38-2" aria-hidden="true" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb38-3"><a href="plot-1.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="plot-1.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="plot-1.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="plot-1.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb38-7"><a href="plot-1.html#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
+<span id="cb38-8"><a href="plot-1.html#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb38-9"><a href="plot-1.html#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
+<span id="cb38-10"><a href="plot-1.html#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
+<span id="cb38-11"><a href="plot-1.html#cb38-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-12"><a href="plot-1.html#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb38-13"><a href="plot-1.html#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb38-14"><a href="plot-1.html#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb38-15"><a href="plot-1.html#cb38-15" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 </div>
 </div>
 <div id="multi-plots" class="section level2 hasAnchor" number="7.7">

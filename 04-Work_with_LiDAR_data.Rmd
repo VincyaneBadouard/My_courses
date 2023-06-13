@@ -22,7 +22,7 @@ Fichiers :
 - nuage de points (.las ou .laz en compréssé)
 
 ## Tools
-cloudcompare (logiciel)
+logiciels : cloudcompare, Fugroviewer
 
 ### R packages
 ```{r, include = F}
@@ -54,6 +54,11 @@ https://r-lidar.github.io/lidRbook/io.html
 las1 <- lidR::readLAS(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz")
 # ou
 las2 <- rlas::read.las(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz")
+```
+
+```{r}
+# readLAScatalog() # create a las catalog from a collto search in
+# readLAS(filter = "-help")
 ```
 
 ## Check if the las is complete

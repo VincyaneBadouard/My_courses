@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-06-07" />
+<meta name="date" content="2023-06-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -502,17 +502,17 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="install-inla-r-package" class="section level2 hasAnchor" number="21.1">
 <h2><span class="header-section-number">21.1</span> Install INLA R package<a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#install-inla-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://www.r-inla.org/download-install" class="uri">https://www.r-inla.org/download-install</a></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;INLA&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="fu">getOption</span>(<span class="st">&quot;repos&quot;</span>), <span class="at">INLA=</span><span class="st">&quot;https://inla.r-inla-download.org/R/stable&quot;</span>), <span class="at">dep=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;INLA&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="fu">getOption</span>(<span class="st">&quot;repos&quot;</span>), <span class="at">INLA=</span><span class="st">&quot;https://inla.r-inla-download.org/R/stable&quot;</span>), <span class="at">dep=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="other-packages" class="section level2 hasAnchor" number="21.2">
 <h2><span class="header-section-number">21.2</span> Other packages<a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#other-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;inlabru&#39;</span>, <span class="st">&#39;raster&#39;</span>, <span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;sf&#39;</span>, <span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;ggpolypath&#39;</span>, <span class="st">&#39;rgeos&#39;</span>, <span class="st">&#39;viridis&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;inlabru&#39;</span>, <span class="st">&#39;raster&#39;</span>, <span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;sf&#39;</span>, <span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;ggpolypath&#39;</span>, <span class="st">&#39;rgeos&#39;</span>, <span class="st">&#39;viridis&#39;</span>))</span></code></pre></div>
 </div>
 <div id="load-packages" class="section level2 hasAnchor" number="21.3">
 <h2><span class="header-section-number">21.3</span> Load packages<a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#load-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(INLA);<span class="fu">library</span>(inlabru);</span>
-<span id="cb89-2"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster);<span class="fu">library</span>(tidyverse);<span class="fu">library</span>(sf)</span>
-<span id="cb89-3"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2);<span class="fu">library</span>(ggpolypath);<span class="fu">library</span>(rgeos);<span class="fu">library</span>(viridis)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(INLA);<span class="fu">library</span>(inlabru);</span>
+<span id="cb90-2"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster);<span class="fu">library</span>(tidyverse);<span class="fu">library</span>(sf)</span>
+<span id="cb90-3"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2);<span class="fu">library</span>(ggpolypath);<span class="fu">library</span>(rgeos);<span class="fu">library</span>(viridis)</span></code></pre></div>
 </div>
 </div>
             </section>

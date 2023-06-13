@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-06-07" />
+<meta name="date" content="2023-06-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -510,7 +510,7 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 - nuage de points (.las ou .laz en compréssé)</p>
 <div id="tools" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Tools<a href="work-with-lidar-data.html#tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>cloudcompare (logiciel)</p>
+<p>logiciels : cloudcompare, Fugroviewer</p>
 <div id="r-packages" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> R packages<a href="work-with-lidar-data.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
@@ -535,36 +535,38 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="work-with-lidar-data.html#cb29-1" aria-hidden="true" tabindex="-1"></a>las1 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">readLAS</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span>
 <span id="cb29-2"><a href="work-with-lidar-data.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
 <span id="cb29-3"><a href="work-with-lidar-data.html#cb29-3" aria-hidden="true" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> rlas<span class="sc">::</span><span class="fu">read.las</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="work-with-lidar-data.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># readLAScatalog() # create a las catalog from a collto search in</span></span>
+<span id="cb30-2"><a href="work-with-lidar-data.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># readLAS(filter = &quot;-help&quot;)</span></span></code></pre></div>
 </div>
 <div id="check-if-the-las-is-complete" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Check if the las is complete<a href="work-with-lidar-data.html#check-if-the-las-is-complete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="work-with-lidar-data.html#cb30-1" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span>
-<span id="cb30-2"><a href="work-with-lidar-data.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lidR::las_check(las2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="work-with-lidar-data.html#cb31-1" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span>
+<span id="cb31-2"><a href="work-with-lidar-data.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lidR::las_check(las2)</span></span></code></pre></div>
 </div>
 <div id="see-their-summaries" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> See their summaries<a href="work-with-lidar-data.html#see-their-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="work-with-lidar-data.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
-<span id="cb31-2"><a href="work-with-lidar-data.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
-<span id="cb31-3"><a href="work-with-lidar-data.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
-<span id="cb31-4"><a href="work-with-lidar-data.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
-<span id="cb31-5"><a href="work-with-lidar-data.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
-<span id="cb31-6"><a href="work-with-lidar-data.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="work-with-lidar-data.html#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="work-with-lidar-data.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
-<span id="cb31-9"><a href="work-with-lidar-data.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
-<span id="cb31-10"><a href="work-with-lidar-data.html#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
-<span id="cb31-11"><a href="work-with-lidar-data.html#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
-<span id="cb31-12"><a href="work-with-lidar-data.html#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
-<span id="cb31-13"><a href="work-with-lidar-data.html#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="work-with-lidar-data.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
+<span id="cb32-2"><a href="work-with-lidar-data.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
+<span id="cb32-3"><a href="work-with-lidar-data.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
+<span id="cb32-4"><a href="work-with-lidar-data.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
+<span id="cb32-5"><a href="work-with-lidar-data.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
+<span id="cb32-6"><a href="work-with-lidar-data.html#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="work-with-lidar-data.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="work-with-lidar-data.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
+<span id="cb32-9"><a href="work-with-lidar-data.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
+<span id="cb32-10"><a href="work-with-lidar-data.html#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
+<span id="cb32-11"><a href="work-with-lidar-data.html#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
+<span id="cb32-12"><a href="work-with-lidar-data.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
+<span id="cb32-13"><a href="work-with-lidar-data.html#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
 </div>
 <div id="plot" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Plot<a href="work-with-lidar-data.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="work-with-lidar-data.html#cb32-1" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
-<span id="cb32-2"><a href="work-with-lidar-data.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="work-with-lidar-data.html#cb33-1" aria-hidden="true" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
-<span id="cb33-2"><a href="work-with-lidar-data.html#cb33-2" aria-hidden="true" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
-<span id="cb33-3"><a href="work-with-lidar-data.html#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="work-with-lidar-data.html#cb33-4" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="work-with-lidar-data.html#cb33-1" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
+<span id="cb33-2"><a href="work-with-lidar-data.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="work-with-lidar-data.html#cb34-1" aria-hidden="true" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
+<span id="cb34-2"><a href="work-with-lidar-data.html#cb34-2" aria-hidden="true" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
+<span id="cb34-3"><a href="work-with-lidar-data.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="work-with-lidar-data.html#cb34-4" aria-hidden="true" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
 </div>
 </div>
             </section>

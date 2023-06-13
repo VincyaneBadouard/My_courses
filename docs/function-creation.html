@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-06-07" />
+<meta name="date" content="2023-06-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,33 +531,33 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 </div>
 <div id="structure" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> Structure :<a href="function-creation.html#structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="function-creation.html#cb46-1" aria-hidden="true" tabindex="-1"></a>nomdemafonction<span class="ot">&lt;-</span><span class="cf">function</span>(variable1,variable2...)</span>
-<span id="cb46-2"><a href="function-creation.html#cb46-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb46-3"><a href="function-creation.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ici on met le contenu de la fonction (généralement on effectue des transformations aux variables passées en argument)</span></span>
-<span id="cb46-4"><a href="function-creation.html#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="function-creation.html#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-6"><a href="function-creation.html#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-7"><a href="function-creation.html#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-8"><a href="function-creation.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="function-creation.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(Variabledesortie) <span class="do">## il s&#39;agit du résultat que va renvoyer la fonction (non négligeable!)! c&#39;est bien le but d&#39;une fct!</span></span>
-<span id="cb46-10"><a href="function-creation.html#cb46-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-11"><a href="function-creation.html#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-12"><a href="function-creation.html#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="co">#une fois la fonction créée on peut l&#39;utiliser:</span></span>
-<span id="cb46-13"><a href="function-creation.html#cb46-13" aria-hidden="true" tabindex="-1"></a> <span class="fu">nomdemafonction</span>(varA,varB,...)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="function-creation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>nomdemafonction<span class="ot">&lt;-</span><span class="cf">function</span>(variable1,variable2...)</span>
+<span id="cb47-2"><a href="function-creation.html#cb47-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb47-3"><a href="function-creation.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ici on met le contenu de la fonction (généralement on effectue des transformations aux variables passées en argument)</span></span>
+<span id="cb47-4"><a href="function-creation.html#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="function-creation.html#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="function-creation.html#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="function-creation.html#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="function-creation.html#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="function-creation.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(Variabledesortie) <span class="do">## il s&#39;agit du résultat que va renvoyer la fonction (non négligeable!)! c&#39;est bien le but d&#39;une fct!</span></span>
+<span id="cb47-10"><a href="function-creation.html#cb47-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb47-11"><a href="function-creation.html#cb47-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-12"><a href="function-creation.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co">#une fois la fonction créée on peut l&#39;utiliser:</span></span>
+<span id="cb47-13"><a href="function-creation.html#cb47-13" aria-hidden="true" tabindex="-1"></a> <span class="fu">nomdemafonction</span>(varA,varB,...)</span></code></pre></div>
 <p><em>Une fct normalement constituée ne travaille directement que sur ses arguments et non sur les objets stockés dans la console.</em>
 Tous les objets qui seront utilisés dans le script doivent avoir été créés dans le script.
 Les seules exceptions à cette règle sont les arguments qui eux sont définis dans l’en-tête.</p>
 <p>Exemple</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="function-creation.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculer le coefficient de variation (CV) (=écart type/moyenne) d&#39;une série de valeur.</span></span>
-<span id="cb47-2"><a href="function-creation.html#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="function-creation.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="function-creation.html#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-5"><a href="function-creation.html#cb47-5" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x){      <span class="do">## x est un vecteur contenant une série de valeurs</span></span>
-<span id="cb47-6"><a href="function-creation.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  moy <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)        <span class="do">## moyenne de x</span></span>
-<span id="cb47-7"><a href="function-creation.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)            <span class="do">## ecart type de x</span></span>
-<span id="cb47-8"><a href="function-creation.html#cb47-8" aria-hidden="true" tabindex="-1"></a>  rslt <span class="ot">&lt;-</span> s<span class="sc">/</span>moy         <span class="do">## calcul du CV</span></span>
-<span id="cb47-9"><a href="function-creation.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  rslt                  <span class="co">#la fonction retourne le résultat</span></span>
-<span id="cb47-10"><a href="function-creation.html#cb47-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="function-creation.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculer le coefficient de variation (CV) (=écart type/moyenne) d&#39;une série de valeur.</span></span>
+<span id="cb48-2"><a href="function-creation.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="function-creation.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="function-creation.html#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="function-creation.html#cb48-5" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x){      <span class="do">## x est un vecteur contenant une série de valeurs</span></span>
+<span id="cb48-6"><a href="function-creation.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  moy <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)        <span class="do">## moyenne de x</span></span>
+<span id="cb48-7"><a href="function-creation.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)            <span class="do">## ecart type de x</span></span>
+<span id="cb48-8"><a href="function-creation.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  rslt <span class="ot">&lt;-</span> s<span class="sc">/</span>moy         <span class="do">## calcul du CV</span></span>
+<span id="cb48-9"><a href="function-creation.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  rslt                  <span class="co">#la fonction retourne le résultat</span></span>
+<span id="cb48-10"><a href="function-creation.html#cb48-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="nommer-ses-arguments" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">13.3</span> Nommer ses arguments<a href="function-creation.html#nommer-ses-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -570,53 +570,53 @@ n: length, or number of rows.
 p: number of columns.</p>
 <p>Règle :
 Si les <em>arguments</em> des fonctions appelées sont donnés de la forme <em>name = object</em>, ils peuvent être écris dans n’importe quel ordre. Dans le cas contraire, il faut respecter l’ordre des arguments.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="function-creation.html#cb48-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, graph, limit) {</span>
-<span id="cb48-2"><a href="function-creation.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  [<span class="cf">function</span> body omitted]</span>
-<span id="cb48-3"><a href="function-creation.html#cb48-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb48-4"><a href="function-creation.html#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="function-creation.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Alors la fonction peut être invoquée de plusieurs manières, par exemple:</span></span>
-<span id="cb48-6"><a href="function-creation.html#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="function-creation.html#cb48-7" aria-hidden="true" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="fu">fun1</span>(d, df, <span class="cn">TRUE</span>, <span class="dv">20</span>) <span class="do">## arguments dans l&#39;ordre</span></span>
-<span id="cb48-8"><a href="function-creation.html#cb48-8" aria-hidden="true" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="fu">fun1</span>(<span class="at">data=</span>d, <span class="at">limit=</span><span class="dv">20</span>, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">data.frame=</span>df) <span class="do">## arguments dans le désordre et donc nommés</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="function-creation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, graph, limit) {</span>
+<span id="cb49-2"><a href="function-creation.html#cb49-2" aria-hidden="true" tabindex="-1"></a>  [<span class="cf">function</span> body omitted]</span>
+<span id="cb49-3"><a href="function-creation.html#cb49-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb49-4"><a href="function-creation.html#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="function-creation.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Alors la fonction peut être invoquée de plusieurs manières, par exemple:</span></span>
+<span id="cb49-6"><a href="function-creation.html#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="function-creation.html#cb49-7" aria-hidden="true" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="fu">fun1</span>(d, df, <span class="cn">TRUE</span>, <span class="dv">20</span>) <span class="do">## arguments dans l&#39;ordre</span></span>
+<span id="cb49-8"><a href="function-creation.html#cb49-8" aria-hidden="true" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="fu">fun1</span>(<span class="at">data=</span>d, <span class="at">limit=</span><span class="dv">20</span>, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">data.frame=</span>df) <span class="do">## arguments dans le désordre et donc nommés</span></span></code></pre></div>
 </div>
 <div id="valeurs-par-défaut" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">13.4</span> Valeurs par défaut<a href="function-creation.html#valeurs-par-défaut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="function-creation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">limit=</span><span class="dv">20</span>) { ... } <span class="co">#on attribue une valeur à l&#39;argument dès l&#39;écriture</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="function-creation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">limit=</span><span class="dv">20</span>) { ... } <span class="co">#on attribue une valeur à l&#39;argument dès l&#39;écriture</span></span></code></pre></div>
 </div>
 <div id="évaluation-de-la-fonction" class="section level2 hasAnchor" number="13.5">
 <h2><span class="header-section-number">13.5</span> évaluation de la fonction<a href="function-creation.html#évaluation-de-la-fonction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>return() renvoie la dernière valeur calculée</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="function-creation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>nom_de_fonction <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments) {</span>
-<span id="cb50-2"><a href="function-creation.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    instructions</span>
-<span id="cb50-3"><a href="function-creation.html#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(valeur) <span class="co">#non négligeable! c&#39;est bien le but d&#39;une fct!</span></span>
-<span id="cb50-4"><a href="function-creation.html#cb50-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="function-creation.html#cb51-1" aria-hidden="true" tabindex="-1"></a>nom_de_fonction <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments) {</span>
+<span id="cb51-2"><a href="function-creation.html#cb51-2" aria-hidden="true" tabindex="-1"></a>    instructions</span>
+<span id="cb51-3"><a href="function-creation.html#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(valeur) <span class="co">#non négligeable! c&#39;est bien le but d&#39;une fct!</span></span>
+<span id="cb51-4"><a href="function-creation.html#cb51-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="vérification-de-la-classe-des-arguments" class="section level2 hasAnchor" number="13.6">
 <h2><span class="header-section-number">13.6</span> Vérification de la classe des arguments<a href="function-creation.html#vérification-de-la-classe-des-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="function-creation.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="function-creation.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
 </div>
 <div id="largument-fun" class="section level2 hasAnchor" number="13.7">
 <h2><span class="header-section-number">13.7</span> L’argument ‘fun’<a href="function-creation.html#largument-fun" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>= passer une fonction a une autre fonction en argument</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="function-creation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>col_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(df, fun) {</span>
-<span id="cb52-2"><a href="function-creation.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;double&quot;</span>, <span class="fu">length</span>(df))</span>
-<span id="cb52-3"><a href="function-creation.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(df)) {</span>
-<span id="cb52-4"><a href="function-creation.html#cb52-4" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">fun</span>(df[[i]])</span>
-<span id="cb52-5"><a href="function-creation.html#cb52-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb52-6"><a href="function-creation.html#cb52-6" aria-hidden="true" tabindex="-1"></a>  out</span>
-<span id="cb52-7"><a href="function-creation.html#cb52-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb52-8"><a href="function-creation.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="fu">col_summary</span>(df, median)</span>
-<span id="cb52-9"><a href="function-creation.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="fu">col_summary</span>(df, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="function-creation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>col_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(df, fun) {</span>
+<span id="cb53-2"><a href="function-creation.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;double&quot;</span>, <span class="fu">length</span>(df))</span>
+<span id="cb53-3"><a href="function-creation.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(df)) {</span>
+<span id="cb53-4"><a href="function-creation.html#cb53-4" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">fun</span>(df[[i]])</span>
+<span id="cb53-5"><a href="function-creation.html#cb53-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb53-6"><a href="function-creation.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb53-7"><a href="function-creation.html#cb53-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-8"><a href="function-creation.html#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">col_summary</span>(df, median)</span>
+<span id="cb53-9"><a href="function-creation.html#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="fu">col_summary</span>(df, mean)</span></code></pre></div>
 </div>
 <div id="largument" class="section level2 hasAnchor" number="13.8">
 <h2><span class="header-section-number">13.8</span> L’argument ‘…’<a href="function-creation.html#largument" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Il est possible d’utiliser le symbole ‘…’ (ellipsis) dans les paramètres d’une fct pour indiquer que tous les paramètres supplémentaires seront transmis aux autres fonctions internes.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="function-creation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">limit=</span><span class="dv">20</span>, ...) {</span>
-<span id="cb53-2"><a href="function-creation.html#cb53-2" aria-hidden="true" tabindex="-1"></a>       [omitted statements]</span>
-<span id="cb53-3"><a href="function-creation.html#cb53-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (graph)</span>
-<span id="cb53-4"><a href="function-creation.html#cb53-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">par</span>(<span class="at">pch=</span><span class="st">&quot;*&quot;</span>, ...)</span>
-<span id="cb53-5"><a href="function-creation.html#cb53-5" aria-hidden="true" tabindex="-1"></a>       [more omissions]</span>
-<span id="cb53-6"><a href="function-creation.html#cb53-6" aria-hidden="true" tabindex="-1"></a>     }</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="function-creation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, data.frame, <span class="at">graph=</span><span class="cn">TRUE</span>, <span class="at">limit=</span><span class="dv">20</span>, ...) {</span>
+<span id="cb54-2"><a href="function-creation.html#cb54-2" aria-hidden="true" tabindex="-1"></a>       [omitted statements]</span>
+<span id="cb54-3"><a href="function-creation.html#cb54-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (graph)</span>
+<span id="cb54-4"><a href="function-creation.html#cb54-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">par</span>(<span class="at">pch=</span><span class="st">&quot;*&quot;</span>, ...)</span>
+<span id="cb54-5"><a href="function-creation.html#cb54-5" aria-hidden="true" tabindex="-1"></a>       [more omissions]</span>
+<span id="cb54-6"><a href="function-creation.html#cb54-6" aria-hidden="true" tabindex="-1"></a>     }</span></code></pre></div>
 </div>
 <div id="types-de-fonction" class="section level2 hasAnchor" number="13.9">
 <h2><span class="header-section-number">13.9</span> Types de fonction<a href="function-creation.html#types-de-fonction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -624,30 +624,30 @@ Si les <em>arguments</em> des fonctions appelées sont donnés de la forme <em>n
 <h3><span class="header-section-number">13.9.1</span> Appel récursif<a href="function-creation.html#appel-récursif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La récursivité est une démarche qui fait référence à l’objet-même de la démarche à un moment du processus (=poupée russe)
 Une fct peut s’appeller elle-même, tant qu’il existe une condition d’arrêt.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="function-creation.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Scalaire : nombre réel</span></span>
-<span id="cb54-2"><a href="function-creation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Vecteur : serie de valeurs</span></span>
-<span id="cb54-3"><a href="function-creation.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="function-creation.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Sur scalaire</span></span>
-<span id="cb54-5"><a href="function-creation.html#cb54-5" aria-hidden="true" tabindex="-1"></a>factorielle <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb54-6"><a href="function-creation.html#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">1</span>) resultat <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="do">## scalaire booléen       ## arrêt de la récursion (n=1 est la condition d&#39;arrêt)</span></span>
-<span id="cb54-7"><a href="function-creation.html#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> resultat <span class="ot">&lt;-</span> <span class="fu">factorielle</span>(n<span class="dv">-1</span>)<span class="sc">*</span>n <span class="do">## appel récursif (si n différent de 1)</span></span>
-<span id="cb54-8"><a href="function-creation.html#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultat)</span>
-<span id="cb54-9"><a href="function-creation.html#cb54-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb54-10"><a href="function-creation.html#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Sur vecteur</span></span>
-<span id="cb54-11"><a href="function-creation.html#cb54-11" aria-hidden="true" tabindex="-1"></a>factorielle <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb54-12"><a href="function-creation.html#cb54-12" aria-hidden="true" tabindex="-1"></a>  indice <span class="ot">&lt;-</span> (n <span class="sc">==</span> <span class="dv">1</span>) <span class="do">## vecteur de booléens</span></span>
-<span id="cb54-13"><a href="function-creation.html#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">all</span>(indice)) <span class="fu">return</span>(n) <span class="do">## arrêt de la récursion (n=1 est la condition d&#39;arrêt)</span></span>
-<span id="cb54-14"><a href="function-creation.html#cb54-14" aria-hidden="true" tabindex="-1"></a>  n[<span class="sc">!</span>indice] <span class="ot">&lt;-</span> n[<span class="sc">!</span>indice]<span class="sc">*</span><span class="fu">factorielle</span>(n[<span class="sc">!</span>indice] <span class="sc">-</span> <span class="dv">1</span>) <span class="do">## appel récursif (si n différent de 1)</span></span>
-<span id="cb54-15"><a href="function-creation.html#cb54-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(n)</span>
-<span id="cb54-16"><a href="function-creation.html#cb54-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="function-creation.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Scalaire : nombre réel</span></span>
+<span id="cb55-2"><a href="function-creation.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Vecteur : serie de valeurs</span></span>
+<span id="cb55-3"><a href="function-creation.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="function-creation.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Sur scalaire</span></span>
+<span id="cb55-5"><a href="function-creation.html#cb55-5" aria-hidden="true" tabindex="-1"></a>factorielle <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb55-6"><a href="function-creation.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">1</span>) resultat <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="do">## scalaire booléen       ## arrêt de la récursion (n=1 est la condition d&#39;arrêt)</span></span>
+<span id="cb55-7"><a href="function-creation.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> resultat <span class="ot">&lt;-</span> <span class="fu">factorielle</span>(n<span class="dv">-1</span>)<span class="sc">*</span>n <span class="do">## appel récursif (si n différent de 1)</span></span>
+<span id="cb55-8"><a href="function-creation.html#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultat)</span>
+<span id="cb55-9"><a href="function-creation.html#cb55-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb55-10"><a href="function-creation.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Sur vecteur</span></span>
+<span id="cb55-11"><a href="function-creation.html#cb55-11" aria-hidden="true" tabindex="-1"></a>factorielle <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb55-12"><a href="function-creation.html#cb55-12" aria-hidden="true" tabindex="-1"></a>  indice <span class="ot">&lt;-</span> (n <span class="sc">==</span> <span class="dv">1</span>) <span class="do">## vecteur de booléens</span></span>
+<span id="cb55-13"><a href="function-creation.html#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">all</span>(indice)) <span class="fu">return</span>(n) <span class="do">## arrêt de la récursion (n=1 est la condition d&#39;arrêt)</span></span>
+<span id="cb55-14"><a href="function-creation.html#cb55-14" aria-hidden="true" tabindex="-1"></a>  n[<span class="sc">!</span>indice] <span class="ot">&lt;-</span> n[<span class="sc">!</span>indice]<span class="sc">*</span><span class="fu">factorielle</span>(n[<span class="sc">!</span>indice] <span class="sc">-</span> <span class="dv">1</span>) <span class="do">## appel récursif (si n différent de 1)</span></span>
+<span id="cb55-15"><a href="function-creation.html#cb55-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(n)</span>
+<span id="cb55-16"><a href="function-creation.html#cb55-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="fct-anonyme-dans-une-autre-fonction" class="section level3 hasAnchor" number="13.9.2">
 <h3><span class="header-section-number">13.9.2</span> Fct anonyme dans une autre fonction<a href="function-creation.html#fct-anonyme-dans-une-autre-fonction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="function-creation.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(x, y, <span class="cf">function</span>(x, y) x <span class="sc">*</span> y<span class="sc">^</span><span class="dv">2</span>) <span class="do">## une fonction est mise en argument d&#39;une autre fonction</span></span>
-<span id="cb55-2"><a href="function-creation.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
-<span id="cb55-3"><a href="function-creation.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   16   25   36</span></span>
-<span id="cb55-4"><a href="function-creation.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   32   50   72</span></span>
-<span id="cb55-5"><a href="function-creation.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   48   75  108</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="function-creation.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(x, y, <span class="cf">function</span>(x, y) x <span class="sc">*</span> y<span class="sc">^</span><span class="dv">2</span>) <span class="do">## une fonction est mise en argument d&#39;une autre fonction</span></span>
+<span id="cb56-2"><a href="function-creation.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb56-3"><a href="function-creation.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   16   25   36</span></span>
+<span id="cb56-4"><a href="function-creation.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   32   50   72</span></span>
+<span id="cb56-5"><a href="function-creation.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   48   75  108</span></span></code></pre></div>
 </div>
 </div>
 <div id="retourner-un-résultat" class="section level2 hasAnchor" number="13.10">
@@ -681,15 +681,15 @@ Un “stop” dans une fonction interne arrête également la fonction dans laqu
 </div>
 <div id="interaction-avec-lutilisateur" class="section level2 hasAnchor" number="13.12">
 <h2><span class="header-section-number">13.12</span> Interaction avec l’utilisateur<a href="function-creation.html#interaction-avec-lutilisateur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="function-creation.html#cb56-1" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb56-2"><a href="function-creation.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  ANSWER <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">&quot;Are you a satisfied R user? &quot;</span>) <span class="do">## question</span></span>
-<span id="cb56-3"><a href="function-creation.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb56-4"><a href="function-creation.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">substr</span>(ANSWER, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">&quot;n&quot;</span>) <span class="do">## check the answer</span></span>
-<span id="cb56-5"><a href="function-creation.html#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;This is impossible.  YOU LIED!</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="do">## re-prompt</span></span>
-<span id="cb56-6"><a href="function-creation.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
-<span id="cb56-7"><a href="function-creation.html#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;I knew it.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb56-8"><a href="function-creation.html#cb56-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb56-9"><a href="function-creation.html#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">interactive</span>()) <span class="fu">fun</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="function-creation.html#cb57-1" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb57-2"><a href="function-creation.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  ANSWER <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">&quot;Are you a satisfied R user? &quot;</span>) <span class="do">## question</span></span>
+<span id="cb57-3"><a href="function-creation.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-4"><a href="function-creation.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">substr</span>(ANSWER, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">&quot;n&quot;</span>) <span class="do">## check the answer</span></span>
+<span id="cb57-5"><a href="function-creation.html#cb57-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;This is impossible.  YOU LIED!</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="do">## re-prompt</span></span>
+<span id="cb57-6"><a href="function-creation.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb57-7"><a href="function-creation.html#cb57-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;I knew it.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb57-8"><a href="function-creation.html#cb57-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb57-9"><a href="function-creation.html#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">interactive</span>()) <span class="fu">fun</span>()</span></code></pre></div>
 </div>
 <div id="iteration" class="section level2 hasAnchor" number="13.13">
 <h2><span class="header-section-number">13.13</span> Iteration<a href="function-creation.html#iteration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -697,37 +697,37 @@ Un “stop” dans une fonction interne arrête également la fonction dans laqu
 <ul>
 <li>itérer n fois : <em>replicate(n, expr, simplify = F)</em> (renvoie une liste) ou <em>purrr::rerun(n, expr)</em> ou <em>purrr::map(1:n, ~ expr)</em> ou <em>lapply(seq_len(n), function(x) fun())</em></li>
 </ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="function-creation.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fun0 a function</span></span>
-<span id="cb57-2"><a href="function-creation.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="do">## fun1 a a function to iterate fun0 with a n argument</span></span>
-<span id="cb57-3"><a href="function-creation.html#cb57-3" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, x) <span class="fu">replicate</span>(n, <span class="fu">fun0</span>(<span class="at">x =</span> x))</span>
-<span id="cb57-4"><a href="function-creation.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(n, x)</span></code></pre></div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="function-creation.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb58-2"><a href="function-creation.html#cb58-2" aria-hidden="true" tabindex="-1"></a>fun0 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.list</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>)), <span class="at">nrow =</span> <span class="dv">2</span>))</span>
-<span id="cb58-3"><a href="function-creation.html#cb58-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb58-4"><a href="function-creation.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fun0</span>(<span class="dv">1</span>)</span>
-<span id="cb58-5"><a href="function-creation.html#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-6"><a href="function-creation.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
-<span id="cb58-7"><a href="function-creation.html#cb58-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-8"><a href="function-creation.html#cb58-8" aria-hidden="true" tabindex="-1"></a>mb <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
-<span id="cb58-9"><a href="function-creation.html#cb58-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">repl =</span> {<span class="fu">replicate</span>(n, <span class="fu">fun0</span>(<span class="dv">1</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)},</span>
-<span id="cb58-10"><a href="function-creation.html#cb58-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reru =</span> {purrr<span class="sc">::</span><span class="fu">rerun</span>(n, <span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
-<span id="cb58-11"><a href="function-creation.html#cb58-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">map =</span> {purrr<span class="sc">::</span><span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="sc">~</span><span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
-<span id="cb58-12"><a href="function-creation.html#cb58-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">lap =</span> {<span class="fu">lapply</span>(<span class="fu">seq_len</span>(n), <span class="cf">function</span>(x) <span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
-<span id="cb58-13"><a href="function-creation.html#cb58-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> 1000L</span>
-<span id="cb58-14"><a href="function-creation.html#cb58-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb58-15"><a href="function-creation.html#cb58-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-16"><a href="function-creation.html#cb58-16" aria-hidden="true" tabindex="-1"></a>mb</span>
-<span id="cb58-17"><a href="function-creation.html#cb58-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-18"><a href="function-creation.html#cb58-18" aria-hidden="true" tabindex="-1"></a>mb <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
-<span id="cb58-19"><a href="function-creation.html#cb58-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">suit =</span> {<span class="dv">1</span><span class="sc">:</span>n},</span>
-<span id="cb58-20"><a href="function-creation.html#cb58-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">rep =</span> {<span class="fu">rep</span>(<span class="dv">1</span>, n)},</span>
-<span id="cb58-21"><a href="function-creation.html#cb58-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq_len =</span> {<span class="fu">seq_len</span>(n)},</span>
-<span id="cb58-22"><a href="function-creation.html#cb58-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq_along =</span> {<span class="fu">seq_along</span> (n)}, <span class="do">## le + rapide</span></span>
-<span id="cb58-23"><a href="function-creation.html#cb58-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">c =</span> {<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>n)},</span>
-<span id="cb58-24"><a href="function-creation.html#cb58-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> 1000L</span>
-<span id="cb58-25"><a href="function-creation.html#cb58-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb58-26"><a href="function-creation.html#cb58-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-27"><a href="function-creation.html#cb58-27" aria-hidden="true" tabindex="-1"></a>mb</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="function-creation.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fun0 a function</span></span>
+<span id="cb58-2"><a href="function-creation.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="do">## fun1 a a function to iterate fun0 with a n argument</span></span>
+<span id="cb58-3"><a href="function-creation.html#cb58-3" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, x) <span class="fu">replicate</span>(n, <span class="fu">fun0</span>(<span class="at">x =</span> x))</span>
+<span id="cb58-4"><a href="function-creation.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(n, x)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="function-creation.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb59-2"><a href="function-creation.html#cb59-2" aria-hidden="true" tabindex="-1"></a>fun0 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.list</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>)), <span class="at">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb59-3"><a href="function-creation.html#cb59-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb59-4"><a href="function-creation.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fun0</span>(<span class="dv">1</span>)</span>
+<span id="cb59-5"><a href="function-creation.html#cb59-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-6"><a href="function-creation.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb59-7"><a href="function-creation.html#cb59-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-8"><a href="function-creation.html#cb59-8" aria-hidden="true" tabindex="-1"></a>mb <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
+<span id="cb59-9"><a href="function-creation.html#cb59-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">repl =</span> {<span class="fu">replicate</span>(n, <span class="fu">fun0</span>(<span class="dv">1</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)},</span>
+<span id="cb59-10"><a href="function-creation.html#cb59-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reru =</span> {purrr<span class="sc">::</span><span class="fu">rerun</span>(n, <span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
+<span id="cb59-11"><a href="function-creation.html#cb59-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">map =</span> {purrr<span class="sc">::</span><span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="sc">~</span><span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
+<span id="cb59-12"><a href="function-creation.html#cb59-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">lap =</span> {<span class="fu">lapply</span>(<span class="fu">seq_len</span>(n), <span class="cf">function</span>(x) <span class="fu">fun0</span>(<span class="dv">1</span>))},</span>
+<span id="cb59-13"><a href="function-creation.html#cb59-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> 1000L</span>
+<span id="cb59-14"><a href="function-creation.html#cb59-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb59-15"><a href="function-creation.html#cb59-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-16"><a href="function-creation.html#cb59-16" aria-hidden="true" tabindex="-1"></a>mb</span>
+<span id="cb59-17"><a href="function-creation.html#cb59-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-18"><a href="function-creation.html#cb59-18" aria-hidden="true" tabindex="-1"></a>mb <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
+<span id="cb59-19"><a href="function-creation.html#cb59-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">suit =</span> {<span class="dv">1</span><span class="sc">:</span>n},</span>
+<span id="cb59-20"><a href="function-creation.html#cb59-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">rep =</span> {<span class="fu">rep</span>(<span class="dv">1</span>, n)},</span>
+<span id="cb59-21"><a href="function-creation.html#cb59-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq_len =</span> {<span class="fu">seq_len</span>(n)},</span>
+<span id="cb59-22"><a href="function-creation.html#cb59-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq_along =</span> {<span class="fu">seq_along</span> (n)}, <span class="do">## le + rapide</span></span>
+<span id="cb59-23"><a href="function-creation.html#cb59-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">c =</span> {<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>n)},</span>
+<span id="cb59-24"><a href="function-creation.html#cb59-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> 1000L</span>
+<span id="cb59-25"><a href="function-creation.html#cb59-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb59-26"><a href="function-creation.html#cb59-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-27"><a href="function-creation.html#cb59-27" aria-hidden="true" tabindex="-1"></a>mb</span></code></pre></div>
 <ul>
 <li>repeat() : répète à l’infini si on ne met pas une condition et un break dedans.</li>
 <li>Boucle for ou boucle while</li>
@@ -766,35 +766,35 @@ R is sequential and uses 1 processor</p>
 - paralléliser : <em>parLapply(cl, seq_along(iter), myfun)</em>
 - arrêter le cluster : <em>stopCluster(cl)</em></p>
 <p><a href="https://stackoverflow.com/questions/17196261/understanding-the-differences-between-mclapply-and-parlapply-in-r" class="uri">https://stackoverflow.com/questions/17196261/understanding-the-differences-between-mclapply-and-parlapply-in-r</a></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="function-creation.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
-<span id="cb59-2"><a href="function-creation.html#cb59-2" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makePSOCKcluster</span>(<span class="dv">4</span>) <span class="do">## créer un cluster</span></span>
-<span id="cb59-3"><a href="function-creation.html#cb59-3" aria-hidden="true" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(i) { <span class="fu">Sys.sleep</span>(<span class="dv">1</span>); i } <span class="do">## the function</span></span>
-<span id="cb59-4"><a href="function-creation.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parLapply</span>(cl, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, myfun) <span class="do">## parallelization</span></span>
-<span id="cb59-5"><a href="function-creation.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl) <span class="do">## stop the cluster</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="function-creation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb60-2"><a href="function-creation.html#cb60-2" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makePSOCKcluster</span>(<span class="dv">4</span>) <span class="do">## créer un cluster</span></span>
+<span id="cb60-3"><a href="function-creation.html#cb60-3" aria-hidden="true" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(i) { <span class="fu">Sys.sleep</span>(<span class="dv">1</span>); i } <span class="do">## the function</span></span>
+<span id="cb60-4"><a href="function-creation.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parLapply</span>(cl, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, myfun) <span class="do">## parallelization</span></span>
+<span id="cb60-5"><a href="function-creation.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl) <span class="do">## stop the cluster</span></span></code></pre></div>
 <p>Sur des boucles :
 - foreach sequential operator : <em>%do%</em>
 - doParallel parallelizable operator : <em>%dopar%</em></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="function-creation.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="do">## nonparallel for loop</span></span>
-<span id="cb60-2"><a href="function-creation.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
-<span id="cb60-3"><a href="function-creation.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sqrt</span>(i))</span>
-<span id="cb60-4"><a href="function-creation.html#cb60-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb60-5"><a href="function-creation.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="do">## nonparallel foreach loop</span></span>
-<span id="cb60-6"><a href="function-creation.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
-<span id="cb60-7"><a href="function-creation.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
-<span id="cb60-8"><a href="function-creation.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span> (<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">.combine=</span>c) <span class="sc">%do%</span> { <span class="do">## .combine=c si on veut unlist l&#39;output, .combine=rbind si on veut un df </span></span>
-<span id="cb60-9"><a href="function-creation.html#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(i)</span>
-<span id="cb60-10"><a href="function-creation.html#cb60-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb60-11"><a href="function-creation.html#cb60-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb60-12"><a href="function-creation.html#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="do">## doParallel = foreach parallel adaptor for the &#39;parallel&#39; package</span></span>
-<span id="cb60-13"><a href="function-creation.html#cb60-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doParallel)</span>
-<span id="cb60-14"><a href="function-creation.html#cb60-14" aria-hidden="true" tabindex="-1"></a>numCores <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(<span class="at">logical =</span> <span class="cn">FALSE</span>) <span class="do">## FALSE to have the physical cores</span></span>
-<span id="cb60-15"><a href="function-creation.html#cb60-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-16"><a href="function-creation.html#cb60-16" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
-<span id="cb60-17"><a href="function-creation.html#cb60-17" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(numCores)</span>
-<span id="cb60-18"><a href="function-creation.html#cb60-18" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span> (<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">%dopar%</span> {</span>
-<span id="cb60-19"><a href="function-creation.html#cb60-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(i)</span>
-<span id="cb60-20"><a href="function-creation.html#cb60-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb60-21"><a href="function-creation.html#cb60-21" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="function-creation.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">## nonparallel for loop</span></span>
+<span id="cb61-2"><a href="function-creation.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb61-3"><a href="function-creation.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sqrt</span>(i))</span>
+<span id="cb61-4"><a href="function-creation.html#cb61-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb61-5"><a href="function-creation.html#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="do">## nonparallel foreach loop</span></span>
+<span id="cb61-6"><a href="function-creation.html#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
+<span id="cb61-7"><a href="function-creation.html#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
+<span id="cb61-8"><a href="function-creation.html#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span> (<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">.combine=</span>c) <span class="sc">%do%</span> { <span class="do">## .combine=c si on veut unlist l&#39;output, .combine=rbind si on veut un df </span></span>
+<span id="cb61-9"><a href="function-creation.html#cb61-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(i)</span>
+<span id="cb61-10"><a href="function-creation.html#cb61-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb61-11"><a href="function-creation.html#cb61-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb61-12"><a href="function-creation.html#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="do">## doParallel = foreach parallel adaptor for the &#39;parallel&#39; package</span></span>
+<span id="cb61-13"><a href="function-creation.html#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doParallel)</span>
+<span id="cb61-14"><a href="function-creation.html#cb61-14" aria-hidden="true" tabindex="-1"></a>numCores <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(<span class="at">logical =</span> <span class="cn">FALSE</span>) <span class="do">## FALSE to have the physical cores</span></span>
+<span id="cb61-15"><a href="function-creation.html#cb61-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-16"><a href="function-creation.html#cb61-16" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
+<span id="cb61-17"><a href="function-creation.html#cb61-17" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(numCores)</span>
+<span id="cb61-18"><a href="function-creation.html#cb61-18" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span> (<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">%dopar%</span> {</span>
+<span id="cb61-19"><a href="function-creation.html#cb61-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(i)</span>
+<span id="cb61-20"><a href="function-creation.html#cb61-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb61-21"><a href="function-creation.html#cb61-21" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>When you’re done, clean up the cluster : <em>stopImplicitCluster()</em></p>
 </div>
 <div id="choses-à-savoir" class="section level2 hasAnchor" number="13.15">
@@ -833,31 +833,31 @@ La vérification du résultat de chaque ligne permet généralement de retrouver
 </div>
 <div id="plusieurs-fonctions-internes---passation-dinfos" class="section level2 hasAnchor" number="13.19">
 <h2><span class="header-section-number">13.19</span> Plusieurs fonctions internes - passation d’infos<a href="function-creation.html#plusieurs-fonctions-internes---passation-dinfos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="function-creation.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Main : fonction englobante</span></span>
-<span id="cb61-2"><a href="function-creation.html#cb61-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">&lt;-</span> <span class="cf">function</span>(inventory){</span>
-<span id="cb61-3"><a href="function-creation.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  inventory.volume <span class="ot">&lt;-</span> <span class="fu">getvolume</span>(inventory)</span>
-<span id="cb61-4"><a href="function-creation.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(inventory)</span>
-<span id="cb61-5"><a href="function-creation.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  inventory.final <span class="ot">&lt;-</span> <span class="fu">filtervolume</span>(<span class="at">patate =</span> inventory.volume)</span>
-<span id="cb61-6"><a href="function-creation.html#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(inventory.volume)</span>
-<span id="cb61-7"><a href="function-creation.html#cb61-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(inventory.final)</span>
-<span id="cb61-8"><a href="function-creation.html#cb61-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb61-9"><a href="function-creation.html#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-10"><a href="function-creation.html#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonctions internes</span></span>
-<span id="cb61-11"><a href="function-creation.html#cb61-11" aria-hidden="true" tabindex="-1"></a>getvolume <span class="ot">&lt;-</span> <span class="cf">function</span>(inventory){</span>
-<span id="cb61-12"><a href="function-creation.html#cb61-12" aria-hidden="true" tabindex="-1"></a>  inventory <span class="ot">&lt;-</span> inventory <span class="sc">%&gt;%</span> </span>
-<span id="cb61-13"><a href="function-creation.html#cb61-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">v =</span> <span class="dv">2</span><span class="sc">*</span>d)</span>
-<span id="cb61-14"><a href="function-creation.html#cb61-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(inventory)</span>
-<span id="cb61-15"><a href="function-creation.html#cb61-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb61-16"><a href="function-creation.html#cb61-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-17"><a href="function-creation.html#cb61-17" aria-hidden="true" tabindex="-1"></a>filtervolume <span class="ot">&lt;-</span> <span class="cf">function</span>(patate){</span>
-<span id="cb61-18"><a href="function-creation.html#cb61-18" aria-hidden="true" tabindex="-1"></a>  poireau <span class="ot">&lt;-</span> patate <span class="sc">%&gt;%</span> </span>
-<span id="cb61-19"><a href="function-creation.html#cb61-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(v <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb61-20"><a href="function-creation.html#cb61-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(poireau)</span>
-<span id="cb61-21"><a href="function-creation.html#cb61-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb61-22"><a href="function-creation.html#cb61-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-23"><a href="function-creation.html#cb61-23" aria-hidden="true" tabindex="-1"></a><span class="do">## test</span></span>
-<span id="cb61-24"><a href="function-creation.html#cb61-24" aria-hidden="true" tabindex="-1"></a>inventory <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">d =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>))</span>
-<span id="cb61-25"><a href="function-creation.html#cb61-25" aria-hidden="true" tabindex="-1"></a><span class="fu">main</span>(inventory)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="function-creation.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Main : fonction englobante</span></span>
+<span id="cb62-2"><a href="function-creation.html#cb62-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">&lt;-</span> <span class="cf">function</span>(inventory){</span>
+<span id="cb62-3"><a href="function-creation.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  inventory.volume <span class="ot">&lt;-</span> <span class="fu">getvolume</span>(inventory)</span>
+<span id="cb62-4"><a href="function-creation.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(inventory)</span>
+<span id="cb62-5"><a href="function-creation.html#cb62-5" aria-hidden="true" tabindex="-1"></a>  inventory.final <span class="ot">&lt;-</span> <span class="fu">filtervolume</span>(<span class="at">patate =</span> inventory.volume)</span>
+<span id="cb62-6"><a href="function-creation.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(inventory.volume)</span>
+<span id="cb62-7"><a href="function-creation.html#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(inventory.final)</span>
+<span id="cb62-8"><a href="function-creation.html#cb62-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb62-9"><a href="function-creation.html#cb62-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-10"><a href="function-creation.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Fonctions internes</span></span>
+<span id="cb62-11"><a href="function-creation.html#cb62-11" aria-hidden="true" tabindex="-1"></a>getvolume <span class="ot">&lt;-</span> <span class="cf">function</span>(inventory){</span>
+<span id="cb62-12"><a href="function-creation.html#cb62-12" aria-hidden="true" tabindex="-1"></a>  inventory <span class="ot">&lt;-</span> inventory <span class="sc">%&gt;%</span> </span>
+<span id="cb62-13"><a href="function-creation.html#cb62-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">v =</span> <span class="dv">2</span><span class="sc">*</span>d)</span>
+<span id="cb62-14"><a href="function-creation.html#cb62-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(inventory)</span>
+<span id="cb62-15"><a href="function-creation.html#cb62-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb62-16"><a href="function-creation.html#cb62-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-17"><a href="function-creation.html#cb62-17" aria-hidden="true" tabindex="-1"></a>filtervolume <span class="ot">&lt;-</span> <span class="cf">function</span>(patate){</span>
+<span id="cb62-18"><a href="function-creation.html#cb62-18" aria-hidden="true" tabindex="-1"></a>  poireau <span class="ot">&lt;-</span> patate <span class="sc">%&gt;%</span> </span>
+<span id="cb62-19"><a href="function-creation.html#cb62-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(v <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb62-20"><a href="function-creation.html#cb62-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(poireau)</span>
+<span id="cb62-21"><a href="function-creation.html#cb62-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb62-22"><a href="function-creation.html#cb62-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-23"><a href="function-creation.html#cb62-23" aria-hidden="true" tabindex="-1"></a><span class="do">## test</span></span>
+<span id="cb62-24"><a href="function-creation.html#cb62-24" aria-hidden="true" tabindex="-1"></a>inventory <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">d =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>))</span>
+<span id="cb62-25"><a href="function-creation.html#cb62-25" aria-hidden="true" tabindex="-1"></a><span class="fu">main</span>(inventory)</span></code></pre></div>
 
 </div>
 </div>
