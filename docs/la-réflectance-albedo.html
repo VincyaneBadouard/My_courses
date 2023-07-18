@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 13 Spécifier un working directory différent de celui du fichier | My cours</title>
+  <title>Cours 9 La réflectance (albedo) | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 13 Spécifier un working directory différent de celui du fichier | My cours" />
+  <meta property="og:title" content="Cours 9 La réflectance (albedo) | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 13 Spécifier un working directory différent de celui du fichier | My cours" />
+  <meta name="twitter:title" content="Cours 9 La réflectance (albedo) | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rmarkdown.html"/>
-<link rel="next" href="github.html"/>
+<link rel="prev" href="caluler-des-métriques.html"/>
+<link rel="next" href="c.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -516,64 +516,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="spécifier-un-working-directory-différent-de-celui-du-fichier" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">Cours 13</span> Spécifier un working directory différent de celui du fichier<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#spécifier-un-working-directory-différent-de-celui-du-fichier" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb46-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">&#39;chemin&#39;</span>)</span></code></pre></div>
-<div id="table" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Table<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb47-1" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
-<span id="cb47-2"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb47-2" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
-<span id="cb47-3"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb47-3" tabindex="-1"></a>              <span class="at">caption =</span> </span>
-<span id="cb47-4"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb47-4" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
-</div>
-<div id="figure" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Figure<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#figure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>fig.cap = "Caption."</code> pour la légende d’une figure
-<code>fig.height = 8, fig.width=4</code> pour la taille de la figure</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb48-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb48-2"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb48-2" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
-<span id="cb48-3"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb48-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-</div>
-<div id="equations" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Equations<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#equations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Dans le texte : <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\gamma = \alpha + \beta\)</span></li>
-<li>En bande centrale :
-<span class="math display">\[Y \sim\mathcal N(\mu,\sigma)\frac{1}{1+e}\]</span>
-<span class="math display">\[Y \sim \mathcal N(\frac{\mu_s}{\beta \times X}, \sigma^2)\]</span></li>
-</ul>
-<p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">Voir le latex maths wiki</a></p>
-</div>
-<div id="des-diagrammes-avec-mermaid" class="section level2 hasAnchor" number="13.4">
-<h2><span class="header-section-number">13.4</span> Des diagrammes avec Mermaid !<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#des-diagrammes-avec-mermaid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/" class="uri">https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/</a>
-<a href="https://mermaid-js.github.io/mermaid/#/" class="uri">https://mermaid-js.github.io/mermaid/#/</a></p>
-</div>
-<div id="bibliographie" class="section level2 hasAnchor" number="13.5">
-<h2><span class="header-section-number">13.5</span> Bibliographie<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#bibliographie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La bilbliographie est lu à partir d’un fichier <code>.bib</code> préciser dans l’en-tête YAML et peut être généré automatiquement avec Mendeley, Endnote, etc …<br />
-On peut aussi préciser le formation de citation avec un fichier <code>.csl</code> défini en ligne pour chaque journal.</p>
-<p>La référence <span class="citation">[@Cochrane2003]</span> se fait avec <strong>@ + [ + code bib + ]</strong> mais on peut utiliser l’addin <code>citr</code> pour le faire de manière interactive. Je recommande même de définir un raccourcit clavier personnel pour facilement effectuer une citation (par exemple CTRL + SHIFT + G). Enfin on place un titre Référence à la fin du document après lequel se placera la bibliographie mise en forme.</p>
-</div>
-<div id="références-croisées" class="section level2 hasAnchor" number="13.6">
-<h2><span class="header-section-number">13.6</span> Références croisées<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#références-croisées" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Les références croisées nécessite d’utiliser le package <code>bookdown</code> même sans faire un livre à partir des formats <code>documents2</code>. Elle se font avec <strong>SLASH + @ + ref + ( + type + : + nom du chunk + )</strong>. Par exemple je fais référence à la table <a href="#tab:tableRef"><strong>??</strong></a> et la figure <a href="#fig:figureRef"><strong>??</strong></a>.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb49-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="at">caption =</span> <span class="st">&quot;Ceci est une table.&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
-</div>
-<div id="cache" class="section level2 hasAnchor" number="13.7">
-<h2><span class="header-section-number">13.7</span> Cache<a href="spécifier-un-working-directory-différent-de-celui-du-fichier.html#cache" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Le cache vous permet d’enregistrer les sorties d’un fragment de code pour que lors des prochaines compilation il ne soit pas recalculer. Il créé un dossier <code>_files</code> et <code>_cache</code> avec les images R des objets du chunk et les figures respectives. <strong>Attention</strong>, si votre chunk dépend d’un chunk qui est mise à jour et que vous ne précisez pas la dépendance il ne sera pas mis à jour. Utilisez l’option <code>dependson</code> ou nettoyez le cache pour éviter cela.</p>
+<div id="la-réflectance-albedo" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Cours 9</span> La réflectance (albedo)<a href="la-réflectance-albedo.html#la-réflectance-albedo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Calculer la réflectance apparente en ratio (albedo)</p>
+<p>Réflectance (ou Albedo) = énergie lumineuse réfléchie/énergie lumineuse incidente</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="la-réflectance-albedo.html#cb41-1" tabindex="-1"></a>VP<span class="sc">$</span>initial_intensity <span class="ot">&lt;-</span> VP<span class="sc">$</span>Intensity </span>
+<span id="cb41-2"><a href="la-réflectance-albedo.html#cb41-2" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="la-réflectance-albedo.html#cb41-3" tabindex="-1"></a><span class="co"># Intensité = réflectance apparente en ratio (albedo)</span></span>
+<span id="cb41-4"><a href="la-réflectance-albedo.html#cb41-4" tabindex="-1"></a>VP<span class="sc">$</span>Intensity <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>(VP<span class="sc">$</span>Reflectance<span class="sc">/</span><span class="dv">10</span>) <span class="co"># Réflectance initialment en decibel (et selon une référence connue)</span></span></code></pre></div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="caluler-des-métriques.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="c.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

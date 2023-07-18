@@ -14,8 +14,6 @@ tirage
 yo-arrange-mes-données
 donne-moi-des-infos-sur-mes-données
 calcul-informatif
-sf-package
-eh-oh-cest-moi-qui-décide-illustre-moi-ça-comme-il-faut-voir-06-plot
 nettoyage
 boucle
 les-objets
@@ -42,6 +40,18 @@ change-column-class
 group
 common-grouped-operations
 a-sequence-operation-on-a-datatable
+functions
+combine-data.tables
+indexation
+reshape
+avoir-des-infoscalculer-des-statistiques
+apply-functions
+sequential-rows
+maniement-de-chaines-de-caractères
+read-and-write-files
+programmer-des-fonctions-avec-data.table
+sécuriser
+variables-en-argument
 sd-subset-of-data
 lapply.sd-pour-des-fonctions-de-statistiques-descriptives
 des-data.table-poupées-russes
@@ -61,6 +71,9 @@ shapefiles
 systèmes-de-coordonnées-de-références-crs
 système-de-coordonnées-géographiques
 système-de-référence-de-coordonnées-pojetées
+functions-1
+sf-package
+en-3d
 work-with-lidar-data
 tools
 r-packages
@@ -69,6 +82,10 @@ check-if-the-las-is-complete
 see-their-summaries
 plot
 trajectory
+clip-the-point-cloud
+classification
+caluler-des-métriques
+la-réflectance-albedo
 c
 plot-1
 des-packages-intéressants
@@ -79,6 +96,7 @@ des-histoires-de-texte
 axes
 double-axes
 multi-plots
+en-3d-1
 télécharger-dans-le-bon-format-au-bon-endroit
 rmarkdown
 packages

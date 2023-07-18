@@ -173,7 +173,6 @@ cat("Your data set is:\n", c, "\n")
 
 ## Yo ! arrange mes données !
 
-+ Vincyane la base...  
 ```{r, eval=F}
 ## Quand tu veux passer une collone de df en argument de fonction :
 ## V0
@@ -244,6 +243,17 @@ ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales
 
 + Répliquer une ligne n fois : **do.call("rbind", replicate(n, df, simplify = FALSE))**  
 
++ Joindre 2 tables :
+```{r}
+left_join(df1, df2, by = 'key') %>% 
+    mutate(
+        var1 = coalesce(var1.x, var1.y), # pour combiner les valeurs de .x et .y 
+        var2 = coalesce(var2.x, var2.y)
+    ) %>% 
+  select(-(contains(".x") | contains(".y")))
+```
+
+
 
 
 ## Donne moi des infos sur mes données
@@ -308,30 +318,6 @@ SIMPLIFY = F : laisse la structure initiale de la liste
 Les map ne produisent que des vecteurs, pas de matrice)  
 
 Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu'il ne va pas : **map(safely(fct))** qui renvoie le résultat et le message d'erreur  
-
-## sf package
-
-+ Passer d'un sf à un dataframe (supprimer la col géométrie) : **st_geometry(sf) <- NULL**  
-
-+ sfg to sfc : **st_sfc(sfg)**  
-
-+ sfc to sfg : **st_point(as.numeric(unlist(sfc)))** (ex ici point)  
-
-+ MULTIPOINT to POINT : **st_cast(st_sfc(mutipoint), "POINT", group_or_split = TRUE)**  
-
-+ Simplification d'objet : **st_cast(objet, "objt + simple"** (ex : polygon to linestring)  
-
-+ Attribuer un crs à un objt sf ou sfc : **st_transform(objtsanscrs, st_crs(objtaveccrs))**  
-
-+ st_union ne préserve pas l'ordre des géométries dans la géométrie finale, il faut utiliser :  
-
-```{r, eval = F}
-objt_sf_12 <- objt_sf_1 %>% rbind(objt_sf_2)  
-
-objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))  
-```
-
-## Eh oh c'est moi qui décide ! illustre moi ça comme il faut ! (voir 06-Plot)
 
 
 ## Nettoyage

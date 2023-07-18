@@ -202,6 +202,7 @@ Remerciements : demander l’autorisation consentement
 **Running title** : titre revient au début de chaque page 
 
 **Mots clefs** :
+https://methodsblog.com/2015/12/18/seo/
 - bien choisis pour les moteurs de recherche  
 - pas figurant dans le titre  
 
