@@ -1,5 +1,8 @@
 # Plot
 
+## A quoi faire attention
+https://www.data-to-viz.com/caveats.html
+
 ## Des packages intéressants
 + Faire des graphs ggplot en clic bouton : **esquisse::esquisser()**  
 
@@ -78,10 +81,16 @@ puis **geom_blank(data = blank_data, aes(x = x, y = y))**
 3D fixe **plot3D::scatter3D()**  
 3D pivotable : **rgl::plot3d()**  
 
+## Animated plot
+package **gganimate** https://r-graph-gallery.com/animation.html
+
 ## Télécharger dans le bon format, au bon endroit !
 
 + PNG : **png(path, width = 480, height = 480, units = "px")** avant commande du plot & **dev.off()** après commande du plot  
 
 + **ggsave("mtcars.pdf", path = , width = 20, height = 20, units = "cm")**  (ne fonctionne qu'avec des ggplots)
 
-+ compresser : **save(objt, file = "objt.rda", compress = "xz")**  
++ compresser : **save(objt, file = "objt.rda", compress = "xz")** 
+
+## En faire de l'art !
+https://www.data-to-art.com/

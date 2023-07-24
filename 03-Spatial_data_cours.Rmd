@@ -103,6 +103,8 @@ ggplot(grid, aes(lon, lat)) +
 
 Géostatistique = étude statistique des variables spatiales
 
+#### Geometry
+Intersection between a raster and a geometry (sf) : **mask(raster, geometry)**
 
 
 ### Les objets spatialisés en R
@@ -229,6 +231,25 @@ Le package "raster" ne supporte pas le format sf, il faut donc préalablement co
 + Intersection (ce qu'il y a en commun) entre un polygone et un raster : *mask()*
 + Découper (rectangulaire selon les limites de l’objet) : *crop()*
 + Extraction : *extract()*
+
+```{r}
+library(raster)
+shpP16 <- rgdal::readORG(dsn = "C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019", layer = "Gaps2019")  
+shpP16 <- raster::shapefile("C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019.shp")
+
+library(sf)
+shpP16 <- st_read("C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019.shp")
+
+plot(shpP16)
+plot(shpP16, col="#f2f2f2", bg="skyblue", lwd=0.25, border=0 )
+
+library(ggplot2)
+ggplot() + 
+  geom_sf(data = shpP16, size = 3, color = "black", fill = "red") + 
+  ggtitle("2019 - P16 gaps") + 
+  coord_sf()
+
+```
 
 ```{r}
 ##Pour effectuer un calcul sur l’intérieur du polygone avec extract()… on spécifie le raster, le polygone et la fonction!

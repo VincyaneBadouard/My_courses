@@ -36,6 +36,7 @@ Télécharger des packages d'aide à l'organisation et structure, nécessaire à
 ## remove.packages("withr")
 ## install.packages("withr")
 ```
+
 ## Creation du package 
 
 + **New Project > New Directory > R package using devtools…**
@@ -77,7 +78,7 @@ dans un cas comme dans l'autre, le package est chargé (load) : on l'utilise.
 
 ### Comprendre le Skeleton 
 
-= sera la page d'aide de la fonction !  
+= la page d'aide de la fonction !  
 
 Roxygen tags :  
 @include : mentionne des fichiers .R appelés dans le fichier  
@@ -497,7 +498,8 @@ https://youtu.be/K4x-uqLl_m4
         run: Rscript -e "install.packages('devtools')" -e "devtools::install(dependencies = TRUE)"
 ```
 
-+ Codecov : test-coverage.yaml (https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow) (créer un "secret" pour le token sur github si le dépot est privé)
++ Codecov : test-coverage.yaml **usethis::use_github_action("test-coverage")**
+(https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow) (créer un "secret" pour le token sur github si le dépot est privé)
 Il faut créer un compte codecov
 
 + afficher le rapport de couverture du package : **covr::report()**

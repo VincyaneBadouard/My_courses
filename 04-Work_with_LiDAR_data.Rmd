@@ -25,11 +25,13 @@ Fichiers :
 logiciels : cloudcompare, Fugroviewer
 
 ### R packages
+lidR : https://github.com/r-lidar/lidR ; https://r-lidar.github.io/lidRbook/
+
 ```{r, include = F}
 library(zoo) # permet de synchroniser temps gps et tirs
 library(lidR)
 library(data.table)
-library(rgl) # visulaisation 3D
+library(rgl) # visualisation 3D
 ```
 
 
@@ -99,7 +101,7 @@ las <- readLAS(LASfile)
 lidR::plot(las)
 ```
 
-# Trajectory
+## Trajectory
 Permet :  
 - de calculer les hauteurs de vol
 - d'estimer les incertitudes de positionnement des points (en fonction de la hauteur)
@@ -130,13 +132,13 @@ plot3d(traj[,2:4], aspect=F) # plot the trajectory (x,y,z)
 ```
 
 
-# Clip the point cloud
+## Clip the point cloud
 - selon une géométrie : **clip_roi(las = ctg, geometry = ROI)**
 - selon des coordonées : **clip_rectangle()/clip_polygon()/clip_circle()**
 
 
 
-# Classification
+## Classification
 7 = bruit
 2 = sol
 vegetation = 0,3,4,5
@@ -165,10 +167,33 @@ table(ST_norm@data$Classification) # 7 = bruit, 2 = sol, vegetation = 3,4,5
 ST <- lidR::unnormalize_height(ST_norm) 
 ```
 
+## Generate a DTM (MNT)
+https://r-lidar.github.io/lidRbook/dtm.html
+l'élévation est dans la variable Z (dtm$Z)
+```{r}
+# Triangulation
+dtm_tin <- rasterize_terrain(ST, res = 1, algorithm = tin())
+plot_dtm3d(dtm_tin, bg = "black") 
 
-# Caluler des métriques
+# Invert distance weighting
+dtm_idw <- rasterize_terrain(ST, algorithm = knnidw(k = 10L, p = 2))
+plot_dtm3d(dtm_idw, bg = "black") 
 
-# La réflectance (albedo)
+# Kriging
+dtm_kriging <- rasterize_terrain(ST, algorithm = kriging(k = 40))
+plot_dtm3d(dtm_kriging, bg = "black") 
+
+mnt <- dtm_idw
+
+ggplot() + 
+  geom_spatraster(data = mnt, aes(fill = Z)) +
+  scale_fill_gradientn(name = "Elevation (m)",
+                       colors = terrain.colors(20))
+```
+
+## Caluler des métriques
+
+## La réflectance (albedo)
 Calculer la réflectance apparente en ratio (albedo)
 
 Réflectance (ou Albedo) = énergie lumineuse réfléchie/énergie lumineuse incidente
