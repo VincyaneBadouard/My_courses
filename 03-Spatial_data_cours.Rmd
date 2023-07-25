@@ -1,5 +1,7 @@
 # Spatial data cours
 
+Géomatique avec R : https://rcarto.github.io/geomatique_avec_r/
+
 ```{r}
 library(tidyverse)
 library(sf)
@@ -227,10 +229,16 @@ Les tif sont trés volumineux. Si l'on n'as pas besoin d'une si haute résolutio
 Le package "raster" ne supporte pas le format sf, il faut donc préalablement convertir en sp : *poly_sp <- as(poly, "Spatial")* (poly étant ici un polygone)
 
 #### Opérations sur Raster
+Le package **terra** : https://rcarto.github.io/geomatique_avec_r/les-donn%C3%A9es-raster-le-package-terra.html#
 
 + Intersection (ce qu'il y a en commun) entre un polygone et un raster : *mask()*
 + Découper (rectangulaire selon les limites de l’objet) : *crop()*
 + Extraction : *extract()*
+```{r}
+##Pour effectuer un calcul sur l’intérieur du polygone avec extract()… on spécifie le raster, le polygone et la fonction!
+
+extract(canopy, poly_sp, fun = mean) # "canopy" =  raster, "poly_sp" = polygone
+```
 
 ```{r}
 library(raster)
@@ -251,12 +259,19 @@ ggplot() +
 
 ```
 
+#### Plot raster with ggplot
 ```{r}
-##Pour effectuer un calcul sur l’intérieur du polygone avec extract()… on spécifie le raster, le polygone et la fonction!
+# First transform raster in data.frame
+TWI_df <- as.data.frame(TWI, xy = TRUE)%>%
+  na.omit()
 
-extract(canopy, poly_sp, fun = mean) # "canopy" =  raster, "poly_sp" = polygone
+ggplot() + 
+  geom_raster(data = TWI_df, aes(x = x, y = y, fill = `P13_2022_TWI`)) + # with geom_raster()
+  scale_fill_viridis_c() +
+  ggtitle("Paracou 2019 P13 - TWI") + 
+  coord_sf()
+
 ```
-
 
 
 ### Shapefiles
@@ -268,7 +283,8 @@ fichier .prj : informations du système de coordonnées
 
 ### Systèmes de coordonnées de références (CRS)
 
-+ Le vérifier
++ Le vérifier : **crs()**
++ L'attribuer : **obj <- st_set_crs(obj, 2972)**
 + en UTM c'est en mètres
 
 
@@ -294,7 +310,7 @@ et basés sur les systèmes de coordonnées géographiques
 
 ## Functions
 
-Retourner des points interpoler selon une interpolation linéaire entre 2 points : **approx(x= coord, y = autrecoord, xout = coord selon laquelle interpoler)**
+Retourner des points interpolés selon une interpolation linéaire entre 2 points : **approx(x= coord, y = autrecoord, xout = coord selon laquelle interpoler)**
 
 
 ### sf package

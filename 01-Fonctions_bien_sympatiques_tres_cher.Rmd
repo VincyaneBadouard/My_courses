@@ -65,7 +65,7 @@ Pour du data.table voir le cours concerné.
 **~** = le dossier du setwd  
 **./** = là où je suis  
 Les .rmd ont leur propre racine, donc pas celle de leur projet.  
-**« ../** = dossier parent (du niv de dessus)  et je mets autant de **../** que de niveau à remonter.  
+**" ../** = dossier parent (du niv de dessus)  et je mets autant de **../** que de niveau à remonter.  
 Puis tabulation pour qu’il propose mes fichiers.   
 Stocker mon chemin relatif dans un objet « path ».  
  Pour lire mon chemin stocké : **file.path(path, "dossier", "file")**     

@@ -61,12 +61,14 @@ mapper-des-données
 types-de-données-spatiales
 ggplot
 les-rasters
+geometry
 les-objets-spatialisés-en-r
 données-vectorielles
 simple-feature-columns-sfc
 données-raster
 travailler-sur-du-vectoriel-du-raster
 opérations-sur-raster
+plot-raster-with-ggplot
 shapefiles
 systèmes-de-coordonnées-de-références-crs
 système-de-coordonnées-géographiques
@@ -84,10 +86,12 @@ plot
 trajectory
 clip-the-point-cloud
 classification
+generate-a-dtm-mnt
 caluler-des-métriques
 la-réflectance-albedo
 c
 plot-1
+a-quoi-faire-attention
 des-packages-intéressants
 types
 titres
@@ -97,7 +101,9 @@ axes
 double-axes
 multi-plots
 en-3d-1
+animated-plot
 télécharger-dans-le-bon-format-au-bon-endroit
+en-faire-de-lart
 rmarkdown
 packages
 sous-titre
