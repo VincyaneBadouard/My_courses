@@ -24,7 +24,15 @@ Pour du data.table voir le cours concerné.
 
 + **Selectionner tout ce qu'il ya dans la parenthèse/crochet/accolade** : double clic à l'interieur de la 1ère/dernière  
 
-+ Mesurer le temps d’exécution d’un code : **system.time** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.  
++ Mesurer le temps d’exécution d’un code : **system.time()** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.  
+```{r}
+start.time <- Sys.time()
+ # fonction appelée ici
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
+```
+
 
 + détacher un package de l'environnement : **unloadNamespace()**  
 
@@ -253,7 +261,7 @@ left_join(df1, df2, by = 'key') %>%
   select(-(contains(".x") | contains(".y")))
 ```
 
-
++ Ne garder les lignes que sans NA dans n'importe quelle colonne : **df[!complete.cases(df), ]**
 
 
 ## Donne moi des infos sur mes données

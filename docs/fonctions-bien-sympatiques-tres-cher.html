@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-07-25" />
+<meta name="date" content="2023-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,10 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.1" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>6.7.1</b> Double axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>6.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.9</b> En 3D</a></li>
-<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.10</b> Animated plot</a></li>
-<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.11</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.12</b> En faire de l’art !</a></li>
+<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>6.9</b> Légende</a></li>
+<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.10</b> En 3D</a></li>
+<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.11</b> Animated plot</a></li>
+<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.12</b> Télécharger dans le bon format, au bon endroit !</a></li>
+<li class="chapter" data-level="6.13" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.13</b> En faire de l’art !</a></li>
 </ul></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="7" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Rmarkdown</a>
@@ -537,7 +538,14 @@ Pour du data.table voir le cours concerné.</p>
 <h2><span class="header-section-number">1.2</span> Tips de codeur<a href="fonctions-bien-sympatiques-tres-cher.html#tips-de-codeur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>Selectionner tout ce qu’il ya dans la parenthèse/crochet/accolade</strong> : double clic à l’interieur de la 1ère/dernière</p></li>
-<li><p>Mesurer le temps d’exécution d’un code : <strong>system.time</strong> ou <strong>microbenchmark (fct1,fct2)</strong> pour des codes trés courts. Ce sont les médianes des temps de calcul qu’il faut comparer.</p></li>
+<li><p>Mesurer le temps d’exécution d’un code : <strong>system.time()</strong> ou <strong>microbenchmark (fct1,fct2)</strong> pour des codes trés courts. Ce sont les médianes des temps de calcul qu’il faut comparer.</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-1" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-2" tabindex="-1"></a> <span class="co"># fonction appelée ici</span></span>
+<span id="cb2-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-3" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-4" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
+<span id="cb2-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-5" tabindex="-1"></a>time.taken</span></code></pre></div>
+<ul>
 <li><p>détacher un package de l’environnement : <strong>unloadNamespace()</strong></p></li>
 <li><p>connaitre le code d’une fct : <strong>trace(pkgname::fct, edit=T)</strong></p></li>
 <li><p>(obt &lt;- code) : affiche l’objet</p></li>
@@ -596,9 +604,9 @@ Pour lire mon chemin stocké : <strong>file.path(path, “dossier”, “file”
 <li>Importer avec les accents : <strong>locale = locale(encoding = “latin1”)</strong></li>
 </ul>
 <p>Importer tous les fichiers d’un dossier :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-1" tabindex="-1"></a>filenames <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="at">pattern=</span><span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>) <span class="co"># catch the name of all the files of the folder</span></span>
-<span id="cb2-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-3" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(filenames, read.csv, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="co"># read all the folder files</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-1" tabindex="-1"></a>filenames <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="at">pattern=</span><span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>) <span class="co"># catch the name of all the files of the folder</span></span>
+<span id="cb3-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-3" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(filenames, read.csv, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="co"># read all the folder files</span></span></code></pre></div>
 <ul>
 <li>Importer du shapefile (shp) :<br />
 <strong>rgdal::readORG(dsn = “/path/to/your/file”, layer = “filename”)</strong> ou<br />
@@ -647,10 +655,10 @@ x &lt;- “a-,_b/”<br />
 si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span>site = tstrsplit(data<span class="math inline">\(idtree, split = &quot;_&quot;)[[1]]** 1er elmt **data\)</span>plot = tstrsplit(data$idtree, split = “_“)[[2]]** 2nd</p></li>
 <li><p>afficher un data.frame en characters :</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">y=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">z=</span><span class="fu">runif</span>(<span class="dv">4</span>))</span>
-<span id="cb3-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">capture.output</span>(a)</span>
-<span id="cb3-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">paste</span>(b, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb3-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Your data set is:</span><span class="sc">\n</span><span class="st">&quot;</span>, c, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">y=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">z=</span><span class="fu">runif</span>(<span class="dv">4</span>))</span>
+<span id="cb4-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">capture.output</span>(a)</span>
+<span id="cb4-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">paste</span>(b, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb4-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Your data set is:</span><span class="sc">\n</span><span class="st">&quot;</span>, c, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 </div>
 <div id="la-syntaxe-qui-fait-chr-du-balai" class="section level2 hasAnchor" number="1.10">
 <h2><span class="header-section-number">1.10</span> La syntaxe qui fait ch**r, du balai !<a href="fonctions-bien-sympatiques-tres-cher.html#la-syntaxe-qui-fait-chr-du-balai" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -675,35 +683,35 @@ si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span
 </div>
 <div id="yo-arrange-mes-données" class="section level2 hasAnchor" number="1.13">
 <h2><span class="header-section-number">1.13</span> Yo ! arrange mes données !<a href="fonctions-bien-sympatiques-tres-cher.html#yo-arrange-mes-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-1" tabindex="-1"></a><span class="do">## Quand tu veux passer une collone de df en argument de fonction :</span></span>
-<span id="cb4-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-2" tabindex="-1"></a><span class="do">## V0</span></span>
-<span id="cb4-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-3" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span> <span class="do">## character string in an object</span></span>
-<span id="cb4-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-4" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name] <span class="do">## character vector</span></span>
-<span id="cb4-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-5" tabindex="-1"></a>line_nonna <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(column)) <span class="do">## which rows different of NA</span></span>
-<span id="cb4-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-6" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[line_nonna,] <span class="do">## filter base version</span></span>
-<span id="cb4-7"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-7" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-8" tabindex="-1"></a><span class="do">## V1</span></span>
-<span id="cb4-9"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-9" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
-<span id="cb4-10"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-10" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name]</span>
-<span id="cb4-11"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-11" tabindex="-1"></a>nonna <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(column) <span class="do">## logical vector </span></span>
-<span id="cb4-12"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-12" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[nonna,] <span class="do">## take only the TRUE</span></span>
-<span id="cb4-13"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-13" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-14" tabindex="-1"></a><span class="do">## V2</span></span>
-<span id="cb4-15"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-15" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
-<span id="cb4-16"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-16" tabindex="-1"></a>inventory[<span class="sc">!</span><span class="fu">is.na</span>(inventory[,column_name]),] <span class="sc">%&gt;%</span></span>
-<span id="cb4-17"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-17" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> column_name)</span>
-<span id="cb4-18"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-18" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-19" tabindex="-1"></a><span class="do">## Vdplyr</span></span>
-<span id="cb4-20"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-20" tabindex="-1"></a>col_name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(var)) <span class="do">## object name to this name in character(get() pour faire l&#39;inverse)</span></span>
-<span id="cb4-21"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-21" tabindex="-1"></a>inventory <span class="sc">%&gt;%</span></span>
-<span id="cb4-22"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-22" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>( {{ var }} )) <span class="sc">%&gt;%</span> <span class="do">## {{var}} pour réccupérer l&#39;objet mis en argument &quot;var&quot;</span></span>
-<span id="cb4-23"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-23" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> col_name) <span class="do">## quand t&#39;as besoin du nom de la colonne en charactère</span></span>
-<span id="cb4-24"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-24" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-25" tabindex="-1"></a><span class="co">#ou</span></span>
-<span id="cb4-26"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-26" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-27" tabindex="-1"></a>modif_var <span class="ot">&lt;-</span> <span class="cf">function</span>(data, nom_variable){</span>
-<span id="cb4-28"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-28" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">nouveau_nom =</span> <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(nom_variable)<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb4-29"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-29" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-1" tabindex="-1"></a><span class="do">## Quand tu veux passer une collone de df en argument de fonction :</span></span>
+<span id="cb5-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-2" tabindex="-1"></a><span class="do">## V0</span></span>
+<span id="cb5-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-3" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span> <span class="do">## character string in an object</span></span>
+<span id="cb5-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-4" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name] <span class="do">## character vector</span></span>
+<span id="cb5-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-5" tabindex="-1"></a>line_nonna <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(column)) <span class="do">## which rows different of NA</span></span>
+<span id="cb5-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-6" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[line_nonna,] <span class="do">## filter base version</span></span>
+<span id="cb5-7"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-8" tabindex="-1"></a><span class="do">## V1</span></span>
+<span id="cb5-9"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-9" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
+<span id="cb5-10"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-10" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name]</span>
+<span id="cb5-11"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-11" tabindex="-1"></a>nonna <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(column) <span class="do">## logical vector </span></span>
+<span id="cb5-12"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-12" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[nonna,] <span class="do">## take only the TRUE</span></span>
+<span id="cb5-13"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-14" tabindex="-1"></a><span class="do">## V2</span></span>
+<span id="cb5-15"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-15" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
+<span id="cb5-16"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-16" tabindex="-1"></a>inventory[<span class="sc">!</span><span class="fu">is.na</span>(inventory[,column_name]),] <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-17" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> column_name)</span>
+<span id="cb5-18"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-18" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-19" tabindex="-1"></a><span class="do">## Vdplyr</span></span>
+<span id="cb5-20"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-20" tabindex="-1"></a>col_name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(var)) <span class="do">## object name to this name in character(get() pour faire l&#39;inverse)</span></span>
+<span id="cb5-21"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-21" tabindex="-1"></a>inventory <span class="sc">%&gt;%</span></span>
+<span id="cb5-22"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-22" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>( {{ var }} )) <span class="sc">%&gt;%</span> <span class="do">## {{var}} pour réccupérer l&#39;objet mis en argument &quot;var&quot;</span></span>
+<span id="cb5-23"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-23" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> col_name) <span class="do">## quand t&#39;as besoin du nom de la colonne en charactère</span></span>
+<span id="cb5-24"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-24" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-25" tabindex="-1"></a><span class="co">#ou</span></span>
+<span id="cb5-26"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-26" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-27" tabindex="-1"></a>modif_var <span class="ot">&lt;-</span> <span class="cf">function</span>(data, nom_variable){</span>
+<span id="cb5-28"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-28" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">nouveau_nom =</span> <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(nom_variable)<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb5-29"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-29" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p>Inverser lignes &amp; colonnes (retourner) (transposer) : <strong>t()</strong><br />
 </p></li>
@@ -747,12 +755,15 @@ Si on veut garder les NA, comme filter les vire d’office, rajouter <strong>| i
 <li><p>Répliquer une ligne n fois : <strong>do.call(“rbind”, replicate(n, df, simplify = FALSE))</strong></p></li>
 <li><p>Joindre 2 tables :</p></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-1" tabindex="-1"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-2" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb5-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-3" tabindex="-1"></a>        <span class="at">var1 =</span> <span class="fu">coalesce</span>(var1.x, var1.y), <span class="co"># pour combiner les valeurs de .x et .y </span></span>
-<span id="cb5-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-4" tabindex="-1"></a>        <span class="at">var2 =</span> <span class="fu">coalesce</span>(var2.x, var2.y)</span>
-<span id="cb5-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-5" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>(<span class="fu">contains</span>(<span class="st">&quot;.x&quot;</span>) <span class="sc">|</span> <span class="fu">contains</span>(<span class="st">&quot;.y&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-1" tabindex="-1"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-2" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-3" tabindex="-1"></a>        <span class="at">var1 =</span> <span class="fu">coalesce</span>(var1.x, var1.y), <span class="co"># pour combiner les valeurs de .x et .y </span></span>
+<span id="cb6-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-4" tabindex="-1"></a>        <span class="at">var2 =</span> <span class="fu">coalesce</span>(var2.x, var2.y)</span>
+<span id="cb6-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-5" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>(<span class="fu">contains</span>(<span class="st">&quot;.x&quot;</span>) <span class="sc">|</span> <span class="fu">contains</span>(<span class="st">&quot;.y&quot;</span>)))</span></code></pre></div>
+<ul>
+<li>Ne garder les lignes que sans NA dans n’importe quelle colonne : <strong>df[!complete.cases(df), ]</strong></li>
+</ul>
 </div>
 <div id="donne-moi-des-infos-sur-mes-données" class="section level2 hasAnchor" number="1.14">
 <h2><span class="header-section-number">1.14</span> Donne moi des infos sur mes données<a href="fonctions-bien-sympatiques-tres-cher.html#donne-moi-des-infos-sur-mes-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -781,18 +792,18 @@ data[pH&gt;7,] : afficher les lignes dont les ph&gt;7</li>
 <li><p>Appliquer une fonction sur une liste/vecteur : <strong>lapply(liste, function(elementdelaliste) la fonction dépendante de l’élement)</strong> ou <strong>lapply(liste, function, autres arguments de la fct)</strong><br />
 ex :</p></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-1" tabindex="-1"></a>multiply <span class="ot">&lt;-</span> <span class="cf">function</span>(x, factor, div) {</span>
-<span id="cb6-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-2" tabindex="-1"></a>  (x <span class="sc">*</span> factor)<span class="sc">/</span>div</span>
-<span id="cb6-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-3" tabindex="-1"></a>}</span>
-<span id="cb6-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-5" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), multiply, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">factor =</span> <span class="dv">3</span>) <span class="co"># the list is for the &quot;div&quot; argument</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb7-1" tabindex="-1"></a><span class="fu">lapply</span>(a, <span class="cf">function</span>(element) <span class="fu">bcDiversity</span>(element<span class="sc">$</span>N, <span class="at">q =</span> <span class="dv">1</span>, <span class="at">Correction =</span> <span class="st">&quot;Best&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb7-1" tabindex="-1"></a>multiply <span class="ot">&lt;-</span> <span class="cf">function</span>(x, factor, div) {</span>
+<span id="cb7-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb7-2" tabindex="-1"></a>  (x <span class="sc">*</span> factor)<span class="sc">/</span>div</span>
+<span id="cb7-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb7-3" tabindex="-1"></a>}</span>
+<span id="cb7-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb7-5" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), multiply, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">factor =</span> <span class="dv">3</span>) <span class="co"># the list is for the &quot;div&quot; argument</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb8-1" tabindex="-1"></a><span class="fu">lapply</span>(a, <span class="cf">function</span>(element) <span class="fu">bcDiversity</span>(element<span class="sc">$</span>N, <span class="at">q =</span> <span class="dv">1</span>, <span class="at">Correction =</span> <span class="st">&quot;Best&quot;</span>))</span></code></pre></div>
 <p>ptit tips : la version fonction d’extraction d’élément d’un objet ($) : <strong>getElement(object, var)</strong> ex :</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb8-1" tabindex="-1"></a><span class="fu">lapply</span>(x, <span class="cf">function</span>(x) x<span class="sc">$</span>var) </span>
-<span id="cb8-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb8-2" tabindex="-1"></a><span class="ot">=</span>  </span>
-<span id="cb8-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb8-3" tabindex="-1"></a>  <span class="fu">lapply</span>(x, <span class="cf">function</span>(x) <span class="fu">getElement</span>(x, <span class="st">&quot;var&quot;</span>))  </span>
-<span id="cb8-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb8-4" tabindex="-1"></a><span class="ot">=</span>  </span>
-<span id="cb8-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb8-5" tabindex="-1"></a>  <span class="fu">lapply</span>(x, getElement, <span class="st">&quot;var&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-1" tabindex="-1"></a><span class="fu">lapply</span>(x, <span class="cf">function</span>(x) x<span class="sc">$</span>var) </span>
+<span id="cb9-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-2" tabindex="-1"></a><span class="ot">=</span>  </span>
+<span id="cb9-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-3" tabindex="-1"></a>  <span class="fu">lapply</span>(x, <span class="cf">function</span>(x) <span class="fu">getElement</span>(x, <span class="st">&quot;var&quot;</span>))  </span>
+<span id="cb9-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-4" tabindex="-1"></a><span class="ot">=</span>  </span>
+<span id="cb9-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-5" tabindex="-1"></a>  <span class="fu">lapply</span>(x, getElement, <span class="st">&quot;var&quot;</span>) </span></code></pre></div>
 <ul>
 <li><p>Appliquer une fonction sur plsrs listes/vecteurs : <strong>mapply(function(X,Y) {la fonction(X, Y)}, X=list1, Y=list2, SIMPLIFY = F)</strong><br />
 SIMPLIFY = F : laisse la structure initiale de la liste</p></li>
@@ -836,10 +847,10 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <li>Body : Pour chaque valeur que peut prendre trait dans All_traits :<br />
 <strong>for(trait in All_traits){}</strong></li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-1" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>)</span>
-<span id="cb9-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="dv">3</span>)) {</span>
-<span id="cb9-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-3" tabindex="-1"></a>  resultat[i] <span class="ot">&lt;-</span> i</span>
-<span id="cb9-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb9-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-1" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="dv">3</span>)) {</span>
+<span id="cb10-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-3" tabindex="-1"></a>  resultat[i] <span class="ot">&lt;-</span> i</span>
+<span id="cb10-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-4" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>utiliser <strong>[[]]</strong> plutot que <strong>[]</strong> même pour les vecteurs</li>
 </ul>
@@ -848,9 +859,9 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <li><p>faire une boucle dont les résultats sont mis dans une liste: <strong>foreach()</strong></p></li>
 <li><p>Boucle while : boucle jusq’à ce que la condition soit fausse. Peut être utilisée lorsqu’on ne connait pas la longueur de la séquence.</p></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-1" tabindex="-1"></a><span class="cf">while</span> (condition) {</span>
-<span id="cb10-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-2" tabindex="-1"></a>  <span class="do">## body</span></span>
-<span id="cb10-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb10-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-1" tabindex="-1"></a><span class="cf">while</span> (condition) {</span>
+<span id="cb11-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-2" tabindex="-1"></a>  <span class="do">## body</span></span>
+<span id="cb11-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>Arrêter la boucle : <strong>break()</strong><br />
 </li>
@@ -880,11 +891,11 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 </div>
 <div id="fonction" class="section level4 hasAnchor" number="1.18.0.3">
 <h4><span class="header-section-number">1.18.0.3</span> Fonction<a href="fonctions-bien-sympatiques-tres-cher.html#fonction" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-1" tabindex="-1"></a><span class="cf">function</span>(arguments){</span>
-<span id="cb11-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-2" tabindex="-1"></a>  operation1</span>
-<span id="cb11-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-3" tabindex="-1"></a>  operation2</span>
-<span id="cb11-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-4" tabindex="-1"></a>  <span class="fu">return</span>()  <span class="do">## préciser ce que la fonction doit renvoyer</span></span>
-<span id="cb11-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb11-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-1" tabindex="-1"></a><span class="cf">function</span>(arguments){</span>
+<span id="cb12-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-2" tabindex="-1"></a>  operation1</span>
+<span id="cb12-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-3" tabindex="-1"></a>  operation2</span>
+<span id="cb12-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-4" tabindex="-1"></a>  <span class="fu">return</span>()  <span class="do">## préciser ce que la fonction doit renvoyer</span></span>
+<span id="cb12-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-5" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="condition" class="section level2 hasAnchor" number="1.19">
@@ -896,35 +907,35 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <ul>
 <li>Dans les <strong>if else</strong> la place des brackets est importante:</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-1" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
-<span id="cb12-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-2" tabindex="-1"></a>  expression1</span>
-<span id="cb12-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb12-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-4" tabindex="-1"></a>  expression2</span>
-<span id="cb12-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-5" tabindex="-1"></a>}</span>
-<span id="cb12-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-6" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-7" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
-<span id="cb12-8"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-8" tabindex="-1"></a>  expression1</span>
-<span id="cb12-9"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-9" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(case2) {</span>
-<span id="cb12-10"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-10" tabindex="-1"></a>  expression2</span>
-<span id="cb12-11"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-11" tabindex="-1"></a>}</span>
-<span id="cb12-12"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-12" tabindex="-1"></a>...</span>
-<span id="cb12-13"><a href="fonctions-bien-sympatiques-tres-cher.html#cb12-13" tabindex="-1"></a><span class="cf">else</span> last.expression</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-1" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
+<span id="cb13-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-2" tabindex="-1"></a>  expression1</span>
+<span id="cb13-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb13-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-4" tabindex="-1"></a>  expression2</span>
+<span id="cb13-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-5" tabindex="-1"></a>}</span>
+<span id="cb13-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-7" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
+<span id="cb13-8"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-8" tabindex="-1"></a>  expression1</span>
+<span id="cb13-9"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-9" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(case2) {</span>
+<span id="cb13-10"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-10" tabindex="-1"></a>  expression2</span>
+<span id="cb13-11"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-11" tabindex="-1"></a>}</span>
+<span id="cb13-12"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-12" tabindex="-1"></a>...</span>
+<span id="cb13-13"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-13" tabindex="-1"></a><span class="cf">else</span> last.expression</span></code></pre></div>
 <ul>
 <li><strong>ifelse(condition, expression1, expression2)</strong> vectorized version of the if() statement. Warning: ifelse() is designed to work with vectors and matrices – not data frames.</li>
 </ul>
 </div>
 <div id="logical-operators" class="section level2 hasAnchor" number="1.20">
 <h2><span class="header-section-number">1.20</span> Logical Operators<a href="fonctions-bien-sympatiques-tres-cher.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-1" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">|</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE FALSE  TRUE</span></span>
-<span id="cb13-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-2" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-3" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE</span></span>
-<span id="cb13-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-4" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-5" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## FALSE</span></span>
-<span id="cb13-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-6" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-7" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(T, F, T) <span class="do">## TRUE</span></span>
-<span id="cb13-8"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-8" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-9" tabindex="-1"></a><span class="do">## |/&amp; to compare each value of different bolean vectors</span></span>
-<span id="cb13-10"><a href="fonctions-bien-sympatiques-tres-cher.html#cb13-10" tabindex="-1"></a><span class="do">## ||/&amp;&amp; to compare single value conditions </span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-1" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">|</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE FALSE  TRUE</span></span>
+<span id="cb14-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-3" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE</span></span>
+<span id="cb14-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-4" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-5" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## FALSE</span></span>
+<span id="cb14-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-6" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-7" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(T, F, T) <span class="do">## TRUE</span></span>
+<span id="cb14-8"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-8" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-9" tabindex="-1"></a><span class="do">## |/&amp; to compare each value of different bolean vectors</span></span>
+<span id="cb14-10"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-10" tabindex="-1"></a><span class="do">## ||/&amp;&amp; to compare single value conditions </span></span></code></pre></div>
 </div>
 <div id="stan---modelo---bayes" class="section level2 hasAnchor" number="1.21">
 <h2><span class="header-section-number">1.21</span> Stan - Modelo - Bayes<a href="fonctions-bien-sympatiques-tres-cher.html#stan---modelo---bayes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -951,9 +962,9 @@ To change permanently : change time zone of your computer</p></li>
 <li><p>convertir une chaine de charactère en date-time : <strong>mdy_hms((Time))</strong> mdy pour month, day, year, hms pour hour, minute, seconde. Modifier l’ordre des lettres selon votre format.</p></li>
 <li><p>filtrer selon un pas de temps :</p></li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-1" tabindex="-1"></a>Df1 <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">mdy_hms</span>((Time))) <span class="sc">%&gt;%</span> <span class="co"># format: 2023-03-30 18:15:00</span></span>
-<span id="cb14-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb14-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">minute</span>(Time) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;00&quot;</span>, <span class="st">&quot;15&quot;</span>, <span class="st">&quot;30&quot;</span>, <span class="st">&quot;45&quot;</span>)) <span class="co"># every 15 minutes</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb15-1" tabindex="-1"></a>Df1 <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb15-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">mdy_hms</span>((Time))) <span class="sc">%&gt;%</span> <span class="co"># format: 2023-03-30 18:15:00</span></span>
+<span id="cb15-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb15-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">minute</span>(Time) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;00&quot;</span>, <span class="st">&quot;15&quot;</span>, <span class="st">&quot;30&quot;</span>, <span class="st">&quot;45&quot;</span>)) <span class="co"># every 15 minutes</span></span></code></pre></div>
 <ul>
 <li>filter par date et heures : <strong>filter(Date &gt;= as.Date(“2023-03-30”) &amp; Hour &gt;= chron(times=“18:00:00”))</strong></li>
 </ul>

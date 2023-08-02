@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-07-25" />
+<meta name="date" content="2023-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,10 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.1" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>6.7.1</b> Double axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>6.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.9</b> En 3D</a></li>
-<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.10</b> Animated plot</a></li>
-<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.11</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.12</b> En faire de l’art !</a></li>
+<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>6.9</b> Légende</a></li>
+<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.10</b> En 3D</a></li>
+<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.11</b> Animated plot</a></li>
+<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.12</b> Télécharger dans le bon format, au bon endroit !</a></li>
+<li class="chapter" data-level="6.13" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.13</b> En faire de l’art !</a></li>
 </ul></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="7" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Rmarkdown</a>
@@ -536,14 +537,14 @@ Inconvénients : difficile à débugger
 <p><em>sourceCpp()</em> : compilation du .cpp</p>
 <p>Créer une fonction C++ :
 calculer le double d’un vecteur numérique</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb45-1"><a href="c.html#cb45-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb45-2"><a href="c.html#cb45-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
-<span id="cb45-3"><a href="c.html#cb45-3" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb45-4"><a href="c.html#cb45-4" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb45-5"><a href="c.html#cb45-5" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb45-6"><a href="c.html#cb45-6" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="c.html#cb46-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb46-2"><a href="c.html#cb46-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb46-3"><a href="c.html#cb46-3" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb46-4"><a href="c.html#cb46-4" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb46-5"><a href="c.html#cb46-5" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb46-6"><a href="c.html#cb46-6" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>-&gt; Une fct R du meme nom que la fct C++ s’est créée</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="c.html#cb46-1" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="c.html#cb47-1" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 
 </div>
             </section>

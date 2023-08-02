@@ -100,6 +100,7 @@ des-histoires-de-texte
 axes
 double-axes
 multi-plots
+légende
 en-3d-1
 animated-plot
 télécharger-dans-le-bon-format-au-bon-endroit

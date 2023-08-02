@@ -141,6 +141,7 @@ plot3d(traj[,2:4], aspect=F) # plot the trajectory (x,y,z)
 ## Classification
 7 = bruit
 2 = sol
+9 = eau
 vegetation = 0,3,4,5
 ```{r}
 table(ST@data$Classification) # 7 = bruit, 2 = sol, veg = 3,4,5
@@ -171,7 +172,7 @@ ST <- lidR::unnormalize_height(ST_norm)
 https://r-lidar.github.io/lidRbook/dtm.html
 l'élévation est dans la variable Z (dtm$Z)
 ```{r}
-# Triangulation
+# Triangulation (généralement utilisée)
 dtm_tin <- rasterize_terrain(ST, res = 1, algorithm = tin())
 plot_dtm3d(dtm_tin, bg = "black") 
 
@@ -183,7 +184,7 @@ plot_dtm3d(dtm_idw, bg = "black")
 dtm_kriging <- rasterize_terrain(ST, algorithm = kriging(k = 40))
 plot_dtm3d(dtm_kriging, bg = "black") 
 
-mnt <- dtm_idw
+mnt <- dtm_tin
 
 ggplot() + 
   geom_spatraster(data = mnt, aes(fill = Z)) +

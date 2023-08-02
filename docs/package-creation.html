@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-07-25" />
+<meta name="date" content="2023-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,10 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.1" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>6.7.1</b> Double axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>6.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.9</b> En 3D</a></li>
-<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.10</b> Animated plot</a></li>
-<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.11</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.12</b> En faire de l’art !</a></li>
+<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>6.9</b> Légende</a></li>
+<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.10</b> En 3D</a></li>
+<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.11</b> Animated plot</a></li>
+<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.12</b> Télécharger dans le bon format, au bon endroit !</a></li>
+<li class="chapter" data-level="6.13" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.13</b> En faire de l’art !</a></li>
 </ul></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="7" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Rmarkdown</a>
@@ -533,29 +534,29 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="les-packages-r-nécessaires" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> Les packages R nécessaires<a href="package-creation.html#les-packages-r-nécessaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Télécharger des packages d’aide à l’organisation et structure, nécessaire à l’écriture d’un package :</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="package-creation.html#cb72-1" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
-<span id="cb72-2"><a href="package-creation.html#cb72-2" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-3"><a href="package-creation.html#cb72-3" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
-<span id="cb72-4"><a href="package-creation.html#cb72-4" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-5"><a href="package-creation.html#cb72-5" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
-<span id="cb72-6"><a href="package-creation.html#cb72-6" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-7"><a href="package-creation.html#cb72-7" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
-<span id="cb72-8"><a href="package-creation.html#cb72-8" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
-<span id="cb72-9"><a href="package-creation.html#cb72-9" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-10"><a href="package-creation.html#cb72-10" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
-<span id="cb72-11"><a href="package-creation.html#cb72-11" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-12"><a href="package-creation.html#cb72-12" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
-<span id="cb72-13"><a href="package-creation.html#cb72-13" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-14"><a href="package-creation.html#cb72-14" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
-<span id="cb72-15"><a href="package-creation.html#cb72-15" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-16"><a href="package-creation.html#cb72-16" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
-<span id="cb72-17"><a href="package-creation.html#cb72-17" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb72-18"><a href="package-creation.html#cb72-18" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
-<span id="cb72-19"><a href="package-creation.html#cb72-19" tabindex="-1"></a></span>
-<span id="cb72-20"><a href="package-creation.html#cb72-20" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="package-creation.html#cb73-1" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
-<span id="cb73-2"><a href="package-creation.html#cb73-2" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
-<span id="cb73-3"><a href="package-creation.html#cb73-3" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="package-creation.html#cb74-1" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
+<span id="cb74-2"><a href="package-creation.html#cb74-2" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-3"><a href="package-creation.html#cb74-3" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
+<span id="cb74-4"><a href="package-creation.html#cb74-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-5"><a href="package-creation.html#cb74-5" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
+<span id="cb74-6"><a href="package-creation.html#cb74-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-7"><a href="package-creation.html#cb74-7" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
+<span id="cb74-8"><a href="package-creation.html#cb74-8" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
+<span id="cb74-9"><a href="package-creation.html#cb74-9" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-10"><a href="package-creation.html#cb74-10" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
+<span id="cb74-11"><a href="package-creation.html#cb74-11" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-12"><a href="package-creation.html#cb74-12" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
+<span id="cb74-13"><a href="package-creation.html#cb74-13" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-14"><a href="package-creation.html#cb74-14" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
+<span id="cb74-15"><a href="package-creation.html#cb74-15" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-16"><a href="package-creation.html#cb74-16" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
+<span id="cb74-17"><a href="package-creation.html#cb74-17" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb74-18"><a href="package-creation.html#cb74-18" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
+<span id="cb74-19"><a href="package-creation.html#cb74-19" tabindex="-1"></a></span>
+<span id="cb74-20"><a href="package-creation.html#cb74-20" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="package-creation.html#cb75-1" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
+<span id="cb75-2"><a href="package-creation.html#cb75-2" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
+<span id="cb75-3"><a href="package-creation.html#cb75-3" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
 </div>
 <div id="creation-du-package" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">13.3</span> Creation du package<a href="package-creation.html#creation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -636,25 +637,25 @@ ou on peut y rassembler plsrs fonctions regroupables</p>
 = supplément de la vignette
 C’est aussi là qu’on renseigne les global variables</p>
 <p>La générer : <strong>usethis::use_package_doc()</strong></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="package-creation.html#cb74-1" tabindex="-1"></a><span class="co">#&#39; TreeData-package</span></span>
-<span id="cb74-2"><a href="package-creation.html#cb74-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb74-3"><a href="package-creation.html#cb74-3" tabindex="-1"></a><span class="co">#&#39; Forest Inventories Harmonization &amp; Correction</span></span>
-<span id="cb74-4"><a href="package-creation.html#cb74-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb74-5"><a href="package-creation.html#cb74-5" tabindex="-1"></a><span class="co">#&#39; @name TreeData</span></span>
-<span id="cb74-6"><a href="package-creation.html#cb74-6" tabindex="-1"></a><span class="co">#&#39; @docType package</span></span>
-<span id="cb74-7"><a href="package-creation.html#cb74-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb74-8"><a href="package-creation.html#cb74-8" tabindex="-1"></a><span class="co">#&#39; @section TreeData functions:</span></span>
-<span id="cb74-9"><a href="package-creation.html#cb74-9" tabindex="-1"></a><span class="co">#&#39; RequiredFormat</span></span>
-<span id="cb74-10"><a href="package-creation.html#cb74-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb74-11"><a href="package-creation.html#cb74-11" tabindex="-1"></a><span class="co">#&#39; @keywords internal</span></span>
-<span id="cb74-12"><a href="package-creation.html#cb74-12" tabindex="-1"></a><span class="st">&quot;_PACKAGE&quot;</span></span>
-<span id="cb74-13"><a href="package-creation.html#cb74-13" tabindex="-1"></a></span>
-<span id="cb74-14"><a href="package-creation.html#cb74-14" tabindex="-1"></a><span class="do">## usethis namespace: start</span></span>
-<span id="cb74-15"><a href="package-creation.html#cb74-15" tabindex="-1"></a><span class="do">### quiets concerns of R CMD check &quot;no visible binding for global variables&quot;</span></span>
-<span id="cb74-16"><a href="package-creation.html#cb74-16" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">globalVariables</span>(<span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
-<span id="cb74-17"><a href="package-creation.html#cb74-17" tabindex="-1"></a></span>
-<span id="cb74-18"><a href="package-creation.html#cb74-18" tabindex="-1"></a><span class="do">## usethis namespace: end</span></span>
-<span id="cb74-19"><a href="package-creation.html#cb74-19" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="package-creation.html#cb76-1" tabindex="-1"></a><span class="co">#&#39; TreeData-package</span></span>
+<span id="cb76-2"><a href="package-creation.html#cb76-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb76-3"><a href="package-creation.html#cb76-3" tabindex="-1"></a><span class="co">#&#39; Forest Inventories Harmonization &amp; Correction</span></span>
+<span id="cb76-4"><a href="package-creation.html#cb76-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb76-5"><a href="package-creation.html#cb76-5" tabindex="-1"></a><span class="co">#&#39; @name TreeData</span></span>
+<span id="cb76-6"><a href="package-creation.html#cb76-6" tabindex="-1"></a><span class="co">#&#39; @docType package</span></span>
+<span id="cb76-7"><a href="package-creation.html#cb76-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb76-8"><a href="package-creation.html#cb76-8" tabindex="-1"></a><span class="co">#&#39; @section TreeData functions:</span></span>
+<span id="cb76-9"><a href="package-creation.html#cb76-9" tabindex="-1"></a><span class="co">#&#39; RequiredFormat</span></span>
+<span id="cb76-10"><a href="package-creation.html#cb76-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb76-11"><a href="package-creation.html#cb76-11" tabindex="-1"></a><span class="co">#&#39; @keywords internal</span></span>
+<span id="cb76-12"><a href="package-creation.html#cb76-12" tabindex="-1"></a><span class="st">&quot;_PACKAGE&quot;</span></span>
+<span id="cb76-13"><a href="package-creation.html#cb76-13" tabindex="-1"></a></span>
+<span id="cb76-14"><a href="package-creation.html#cb76-14" tabindex="-1"></a><span class="do">## usethis namespace: start</span></span>
+<span id="cb76-15"><a href="package-creation.html#cb76-15" tabindex="-1"></a><span class="do">### quiets concerns of R CMD check &quot;no visible binding for global variables&quot;</span></span>
+<span id="cb76-16"><a href="package-creation.html#cb76-16" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">globalVariables</span>(<span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
+<span id="cb76-17"><a href="package-creation.html#cb76-17" tabindex="-1"></a></span>
+<span id="cb76-18"><a href="package-creation.html#cb76-18" tabindex="-1"></a><span class="do">## usethis namespace: end</span></span>
+<span id="cb76-19"><a href="package-creation.html#cb76-19" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
 </div>
 <div id="namespace-file" class="section level3 hasAnchor" number="13.6.4">
 <h3><span class="header-section-number">13.6.4</span> NAMESPACE file<a href="package-creation.html#namespace-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -703,20 +704,20 @@ d’autres packages dans le code avec la syntaxe <strong>package::fonction()</st
 <h2><span class="header-section-number">13.9</span> Créer une “méthode générique”<a href="package-creation.html#créer-une-méthode-générique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>méthode générique = modèle de fonction, sans code, à décliner selon la classe d’objet à traiter (ex : “plot”).</p>
 <p>Une méthode générique est plus lente en calcul que ses fonctions dérivées qui sont spécialisées à une classe d’objet.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="package-creation.html#cb75-1" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb75-2"><a href="package-creation.html#cb75-2" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
-<span id="cb75-3"><a href="package-creation.html#cb75-3" tabindex="-1"></a>}</span>
-<span id="cb75-4"><a href="package-creation.html#cb75-4" tabindex="-1"></a></span>
-<span id="cb75-5"><a href="package-creation.html#cb75-5" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
-<span id="cb75-6"><a href="package-creation.html#cb75-6" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb75-7"><a href="package-creation.html#cb75-7" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
-<span id="cb75-8"><a href="package-creation.html#cb75-8" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
-<span id="cb75-9"><a href="package-creation.html#cb75-9" tabindex="-1"></a>}</span>
-<span id="cb75-10"><a href="package-creation.html#cb75-10" tabindex="-1"></a></span>
-<span id="cb75-11"><a href="package-creation.html#cb75-11" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
-<span id="cb75-12"><a href="package-creation.html#cb75-12" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb75-13"><a href="package-creation.html#cb75-13" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
-<span id="cb75-14"><a href="package-creation.html#cb75-14" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="package-creation.html#cb77-1" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb77-2"><a href="package-creation.html#cb77-2" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
+<span id="cb77-3"><a href="package-creation.html#cb77-3" tabindex="-1"></a>}</span>
+<span id="cb77-4"><a href="package-creation.html#cb77-4" tabindex="-1"></a></span>
+<span id="cb77-5"><a href="package-creation.html#cb77-5" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
+<span id="cb77-6"><a href="package-creation.html#cb77-6" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb77-7"><a href="package-creation.html#cb77-7" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
+<span id="cb77-8"><a href="package-creation.html#cb77-8" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
+<span id="cb77-9"><a href="package-creation.html#cb77-9" tabindex="-1"></a>}</span>
+<span id="cb77-10"><a href="package-creation.html#cb77-10" tabindex="-1"></a></span>
+<span id="cb77-11"><a href="package-creation.html#cb77-11" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
+<span id="cb77-12"><a href="package-creation.html#cb77-12" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb77-13"><a href="package-creation.html#cb77-13" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
+<span id="cb77-14"><a href="package-creation.html#cb77-14" tabindex="-1"></a>}</span></code></pre></div>
 <p>Sa signature : ensemble de ses arguments
 Les fonctions dérivées de cette méthode devront obligatoirement avoir les <strong>mêmes arguments</strong> dans le <strong>même ordre</strong> et pourront seulement ajouter des arguments supplémentaires avant “…” (qui est obligatoire).</p>
 <p>1er argument : “x”. Dépend de la classe de l’objet</p>
@@ -798,8 +799,8 @@ src/*.dll”</li>
 <p>Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec <strong>Rdpack</strong> et <strong>roxygen2</strong></p>
 <p>De notre zotero/mendeley vers : <strong>REFERENCES.bib</strong> dans le dossier <strong>inst</strong></p>
 <p>Ajouter dans le fichier DESCRIPTION :</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="package-creation.html#cb76-1" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
-<span id="cb76-2"><a href="package-creation.html#cb76-2" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="package-creation.html#cb78-1" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
+<span id="cb78-2"><a href="package-creation.html#cb78-2" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
 <p>Comment citer :
 citation(packagename)</p>
 <p>Biblio de la vignette :
@@ -902,11 +903,11 @@ citation(packagename)</p>
 <li>écrire des tests à nos fonctions dans tests/testthat : <strong>usethis::use_test(name = “nomdelafct”)</strong></li>
 <li>The test name should complete the sentence “Test that …”.</li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="package-creation.html#cb78-1" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
-<span id="cb78-2"><a href="package-creation.html#cb78-2" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
-<span id="cb78-3"><a href="package-creation.html#cb78-3" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
-<span id="cb78-4"><a href="package-creation.html#cb78-4" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
-<span id="cb78-5"><a href="package-creation.html#cb78-5" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="package-creation.html#cb80-1" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
+<span id="cb80-2"><a href="package-creation.html#cb80-2" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
+<span id="cb80-3"><a href="package-creation.html#cb80-3" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
+<span id="cb80-4"><a href="package-creation.html#cb80-4" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
+<span id="cb80-5"><a href="package-creation.html#cb80-5" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
 <ul>
 <li>lancer tous les tests : devtools::test() (Ctrl + Shift + T)</li>
 <li>Each test is run in its own environment and is self-contained.</li>
@@ -966,9 +967,9 @@ test_examples() : Test package examples</p>
 <a href="https://youtu.be/K4x-uqLl_m4" class="uri">https://youtu.be/K4x-uqLl_m4</a></p></li>
 <li><p>Si les Github Actions Windows ne fctnent pas (ne trouve pas les fcts du package), alors que ça marche sur les autres OS, dans le R-CMD-check.yaml:</p></li>
 </ul>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="package-creation.html#cb79-1" tabindex="-1"></a><span class="co"># https://github.com/privefl/minipkg/commit/50224bcf5f1fd4e30a8c15d2a10534fb247fef4b</span></span>
-<span id="cb79-2"><a href="package-creation.html#cb79-2" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Install dependencies</span>
-<span id="cb79-3"><a href="package-creation.html#cb79-3" tabindex="-1"></a>        run<span class="sc">:</span> Rscript <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;devtools&#39;)&quot;</span> <span class="sc">-</span>e <span class="st">&quot;devtools::install(dependencies = TRUE)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="package-creation.html#cb81-1" tabindex="-1"></a><span class="co"># https://github.com/privefl/minipkg/commit/50224bcf5f1fd4e30a8c15d2a10534fb247fef4b</span></span>
+<span id="cb81-2"><a href="package-creation.html#cb81-2" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Install dependencies</span>
+<span id="cb81-3"><a href="package-creation.html#cb81-3" tabindex="-1"></a>        run<span class="sc">:</span> Rscript <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;devtools&#39;)&quot;</span> <span class="sc">-</span>e <span class="st">&quot;devtools::install(dependencies = TRUE)&quot;</span></span></code></pre></div>
 <ul>
 <li><p>Codecov : test-coverage.yaml <strong>usethis::use_github_action(“test-coverage”)</strong>
 (<a href="https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow" class="uri">https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow</a>) (créer un “secret” pour le token sur github si le dépot est privé)
@@ -1008,13 +1009,13 @@ major, nimor, patch for released version</p>
 <div id="installer-le-package" class="section level2 hasAnchor" number="13.24">
 <h2><span class="header-section-number">13.24</span> Installer le package<a href="package-creation.html#installer-le-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dépot public :</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="package-creation.html#cb80-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DeveloperName/PackageName&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="package-creation.html#cb82-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DeveloperName/PackageName&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Dépot privé :
 Create an access token in: <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a></p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="package-creation.html#cb81-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;user/repo&quot;</span></span>
-<span id="cb81-2"><a href="package-creation.html#cb81-2" tabindex="-1"></a>                         ,<span class="at">ref=</span><span class="st">&quot;master&quot;</span></span>
-<span id="cb81-3"><a href="package-creation.html#cb81-3" tabindex="-1"></a>                         ,<span class="at">auth_token =</span> <span class="st">&quot;tokenstring&quot;</span> <span class="co"># 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</span></span>
-<span id="cb81-4"><a href="package-creation.html#cb81-4" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="package-creation.html#cb83-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;user/repo&quot;</span></span>
+<span id="cb83-2"><a href="package-creation.html#cb83-2" tabindex="-1"></a>                         ,<span class="at">ref=</span><span class="st">&quot;master&quot;</span></span>
+<span id="cb83-3"><a href="package-creation.html#cb83-3" tabindex="-1"></a>                         ,<span class="at">auth_token =</span> <span class="st">&quot;tokenstring&quot;</span> <span class="co"># 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</span></span>
+<span id="cb83-4"><a href="package-creation.html#cb83-4" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="générer-la-citation-du-package" class="section level2 hasAnchor" number="13.25">
 <h2><span class="header-section-number">13.25</span> Générer la citation du package<a href="package-creation.html#générer-la-citation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>

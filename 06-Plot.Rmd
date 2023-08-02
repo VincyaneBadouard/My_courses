@@ -77,6 +77,17 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 
 puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
 
+## Légende
+```{r}
+geom_point(shape = "circle", size = 1.5,
+             aes(colour = "Reality")) +
+  geom_point(data = Piquets_theor, aes(x = X, y = Y, colour = "Expectation"), shape = "circle", size = 1.5) +
+  scale_colour_manual(values = c("Reality" = "forestgreen", # pour donner un nom à chaque intitulé
+                                 "Expectation" = "red"),
+                      breaks=c("Reality", "Expectation")) + # pour ordonner
+  labs(color = "Stakes position")
+```
+
 ## En 3D
 3D fixe **plot3D::scatter3D()**  
 3D pivotable : **rgl::plot3d()**  

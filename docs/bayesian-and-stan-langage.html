@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-07-25" />
+<meta name="date" content="2023-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,10 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.1" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>6.7.1</b> Double axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>6.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.9</b> En 3D</a></li>
-<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.10</b> Animated plot</a></li>
-<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.11</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.12</b> En faire de l’art !</a></li>
+<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>6.9</b> Légende</a></li>
+<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.10</b> En 3D</a></li>
+<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.11</b> Animated plot</a></li>
+<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.12</b> Télécharger dans le bon format, au bon endroit !</a></li>
+<li class="chapter" data-level="6.13" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.13</b> En faire de l’art !</a></li>
 </ul></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="7" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Rmarkdown</a>
@@ -583,15 +584,15 @@ Interet : faciliter la convergence et faire suivre le meme chemin à tout ceux q
 Il calule des différences donc le meilleur est à 0. Il faut avoir la valeur la plus haute.</p></li>
 </ul>
 <p>Dans le stan file :</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode stan"><code class="sourceCode stan"><span id="cb96-1"><a href="bayesian-and-stan-langage.html#cb96-1" tabindex="-1"></a></span>
-<span id="cb96-2"><a href="bayesian-and-stan-langage.html#cb96-2" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
-<span id="cb96-3"><a href="bayesian-and-stan-langage.html#cb96-3" tabindex="-1"></a>  <span class="dt">vector</span>[I] log_lik ;                            <span class="co">## vraisemblance pour chaque obs</span></span>
-<span id="cb96-4"><a href="bayesian-and-stan-langage.html#cb96-4" tabindex="-1"></a>  <span class="dt">vector</span>[I] prediction ;</span>
-<span id="cb96-5"><a href="bayesian-and-stan-langage.html#cb96-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span>:I){</span>
-<span id="cb96-6"><a href="bayesian-and-stan-langage.html#cb96-6" tabindex="-1"></a>    log_lik[i] = fct_lpmf(y[i] | theta[i]) ;     <span class="co">## pour loo.</span></span>
-<span id="cb96-7"><a href="bayesian-and-stan-langage.html#cb96-7" tabindex="-1"></a>    <span class="co">##lpmf -&gt; masse de proba (cas var discrète). ...loi de densité (cas var continue)</span></span>
-<span id="cb96-8"><a href="bayesian-and-stan-langage.html#cb96-8" tabindex="-1"></a>    prediction[i] = fct_rng(theta[i]) ;         <span class="co">## pour ppc_dens_overlay(). rng -&gt; génération de </span></span>
-<span id="cb96-9"><a href="bayesian-and-stan-langage.html#cb96-9" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode stan"><code class="sourceCode stan"><span id="cb98-1"><a href="bayesian-and-stan-langage.html#cb98-1" tabindex="-1"></a></span>
+<span id="cb98-2"><a href="bayesian-and-stan-langage.html#cb98-2" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb98-3"><a href="bayesian-and-stan-langage.html#cb98-3" tabindex="-1"></a>  <span class="dt">vector</span>[I] log_lik ;                            <span class="co">## vraisemblance pour chaque obs</span></span>
+<span id="cb98-4"><a href="bayesian-and-stan-langage.html#cb98-4" tabindex="-1"></a>  <span class="dt">vector</span>[I] prediction ;</span>
+<span id="cb98-5"><a href="bayesian-and-stan-langage.html#cb98-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span>:I){</span>
+<span id="cb98-6"><a href="bayesian-and-stan-langage.html#cb98-6" tabindex="-1"></a>    log_lik[i] = fct_lpmf(y[i] | theta[i]) ;     <span class="co">## pour loo.</span></span>
+<span id="cb98-7"><a href="bayesian-and-stan-langage.html#cb98-7" tabindex="-1"></a>    <span class="co">##lpmf -&gt; masse de proba (cas var discrète). ...loi de densité (cas var continue)</span></span>
+<span id="cb98-8"><a href="bayesian-and-stan-langage.html#cb98-8" tabindex="-1"></a>    prediction[i] = fct_rng(theta[i]) ;         <span class="co">## pour ppc_dens_overlay(). rng -&gt; génération de </span></span>
+<span id="cb98-9"><a href="bayesian-and-stan-langage.html#cb98-9" tabindex="-1"></a>  }</span></code></pre></div>
 </div>
 <div id="rapidité" class="section level2 hasAnchor" number="19.7">
 <h2><span class="header-section-number">19.7</span> Rapidité<a href="bayesian-and-stan-langage.html#rapidité" class="anchor-section" aria-label="Anchor link to header"></a></h2>

@@ -167,7 +167,7 @@ factorielle <- function(n) {
 
 ```
 
-###  Fct anonyme dans une autre fonction
+### Fct anonyme dans une autre fonction
 
 ```{r Exemple5}
 outer(x, y, function(x, y) x * y^2) ## une fonction est mise en argument d'une autre fonction

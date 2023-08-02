@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-07-25" />
+<meta name="date" content="2023-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,10 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.1" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>6.7.1</b> Double axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>6.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.9</b> En 3D</a></li>
-<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.10</b> Animated plot</a></li>
-<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.11</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.12</b> En faire de l’art !</a></li>
+<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>6.9</b> Légende</a></li>
+<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.10</b> En 3D</a></li>
+<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.11</b> Animated plot</a></li>
+<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.12</b> Télécharger dans le bon format, au bon endroit !</a></li>
+<li class="chapter" data-level="6.13" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.13</b> En faire de l’art !</a></li>
 </ul></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="7" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Rmarkdown</a>
@@ -523,8 +524,8 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="spatial-data-cours" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Cours 3</span> Spatial data cours<a href="spatial-data-cours.html#spatial-data-cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Géomatique avec R : <a href="https://rcarto.github.io/geomatique_avec_r/" class="uri">https://rcarto.github.io/geomatique_avec_r/</a></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="spatial-data-cours.html#cb23-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb23-2"><a href="spatial-data-cours.html#cb23-2" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="spatial-data-cours.html#cb24-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-2"><a href="spatial-data-cours.html#cb24-2" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code></pre></div>
 <div id="tips" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Tips<a href="spatial-data-cours.html#tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
@@ -534,24 +535,24 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="mapper-des-données" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Mapper des données<a href="spatial-data-cours.html#mapper-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mapper des points dont on a la longitude et la latitude :</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="spatial-data-cours.html#cb24-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat)) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="spatial-data-cours.html#cb24-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="spatial-data-cours.html#cb25-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="spatial-data-cours.html#cb25-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><em>ggmap</em> : ajoute des couches d’images (fond de carte) téléchargées depuis des services de cartorgaphie en ligne.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="spatial-data-cours.html#cb25-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggmap&quot;</span>)</span>
-<span id="cb25-2"><a href="spatial-data-cours.html#cb25-2" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="spatial-data-cours.html#cb25-3" tabindex="-1"></a>east_canada <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(<span class="at">bbox =</span> <span class="fu">c</span>(<span class="at">left=</span><span class="sc">-</span><span class="dv">81</span>, <span class="at">right =</span> <span class="sc">-</span><span class="dv">59</span>, <span class="at">bottom =</span> <span class="dv">44</span>, <span class="at">top =</span> <span class="dv">51</span>),<span class="co">#boîte de coordonnées délimitant la carte à produire</span></span>
-<span id="cb25-4"><a href="spatial-data-cours.html#cb25-4" tabindex="-1"></a>                             <span class="at">zoom =</span> <span class="dv">6</span>, <span class="co">#zoom = niv de détails (2 suffisant pour une carte du monde)</span></span>
-<span id="cb25-5"><a href="spatial-data-cours.html#cb25-5" tabindex="-1"></a>                             <span class="at">maptype =</span> <span class="st">&quot;terrain&quot;</span>) <span class="co"># type de carte</span></span>
-<span id="cb25-6"><a href="spatial-data-cours.html#cb25-6" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="spatial-data-cours.html#cb25-7" tabindex="-1"></a><span class="fu">ggmap</span>(east_canada) <span class="sc">+</span> </span>
-<span id="cb25-8"><a href="spatial-data-cours.html#cb25-8" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">data =</span> weather, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat))</span>
-<span id="cb25-9"><a href="spatial-data-cours.html#cb25-9" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="spatial-data-cours.html#cb25-10" tabindex="-1"></a><span class="do">## ou </span></span>
-<span id="cb25-11"><a href="spatial-data-cours.html#cb25-11" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="spatial-data-cours.html#cb25-12" tabindex="-1"></a><span class="fu">ggmap</span>(east_canada,</span>
-<span id="cb25-13"><a href="spatial-data-cours.html#cb25-13" tabindex="-1"></a>      <span class="at">base_layer =</span> <span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat))) <span class="sc">+</span> </span>
-<span id="cb25-14"><a href="spatial-data-cours.html#cb25-14" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb25-15"><a href="spatial-data-cours.html#cb25-15" tabindex="-1"></a><span class="do">##base_layer permet d’effectuer des facettes et d’éviter de spécifier la source des données dans toutes les couches subséquentes.</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="spatial-data-cours.html#cb26-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggmap&quot;</span>)</span>
+<span id="cb26-2"><a href="spatial-data-cours.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="spatial-data-cours.html#cb26-3" tabindex="-1"></a>east_canada <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(<span class="at">bbox =</span> <span class="fu">c</span>(<span class="at">left=</span><span class="sc">-</span><span class="dv">81</span>, <span class="at">right =</span> <span class="sc">-</span><span class="dv">59</span>, <span class="at">bottom =</span> <span class="dv">44</span>, <span class="at">top =</span> <span class="dv">51</span>),<span class="co">#boîte de coordonnées délimitant la carte à produire</span></span>
+<span id="cb26-4"><a href="spatial-data-cours.html#cb26-4" tabindex="-1"></a>                             <span class="at">zoom =</span> <span class="dv">6</span>, <span class="co">#zoom = niv de détails (2 suffisant pour une carte du monde)</span></span>
+<span id="cb26-5"><a href="spatial-data-cours.html#cb26-5" tabindex="-1"></a>                             <span class="at">maptype =</span> <span class="st">&quot;terrain&quot;</span>) <span class="co"># type de carte</span></span>
+<span id="cb26-6"><a href="spatial-data-cours.html#cb26-6" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="spatial-data-cours.html#cb26-7" tabindex="-1"></a><span class="fu">ggmap</span>(east_canada) <span class="sc">+</span> </span>
+<span id="cb26-8"><a href="spatial-data-cours.html#cb26-8" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">data =</span> weather, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat))</span>
+<span id="cb26-9"><a href="spatial-data-cours.html#cb26-9" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="spatial-data-cours.html#cb26-10" tabindex="-1"></a><span class="do">## ou </span></span>
+<span id="cb26-11"><a href="spatial-data-cours.html#cb26-11" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="spatial-data-cours.html#cb26-12" tabindex="-1"></a><span class="fu">ggmap</span>(east_canada,</span>
+<span id="cb26-13"><a href="spatial-data-cours.html#cb26-13" tabindex="-1"></a>      <span class="at">base_layer =</span> <span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat))) <span class="sc">+</span> </span>
+<span id="cb26-14"><a href="spatial-data-cours.html#cb26-14" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb26-15"><a href="spatial-data-cours.html#cb26-15" tabindex="-1"></a><span class="do">##base_layer permet d’effectuer des facettes et d’éviter de spécifier la source des données dans toutes les couches subséquentes.</span></span></code></pre></div>
 <p>Maptype :
 - “terrain” : efficace mais peu esthétique
 - “toner-lite” : pour l’impression
@@ -595,15 +596,15 @@ Pour revenir en mode statique : <em>tmap_mode(“plot”)</em></p>
 <p>l’information spatiale est implicitement donnée par l’étendue spatiale et le nombre de lignes et de colonnes dans lesquelles la zone est divisée.</p>
 <p>Les données raster sont en général continues (altitude, T°, densité de pop), mais peuvent-être aussi catégoriques (type de sol) mais dans ce cas une représentation vectorielle pourrait être plus appropriée.</p>
 <p><em>expand.grid()</em> : créer une grille de paramêtres : associer des coordonées à une variable</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="spatial-data-cours.html#cb26-1" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">lon =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">80</span>, <span class="at">to =</span> <span class="sc">-</span><span class="dv">60</span>, <span class="at">by =</span> <span class="fl">0.25</span>),</span>
-<span id="cb26-2"><a href="spatial-data-cours.html#cb26-2" tabindex="-1"></a>                    <span class="at">lat =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">45</span>, <span class="at">to =</span> <span class="dv">50</span>, <span class="at">by =</span> <span class="fl">0.25</span>))</span>
-<span id="cb26-3"><a href="spatial-data-cours.html#cb26-3" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
-<span id="cb26-4"><a href="spatial-data-cours.html#cb26-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z =</span> <span class="dv">10</span><span class="sc">*</span><span class="fu">sin</span>(lon<span class="sc">*</span>lat) <span class="sc">-</span> <span class="fl">0.01</span><span class="sc">*</span>lon<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.05</span><span class="sc">*</span>lat<span class="sc">^</span><span class="dv">2</span>) <span class="co"># créer une variable spatialisée</span></span>
-<span id="cb26-5"><a href="spatial-data-cours.html#cb26-5" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="spatial-data-cours.html#cb26-6" tabindex="-1"></a>grid <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
-<span id="cb26-7"><a href="spatial-data-cours.html#cb26-7" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="spatial-data-cours.html#cb26-8" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(lon, lat)) <span class="sc">+</span></span>
-<span id="cb26-9"><a href="spatial-data-cours.html#cb26-9" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> z))</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="spatial-data-cours.html#cb27-1" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">lon =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">80</span>, <span class="at">to =</span> <span class="sc">-</span><span class="dv">60</span>, <span class="at">by =</span> <span class="fl">0.25</span>),</span>
+<span id="cb27-2"><a href="spatial-data-cours.html#cb27-2" tabindex="-1"></a>                    <span class="at">lat =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">45</span>, <span class="at">to =</span> <span class="dv">50</span>, <span class="at">by =</span> <span class="fl">0.25</span>))</span>
+<span id="cb27-3"><a href="spatial-data-cours.html#cb27-3" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="spatial-data-cours.html#cb27-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z =</span> <span class="dv">10</span><span class="sc">*</span><span class="fu">sin</span>(lon<span class="sc">*</span>lat) <span class="sc">-</span> <span class="fl">0.01</span><span class="sc">*</span>lon<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.05</span><span class="sc">*</span>lat<span class="sc">^</span><span class="dv">2</span>) <span class="co"># créer une variable spatialisée</span></span>
+<span id="cb27-5"><a href="spatial-data-cours.html#cb27-5" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="spatial-data-cours.html#cb27-6" tabindex="-1"></a>grid <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb27-7"><a href="spatial-data-cours.html#cb27-7" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="spatial-data-cours.html#cb27-8" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(lon, lat)) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="spatial-data-cours.html#cb27-9" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> z))</span></code></pre></div>
 <p>Géostatistique = étude statistique des variables spatiales</p>
 <div id="geometry" class="section level4 hasAnchor" number="3.2.3.1">
 <h4><span class="header-section-number">3.2.3.1</span> Geometry<a href="spatial-data-cours.html#geometry" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -626,54 +627,54 @@ Packages : <em>sp</em>, <em>sf</em> (mieux adapté au tidy)</p>
 * un vecteurs numérique
 * une matrice
 * une liste</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="spatial-data-cours.html#cb27-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>)))           <span class="co"># XY point (2D)</span></span>
-<span id="cb27-2"><a href="spatial-data-cours.html#cb27-2" tabindex="-1"></a><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>))              <span class="co"># XYZ point (3D)</span></span>
-<span id="cb27-3"><a href="spatial-data-cours.html#cb27-3" tabindex="-1"></a><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">dim =</span> <span class="st">&quot;XYM&quot;</span>) <span class="co"># XYM point</span></span>
-<span id="cb27-4"><a href="spatial-data-cours.html#cb27-4" tabindex="-1"></a><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))           <span class="co"># XYZM point</span></span>
-<span id="cb27-5"><a href="spatial-data-cours.html#cb27-5" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="spatial-data-cours.html#cb27-6" tabindex="-1"></a><span class="do">## the &#39;rbind&#39; function simplifies the creation of matrices</span></span>
-<span id="cb27-7"><a href="spatial-data-cours.html#cb27-7" tabindex="-1"></a><span class="do">### MULTIPOINT</span></span>
-<span id="cb27-8"><a href="spatial-data-cours.html#cb27-8" tabindex="-1"></a>multipoint_matrix <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb27-9"><a href="spatial-data-cours.html#cb27-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_multipoint</span>(multipoint_matrix))</span>
-<span id="cb27-10"><a href="spatial-data-cours.html#cb27-10" tabindex="-1"></a></span>
-<span id="cb27-11"><a href="spatial-data-cours.html#cb27-11" tabindex="-1"></a><span class="do">### LINESTRING</span></span>
-<span id="cb27-12"><a href="spatial-data-cours.html#cb27-12" tabindex="-1"></a>linestring_matrix <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb27-13"><a href="spatial-data-cours.html#cb27-13" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_linestring</span>(linestring_matrix))</span>
-<span id="cb27-14"><a href="spatial-data-cours.html#cb27-14" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="spatial-data-cours.html#cb27-15" tabindex="-1"></a><span class="do">### POLYGON</span></span>
-<span id="cb27-16"><a href="spatial-data-cours.html#cb27-16" tabindex="-1"></a>polygon_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)))</span>
-<span id="cb27-17"><a href="spatial-data-cours.html#cb27-17" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_polygon</span>(polygon_list))</span>
-<span id="cb27-18"><a href="spatial-data-cours.html#cb27-18" tabindex="-1"></a></span>
-<span id="cb27-19"><a href="spatial-data-cours.html#cb27-19" tabindex="-1"></a><span class="do">### POLYGON with a hole</span></span>
-<span id="cb27-20"><a href="spatial-data-cours.html#cb27-20" tabindex="-1"></a>polygon_border <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb27-21"><a href="spatial-data-cours.html#cb27-21" tabindex="-1"></a>polygon_hole <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
-<span id="cb27-22"><a href="spatial-data-cours.html#cb27-22" tabindex="-1"></a>polygon_with_hole_list <span class="ot">=</span> <span class="fu">list</span>(polygon_border, polygon_hole)</span>
-<span id="cb27-23"><a href="spatial-data-cours.html#cb27-23" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_polygon</span>(polygon_with_hole_list))</span>
-<span id="cb27-24"><a href="spatial-data-cours.html#cb27-24" tabindex="-1"></a></span>
-<span id="cb27-25"><a href="spatial-data-cours.html#cb27-25" tabindex="-1"></a><span class="do">### MULTILINESTRING</span></span>
-<span id="cb27-26"><a href="spatial-data-cours.html#cb27-26" tabindex="-1"></a>multilinestring_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)), </span>
-<span id="cb27-27"><a href="spatial-data-cours.html#cb27-27" tabindex="-1"></a>                            <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)))</span>
-<span id="cb27-28"><a href="spatial-data-cours.html#cb27-28" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_multilinestring</span>((multilinestring_list)))</span>
-<span id="cb27-29"><a href="spatial-data-cours.html#cb27-29" tabindex="-1"></a></span>
-<span id="cb27-30"><a href="spatial-data-cours.html#cb27-30" tabindex="-1"></a><span class="do">### MULTIPOLYGON</span></span>
-<span id="cb27-31"><a href="spatial-data-cours.html#cb27-31" tabindex="-1"></a>multipolygon_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))),</span>
-<span id="cb27-32"><a href="spatial-data-cours.html#cb27-32" tabindex="-1"></a>                         <span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>))))</span>
-<span id="cb27-33"><a href="spatial-data-cours.html#cb27-33" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_multipolygon</span>(multipolygon_list))</span>
-<span id="cb27-34"><a href="spatial-data-cours.html#cb27-34" tabindex="-1"></a></span>
-<span id="cb27-35"><a href="spatial-data-cours.html#cb27-35" tabindex="-1"></a><span class="do">### GEOMETRYCOLLECTION</span></span>
-<span id="cb27-36"><a href="spatial-data-cours.html#cb27-36" tabindex="-1"></a>gemetrycollection_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">st_multipoint</span>(multipoint_matrix),</span>
-<span id="cb27-37"><a href="spatial-data-cours.html#cb27-37" tabindex="-1"></a>                              <span class="fu">st_linestring</span>(linestring_matrix))</span>
-<span id="cb27-38"><a href="spatial-data-cours.html#cb27-38" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometrycollection</span>(gemetrycollection_list))</span>
-<span id="cb27-39"><a href="spatial-data-cours.html#cb27-39" tabindex="-1"></a><span class="do">##&gt; GEOMETRYCOLLECTION (MULTIPOINT (5 2, 1 3, 3 4, 3 2),</span></span>
-<span id="cb27-40"><a href="spatial-data-cours.html#cb27-40" tabindex="-1"></a><span class="do">##&gt;   LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2))</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="spatial-data-cours.html#cb28-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>)))           <span class="co"># XY point (2D)</span></span>
+<span id="cb28-2"><a href="spatial-data-cours.html#cb28-2" tabindex="-1"></a><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>))              <span class="co"># XYZ point (3D)</span></span>
+<span id="cb28-3"><a href="spatial-data-cours.html#cb28-3" tabindex="-1"></a><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">dim =</span> <span class="st">&quot;XYM&quot;</span>) <span class="co"># XYM point</span></span>
+<span id="cb28-4"><a href="spatial-data-cours.html#cb28-4" tabindex="-1"></a><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))           <span class="co"># XYZM point</span></span>
+<span id="cb28-5"><a href="spatial-data-cours.html#cb28-5" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="spatial-data-cours.html#cb28-6" tabindex="-1"></a><span class="do">## the &#39;rbind&#39; function simplifies the creation of matrices</span></span>
+<span id="cb28-7"><a href="spatial-data-cours.html#cb28-7" tabindex="-1"></a><span class="do">### MULTIPOINT</span></span>
+<span id="cb28-8"><a href="spatial-data-cours.html#cb28-8" tabindex="-1"></a>multipoint_matrix <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb28-9"><a href="spatial-data-cours.html#cb28-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_multipoint</span>(multipoint_matrix))</span>
+<span id="cb28-10"><a href="spatial-data-cours.html#cb28-10" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="spatial-data-cours.html#cb28-11" tabindex="-1"></a><span class="do">### LINESTRING</span></span>
+<span id="cb28-12"><a href="spatial-data-cours.html#cb28-12" tabindex="-1"></a>linestring_matrix <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb28-13"><a href="spatial-data-cours.html#cb28-13" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_linestring</span>(linestring_matrix))</span>
+<span id="cb28-14"><a href="spatial-data-cours.html#cb28-14" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="spatial-data-cours.html#cb28-15" tabindex="-1"></a><span class="do">### POLYGON</span></span>
+<span id="cb28-16"><a href="spatial-data-cours.html#cb28-16" tabindex="-1"></a>polygon_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)))</span>
+<span id="cb28-17"><a href="spatial-data-cours.html#cb28-17" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_polygon</span>(polygon_list))</span>
+<span id="cb28-18"><a href="spatial-data-cours.html#cb28-18" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="spatial-data-cours.html#cb28-19" tabindex="-1"></a><span class="do">### POLYGON with a hole</span></span>
+<span id="cb28-20"><a href="spatial-data-cours.html#cb28-20" tabindex="-1"></a>polygon_border <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb28-21"><a href="spatial-data-cours.html#cb28-21" tabindex="-1"></a>polygon_hole <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb28-22"><a href="spatial-data-cours.html#cb28-22" tabindex="-1"></a>polygon_with_hole_list <span class="ot">=</span> <span class="fu">list</span>(polygon_border, polygon_hole)</span>
+<span id="cb28-23"><a href="spatial-data-cours.html#cb28-23" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_polygon</span>(polygon_with_hole_list))</span>
+<span id="cb28-24"><a href="spatial-data-cours.html#cb28-24" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="spatial-data-cours.html#cb28-25" tabindex="-1"></a><span class="do">### MULTILINESTRING</span></span>
+<span id="cb28-26"><a href="spatial-data-cours.html#cb28-26" tabindex="-1"></a>multilinestring_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)), </span>
+<span id="cb28-27"><a href="spatial-data-cours.html#cb28-27" tabindex="-1"></a>                            <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)))</span>
+<span id="cb28-28"><a href="spatial-data-cours.html#cb28-28" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_multilinestring</span>((multilinestring_list)))</span>
+<span id="cb28-29"><a href="spatial-data-cours.html#cb28-29" tabindex="-1"></a></span>
+<span id="cb28-30"><a href="spatial-data-cours.html#cb28-30" tabindex="-1"></a><span class="do">### MULTIPOLYGON</span></span>
+<span id="cb28-31"><a href="spatial-data-cours.html#cb28-31" tabindex="-1"></a>multipolygon_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))),</span>
+<span id="cb28-32"><a href="spatial-data-cours.html#cb28-32" tabindex="-1"></a>                         <span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>))))</span>
+<span id="cb28-33"><a href="spatial-data-cours.html#cb28-33" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_multipolygon</span>(multipolygon_list))</span>
+<span id="cb28-34"><a href="spatial-data-cours.html#cb28-34" tabindex="-1"></a></span>
+<span id="cb28-35"><a href="spatial-data-cours.html#cb28-35" tabindex="-1"></a><span class="do">### GEOMETRYCOLLECTION</span></span>
+<span id="cb28-36"><a href="spatial-data-cours.html#cb28-36" tabindex="-1"></a>gemetrycollection_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">st_multipoint</span>(multipoint_matrix),</span>
+<span id="cb28-37"><a href="spatial-data-cours.html#cb28-37" tabindex="-1"></a>                              <span class="fu">st_linestring</span>(linestring_matrix))</span>
+<span id="cb28-38"><a href="spatial-data-cours.html#cb28-38" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometrycollection</span>(gemetrycollection_list))</span>
+<span id="cb28-39"><a href="spatial-data-cours.html#cb28-39" tabindex="-1"></a><span class="do">##&gt; GEOMETRYCOLLECTION (MULTIPOINT (5 2, 1 3, 3 4, 3 2),</span></span>
+<span id="cb28-40"><a href="spatial-data-cours.html#cb28-40" tabindex="-1"></a><span class="do">##&gt;   LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2))</span></span></code></pre></div>
 <div id="simple-feature-columns-sfc" class="section level5 hasAnchor" number="3.2.4.1.1">
 <h5><span class="header-section-number">3.2.4.1.1</span> Simple feature columns (sfc)<a href="spatial-data-cours.html#simple-feature-columns-sfc" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>une <em>sfc</em> est une liste d’objets <em>sfg</em>, de meme type géométrique ou non.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="spatial-data-cours.html#cb28-1" tabindex="-1"></a>point1 <span class="ot">=</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>))</span>
-<span id="cb28-2"><a href="spatial-data-cours.html#cb28-2" tabindex="-1"></a>point2 <span class="ot">=</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb28-3"><a href="spatial-data-cours.html#cb28-3" tabindex="-1"></a>points_sfc <span class="ot">=</span> <span class="fu">st_sfc</span>(point1, point2) <span class="co">#st_sfc() crée une liste d&#39;objets sfg</span></span>
-<span id="cb28-4"><a href="spatial-data-cours.html#cb28-4" tabindex="-1"></a>points_sfc</span>
-<span id="cb28-5"><a href="spatial-data-cours.html#cb28-5" tabindex="-1"></a><span class="fu">st_geometry_type</span>(points_sfc)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="spatial-data-cours.html#cb29-1" tabindex="-1"></a>point1 <span class="ot">=</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>))</span>
+<span id="cb29-2"><a href="spatial-data-cours.html#cb29-2" tabindex="-1"></a>point2 <span class="ot">=</span> <span class="fu">st_point</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb29-3"><a href="spatial-data-cours.html#cb29-3" tabindex="-1"></a>points_sfc <span class="ot">=</span> <span class="fu">st_sfc</span>(point1, point2) <span class="co">#st_sfc() crée une liste d&#39;objets sfg</span></span>
+<span id="cb29-4"><a href="spatial-data-cours.html#cb29-4" tabindex="-1"></a>points_sfc</span>
+<span id="cb29-5"><a href="spatial-data-cours.html#cb29-5" tabindex="-1"></a><span class="fu">st_geometry_type</span>(points_sfc)</span></code></pre></div>
 <ul>
 <li>sfc to sfg : <em>st_point(as.numeric(unlist(sfc)))</em> (ex ici point)</li>
 </ul>
@@ -681,9 +682,9 @@ Packages : <em>sp</em>, <em>sf</em> (mieux adapté au tidy)</p>
 <p>Les tableaux sf sont manipulables sous tydiverse.</p>
 <p>plot() : par défaut crée un multi-panel plot : un graph par variable.</p>
 <p>Pour ne ploter que les contours (la géométrie):</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="spatial-data-cours.html#cb29-1" tabindex="-1"></a>quebec <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a href="spatial-data-cours.html#cb29-2" tabindex="-1"></a>  <span class="fu">st_geometry</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="spatial-data-cours.html#cb29-3" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="co"># ou bien plot(st_geometry(quebec)), ou bien plot(quebec %&gt;% select(geometry))</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="spatial-data-cours.html#cb30-1" tabindex="-1"></a>quebec <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="spatial-data-cours.html#cb30-2" tabindex="-1"></a>  <span class="fu">st_geometry</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="spatial-data-cours.html#cb30-3" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="co"># ou bien plot(st_geometry(quebec)), ou bien plot(quebec %&gt;% select(geometry))</span></span></code></pre></div>
 <ul>
 <li><p>Jointures spatiales (intersections de polygones, unions, différences) -&gt; 1 nouvelle géométrie</p></li>
 <li><p>Attribuer un crs à un objt sf ou sfc : <em>st_set_crs(objtsanscrs, st_crs(objtaveccrs))</em></p></li>
@@ -716,36 +717,36 @@ La fonction plot() permet d’explorer les données en créant <em>1 graphique p
 <li>Découper (rectangulaire selon les limites de l’objet) : <em>crop()</em></li>
 <li>Extraction : <em>extract()</em></li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="spatial-data-cours.html#cb30-1" tabindex="-1"></a><span class="do">##Pour effectuer un calcul sur l’intérieur du polygone avec extract()… on spécifie le raster, le polygone et la fonction!</span></span>
-<span id="cb30-2"><a href="spatial-data-cours.html#cb30-2" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="spatial-data-cours.html#cb30-3" tabindex="-1"></a><span class="fu">extract</span>(canopy, poly_sp, <span class="at">fun =</span> mean) <span class="co"># &quot;canopy&quot; =  raster, &quot;poly_sp&quot; = polygone</span></span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="spatial-data-cours.html#cb31-1" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
-<span id="cb31-2"><a href="spatial-data-cours.html#cb31-2" tabindex="-1"></a>shpP16 <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readORG</span>(<span class="at">dsn =</span> <span class="st">&quot;C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;Gaps2019&quot;</span>)  </span>
-<span id="cb31-3"><a href="spatial-data-cours.html#cb31-3" tabindex="-1"></a>shpP16 <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">shapefile</span>(<span class="st">&quot;C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019.shp&quot;</span>)</span>
-<span id="cb31-4"><a href="spatial-data-cours.html#cb31-4" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="spatial-data-cours.html#cb31-5" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb31-6"><a href="spatial-data-cours.html#cb31-6" tabindex="-1"></a>shpP16 <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019.shp&quot;</span>)</span>
-<span id="cb31-7"><a href="spatial-data-cours.html#cb31-7" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="spatial-data-cours.html#cb31-8" tabindex="-1"></a><span class="fu">plot</span>(shpP16)</span>
-<span id="cb31-9"><a href="spatial-data-cours.html#cb31-9" tabindex="-1"></a><span class="fu">plot</span>(shpP16, <span class="at">col=</span><span class="st">&quot;#f2f2f2&quot;</span>, <span class="at">bg=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">lwd=</span><span class="fl">0.25</span>, <span class="at">border=</span><span class="dv">0</span> )</span>
-<span id="cb31-10"><a href="spatial-data-cours.html#cb31-10" tabindex="-1"></a></span>
-<span id="cb31-11"><a href="spatial-data-cours.html#cb31-11" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb31-12"><a href="spatial-data-cours.html#cb31-12" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb31-13"><a href="spatial-data-cours.html#cb31-13" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> shpP16, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb31-14"><a href="spatial-data-cours.html#cb31-14" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;2019 - P16 gaps&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb31-15"><a href="spatial-data-cours.html#cb31-15" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="spatial-data-cours.html#cb31-1" tabindex="-1"></a><span class="do">##Pour effectuer un calcul sur l’intérieur du polygone avec extract()… on spécifie le raster, le polygone et la fonction!</span></span>
+<span id="cb31-2"><a href="spatial-data-cours.html#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="spatial-data-cours.html#cb31-3" tabindex="-1"></a><span class="fu">extract</span>(canopy, poly_sp, <span class="at">fun =</span> mean) <span class="co"># &quot;canopy&quot; =  raster, &quot;poly_sp&quot; = polygone</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="spatial-data-cours.html#cb32-1" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb32-2"><a href="spatial-data-cours.html#cb32-2" tabindex="-1"></a>shpP16 <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readORG</span>(<span class="at">dsn =</span> <span class="st">&quot;C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;Gaps2019&quot;</span>)  </span>
+<span id="cb32-3"><a href="spatial-data-cours.html#cb32-3" tabindex="-1"></a>shpP16 <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">shapefile</span>(<span class="st">&quot;C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019.shp&quot;</span>)</span>
+<span id="cb32-4"><a href="spatial-data-cours.html#cb32-4" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="spatial-data-cours.html#cb32-5" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb32-6"><a href="spatial-data-cours.html#cb32-6" tabindex="-1"></a>shpP16 <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;C:/Users/BADOUARD/Desktop/Vincyane/Gaps2019/Gaps2019.shp&quot;</span>)</span>
+<span id="cb32-7"><a href="spatial-data-cours.html#cb32-7" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="spatial-data-cours.html#cb32-8" tabindex="-1"></a><span class="fu">plot</span>(shpP16)</span>
+<span id="cb32-9"><a href="spatial-data-cours.html#cb32-9" tabindex="-1"></a><span class="fu">plot</span>(shpP16, <span class="at">col=</span><span class="st">&quot;#f2f2f2&quot;</span>, <span class="at">bg=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">lwd=</span><span class="fl">0.25</span>, <span class="at">border=</span><span class="dv">0</span> )</span>
+<span id="cb32-10"><a href="spatial-data-cours.html#cb32-10" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="spatial-data-cours.html#cb32-11" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb32-12"><a href="spatial-data-cours.html#cb32-12" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb32-13"><a href="spatial-data-cours.html#cb32-13" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> shpP16, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb32-14"><a href="spatial-data-cours.html#cb32-14" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;2019 - P16 gaps&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb32-15"><a href="spatial-data-cours.html#cb32-15" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
 </div>
 <div id="plot-raster-with-ggplot" class="section level4 hasAnchor" number="3.2.4.5">
 <h4><span class="header-section-number">3.2.4.5</span> Plot raster with ggplot<a href="spatial-data-cours.html#plot-raster-with-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="spatial-data-cours.html#cb32-1" tabindex="-1"></a><span class="co"># First transform raster in data.frame</span></span>
-<span id="cb32-2"><a href="spatial-data-cours.html#cb32-2" tabindex="-1"></a>TWI_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(TWI, <span class="at">xy =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="spatial-data-cours.html#cb32-3" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb32-4"><a href="spatial-data-cours.html#cb32-4" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="spatial-data-cours.html#cb32-5" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb32-6"><a href="spatial-data-cours.html#cb32-6" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="at">data =</span> TWI_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> <span class="st">`</span><span class="at">P13_2022_TWI</span><span class="st">`</span>)) <span class="sc">+</span> <span class="co"># with geom_raster()</span></span>
-<span id="cb32-7"><a href="spatial-data-cours.html#cb32-7" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb32-8"><a href="spatial-data-cours.html#cb32-8" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Paracou 2019 P13 - TWI&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb32-9"><a href="spatial-data-cours.html#cb32-9" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="spatial-data-cours.html#cb33-1" tabindex="-1"></a><span class="co"># First transform raster in data.frame</span></span>
+<span id="cb33-2"><a href="spatial-data-cours.html#cb33-2" tabindex="-1"></a>TWI_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(TWI, <span class="at">xy =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="spatial-data-cours.html#cb33-3" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb33-4"><a href="spatial-data-cours.html#cb33-4" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="spatial-data-cours.html#cb33-5" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb33-6"><a href="spatial-data-cours.html#cb33-6" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="at">data =</span> TWI_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> <span class="st">`</span><span class="at">P13_2022_TWI</span><span class="st">`</span>)) <span class="sc">+</span> <span class="co"># with geom_raster()</span></span>
+<span id="cb33-7"><a href="spatial-data-cours.html#cb33-7" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb33-8"><a href="spatial-data-cours.html#cb33-8" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Paracou 2019 P13 - TWI&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb33-9"><a href="spatial-data-cours.html#cb33-9" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
 </div>
 </div>
 <div id="shapefiles" class="section level3 hasAnchor" number="3.2.5">
@@ -794,9 +795,9 @@ et basés sur les systèmes de coordonnées géographiques</p>
 <li><p>Attribuer un crs à un objt sf ou sfc : <strong>st_transform(objtsanscrs, st_crs(objtaveccrs))</strong></p></li>
 <li><p>st_union ne préserve pas l’ordre des géométries dans la géométrie finale, il faut utiliser :</p></li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="spatial-data-cours.html#cb33-1" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> objt_sf_1 <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(objt_sf_2)  </span>
-<span id="cb33-2"><a href="spatial-data-cours.html#cb33-2" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="spatial-data-cours.html#cb33-3" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> <span class="fu">do.call</span>(c, <span class="fu">st_geometry</span>(objt_sf_12))  </span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="spatial-data-cours.html#cb34-1" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> objt_sf_1 <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(objt_sf_2)  </span>
+<span id="cb34-2"><a href="spatial-data-cours.html#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="spatial-data-cours.html#cb34-3" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> <span class="fu">do.call</span>(c, <span class="fu">st_geometry</span>(objt_sf_12))  </span></code></pre></div>
 </div>
 <div id="en-3d" class="section level3 hasAnchor" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> en 3D<a href="spatial-data-cours.html#en-3d" class="anchor-section" aria-label="Anchor link to header"></a></h3>

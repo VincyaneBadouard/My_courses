@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-07-25" />
+<meta name="date" content="2023-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,10 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.1" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>6.7.1</b> Double axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>6.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.9</b> En 3D</a></li>
-<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.10</b> Animated plot</a></li>
-<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.11</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.12</b> En faire de l’art !</a></li>
+<li class="chapter" data-level="6.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>6.9</b> Légende</a></li>
+<li class="chapter" data-level="6.10" data-path="plot-1.html"><a href="plot-1.html#en-3d-1"><i class="fa fa-check"></i><b>6.10</b> En 3D</a></li>
+<li class="chapter" data-level="6.11" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>6.11</b> Animated plot</a></li>
+<li class="chapter" data-level="6.12" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>6.12</b> Télécharger dans le bon format, au bon endroit !</a></li>
+<li class="chapter" data-level="6.13" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>6.13</b> En faire de l’art !</a></li>
 </ul></li>
 <li class="part"><span><b>II Outils autour de R</b></span></li>
 <li class="chapter" data-level="7" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Rmarkdown</a>
@@ -524,18 +525,18 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <h1><span class="header-section-number">Cours 14</span> Shiny cours<a href="shiny-cours.html#shiny-cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="packages-1" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">14.1</span> Packages<a href="shiny-cours.html#packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="shiny-cours.html#cb82-1" tabindex="-1"></a><span class="fu">library</span>(shiny) <span class="co"># Web Application Framework for R </span></span>
-<span id="cb82-2"><a href="shiny-cours.html#cb82-2" tabindex="-1"></a><span class="fu">library</span>(bslib) <span class="co"># aesthetic, thème et feuilles de style</span></span>
-<span id="cb82-3"><a href="shiny-cours.html#cb82-3" tabindex="-1"></a><span class="do">## bslib::bootswatch_themes() # pour voir ts les thèmes</span></span>
-<span id="cb82-4"><a href="shiny-cours.html#cb82-4" tabindex="-1"></a><span class="fu">library</span>(shinydashboard)</span>
-<span id="cb82-5"><a href="shiny-cours.html#cb82-5" tabindex="-1"></a><span class="do">## library(bs4Dash) # dashboard aussi. restart R session si on passe d&#39;un pkg à l&#39;autre (dont mode jour/nuit mais mal fait)</span></span>
-<span id="cb82-6"><a href="shiny-cours.html#cb82-6" tabindex="-1"></a><span class="fu">library</span>(shinyjs) <span class="co"># Improve the User Experience</span></span>
-<span id="cb82-7"><a href="shiny-cours.html#cb82-7" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb82-8"><a href="shiny-cours.html#cb82-8" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb82-9"><a href="shiny-cours.html#cb82-9" tabindex="-1"></a><span class="fu">library</span>(thematic) <span class="co"># Aesthetic, Unified and Automatic &#39;Theming&#39; of &#39;ggplot2&#39;, &#39;lattice&#39;, and &#39;base&#39; R Graphics </span></span>
-<span id="cb82-10"><a href="shiny-cours.html#cb82-10" tabindex="-1"></a><span class="fu">library</span>(DT) <span class="co"># Interactive table</span></span>
-<span id="cb82-11"><a href="shiny-cours.html#cb82-11" tabindex="-1"></a><span class="fu">library</span>(leaflet) <span class="co"># Interactive Web Maps</span></span>
-<span id="cb82-12"><a href="shiny-cours.html#cb82-12" tabindex="-1"></a><span class="fu">library</span>(plotly) <span class="co"># Interactive Web Graphics</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="shiny-cours.html#cb84-1" tabindex="-1"></a><span class="fu">library</span>(shiny) <span class="co"># Web Application Framework for R </span></span>
+<span id="cb84-2"><a href="shiny-cours.html#cb84-2" tabindex="-1"></a><span class="fu">library</span>(bslib) <span class="co"># aesthetic, thème et feuilles de style</span></span>
+<span id="cb84-3"><a href="shiny-cours.html#cb84-3" tabindex="-1"></a><span class="do">## bslib::bootswatch_themes() # pour voir ts les thèmes</span></span>
+<span id="cb84-4"><a href="shiny-cours.html#cb84-4" tabindex="-1"></a><span class="fu">library</span>(shinydashboard)</span>
+<span id="cb84-5"><a href="shiny-cours.html#cb84-5" tabindex="-1"></a><span class="do">## library(bs4Dash) # dashboard aussi. restart R session si on passe d&#39;un pkg à l&#39;autre (dont mode jour/nuit mais mal fait)</span></span>
+<span id="cb84-6"><a href="shiny-cours.html#cb84-6" tabindex="-1"></a><span class="fu">library</span>(shinyjs) <span class="co"># Improve the User Experience</span></span>
+<span id="cb84-7"><a href="shiny-cours.html#cb84-7" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb84-8"><a href="shiny-cours.html#cb84-8" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb84-9"><a href="shiny-cours.html#cb84-9" tabindex="-1"></a><span class="fu">library</span>(thematic) <span class="co"># Aesthetic, Unified and Automatic &#39;Theming&#39; of &#39;ggplot2&#39;, &#39;lattice&#39;, and &#39;base&#39; R Graphics </span></span>
+<span id="cb84-10"><a href="shiny-cours.html#cb84-10" tabindex="-1"></a><span class="fu">library</span>(DT) <span class="co"># Interactive table</span></span>
+<span id="cb84-11"><a href="shiny-cours.html#cb84-11" tabindex="-1"></a><span class="fu">library</span>(leaflet) <span class="co"># Interactive Web Maps</span></span>
+<span id="cb84-12"><a href="shiny-cours.html#cb84-12" tabindex="-1"></a><span class="fu">library</span>(plotly) <span class="co"># Interactive Web Graphics</span></span></code></pre></div>
 </div>
 <div id="tips-codeur" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">14.2</span> Tips codeur<a href="shiny-cours.html#tips-codeur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
