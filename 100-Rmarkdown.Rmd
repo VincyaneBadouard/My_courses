@@ -68,7 +68,7 @@ le reste à voir dans le petit engrenage du chunk
 Afficher une valeur dans le texte :
 1+2 = 'r 1+2'
 
-# Spécifier un working directory différent de celui du fichier
+## Spécifier un working directory différent de celui du fichier
 ```{r, eval=FALSE}
 knitr::opts_knit$set(root.dir = 'chemin')
 ```

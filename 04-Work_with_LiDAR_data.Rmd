@@ -63,6 +63,10 @@ Load several laz
 readLAScatalog(folder = "D:/Mes Donnees/PhD/Lidar", filter = "keep") # las catalog
 # readLAS(filter = "-help")
 ```
+## Write laz
+```{r}
+writeLAS(las, "Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz")
+```
 
 ## Check if the las is complete
 ```{r}
@@ -168,7 +172,45 @@ table(ST_norm@data$Classification) # 7 = bruit, 2 = sol, vegetation = 3,4,5
 ST <- lidR::unnormalize_height(ST_norm) 
 ```
 
-## Generate a DTM (MNT)
+## Ajouter des points à un las, combiner plusieurs las
+```{r}
+# transform in a LAS object
+las2 <- LAS(vector_coord[,.(XB,YB,ZB)], las1@header)
+
+# This triggers some warning because we input some inccorectly quantized coordinates. Check the output of las_check()
+las_check(las2)
+# We can fix that
+las2 <- las_quantize(las2, TRUE)
+las2 <- las_update(las2)
+
+las_check(las2)
+
+# To combine the las1 and las2 they must have the same columns.
+# We need to make them manually.
+# Here if you load only XYZ in las the job is easier.
+
+las2@data$gpstime = 0
+las2@data$Intensity = 0L
+las2@data$ReturnNumber = 1L
+las2@data$NumberOfReturns = 1L
+las2@data$ScanDirectionFlag = 0L
+las2@data$EdgeOfFlightline = 0L
+las2@data$Classification = 0L
+las2@data$Synthetic_flag = FALSE
+las2@data$Keypoint_flag = FALSE
+las2@data$Withheld_flag = FALSE
+las2@data$ScanAngleRank = 0L
+las2@data$UserData = 0L
+las2@data$PointSourceID = 0L
+
+# Bind
+las3 <- lidR::rbind(las1, las2)
+```
+
+
+## Caluler des métriques
+
+### Generate a DTM (MNT)
 https://r-lidar.github.io/lidRbook/dtm.html
 l'élévation est dans la variable Z (dtm$Z)
 ```{r}
@@ -192,9 +234,7 @@ ggplot() +
                        colors = terrain.colors(20))
 ```
 
-## Caluler des métriques
-
-## La réflectance (albedo)
+### La réflectance (albedo)
 Calculer la réflectance apparente en ratio (albedo)
 
 Réflectance (ou Albedo) = énergie lumineuse réfléchie/énergie lumineuse incidente

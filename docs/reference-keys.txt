@@ -80,14 +80,16 @@ work-with-lidar-data
 tools
 r-packages
 load-laz
+write-laz
 check-if-the-las-is-complete
 see-their-summaries
 plot
 trajectory
 clip-the-point-cloud
 classification
-generate-a-dtm-mnt
+ajouter-des-points-à-un-las-combiner-plusieurs-las
 caluler-des-métriques
+generate-a-dtm-mnt
 la-réflectance-albedo
 c
 plot-1
