@@ -58,7 +58,11 @@ time.taken
 + Indenter :  Ctrl + I  
 + Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)  
 
-+ **%in%** : Ctrl + Shift + I (nécéssite un package)  
++ **%in%** : Ctrl + Shift + I (nécéssite un package)
+Install the package:
+devtools::install_github("rstudio/addinexamples", type = "source")
+Restart R
+
 + **%>%** : Ctrl + Shift + M  
 
 ## Symbol/name, charactères, variable/objet tout le bazar
@@ -92,6 +96,7 @@ filenames <- list.files(path, pattern="*.csv", full.names=TRUE) # catch the name
 df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the folder files
 ```
 
++ Enregistrer en csv : **write.csv(objt, "path")**
 
 + Importer du shapefile (shp) :  
 **rgdal::readORG(dsn = "/path/to/your/file", layer = "filename")** ou  
@@ -238,6 +243,7 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 + Effectifs par ordre croissant : **arrange(N)**  
 + Effectifs par ordre décroissant : **arrange(desc(N))**  
 + Ordonner un vecteur : **sort(, decreasing = FALSE)**  
++ Ordonner des chiffres en character : **gtools::mixedsort(sort(filenames))**
 + Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis **arrange(var)**  
 + Selectionner les n valeurs maximales : **top_n**  
 + Afficher les 30 1ères lignes : **slice(1:30)**  
@@ -469,7 +475,8 @@ Df1 %>%
 ```
 
 
-+ filter par date et heures : **filter(Date >= as.Date("2023-03-30") & Hour >= chron(times="18:00:00"))**
++ filter par date et heures séparément : **filter(Date >= as.Date("2023-03-30") & Hour >= chron(times="18:00:00"))**
++ filter par date et heures au format Date-times : **filter(Time >= mdy_hms("03/30/2023 18:00:00"))**
 
 
   

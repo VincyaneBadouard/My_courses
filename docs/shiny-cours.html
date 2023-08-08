@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-03" />
+<meta name="date" content="2023-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#tools"><i class="fa fa-check"></i><b>4.1</b> Tools</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.1</b> R packages</a></li>
+<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#lastools"><i class="fa fa-check"></i><b>4.1.1</b> LAStools</a></li>
+<li class="chapter" data-level="4.1.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.2</b> R packages</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>4.2</b> Load laz</a></li>
 <li class="chapter" data-level="4.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#write-laz"><i class="fa fa-check"></i><b>4.3</b> Write laz</a></li>
@@ -527,18 +528,18 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <h1><span class="header-section-number">Cours 13</span> Shiny cours<a href="shiny-cours.html#shiny-cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="packages-1" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Packages<a href="shiny-cours.html#packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="shiny-cours.html#cb86-1" tabindex="-1"></a><span class="fu">library</span>(shiny) <span class="co"># Web Application Framework for R </span></span>
-<span id="cb86-2"><a href="shiny-cours.html#cb86-2" tabindex="-1"></a><span class="fu">library</span>(bslib) <span class="co"># aesthetic, thème et feuilles de style</span></span>
-<span id="cb86-3"><a href="shiny-cours.html#cb86-3" tabindex="-1"></a><span class="do">## bslib::bootswatch_themes() # pour voir ts les thèmes</span></span>
-<span id="cb86-4"><a href="shiny-cours.html#cb86-4" tabindex="-1"></a><span class="fu">library</span>(shinydashboard)</span>
-<span id="cb86-5"><a href="shiny-cours.html#cb86-5" tabindex="-1"></a><span class="do">## library(bs4Dash) # dashboard aussi. restart R session si on passe d&#39;un pkg à l&#39;autre (dont mode jour/nuit mais mal fait)</span></span>
-<span id="cb86-6"><a href="shiny-cours.html#cb86-6" tabindex="-1"></a><span class="fu">library</span>(shinyjs) <span class="co"># Improve the User Experience</span></span>
-<span id="cb86-7"><a href="shiny-cours.html#cb86-7" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb86-8"><a href="shiny-cours.html#cb86-8" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb86-9"><a href="shiny-cours.html#cb86-9" tabindex="-1"></a><span class="fu">library</span>(thematic) <span class="co"># Aesthetic, Unified and Automatic &#39;Theming&#39; of &#39;ggplot2&#39;, &#39;lattice&#39;, and &#39;base&#39; R Graphics </span></span>
-<span id="cb86-10"><a href="shiny-cours.html#cb86-10" tabindex="-1"></a><span class="fu">library</span>(DT) <span class="co"># Interactive table</span></span>
-<span id="cb86-11"><a href="shiny-cours.html#cb86-11" tabindex="-1"></a><span class="fu">library</span>(leaflet) <span class="co"># Interactive Web Maps</span></span>
-<span id="cb86-12"><a href="shiny-cours.html#cb86-12" tabindex="-1"></a><span class="fu">library</span>(plotly) <span class="co"># Interactive Web Graphics</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="shiny-cours.html#cb90-1" tabindex="-1"></a><span class="fu">library</span>(shiny) <span class="co"># Web Application Framework for R </span></span>
+<span id="cb90-2"><a href="shiny-cours.html#cb90-2" tabindex="-1"></a><span class="fu">library</span>(bslib) <span class="co"># aesthetic, thème et feuilles de style</span></span>
+<span id="cb90-3"><a href="shiny-cours.html#cb90-3" tabindex="-1"></a><span class="do">## bslib::bootswatch_themes() # pour voir ts les thèmes</span></span>
+<span id="cb90-4"><a href="shiny-cours.html#cb90-4" tabindex="-1"></a><span class="fu">library</span>(shinydashboard)</span>
+<span id="cb90-5"><a href="shiny-cours.html#cb90-5" tabindex="-1"></a><span class="do">## library(bs4Dash) # dashboard aussi. restart R session si on passe d&#39;un pkg à l&#39;autre (dont mode jour/nuit mais mal fait)</span></span>
+<span id="cb90-6"><a href="shiny-cours.html#cb90-6" tabindex="-1"></a><span class="fu">library</span>(shinyjs) <span class="co"># Improve the User Experience</span></span>
+<span id="cb90-7"><a href="shiny-cours.html#cb90-7" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb90-8"><a href="shiny-cours.html#cb90-8" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb90-9"><a href="shiny-cours.html#cb90-9" tabindex="-1"></a><span class="fu">library</span>(thematic) <span class="co"># Aesthetic, Unified and Automatic &#39;Theming&#39; of &#39;ggplot2&#39;, &#39;lattice&#39;, and &#39;base&#39; R Graphics </span></span>
+<span id="cb90-10"><a href="shiny-cours.html#cb90-10" tabindex="-1"></a><span class="fu">library</span>(DT) <span class="co"># Interactive table</span></span>
+<span id="cb90-11"><a href="shiny-cours.html#cb90-11" tabindex="-1"></a><span class="fu">library</span>(leaflet) <span class="co"># Interactive Web Maps</span></span>
+<span id="cb90-12"><a href="shiny-cours.html#cb90-12" tabindex="-1"></a><span class="fu">library</span>(plotly) <span class="co"># Interactive Web Graphics</span></span></code></pre></div>
 </div>
 <div id="tips-codeur" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> Tips codeur<a href="shiny-cours.html#tips-codeur" class="anchor-section" aria-label="Anchor link to header"></a></h2>

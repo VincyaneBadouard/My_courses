@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-03" />
+<meta name="date" content="2023-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#tools"><i class="fa fa-check"></i><b>4.1</b> Tools</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.1</b> R packages</a></li>
+<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#lastools"><i class="fa fa-check"></i><b>4.1.1</b> LAStools</a></li>
+<li class="chapter" data-level="4.1.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.2</b> R packages</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>4.2</b> Load laz</a></li>
 <li class="chapter" data-level="4.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#write-laz"><i class="fa fa-check"></i><b>4.3</b> Write laz</a></li>
@@ -538,8 +539,14 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <div id="tools" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Tools<a href="work-with-lidar-data.html#tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>logiciels : cloudcompare, Fugroviewer</p>
-<div id="r-packages" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> R packages<a href="work-with-lidar-data.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lastools" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> LAStools<a href="work-with-lidar-data.html#lastools" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using <a href="https://github.com/LAStools/LAStools">LAStools</a>,
+help <a href="https://lastools.github.io/">here</a>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="work-with-lidar-data.html#cb37-1" tabindex="-1"></a><span class="ex">las2dem</span> <span class="at">-i</span> input/Paracou_284500_581500.laz <span class="at">-o</span> output/dem.asc</span></code></pre></div>
+</div>
+<div id="r-packages" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> R packages<a href="work-with-lidar-data.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>lidR : <a href="https://github.com/r-lidar/lidR" class="uri">https://github.com/r-lidar/lidR</a> ; <a href="https://r-lidar.github.io/lidRbook/" class="uri">https://r-lidar.github.io/lidRbook/</a></p>
 </div>
 </div>
@@ -560,47 +567,47 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 - ID du point source
 - couleur RGB
 <a href="https://r-lidar.github.io/lidRbook/io.html" class="uri">https://r-lidar.github.io/lidRbook/io.html</a></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="work-with-lidar-data.html#cb35-1" tabindex="-1"></a>las1 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">readLAS</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span>
-<span id="cb35-2"><a href="work-with-lidar-data.html#cb35-2" tabindex="-1"></a><span class="co"># ou</span></span>
-<span id="cb35-3"><a href="work-with-lidar-data.html#cb35-3" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> rlas<span class="sc">::</span><span class="fu">read.las</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="work-with-lidar-data.html#cb38-1" tabindex="-1"></a>las1 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">readLAS</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span>
+<span id="cb38-2"><a href="work-with-lidar-data.html#cb38-2" tabindex="-1"></a><span class="co"># ou</span></span>
+<span id="cb38-3"><a href="work-with-lidar-data.html#cb38-3" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> rlas<span class="sc">::</span><span class="fu">read.las</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span></code></pre></div>
 <p>Load several laz</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="work-with-lidar-data.html#cb36-1" tabindex="-1"></a><span class="co"># readLAScatalog() creates a las catalog from a folder to search in</span></span>
-<span id="cb36-2"><a href="work-with-lidar-data.html#cb36-2" tabindex="-1"></a><span class="fu">readLAScatalog</span>(<span class="at">folder =</span> <span class="st">&quot;D:/Mes Donnees/PhD/Lidar&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;keep&quot;</span>) <span class="co"># las catalog</span></span>
-<span id="cb36-3"><a href="work-with-lidar-data.html#cb36-3" tabindex="-1"></a><span class="co"># readLAS(filter = &quot;-help&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="work-with-lidar-data.html#cb39-1" tabindex="-1"></a><span class="co"># readLAScatalog() creates a las catalog from a folder to search in</span></span>
+<span id="cb39-2"><a href="work-with-lidar-data.html#cb39-2" tabindex="-1"></a><span class="fu">readLAScatalog</span>(<span class="at">folder =</span> <span class="st">&quot;D:/Mes Donnees/PhD/Lidar&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;keep&quot;</span>) <span class="co"># las catalog</span></span>
+<span id="cb39-3"><a href="work-with-lidar-data.html#cb39-3" tabindex="-1"></a><span class="co"># readLAS(filter = &quot;-help&quot;)</span></span></code></pre></div>
 </div>
 <div id="write-laz" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Write laz<a href="work-with-lidar-data.html#write-laz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="work-with-lidar-data.html#cb37-1" tabindex="-1"></a><span class="fu">writeLAS</span>(las, <span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="work-with-lidar-data.html#cb40-1" tabindex="-1"></a><span class="fu">writeLAS</span>(las, <span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz&quot;</span>)</span></code></pre></div>
 </div>
 <div id="check-if-the-las-is-complete" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Check if the las is complete<a href="work-with-lidar-data.html#check-if-the-las-is-complete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="work-with-lidar-data.html#cb38-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span>
-<span id="cb38-2"><a href="work-with-lidar-data.html#cb38-2" tabindex="-1"></a><span class="co"># lidR::las_check(las2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="work-with-lidar-data.html#cb41-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span>
+<span id="cb41-2"><a href="work-with-lidar-data.html#cb41-2" tabindex="-1"></a><span class="co"># lidR::las_check(las2)</span></span></code></pre></div>
 </div>
 <div id="see-their-summaries" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> See their summaries<a href="work-with-lidar-data.html#see-their-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="work-with-lidar-data.html#cb39-1" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
-<span id="cb39-2"><a href="work-with-lidar-data.html#cb39-2" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
-<span id="cb39-3"><a href="work-with-lidar-data.html#cb39-3" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
-<span id="cb39-4"><a href="work-with-lidar-data.html#cb39-4" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
-<span id="cb39-5"><a href="work-with-lidar-data.html#cb39-5" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
-<span id="cb39-6"><a href="work-with-lidar-data.html#cb39-6" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="work-with-lidar-data.html#cb39-7" tabindex="-1"></a></span>
-<span id="cb39-8"><a href="work-with-lidar-data.html#cb39-8" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
-<span id="cb39-9"><a href="work-with-lidar-data.html#cb39-9" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
-<span id="cb39-10"><a href="work-with-lidar-data.html#cb39-10" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
-<span id="cb39-11"><a href="work-with-lidar-data.html#cb39-11" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
-<span id="cb39-12"><a href="work-with-lidar-data.html#cb39-12" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
-<span id="cb39-13"><a href="work-with-lidar-data.html#cb39-13" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="work-with-lidar-data.html#cb42-1" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
+<span id="cb42-2"><a href="work-with-lidar-data.html#cb42-2" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
+<span id="cb42-3"><a href="work-with-lidar-data.html#cb42-3" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
+<span id="cb42-4"><a href="work-with-lidar-data.html#cb42-4" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
+<span id="cb42-5"><a href="work-with-lidar-data.html#cb42-5" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
+<span id="cb42-6"><a href="work-with-lidar-data.html#cb42-6" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="work-with-lidar-data.html#cb42-7" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="work-with-lidar-data.html#cb42-8" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
+<span id="cb42-9"><a href="work-with-lidar-data.html#cb42-9" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
+<span id="cb42-10"><a href="work-with-lidar-data.html#cb42-10" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
+<span id="cb42-11"><a href="work-with-lidar-data.html#cb42-11" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
+<span id="cb42-12"><a href="work-with-lidar-data.html#cb42-12" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
+<span id="cb42-13"><a href="work-with-lidar-data.html#cb42-13" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
 </div>
 <div id="plot" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Plot<a href="work-with-lidar-data.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="work-with-lidar-data.html#cb40-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
-<span id="cb40-2"><a href="work-with-lidar-data.html#cb40-2" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="work-with-lidar-data.html#cb41-1" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
-<span id="cb41-2"><a href="work-with-lidar-data.html#cb41-2" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
-<span id="cb41-3"><a href="work-with-lidar-data.html#cb41-3" tabindex="-1"></a></span>
-<span id="cb41-4"><a href="work-with-lidar-data.html#cb41-4" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="work-with-lidar-data.html#cb43-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
+<span id="cb43-2"><a href="work-with-lidar-data.html#cb43-2" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="work-with-lidar-data.html#cb44-1" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
+<span id="cb44-2"><a href="work-with-lidar-data.html#cb44-2" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
+<span id="cb44-3"><a href="work-with-lidar-data.html#cb44-3" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="work-with-lidar-data.html#cb44-4" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
 </div>
 <div id="trajectory" class="section level2 hasAnchor" number="4.7">
 <h2><span class="header-section-number">4.7</span> Trajectory<a href="work-with-lidar-data.html#trajectory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -623,10 +630,10 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 - Angle du système d’axes par rapport au Nord (radian)
 - Accélération sur les axes X, Y, Z (m/s2)
 - Vitesse angulaire autour des axes X, Y, Z (rad/s)</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="work-with-lidar-data.html#cb42-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>)</span>
-<span id="cb42-2"><a href="work-with-lidar-data.html#cb42-2" tabindex="-1"></a>traj </span>
-<span id="cb42-3"><a href="work-with-lidar-data.html#cb42-3" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="work-with-lidar-data.html#cb42-4" tabindex="-1"></a><span class="fu">plot3d</span>(traj[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">aspect=</span>F) <span class="co"># plot the trajectory (x,y,z)</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="work-with-lidar-data.html#cb45-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>)</span>
+<span id="cb45-2"><a href="work-with-lidar-data.html#cb45-2" tabindex="-1"></a>traj </span>
+<span id="cb45-3"><a href="work-with-lidar-data.html#cb45-3" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="work-with-lidar-data.html#cb45-4" tabindex="-1"></a><span class="fu">plot3d</span>(traj[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">aspect=</span>F) <span class="co"># plot the trajectory (x,y,z)</span></span></code></pre></div>
 </div>
 <div id="clip-the-point-cloud" class="section level2 hasAnchor" number="4.8">
 <h2><span class="header-section-number">4.8</span> Clip the point cloud<a href="work-with-lidar-data.html#clip-the-point-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -641,59 +648,59 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 2 = sol
 9 = eau
 vegetation = 0,3,4,5</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="work-with-lidar-data.html#cb43-1" tabindex="-1"></a><span class="fu">table</span>(ST<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, veg = 3,4,5</span></span>
-<span id="cb43-2"><a href="work-with-lidar-data.html#cb43-2" tabindex="-1"></a>ST<span class="sc">@</span>data <span class="ot">&lt;-</span> ST<span class="sc">@</span>data[Classification <span class="sc">!=</span> <span class="dv">7</span>,] <span class="co"># enlever le bruit</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="work-with-lidar-data.html#cb46-1" tabindex="-1"></a><span class="fu">table</span>(ST<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, veg = 3,4,5</span></span>
+<span id="cb46-2"><a href="work-with-lidar-data.html#cb46-2" tabindex="-1"></a>ST<span class="sc">@</span>data <span class="ot">&lt;-</span> ST<span class="sc">@</span>data[Classification <span class="sc">!=</span> <span class="dv">7</span>,] <span class="co"># enlever le bruit</span></span></code></pre></div>
 <p>Classifier le sol</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="work-with-lidar-data.html#cb44-1" tabindex="-1"></a><span class="co"># Modèle numérique de terrain</span></span>
-<span id="cb44-2"><a href="work-with-lidar-data.html#cb44-2" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/mnt_roi36ha_1m.asc&quot;</span>)</span>
-<span id="cb44-3"><a href="work-with-lidar-data.html#cb44-3" tabindex="-1"></a><span class="fu">plot</span>(mnt)</span>
-<span id="cb44-4"><a href="work-with-lidar-data.html#cb44-4" tabindex="-1"></a></span>
-<span id="cb44-5"><a href="work-with-lidar-data.html#cb44-5" tabindex="-1"></a><span class="co"># Normaliser la hauteur du sol</span></span>
-<span id="cb44-6"><a href="work-with-lidar-data.html#cb44-6" tabindex="-1"></a>ST_norm <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">normalize_height</span>(ST, mnt) <span class="co"># applati le relief</span></span>
-<span id="cb44-7"><a href="work-with-lidar-data.html#cb44-7" tabindex="-1"></a><span class="fu">plot</span>(ST_norm)<span class="co"># sol plat</span></span>
-<span id="cb44-8"><a href="work-with-lidar-data.html#cb44-8" tabindex="-1"></a></span>
-<span id="cb44-9"><a href="work-with-lidar-data.html#cb44-9" tabindex="-1"></a><span class="co"># Classifier les points</span></span>
-<span id="cb44-10"><a href="work-with-lidar-data.html#cb44-10" tabindex="-1"></a>ST_norm<span class="sc">@</span>data[(Z<span class="sc">&gt;</span>(<span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">&amp;</span> Z<span class="sc">&lt;</span> <span class="fl">0.5</span>), Classification <span class="sc">:=</span> <span class="dv">2</span>] </span>
-<span id="cb44-11"><a href="work-with-lidar-data.html#cb44-11" tabindex="-1"></a></span>
-<span id="cb44-12"><a href="work-with-lidar-data.html#cb44-12" tabindex="-1"></a><span class="fu">table</span>(ST_norm<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, vegetation = 3,4,5</span></span>
-<span id="cb44-13"><a href="work-with-lidar-data.html#cb44-13" tabindex="-1"></a><span class="co"># plot(ST_norm, color = &quot;Classification&quot;) # trop long</span></span>
-<span id="cb44-14"><a href="work-with-lidar-data.html#cb44-14" tabindex="-1"></a></span>
-<span id="cb44-15"><a href="work-with-lidar-data.html#cb44-15" tabindex="-1"></a><span class="co"># Dénormaliser la hauteur du sol</span></span>
-<span id="cb44-16"><a href="work-with-lidar-data.html#cb44-16" tabindex="-1"></a>ST <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">unnormalize_height</span>(ST_norm) </span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="work-with-lidar-data.html#cb47-1" tabindex="-1"></a><span class="co"># Modèle numérique de terrain</span></span>
+<span id="cb47-2"><a href="work-with-lidar-data.html#cb47-2" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/mnt_roi36ha_1m.asc&quot;</span>)</span>
+<span id="cb47-3"><a href="work-with-lidar-data.html#cb47-3" tabindex="-1"></a><span class="fu">plot</span>(mnt)</span>
+<span id="cb47-4"><a href="work-with-lidar-data.html#cb47-4" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="work-with-lidar-data.html#cb47-5" tabindex="-1"></a><span class="co"># Normaliser la hauteur du sol</span></span>
+<span id="cb47-6"><a href="work-with-lidar-data.html#cb47-6" tabindex="-1"></a>ST_norm <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">normalize_height</span>(ST, mnt) <span class="co"># applati le relief</span></span>
+<span id="cb47-7"><a href="work-with-lidar-data.html#cb47-7" tabindex="-1"></a><span class="fu">plot</span>(ST_norm)<span class="co"># sol plat</span></span>
+<span id="cb47-8"><a href="work-with-lidar-data.html#cb47-8" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="work-with-lidar-data.html#cb47-9" tabindex="-1"></a><span class="co"># Classifier les points</span></span>
+<span id="cb47-10"><a href="work-with-lidar-data.html#cb47-10" tabindex="-1"></a>ST_norm<span class="sc">@</span>data[(Z<span class="sc">&gt;</span>(<span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">&amp;</span> Z<span class="sc">&lt;</span> <span class="fl">0.5</span>), Classification <span class="sc">:=</span> <span class="dv">2</span>] </span>
+<span id="cb47-11"><a href="work-with-lidar-data.html#cb47-11" tabindex="-1"></a></span>
+<span id="cb47-12"><a href="work-with-lidar-data.html#cb47-12" tabindex="-1"></a><span class="fu">table</span>(ST_norm<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, vegetation = 3,4,5</span></span>
+<span id="cb47-13"><a href="work-with-lidar-data.html#cb47-13" tabindex="-1"></a><span class="co"># plot(ST_norm, color = &quot;Classification&quot;) # trop long</span></span>
+<span id="cb47-14"><a href="work-with-lidar-data.html#cb47-14" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="work-with-lidar-data.html#cb47-15" tabindex="-1"></a><span class="co"># Dénormaliser la hauteur du sol</span></span>
+<span id="cb47-16"><a href="work-with-lidar-data.html#cb47-16" tabindex="-1"></a>ST <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">unnormalize_height</span>(ST_norm) </span></code></pre></div>
 </div>
 <div id="ajouter-des-points-à-un-las-combiner-plusieurs-las" class="section level2 hasAnchor" number="4.10">
 <h2><span class="header-section-number">4.10</span> Ajouter des points à un las, combiner plusieurs las<a href="work-with-lidar-data.html#ajouter-des-points-à-un-las-combiner-plusieurs-las" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="work-with-lidar-data.html#cb45-1" tabindex="-1"></a><span class="co"># transform in a LAS object</span></span>
-<span id="cb45-2"><a href="work-with-lidar-data.html#cb45-2" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">LAS</span>(vector_coord[,.(XB,YB,ZB)], las1<span class="sc">@</span>header)</span>
-<span id="cb45-3"><a href="work-with-lidar-data.html#cb45-3" tabindex="-1"></a></span>
-<span id="cb45-4"><a href="work-with-lidar-data.html#cb45-4" tabindex="-1"></a><span class="co"># This triggers some warning because we input some inccorectly quantized coordinates. Check the output of las_check()</span></span>
-<span id="cb45-5"><a href="work-with-lidar-data.html#cb45-5" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
-<span id="cb45-6"><a href="work-with-lidar-data.html#cb45-6" tabindex="-1"></a><span class="co"># We can fix that</span></span>
-<span id="cb45-7"><a href="work-with-lidar-data.html#cb45-7" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_quantize</span>(las2, <span class="cn">TRUE</span>)</span>
-<span id="cb45-8"><a href="work-with-lidar-data.html#cb45-8" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_update</span>(las2)</span>
-<span id="cb45-9"><a href="work-with-lidar-data.html#cb45-9" tabindex="-1"></a></span>
-<span id="cb45-10"><a href="work-with-lidar-data.html#cb45-10" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
-<span id="cb45-11"><a href="work-with-lidar-data.html#cb45-11" tabindex="-1"></a></span>
-<span id="cb45-12"><a href="work-with-lidar-data.html#cb45-12" tabindex="-1"></a><span class="co"># To combine the las1 and las2 they must have the same columns.</span></span>
-<span id="cb45-13"><a href="work-with-lidar-data.html#cb45-13" tabindex="-1"></a><span class="co"># We need to make them manually.</span></span>
-<span id="cb45-14"><a href="work-with-lidar-data.html#cb45-14" tabindex="-1"></a><span class="co"># Here if you load only XYZ in las the job is easier.</span></span>
-<span id="cb45-15"><a href="work-with-lidar-data.html#cb45-15" tabindex="-1"></a></span>
-<span id="cb45-16"><a href="work-with-lidar-data.html#cb45-16" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>gpstime <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb45-17"><a href="work-with-lidar-data.html#cb45-17" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Intensity <span class="ot">=</span> 0L</span>
-<span id="cb45-18"><a href="work-with-lidar-data.html#cb45-18" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ReturnNumber <span class="ot">=</span> 1L</span>
-<span id="cb45-19"><a href="work-with-lidar-data.html#cb45-19" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>NumberOfReturns <span class="ot">=</span> 1L</span>
-<span id="cb45-20"><a href="work-with-lidar-data.html#cb45-20" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanDirectionFlag <span class="ot">=</span> 0L</span>
-<span id="cb45-21"><a href="work-with-lidar-data.html#cb45-21" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>EdgeOfFlightline <span class="ot">=</span> 0L</span>
-<span id="cb45-22"><a href="work-with-lidar-data.html#cb45-22" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Classification <span class="ot">=</span> 0L</span>
-<span id="cb45-23"><a href="work-with-lidar-data.html#cb45-23" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Synthetic_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb45-24"><a href="work-with-lidar-data.html#cb45-24" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Keypoint_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb45-25"><a href="work-with-lidar-data.html#cb45-25" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Withheld_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb45-26"><a href="work-with-lidar-data.html#cb45-26" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanAngleRank <span class="ot">=</span> 0L</span>
-<span id="cb45-27"><a href="work-with-lidar-data.html#cb45-27" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>UserData <span class="ot">=</span> 0L</span>
-<span id="cb45-28"><a href="work-with-lidar-data.html#cb45-28" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>PointSourceID <span class="ot">=</span> 0L</span>
-<span id="cb45-29"><a href="work-with-lidar-data.html#cb45-29" tabindex="-1"></a></span>
-<span id="cb45-30"><a href="work-with-lidar-data.html#cb45-30" tabindex="-1"></a><span class="co"># Bind</span></span>
-<span id="cb45-31"><a href="work-with-lidar-data.html#cb45-31" tabindex="-1"></a>las3 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">rbind</span>(las1, las2)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="work-with-lidar-data.html#cb48-1" tabindex="-1"></a><span class="co"># transform in a LAS object</span></span>
+<span id="cb48-2"><a href="work-with-lidar-data.html#cb48-2" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">LAS</span>(vector_coord[,.(XB,YB,ZB)], las1<span class="sc">@</span>header)</span>
+<span id="cb48-3"><a href="work-with-lidar-data.html#cb48-3" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="work-with-lidar-data.html#cb48-4" tabindex="-1"></a><span class="co"># This triggers some warning because we input some inccorectly quantized coordinates. Check the output of las_check()</span></span>
+<span id="cb48-5"><a href="work-with-lidar-data.html#cb48-5" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
+<span id="cb48-6"><a href="work-with-lidar-data.html#cb48-6" tabindex="-1"></a><span class="co"># We can fix that</span></span>
+<span id="cb48-7"><a href="work-with-lidar-data.html#cb48-7" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_quantize</span>(las2, <span class="cn">TRUE</span>)</span>
+<span id="cb48-8"><a href="work-with-lidar-data.html#cb48-8" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_update</span>(las2)</span>
+<span id="cb48-9"><a href="work-with-lidar-data.html#cb48-9" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="work-with-lidar-data.html#cb48-10" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
+<span id="cb48-11"><a href="work-with-lidar-data.html#cb48-11" tabindex="-1"></a></span>
+<span id="cb48-12"><a href="work-with-lidar-data.html#cb48-12" tabindex="-1"></a><span class="co"># To combine the las1 and las2 they must have the same columns.</span></span>
+<span id="cb48-13"><a href="work-with-lidar-data.html#cb48-13" tabindex="-1"></a><span class="co"># We need to make them manually.</span></span>
+<span id="cb48-14"><a href="work-with-lidar-data.html#cb48-14" tabindex="-1"></a><span class="co"># Here if you load only XYZ in las the job is easier.</span></span>
+<span id="cb48-15"><a href="work-with-lidar-data.html#cb48-15" tabindex="-1"></a></span>
+<span id="cb48-16"><a href="work-with-lidar-data.html#cb48-16" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>gpstime <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb48-17"><a href="work-with-lidar-data.html#cb48-17" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Intensity <span class="ot">=</span> 0L</span>
+<span id="cb48-18"><a href="work-with-lidar-data.html#cb48-18" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ReturnNumber <span class="ot">=</span> 1L</span>
+<span id="cb48-19"><a href="work-with-lidar-data.html#cb48-19" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>NumberOfReturns <span class="ot">=</span> 1L</span>
+<span id="cb48-20"><a href="work-with-lidar-data.html#cb48-20" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanDirectionFlag <span class="ot">=</span> 0L</span>
+<span id="cb48-21"><a href="work-with-lidar-data.html#cb48-21" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>EdgeOfFlightline <span class="ot">=</span> 0L</span>
+<span id="cb48-22"><a href="work-with-lidar-data.html#cb48-22" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Classification <span class="ot">=</span> 0L</span>
+<span id="cb48-23"><a href="work-with-lidar-data.html#cb48-23" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Synthetic_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb48-24"><a href="work-with-lidar-data.html#cb48-24" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Keypoint_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb48-25"><a href="work-with-lidar-data.html#cb48-25" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Withheld_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb48-26"><a href="work-with-lidar-data.html#cb48-26" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanAngleRank <span class="ot">=</span> 0L</span>
+<span id="cb48-27"><a href="work-with-lidar-data.html#cb48-27" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>UserData <span class="ot">=</span> 0L</span>
+<span id="cb48-28"><a href="work-with-lidar-data.html#cb48-28" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>PointSourceID <span class="ot">=</span> 0L</span>
+<span id="cb48-29"><a href="work-with-lidar-data.html#cb48-29" tabindex="-1"></a></span>
+<span id="cb48-30"><a href="work-with-lidar-data.html#cb48-30" tabindex="-1"></a><span class="co"># Bind</span></span>
+<span id="cb48-31"><a href="work-with-lidar-data.html#cb48-31" tabindex="-1"></a>las3 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">rbind</span>(las1, las2)</span></code></pre></div>
 </div>
 <div id="caluler-des-métriques" class="section level2 hasAnchor" number="4.11">
 <h2><span class="header-section-number">4.11</span> Caluler des métriques<a href="work-with-lidar-data.html#caluler-des-métriques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -701,33 +708,33 @@ vegetation = 0,3,4,5</p>
 <h3><span class="header-section-number">4.11.1</span> Generate a DTM (MNT)<a href="work-with-lidar-data.html#generate-a-dtm-mnt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://r-lidar.github.io/lidRbook/dtm.html" class="uri">https://r-lidar.github.io/lidRbook/dtm.html</a>
 l’élévation est dans la variable Z (dtm$Z)</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="work-with-lidar-data.html#cb46-1" tabindex="-1"></a><span class="co"># Triangulation (généralement utilisée)</span></span>
-<span id="cb46-2"><a href="work-with-lidar-data.html#cb46-2" tabindex="-1"></a>dtm_tin <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb46-3"><a href="work-with-lidar-data.html#cb46-3" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_tin, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb46-4"><a href="work-with-lidar-data.html#cb46-4" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="work-with-lidar-data.html#cb46-5" tabindex="-1"></a><span class="co"># Invert distance weighting</span></span>
-<span id="cb46-6"><a href="work-with-lidar-data.html#cb46-6" tabindex="-1"></a>dtm_idw <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">knnidw</span>(<span class="at">k =</span> 10L, <span class="at">p =</span> <span class="dv">2</span>))</span>
-<span id="cb46-7"><a href="work-with-lidar-data.html#cb46-7" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_idw, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb46-8"><a href="work-with-lidar-data.html#cb46-8" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="work-with-lidar-data.html#cb46-9" tabindex="-1"></a><span class="co"># Kriging</span></span>
-<span id="cb46-10"><a href="work-with-lidar-data.html#cb46-10" tabindex="-1"></a>dtm_kriging <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">kriging</span>(<span class="at">k =</span> <span class="dv">40</span>))</span>
-<span id="cb46-11"><a href="work-with-lidar-data.html#cb46-11" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_kriging, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb46-12"><a href="work-with-lidar-data.html#cb46-12" tabindex="-1"></a></span>
-<span id="cb46-13"><a href="work-with-lidar-data.html#cb46-13" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> dtm_tin</span>
-<span id="cb46-14"><a href="work-with-lidar-data.html#cb46-14" tabindex="-1"></a></span>
-<span id="cb46-15"><a href="work-with-lidar-data.html#cb46-15" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb46-16"><a href="work-with-lidar-data.html#cb46-16" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> mnt, <span class="fu">aes</span>(<span class="at">fill =</span> Z)) <span class="sc">+</span></span>
-<span id="cb46-17"><a href="work-with-lidar-data.html#cb46-17" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">&quot;Elevation (m)&quot;</span>,</span>
-<span id="cb46-18"><a href="work-with-lidar-data.html#cb46-18" tabindex="-1"></a>                       <span class="at">colors =</span> <span class="fu">terrain.colors</span>(<span class="dv">20</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="work-with-lidar-data.html#cb49-1" tabindex="-1"></a><span class="co"># Triangulation (généralement utilisée)</span></span>
+<span id="cb49-2"><a href="work-with-lidar-data.html#cb49-2" tabindex="-1"></a>dtm_tin <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb49-3"><a href="work-with-lidar-data.html#cb49-3" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_tin, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb49-4"><a href="work-with-lidar-data.html#cb49-4" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="work-with-lidar-data.html#cb49-5" tabindex="-1"></a><span class="co"># Invert distance weighting</span></span>
+<span id="cb49-6"><a href="work-with-lidar-data.html#cb49-6" tabindex="-1"></a>dtm_idw <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">knnidw</span>(<span class="at">k =</span> 10L, <span class="at">p =</span> <span class="dv">2</span>))</span>
+<span id="cb49-7"><a href="work-with-lidar-data.html#cb49-7" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_idw, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb49-8"><a href="work-with-lidar-data.html#cb49-8" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="work-with-lidar-data.html#cb49-9" tabindex="-1"></a><span class="co"># Kriging</span></span>
+<span id="cb49-10"><a href="work-with-lidar-data.html#cb49-10" tabindex="-1"></a>dtm_kriging <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">kriging</span>(<span class="at">k =</span> <span class="dv">40</span>))</span>
+<span id="cb49-11"><a href="work-with-lidar-data.html#cb49-11" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_kriging, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb49-12"><a href="work-with-lidar-data.html#cb49-12" tabindex="-1"></a></span>
+<span id="cb49-13"><a href="work-with-lidar-data.html#cb49-13" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> dtm_tin</span>
+<span id="cb49-14"><a href="work-with-lidar-data.html#cb49-14" tabindex="-1"></a></span>
+<span id="cb49-15"><a href="work-with-lidar-data.html#cb49-15" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb49-16"><a href="work-with-lidar-data.html#cb49-16" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> mnt, <span class="fu">aes</span>(<span class="at">fill =</span> Z)) <span class="sc">+</span></span>
+<span id="cb49-17"><a href="work-with-lidar-data.html#cb49-17" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">&quot;Elevation (m)&quot;</span>,</span>
+<span id="cb49-18"><a href="work-with-lidar-data.html#cb49-18" tabindex="-1"></a>                       <span class="at">colors =</span> <span class="fu">terrain.colors</span>(<span class="dv">20</span>))</span></code></pre></div>
 </div>
 <div id="la-réflectance-albedo" class="section level3 hasAnchor" number="4.11.2">
 <h3><span class="header-section-number">4.11.2</span> La réflectance (albedo)<a href="work-with-lidar-data.html#la-réflectance-albedo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculer la réflectance apparente en ratio (albedo)</p>
 <p>Réflectance (ou Albedo) = énergie lumineuse réfléchie/énergie lumineuse incidente</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="work-with-lidar-data.html#cb47-1" tabindex="-1"></a>VP<span class="sc">$</span>initial_intensity <span class="ot">&lt;-</span> VP<span class="sc">$</span>Intensity </span>
-<span id="cb47-2"><a href="work-with-lidar-data.html#cb47-2" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="work-with-lidar-data.html#cb47-3" tabindex="-1"></a><span class="co"># Intensité = réflectance apparente en ratio (albedo)</span></span>
-<span id="cb47-4"><a href="work-with-lidar-data.html#cb47-4" tabindex="-1"></a>VP<span class="sc">$</span>Intensity <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>(VP<span class="sc">$</span>Reflectance<span class="sc">/</span><span class="dv">10</span>) <span class="co"># Réflectance initialment en decibel (et selon une référence connue)</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="work-with-lidar-data.html#cb50-1" tabindex="-1"></a>VP<span class="sc">$</span>initial_intensity <span class="ot">&lt;-</span> VP<span class="sc">$</span>Intensity </span>
+<span id="cb50-2"><a href="work-with-lidar-data.html#cb50-2" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="work-with-lidar-data.html#cb50-3" tabindex="-1"></a><span class="co"># Intensité = réflectance apparente en ratio (albedo)</span></span>
+<span id="cb50-4"><a href="work-with-lidar-data.html#cb50-4" tabindex="-1"></a>VP<span class="sc">$</span>Intensity <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>(VP<span class="sc">$</span>Reflectance<span class="sc">/</span><span class="dv">10</span>) <span class="co"># Réflectance initialment en decibel (et selon une référence connue)</span></span></code></pre></div>
 
 </div>
 </div>

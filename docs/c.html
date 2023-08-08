@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-03" />
+<meta name="date" content="2023-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#tools"><i class="fa fa-check"></i><b>4.1</b> Tools</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.1</b> R packages</a></li>
+<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#lastools"><i class="fa fa-check"></i><b>4.1.1</b> LAStools</a></li>
+<li class="chapter" data-level="4.1.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.2</b> R packages</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>4.2</b> Load laz</a></li>
 <li class="chapter" data-level="4.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#write-laz"><i class="fa fa-check"></i><b>4.3</b> Write laz</a></li>
@@ -539,14 +540,14 @@ Inconvénients : difficile à débugger
 <p><em>sourceCpp()</em> : compilation du .cpp</p>
 <p>Créer une fonction C++ :
 calculer le double d’un vecteur numérique</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="c.html#cb48-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb48-2"><a href="c.html#cb48-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
-<span id="cb48-3"><a href="c.html#cb48-3" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb48-4"><a href="c.html#cb48-4" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb48-5"><a href="c.html#cb48-5" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb48-6"><a href="c.html#cb48-6" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="c.html#cb51-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb51-2"><a href="c.html#cb51-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb51-3"><a href="c.html#cb51-3" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb51-4"><a href="c.html#cb51-4" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb51-5"><a href="c.html#cb51-5" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb51-6"><a href="c.html#cb51-6" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>-&gt; Une fct R du meme nom que la fct C++ s’est créée</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="c.html#cb49-1" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="c.html#cb52-1" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 
 </div>
             </section>

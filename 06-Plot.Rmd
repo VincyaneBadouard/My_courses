@@ -20,10 +20,14 @@ https://www.data-to-viz.com/caveats.html
 + Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
 
 ## Des couleurs
+Voir les palettes : **RColorBrewer::display.brewer.all()**  
 
 + Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
 ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**  
-Voir les palettes : **RColorBrewer::display.brewer.all()**  
+
++ utiliser une palette, donner un nombre de couleur et inverser la palette : **scale_fill_gradientn(name = "Altitude", colors = terrain.colors(45, rev=T))** # rev = T pour inverser la palette
+
++ n'importe quelle palette : **scale_fill_gradientn(name = "TWI", colors =  hcl.colors(12, "nom de la pallette", rev = T))**
 
 
 ## Des histoires de texte

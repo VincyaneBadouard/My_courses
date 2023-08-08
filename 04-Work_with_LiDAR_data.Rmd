@@ -24,6 +24,15 @@ Fichiers :
 ## Tools
 logiciels : cloudcompare, Fugroviewer
 
+### LAStools
+
+Using [LAStools](https://github.com/LAStools/LAStools),
+help [here](https://lastools.github.io/).
+
+```{bash}
+las2dem -i input/Paracou_284500_581500.laz -o output/dem.asc
+```
+
 ### R packages
 lidR : https://github.com/r-lidar/lidR ; https://r-lidar.github.io/lidRbook/
 

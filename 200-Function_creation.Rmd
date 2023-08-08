@@ -347,6 +347,38 @@ foreach (i=1:3) %dopar% {
 
 When you're done, clean up the cluster : *stopImplicitCluster()*
 
+```{r}
+cores = 2
+j = length(lases)
+
+# l'enregistrement des clusters
+cl <- parallel::makeCluster(cores)
+doSNOW::registerDoSNOW(cl)
+
+# la progressbar
+pb <- txtProgressBar(max = j, style = 3)
+progress <- function(n) setTxtProgressBar(pb, n)
+opts <- list(progress = progress)
+
+output <- foreach::foreach(
+  i=1:j,
+  .packages = c("magrittr"), .options.snow = opts
+) %dopar% {
+  print(i)
+  las_to_dem(lases[i], 
+             las_path = las_path,
+             mnt_path = mnt_path)
+  
+}
+
+# close the progressbar
+close(pb)
+# close the cluster
+stopCluster(cl)
+
+```
+
+
 
 ## Choses à savoir
 

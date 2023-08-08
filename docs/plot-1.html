@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-03" />
+<meta name="date" content="2023-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#tools"><i class="fa fa-check"></i><b>4.1</b> Tools</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.1</b> R packages</a></li>
+<li class="chapter" data-level="4.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#lastools"><i class="fa fa-check"></i><b>4.1.1</b> LAStools</a></li>
+<li class="chapter" data-level="4.1.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>4.1.2</b> R packages</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>4.2</b> Load laz</a></li>
 <li class="chapter" data-level="4.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#write-laz"><i class="fa fa-check"></i><b>4.3</b> Write laz</a></li>
@@ -552,10 +553,12 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 </div>
 <div id="des-couleurs" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Des couleurs<a href="plot-1.html#des-couleurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></p>
 <ul>
-<li>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories<br />
-ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white”)</strong><br />
-Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
+<li><p>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories<br />
+ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white”)</strong></p></li>
+<li><p>utiliser une palette, donner un nombre de couleur et inverser la palette : <strong>scale_fill_gradientn(name = “Altitude”, colors = terrain.colors(45, rev=T))</strong> # rev = T pour inverser la palette</p></li>
+<li><p>n’importe quelle palette : <strong>scale_fill_gradientn(name = “TWI”, colors = hcl.colors(12, “nom de la pallette”, rev = T))</strong></p></li>
 </ul>
 </div>
 <div id="des-histoires-de-texte" class="section level2 hasAnchor" number="6.6">
@@ -576,21 +579,21 @@ Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong></li>
 </ul>
 <div id="double-axes" class="section level3 hasAnchor" number="6.7.1">
 <h3><span class="header-section-number">6.7.1</span> Double axes<a href="plot-1.html#double-axes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="plot-1.html#cb50-1" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
-<span id="cb50-2"><a href="plot-1.html#cb50-2" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb50-3"><a href="plot-1.html#cb50-3" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
-<span id="cb50-4"><a href="plot-1.html#cb50-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb50-5"><a href="plot-1.html#cb50-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
-<span id="cb50-6"><a href="plot-1.html#cb50-6" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb50-7"><a href="plot-1.html#cb50-7" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
-<span id="cb50-8"><a href="plot-1.html#cb50-8" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
-<span id="cb50-9"><a href="plot-1.html#cb50-9" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
-<span id="cb50-10"><a href="plot-1.html#cb50-10" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
-<span id="cb50-11"><a href="plot-1.html#cb50-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb50-12"><a href="plot-1.html#cb50-12" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb50-13"><a href="plot-1.html#cb50-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
-<span id="cb50-14"><a href="plot-1.html#cb50-14" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb50-15"><a href="plot-1.html#cb50-15" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="plot-1.html#cb53-1" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
+<span id="cb53-2"><a href="plot-1.html#cb53-2" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb53-3"><a href="plot-1.html#cb53-3" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="plot-1.html#cb53-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb53-5"><a href="plot-1.html#cb53-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="plot-1.html#cb53-6" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb53-7"><a href="plot-1.html#cb53-7" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
+<span id="cb53-8"><a href="plot-1.html#cb53-8" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb53-9"><a href="plot-1.html#cb53-9" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
+<span id="cb53-10"><a href="plot-1.html#cb53-10" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
+<span id="cb53-11"><a href="plot-1.html#cb53-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb53-12"><a href="plot-1.html#cb53-12" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb53-13"><a href="plot-1.html#cb53-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb53-14"><a href="plot-1.html#cb53-14" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb53-15"><a href="plot-1.html#cb53-15" tabindex="-1"></a>  ) </span></code></pre></div>
 </div>
 </div>
 <div id="multi-plots" class="section level2 hasAnchor" number="6.8">
@@ -610,13 +613,13 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 </div>
 <div id="légende" class="section level2 hasAnchor" number="6.9">
 <h2><span class="header-section-number">6.9</span> Légende<a href="plot-1.html#légende" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="plot-1.html#cb51-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>,</span>
-<span id="cb51-2"><a href="plot-1.html#cb51-2" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">&quot;Reality&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="plot-1.html#cb51-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> Piquets_theor, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">colour =</span> <span class="st">&quot;Expectation&quot;</span>), <span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb51-4"><a href="plot-1.html#cb51-4" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span> <span class="ot">=</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="co"># pour donner un nom à chaque intitulé</span></span>
-<span id="cb51-5"><a href="plot-1.html#cb51-5" tabindex="-1"></a>                                 <span class="st">&quot;Expectation&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>),</span>
-<span id="cb51-6"><a href="plot-1.html#cb51-6" tabindex="-1"></a>                      <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span>, <span class="st">&quot;Expectation&quot;</span>)) <span class="sc">+</span> <span class="co"># pour ordonner</span></span>
-<span id="cb51-7"><a href="plot-1.html#cb51-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Stakes position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="plot-1.html#cb54-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>,</span>
+<span id="cb54-2"><a href="plot-1.html#cb54-2" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">&quot;Reality&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb54-3"><a href="plot-1.html#cb54-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> Piquets_theor, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">colour =</span> <span class="st">&quot;Expectation&quot;</span>), <span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb54-4"><a href="plot-1.html#cb54-4" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span> <span class="ot">=</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="co"># pour donner un nom à chaque intitulé</span></span>
+<span id="cb54-5"><a href="plot-1.html#cb54-5" tabindex="-1"></a>                                 <span class="st">&quot;Expectation&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb54-6"><a href="plot-1.html#cb54-6" tabindex="-1"></a>                      <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span>, <span class="st">&quot;Expectation&quot;</span>)) <span class="sc">+</span> <span class="co"># pour ordonner</span></span>
+<span id="cb54-7"><a href="plot-1.html#cb54-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Stakes position&quot;</span>)</span></code></pre></div>
 </div>
 <div id="en-3d-1" class="section level2 hasAnchor" number="6.10">
 <h2><span class="header-section-number">6.10</span> En 3D<a href="plot-1.html#en-3d-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>

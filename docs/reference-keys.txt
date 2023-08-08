@@ -78,6 +78,7 @@ sf-package
 en-3d
 work-with-lidar-data
 tools
+lastools
 r-packages
 load-laz
 write-laz
