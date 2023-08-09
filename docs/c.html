@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-08" />
+<meta name="date" content="2023-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -540,14 +540,14 @@ Inconvénients : difficile à débugger
 <p><em>sourceCpp()</em> : compilation du .cpp</p>
 <p>Créer une fonction C++ :
 calculer le double d’un vecteur numérique</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="c.html#cb51-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb51-2"><a href="c.html#cb51-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
-<span id="cb51-3"><a href="c.html#cb51-3" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb51-4"><a href="c.html#cb51-4" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb51-5"><a href="c.html#cb51-5" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb51-6"><a href="c.html#cb51-6" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="c.html#cb52-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb52-2"><a href="c.html#cb52-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb52-3"><a href="c.html#cb52-3" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb52-4"><a href="c.html#cb52-4" tabindex="-1"></a>NumericVector timesTwo<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb52-5"><a href="c.html#cb52-5" tabindex="-1"></a><span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb52-6"><a href="c.html#cb52-6" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>-&gt; Une fct R du meme nom que la fct C++ s’est créée</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="c.html#cb52-1" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="c.html#cb53-1" tabindex="-1"></a><span class="fu">timesTwo</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 
 </div>
             </section>

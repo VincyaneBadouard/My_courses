@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-08" />
+<meta name="date" content="2023-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -587,15 +587,15 @@ Interet : faciliter la convergence et faire suivre le meme chemin à tout ceux q
 Il calule des différences donc le meilleur est à 0. Il faut avoir la valeur la plus haute.</p></li>
 </ul>
 <p>Dans le stan file :</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode stan"><code class="sourceCode stan"><span id="cb104-1"><a href="bayesian-and-stan-langage.html#cb104-1" tabindex="-1"></a></span>
-<span id="cb104-2"><a href="bayesian-and-stan-langage.html#cb104-2" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
-<span id="cb104-3"><a href="bayesian-and-stan-langage.html#cb104-3" tabindex="-1"></a>  <span class="dt">vector</span>[I] log_lik ;                            <span class="co">## vraisemblance pour chaque obs</span></span>
-<span id="cb104-4"><a href="bayesian-and-stan-langage.html#cb104-4" tabindex="-1"></a>  <span class="dt">vector</span>[I] prediction ;</span>
-<span id="cb104-5"><a href="bayesian-and-stan-langage.html#cb104-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span>:I){</span>
-<span id="cb104-6"><a href="bayesian-and-stan-langage.html#cb104-6" tabindex="-1"></a>    log_lik[i] = fct_lpmf(y[i] | theta[i]) ;     <span class="co">## pour loo.</span></span>
-<span id="cb104-7"><a href="bayesian-and-stan-langage.html#cb104-7" tabindex="-1"></a>    <span class="co">##lpmf -&gt; masse de proba (cas var discrète). ...loi de densité (cas var continue)</span></span>
-<span id="cb104-8"><a href="bayesian-and-stan-langage.html#cb104-8" tabindex="-1"></a>    prediction[i] = fct_rng(theta[i]) ;         <span class="co">## pour ppc_dens_overlay(). rng -&gt; génération de </span></span>
-<span id="cb104-9"><a href="bayesian-and-stan-langage.html#cb104-9" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode stan"><code class="sourceCode stan"><span id="cb105-1"><a href="bayesian-and-stan-langage.html#cb105-1" tabindex="-1"></a></span>
+<span id="cb105-2"><a href="bayesian-and-stan-langage.html#cb105-2" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb105-3"><a href="bayesian-and-stan-langage.html#cb105-3" tabindex="-1"></a>  <span class="dt">vector</span>[I] log_lik ;                            <span class="co">## vraisemblance pour chaque obs</span></span>
+<span id="cb105-4"><a href="bayesian-and-stan-langage.html#cb105-4" tabindex="-1"></a>  <span class="dt">vector</span>[I] prediction ;</span>
+<span id="cb105-5"><a href="bayesian-and-stan-langage.html#cb105-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span>:I){</span>
+<span id="cb105-6"><a href="bayesian-and-stan-langage.html#cb105-6" tabindex="-1"></a>    log_lik[i] = fct_lpmf(y[i] | theta[i]) ;     <span class="co">## pour loo.</span></span>
+<span id="cb105-7"><a href="bayesian-and-stan-langage.html#cb105-7" tabindex="-1"></a>    <span class="co">##lpmf -&gt; masse de proba (cas var discrète). ...loi de densité (cas var continue)</span></span>
+<span id="cb105-8"><a href="bayesian-and-stan-langage.html#cb105-8" tabindex="-1"></a>    prediction[i] = fct_rng(theta[i]) ;         <span class="co">## pour ppc_dens_overlay(). rng -&gt; génération de </span></span>
+<span id="cb105-9"><a href="bayesian-and-stan-langage.html#cb105-9" tabindex="-1"></a>  }</span></code></pre></div>
 </div>
 <div id="rapidité" class="section level2 hasAnchor" number="18.7">
 <h2><span class="header-section-number">18.7</span> Rapidité<a href="bayesian-and-stan-langage.html#rapidité" class="anchor-section" aria-label="Anchor link to header"></a></h2>

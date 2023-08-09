@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-08" />
+<meta name="date" content="2023-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ Autres cours:<br />
 <a href="https://bookdown.org/yihui/rmarkdown-cookbook/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/</a></p>
 <div id="packages" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Packages<a href="rmarkdown.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="rmarkdown.html#cb55-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;blogdown&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;citr&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="rmarkdown.html#cb56-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;blogdown&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;citr&quot;</span>))</span></code></pre></div>
 <p>texte
 ## Titre</p>
 <div id="sous-titre" class="section level3 hasAnchor" number="7.1.1">
@@ -573,22 +573,22 @@ message=FALSE : ne pas afficher les messages</p>
 </div>
 <div id="spécifier-un-working-directory-différent-de-celui-du-fichier" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Spécifier un working directory différent de celui du fichier<a href="rmarkdown.html#spécifier-un-working-directory-différent-de-celui-du-fichier" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="rmarkdown.html#cb56-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">&#39;chemin&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="rmarkdown.html#cb57-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">&#39;chemin&#39;</span>)</span></code></pre></div>
 </div>
 <div id="table" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Table<a href="rmarkdown.html#table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="rmarkdown.html#cb57-1" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
-<span id="cb57-2"><a href="rmarkdown.html#cb57-2" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
-<span id="cb57-3"><a href="rmarkdown.html#cb57-3" tabindex="-1"></a>              <span class="at">caption =</span> </span>
-<span id="cb57-4"><a href="rmarkdown.html#cb57-4" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="rmarkdown.html#cb58-1" tabindex="-1"></a><span class="do">##la fonction &quot;kable&quot; dans &quot;knitr&quot;</span></span>
+<span id="cb58-2"><a href="rmarkdown.html#cb58-2" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="co">#les en-têtes de &quot;cars&quot;</span></span>
+<span id="cb58-3"><a href="rmarkdown.html#cb58-3" tabindex="-1"></a>              <span class="at">caption =</span> </span>
+<span id="cb58-4"><a href="rmarkdown.html#cb58-4" tabindex="-1"></a>                <span class="st">&quot;Légende.&quot;</span>)</span></code></pre></div>
 </div>
 <div id="figure" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Figure<a href="rmarkdown.html#figure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>fig.cap = "Caption."</code> pour la légende d’une figure
 <code>fig.height = 8, fig.width=4</code> pour la taille de la figure</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="rmarkdown.html#cb58-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb58-2"><a href="rmarkdown.html#cb58-2" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
-<span id="cb58-3"><a href="rmarkdown.html#cb58-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="rmarkdown.html#cb59-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb59-2"><a href="rmarkdown.html#cb59-2" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist))<span class="sc">+</span></span>
+<span id="cb59-3"><a href="rmarkdown.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 </div>
 <div id="equations" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Equations<a href="rmarkdown.html#equations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -614,8 +614,8 @@ On peut aussi préciser le formation de citation avec un fichier <code>.csl</cod
 <div id="références-croisées" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Références croisées<a href="rmarkdown.html#références-croisées" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Les références croisées nécessite d’utiliser le package <code>bookdown</code> même sans faire un livre à partir des formats <code>documents2</code>. Elle se font avec <strong>SLASH + @ + ref + ( + type + : + nom du chunk + )</strong>. Par exemple je fais référence à la table <a href="#tab:tableRef"><strong>??</strong></a> et la figure <a href="#fig:figureRef"><strong>??</strong></a>.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="rmarkdown.html#cb59-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="at">caption =</span> <span class="st">&quot;Ceci est une table.&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="rmarkdown.html#cb60-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="rmarkdown.html#cb60-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(cars), <span class="at">caption =</span> <span class="st">&quot;Ceci est une table.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="rmarkdown.html#cb61-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 </div>
 <div id="cache" class="section level2 hasAnchor" number="7.10">
 <h2><span class="header-section-number">7.10</span> Cache<a href="rmarkdown.html#cache" class="anchor-section" aria-label="Anchor link to header"></a></h2>

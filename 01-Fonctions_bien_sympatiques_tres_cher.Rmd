@@ -68,7 +68,17 @@ Restart R
 ## Symbol/name, charactères, variable/objet tout le bazar
 + nom d'objet -> ce nom en characteres : **deparse(substitute(var))**  
 + chaine de characteres -> nom d'objet : **as.name("name")**  
-+ chaine de characteres -> objet : **get("var")**  
++ chaine de characteres -> objet : **get("var")**  ou **{{var}}**
+ou **...** (https://dplyr.tidyverse.org/articles/programming.html) :
+```{r}
+my_summarise <- function(.data, ...) {
+  .data %>%
+    group_by(...) %>%
+    summarise(mass = mean(mass, na.rm = TRUE), height = mean(height, na.rm = TRUE))
+}
+starwars %>% my_summarise(sex, gender)
+```
+
 
 ## Charger les données
 
@@ -126,6 +136,8 @@ si ya erreur essayer : **"'1' = 'A' ; '2' = 'B'"** guillemets double et simple e
 Sous plusieurs conditions : séparer les conditions d'un **&**  
 
 + Changer le nombre de décimales : **format(x, digits = 0, scientific = F)** ou **round(x, digits = 0)**  
++ Arrondir tout un df sur uniquement les variables numériques :  *mutate_if(is.numeric, round, digits = 2)*
+
 
 + effectuer par ligne : **rowise**  
 
