@@ -4,9 +4,10 @@
 
 ## Corrélations 
 
-*Une base de données uniquement quantitatives à tester :*
+*Une base de données uniquement quantitatives et sans NA à tester :*
 baseforcor <- rootsmassMarco %>% 
-  select(-var quali) 
+  select(-var quali) %>% 
+  na.omit()
 
 *pas besoin de tester la normalité si n>30.*
 

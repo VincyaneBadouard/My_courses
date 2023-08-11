@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-08-09" />
+<meta name="date" content="2023-08-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -526,15 +526,15 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 </div>
 <div id="introduction-à-stan" class="section level1 hasAnchor" number="15">
 <h1><span class="header-section-number">Cours 15</span> Introduction à Stan<a href="introduction-à-stan.html#introduction-à-stan" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="introduction-à-stan.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb92-2"><a href="introduction-à-stan.html#cb92-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb92-3"><a href="introduction-à-stan.html#cb92-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb92-4"><a href="introduction-à-stan.html#cb92-4" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>) <span class="co">#option pour ne pas recompiler à chaque fois !!! gain de temps</span></span>
-<span id="cb92-5"><a href="introduction-à-stan.html#cb92-5" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()) <span class="co">#option pour ajouter des coeurs au calcul</span></span>
-<span id="cb92-6"><a href="introduction-à-stan.html#cb92-6" tabindex="-1"></a><span class="fu">library</span>(bayesplot) <span class="co">#visualiser la chaine de Markov</span></span>
-<span id="cb92-7"><a href="introduction-à-stan.html#cb92-7" tabindex="-1"></a><span class="fu">library</span>(shinystan) <span class="co">#for interactive stan output visualization</span></span>
-<span id="cb92-8"><a href="introduction-à-stan.html#cb92-8" tabindex="-1"></a><span class="fu">library</span>(rstanarm) <span class="co">#for Bayesian automatic regression modelling using stan</span></span>
-<span id="cb92-9"><a href="introduction-à-stan.html#cb92-9" tabindex="-1"></a><span class="fu">library</span>(brms) <span class="co">#Bayesian generalized multivariate non-linear multilevel models using stan</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introduction-à-stan.html#cb93-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb93-2"><a href="introduction-à-stan.html#cb93-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb93-3"><a href="introduction-à-stan.html#cb93-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb93-4"><a href="introduction-à-stan.html#cb93-4" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>) <span class="co">#option pour ne pas recompiler à chaque fois !!! gain de temps</span></span>
+<span id="cb93-5"><a href="introduction-à-stan.html#cb93-5" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()) <span class="co">#option pour ajouter des coeurs au calcul</span></span>
+<span id="cb93-6"><a href="introduction-à-stan.html#cb93-6" tabindex="-1"></a><span class="fu">library</span>(bayesplot) <span class="co">#visualiser la chaine de Markov</span></span>
+<span id="cb93-7"><a href="introduction-à-stan.html#cb93-7" tabindex="-1"></a><span class="fu">library</span>(shinystan) <span class="co">#for interactive stan output visualization</span></span>
+<span id="cb93-8"><a href="introduction-à-stan.html#cb93-8" tabindex="-1"></a><span class="fu">library</span>(rstanarm) <span class="co">#for Bayesian automatic regression modelling using stan</span></span>
+<span id="cb93-9"><a href="introduction-à-stan.html#cb93-9" tabindex="-1"></a><span class="fu">library</span>(brms) <span class="co">#Bayesian generalized multivariate non-linear multilevel models using stan</span></span></code></pre></div>
 <div id="pourquoi-les-stats-bayesiennes" class="section level2 hasAnchor" number="15.1">
 <h2><span class="header-section-number">15.1</span> Pourquoi les stats bayesiennes ?<a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
@@ -567,26 +567,26 @@ On déclare le nom des paramètres et leurs bornes si on le souhaite</p>
 - sinon prior non-informatif
 - écriture du modèle (vraissemenblance)</p>
 <p><em>Les priors doivent être définis sous sens biologique/écologique</em></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introduction-à-stan.html#cb93-1" tabindex="-1"></a>GLOPNET <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;GLOPNET.csv&quot;</span>, <span class="at">skip=</span><span class="dv">10</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="introduction-à-stan.html#cb94-1" tabindex="-1"></a>LES <span class="ot">&lt;-</span> GLOPNET <span class="sc">%&gt;%</span> </span>
-<span id="cb94-2"><a href="introduction-à-stan.html#cb94-2" tabindex="-1"></a>  <span class="fu">filter</span>(BIOME<span class="sc">==</span><span class="st">&quot;TROP_RF&quot;</span>, GF <span class="sc">==</span> <span class="st">&quot;T&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb94-3"><a href="introduction-à-stan.html#cb94-3" tabindex="-1"></a>  <span class="fu">select</span>(Dataset, Species, <span class="st">&quot;log LL&quot;</span>, <span class="st">&quot;log LMA&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb94-4"><a href="introduction-à-stan.html#cb94-4" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="co">#le bayesien ne supporte pas les NA</span></span></code></pre></div>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="introduction-à-stan.html#cb95-1" tabindex="-1"></a>LES <span class="sc">%&gt;%</span> </span>
-<span id="cb95-2"><a href="introduction-à-stan.html#cb95-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">log LMA</span><span class="st">`</span>, <span class="st">`</span><span class="at">log LL</span><span class="st">`</span>, <span class="at">col=</span>Dataset)) <span class="sc">+</span></span>
-<span id="cb95-3"><a href="introduction-à-stan.html#cb95-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb95-4"><a href="introduction-à-stan.html#cb95-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithm of Leaf Mass per Area (LMA)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb95-5"><a href="introduction-à-stan.html#cb95-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Logarythm of Leaf Lifespan (LL)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="introduction-à-stan.html#cb94-1" tabindex="-1"></a>GLOPNET <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;GLOPNET.csv&quot;</span>, <span class="at">skip=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="introduction-à-stan.html#cb95-1" tabindex="-1"></a>LES <span class="ot">&lt;-</span> GLOPNET <span class="sc">%&gt;%</span> </span>
+<span id="cb95-2"><a href="introduction-à-stan.html#cb95-2" tabindex="-1"></a>  <span class="fu">filter</span>(BIOME<span class="sc">==</span><span class="st">&quot;TROP_RF&quot;</span>, GF <span class="sc">==</span> <span class="st">&quot;T&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-3"><a href="introduction-à-stan.html#cb95-3" tabindex="-1"></a>  <span class="fu">select</span>(Dataset, Species, <span class="st">&quot;log LL&quot;</span>, <span class="st">&quot;log LMA&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-4"><a href="introduction-à-stan.html#cb95-4" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="co">#le bayesien ne supporte pas les NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="introduction-à-stan.html#cb96-1" tabindex="-1"></a>LES <span class="sc">%&gt;%</span> </span>
+<span id="cb96-2"><a href="introduction-à-stan.html#cb96-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">log LMA</span><span class="st">`</span>, <span class="st">`</span><span class="at">log LL</span><span class="st">`</span>, <span class="at">col=</span>Dataset)) <span class="sc">+</span></span>
+<span id="cb96-3"><a href="introduction-à-stan.html#cb96-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb96-4"><a href="introduction-à-stan.html#cb96-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithm of Leaf Mass per Area (LMA)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb96-5"><a href="introduction-à-stan.html#cb96-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Logarythm of Leaf Lifespan (LL)&quot;</span>)</span></code></pre></div>
 <p>Modèle proposé :</p>
 <p>_log LL ~ N(alpha + beta *log LMA, sigma^2)_ -&gt; régression linéaire
 à mettre dans un fichier stan</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="introduction-à-stan.html#cb96-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb96-2"><a href="introduction-à-stan.html#cb96-2" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(LES) [<span class="dv">1</span>], <span class="co">#les noms des var doivent etre les memes que dans le fichier stan</span></span>
-<span id="cb96-3"><a href="introduction-à-stan.html#cb96-3" tabindex="-1"></a>  <span class="at">logLMA =</span> LES<span class="sc">$</span><span class="st">&quot;log LMA&quot;</span>,</span>
-<span id="cb96-4"><a href="introduction-à-stan.html#cb96-4" tabindex="-1"></a>  <span class="at">logLL =</span> LES<span class="sc">$</span><span class="st">&quot;log LL&quot;</span></span>
-<span id="cb96-5"><a href="introduction-à-stan.html#cb96-5" tabindex="-1"></a>  )</span>
-<span id="cb96-6"><a href="introduction-à-stan.html#cb96-6" tabindex="-1"></a></span>
-<span id="cb96-7"><a href="introduction-à-stan.html#cb96-7" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;stan.stan&quot;</span>, <span class="at">data =</span> data) <span class="co">#LET&#39;S GOOOO! Données injectées, compilation lancée !</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="introduction-à-stan.html#cb97-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb97-2"><a href="introduction-à-stan.html#cb97-2" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(LES) [<span class="dv">1</span>], <span class="co">#les noms des var doivent etre les memes que dans le fichier stan</span></span>
+<span id="cb97-3"><a href="introduction-à-stan.html#cb97-3" tabindex="-1"></a>  <span class="at">logLMA =</span> LES<span class="sc">$</span><span class="st">&quot;log LMA&quot;</span>,</span>
+<span id="cb97-4"><a href="introduction-à-stan.html#cb97-4" tabindex="-1"></a>  <span class="at">logLL =</span> LES<span class="sc">$</span><span class="st">&quot;log LL&quot;</span></span>
+<span id="cb97-5"><a href="introduction-à-stan.html#cb97-5" tabindex="-1"></a>  )</span>
+<span id="cb97-6"><a href="introduction-à-stan.html#cb97-6" tabindex="-1"></a></span>
+<span id="cb97-7"><a href="introduction-à-stan.html#cb97-7" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;stan.stan&quot;</span>, <span class="at">data =</span> data) <span class="co">#LET&#39;S GOOOO! Données injectées, compilation lancée !</span></span></code></pre></div>
 <ul>
 <li>Nombre de chaine par défaut mais on peut choisir, 4 c’est le minimum pour interpréter les graphes.</li>
 <li>thin = période d’amaigrissement = pas de l’itération</li>
@@ -596,14 +596,14 @@ On déclare le nom des paramètres et leurs bornes si on le souhaite</p>
 <li>Rhat doit être égal à 1 (ou 1.1): ça veut dire que l’estimation des paramètres a réussi à converger</li>
 </ul>
 <p>Ici les chaînes n’ont pas réusi à converger, et ce sont perdues (tres peu de chaînes effectives).</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="introduction-à-stan.html#cb97-1" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit1), <span class="co">#as.array = comme vecteurs</span></span>
-<span id="cb97-2"><a href="introduction-à-stan.html#cb97-2" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="co">#pour mettre en lettre greques</span></span>
-<span id="cb97-3"><a href="introduction-à-stan.html#cb97-3" tabindex="-1"></a>           <span class="at">np =</span> <span class="fu">nuts_params</span>(fit1)) <span class="co"># np pour afficher la divergeance</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introduction-à-stan.html#cb98-1" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit1), <span class="co">#as.array = comme vecteurs</span></span>
+<span id="cb98-2"><a href="introduction-à-stan.html#cb98-2" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="co">#pour mettre en lettre greques</span></span>
+<span id="cb98-3"><a href="introduction-à-stan.html#cb98-3" tabindex="-1"></a>           <span class="at">np =</span> <span class="fu">nuts_params</span>(fit1)) <span class="co"># np pour afficher la divergeance</span></span></code></pre></div>
 <p>MCMC : diagnostic des chaines
 PPC : comparaison de modèles</p>
 <p>Il faut une exploration <em>indépendante</em> des paramètres pour trouver le point où ça cohabite = <em>maximum de vraissemblance</em> (voir dessin carnet)</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introduction-à-stan.html#cb98-1" tabindex="-1"></a><span class="co">#les paramètres doivent être indépendants et former une patate à leur valeur correspondant aux données.</span></span>
-<span id="cb98-2"><a href="introduction-à-stan.html#cb98-2" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit1))</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introduction-à-stan.html#cb99-1" tabindex="-1"></a><span class="co">#les paramètres doivent être indépendants et former une patate à leur valeur correspondant aux données.</span></span>
+<span id="cb99-2"><a href="introduction-à-stan.html#cb99-2" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit1))</span></code></pre></div>
 <p>On voit que alpha et lp_ sont liés par une relation.
 On voit sur les graphes des chaines, que alpha veut aller dans le négatif mais ne peut pas car défini sur R+ (loi gamma)</p>
 <p><em>Logique biologique</em> : alpha doit être égal à 0 quand LMA est égal à 0 puisque s’il n’y a pas de masse il n’y pas de feuille dont pas de duree de vie !!! Donc on vire alpha du modèle.</p>
@@ -611,19 +611,19 @@ On voit sur les graphes des chaines, que alpha veut aller dans le négatif mais 
 _log LL ~ N( beta *log LMA, sigma^2)_
 A mettre dans un fichier stan
 On peut faire une copie de l’ancien fichier : file &gt; coche le stan file &gt; more &gt; copy</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introduction-à-stan.html#cb99-1" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;LLLMA.stan&quot;</span>, <span class="at">data =</span> data)</span></code></pre></div>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introduction-à-stan.html#cb100-1" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit2), <span class="co">#as.array : comme vecteurs</span></span>
-<span id="cb100-2"><a href="introduction-à-stan.html#cb100-2" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="at">np =</span> <span class="fu">nuts_params</span>(fit2))<span class="co">#pour mettre en lettre greques</span></span></code></pre></div>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="introduction-à-stan.html#cb101-1" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit2))</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introduction-à-stan.html#cb100-1" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="st">&quot;LLLMA.stan&quot;</span>, <span class="at">data =</span> data)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="introduction-à-stan.html#cb101-1" tabindex="-1"></a><span class="fu">mcmc_trace</span>(<span class="fu">as.array</span>(fit2), <span class="co">#as.array : comme vecteurs</span></span>
+<span id="cb101-2"><a href="introduction-à-stan.html#cb101-2" tabindex="-1"></a>           <span class="at">facet_args=</span><span class="fu">list</span>(<span class="at">labeller=</span>label_parsed), <span class="at">np =</span> <span class="fu">nuts_params</span>(fit2))<span class="co">#pour mettre en lettre greques</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introduction-à-stan.html#cb102-1" tabindex="-1"></a><span class="fu">mcmc_pairs</span>(<span class="fu">as.array</span>(fit2))</span></code></pre></div>
 <p>Ca fait des belles patates donc c’est bon !!!! Et de beaux histos !</p>
 <p>On veut mtn connaitre les <em>distributions des paramètres à posteriori</em>:
 on veux des paramètres :
 - différents de 0 (pour une relation entre var expli et var réponse)
 - et un sigma petit (pour un bon fit)</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introduction-à-stan.html#cb102-1" tabindex="-1"></a><span class="fu">mcmc_areas</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co"># pars pour n&#39;afficher que les paramètres que je veux, pas la vraissemblance</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introduction-à-stan.html#cb103-1" tabindex="-1"></a><span class="fu">mcmc_areas</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co"># pars pour n&#39;afficher que les paramètres que je veux, pas la vraissemblance</span></span></code></pre></div>
 <p>Posteriors sont normaux et significatifs.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introduction-à-stan.html#cb103-1" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co">#vu du dessus</span></span></code></pre></div>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introduction-à-stan.html#cb104-1" tabindex="-1"></a><span class="fu">launch_shinystan</span>(fit2) </span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introduction-à-stan.html#cb104-1" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(<span class="fu">as.array</span>(fit2), <span class="at">prob=</span><span class="fl">0.95</span>, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;beta&quot;</span>, <span class="st">&quot;sigma&quot;</span>)) <span class="co">#vu du dessus</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="introduction-à-stan.html#cb105-1" tabindex="-1"></a><span class="fu">launch_shinystan</span>(fit2) </span></code></pre></div>
 <p>Conclusion :
 - se renseigner sur les formes de lois, de modèle
 - la définition des lois

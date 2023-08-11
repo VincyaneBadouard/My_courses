@@ -27,7 +27,7 @@ Pour du data.table voir le cours concerné.
 + Mesurer le temps d’exécution d’un code : **system.time()** ou **microbenchmark (fct1,fct2)** pour des codes trés courts. Ce sont les médianes des temps de calcul qu'il faut comparer.  
 ```{r}
 start.time <- Sys.time()
- # fonction appelée ici
+# fonction appelée ici
 end.time <- Sys.time()
 time.taken <- end.time - start.time
 time.taken
@@ -90,7 +90,7 @@ Les .rmd ont leur propre racine, donc pas celle de leur projet.
 **" ../** = dossier parent (du niv de dessus)  et je mets autant de **../** que de niveau à remonter.  
 Puis tabulation pour qu’il propose mes fichiers.   
 Stocker mon chemin relatif dans un objet « path ».  
- Pour lire mon chemin stocké : **file.path(path, "dossier", "file")**     
+Pour lire mon chemin stocké : **file.path(path, "dossier", "file")**     
 
 + fonction pour aller chercher le fichier : **nomObjt <- file.choose()**  
 
@@ -250,7 +250,36 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 
 + Réaliser les opérations suivantes par groupes de modalités : **group_by**  
 
-+ Créer une variable résumant les effectifs des éléments d'une variable : **summarise(N = n())** ou **count()**  
++ Créer une variable résumant les effectifs des éléments d'une variable : **summarise(N = n())** ou **count()**
+
++ Calculer des stats de base par variable, et variables groupées :
+```{r}
+HOBOdata %>%
+  group_by(HoboID, Phase) %>% # variables selon lesquelles grouper
+  summarise(across(c("Temp", "Light"), # Variables à analyser
+                   list(mean = mean, # les stats
+                        sd = sd,
+                        max = max,
+                        min = min)))
+
+# si ya une variable qui a besoin d'autres variables :
+HOBOdata %>%
+  group_by(HoboID, Phase) %>% 
+  summarise(across(c("Temp", "Light"), 
+                   list(mean = ~mean(.), 
+                        sd = ~sd(.),
+                        VarCoef = ~(sd(.) / mean(.)) * 100, # la var qui en utilise d'autres
+                        max = ~max(.),
+                        min = ~min(.)),
+                   .names = "{.col}_{.fn}")) %>% 
+  # "Phase" variable as an index for the computed variables
+  pivot_wider(names_from = Phase,
+              values_from = c("Temp_mean", "Temp_sd", "Temp_varcoef", "Temp_max", "Temp_min","Light_mean", "Light_sd", "Light_varcoef", "Light_max", "Light_min"),
+              names_glue = "{.value}_{Phase}")
+
+
+```
+
 
 + Effectifs par ordre croissant : **arrange(N)**  
 + Effectifs par ordre décroissant : **arrange(desc(N))**  
@@ -263,7 +292,7 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 
 + Séparer une base de données, selon un facteur, en une liste de bases de données : **split(data, data$fact)**  
 
-+ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()**  
++ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()** ou **distinct()**
 + Savoir si ttes les valeurs d'une colonne sont les mêmes: **length(unique(data$var)) == 1**  
 ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales à la 1ère  
 
@@ -272,14 +301,15 @@ ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales
 + Joindre 2 tables :
 ```{r}
 left_join(df1, df2, by = 'key') %>% 
-    mutate(
-        var1 = coalesce(var1.x, var1.y), # pour combiner les valeurs de .x et .y 
-        var2 = coalesce(var2.x, var2.y)
-    ) %>% 
+  mutate(
+    var1 = coalesce(var1.x, var1.y), # pour combiner les valeurs de .x et .y 
+    var2 = coalesce(var2.x, var2.y)
+  ) %>% 
   select(-(contains(".x") | contains(".y")))
 ```
 
-+ Ne garder les lignes que sans NA dans n'importe quelle colonne : **df[!complete.cases(df), ]**
++ Ne garder les lignes que sans NA dans n'importe quelle colonne : **na.omit(df)**
+ ou **df[!complete.cases(df), ]**
 
 
 ## Donne moi des infos sur mes données
@@ -469,9 +499,9 @@ c(F, F, T) || c(T, F, T) ## TRUE
 ## Date & time
 
 + Wrong system time : **Sys.time()** **Sys.timezone()**  
-  To find our time zone : **OlsonNames()**  
-  Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**  
-  To change permanently : change time zone of your computer  
+To find our time zone : **OlsonNames()**  
+Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**  
+To change permanently : change time zone of your computer  
 
 + convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**  
 
@@ -491,4 +521,4 @@ Df1 %>%
 + filter par date et heures au format Date-times : **filter(Time >= mdy_hms("03/30/2023 18:00:00"))**
 
 
-  
+
