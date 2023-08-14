@@ -8,6 +8,10 @@ charger-les-données
 corection-préliminaires-des-données
 transformation-de-données
 histoire-de-characters
+detect
+extract
+convert
+remove
 la-syntaxe-qui-fait-chr-du-balai
 comparaison-de-tables
 tirage
@@ -210,6 +214,7 @@ a-distance
 module
 autres-sources-cours
 stats-à-ne-plus-chercher
+régressiosn
 corrélations
 evaluer-la-performance-dune-prédiction
 validation-croisée-rééchantillonage

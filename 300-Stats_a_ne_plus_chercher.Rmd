@@ -2,6 +2,12 @@
 
 # Stats à ne plus chercher
 
+## Régressiosn
+
++ linéaire de degré 1 : **stat_smooth(method = "lm", formula = y ~ x)**
++ qudratique : 
+
+
 ## Corrélations 
 
 *Une base de données uniquement quantitatives et sans NA à tester :*
