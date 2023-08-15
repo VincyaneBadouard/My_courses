@@ -2,36 +2,8 @@
 
 # Stats à ne plus chercher
 
-## Régressiosn
 
-+ linéaire de degré 1 : **stat_smooth(method = "lm", formula = y ~ x)**
-+ qudratique : 
-
-
-## Corrélations 
-
-*Une base de données uniquement quantitatives et sans NA à tester :*
-baseforcor <- rootsmassMarco %>% 
-  select(-var quali) %>% 
-  na.omit()
-
-*pas besoin de tester la normalité si n>30.*
-
-*Construire une matrice de corrélation :*
-CorMatrix1 <- round(cor(baseforcor, use = "pairwise.complete.obs"), digits = 2) # matrice de corrélation, avec 2 décimales
-
-*avec les p-values :*
-CorMatrixS <- Hmisc::rcorr(as.matrix(baseforcor))
-CorMatrix <- CorMatrixS$r
-Pval_corr <- CorMatrixS$P
-
-*Plot de la matrice de corrélation :*
-http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme
-
-corrplot(CorMatrix, method="circle", type="lower", col=brewer.pal(n=8, name="PuOr"), tl.col="black", tl.srt=45, p.mat = Pval_corr, sig.level = 0.05) #avec une croix pour les p-value > 0.05.
-
-
-##Inférer des données
+## Inférer des données
 = Remplacer les NA selon les autres variables
 
 MICEinf <- mice(data, maxit=100) 100 itérations, methodes par défault
@@ -40,9 +12,204 @@ MICEinf$imp$varinf
 *Mettre ces valeurs inférées dans ma base* 
 Data_completed <- complete(MICEinf,5) ici j'ai pris la 5eme (m) estimation
 
-##Standardizer (centrer-réduire)
-as.vector(scale())
 
+
+## Standardizer (centrer-réduire)
+Quand standardiser?
+- **Nature** différente des variables
+- Gammes de **variations** des variables très différentes
+- Variables dans des **unités différentes**
+
+Uniquement centré : uniquement quand variables de meme unite et de meme gamme de valeurs.
+
+as.vector(scale())
+ou (var-mean(var))/sd(var)
+
+vérifiaction :
+- round(mean(var),2) la moyenne arrondie du ph doit etre =0
+- sd(var) doit etre =1
+
+ou 
+```{r}
+d=as.data.frame(scale(data))
+boxplot(d)
+```
+
+
+## Régressiosn
+Pour : var explicative quantitative
++ droite de régression linéaire au sens des moindres carrés : **abline(lm(y~x))**
+Pour récupérer les paramètres de la droite : **lm(y~x)$coefficients**  
+La 1ere valeur (Intercept) correspond à l’ordonnée à l’origine  
+la 2nde au coefficient directeur de la droite.  
+
++ linéaire de degré 1 : **stat_smooth(method = "lm", formula = y ~ x)**
++ qudratique : 
+
+## Analyse de variance / déviance
+Pour : var explicative qualitatives
+
+## Analyse de la covariance
+Pour : var explicatives quantitatives et qualitatives
+
+## ACP Analyse en Composantes Principales (TP3 d'écologie numérique)
+Pour : analyse de plusieurs variables quantitatives ou ordinales
+  - Représentation graphique
+  - Analyse des corrélations
+  - Réduction de dimension
+  
+L'objectif est de définir de **nouvelles variables** (**composantes principales**) comme étant des **combinaisons linéaires** des variables d'origine, telles qu'elles soient:
+  - non redondantes
+  - **Non corrélées**(=indépendantes : angle de 90°):
+  - **De variances maximales** et décroissantes (= sont ordonnées)
+
+
+### Pour gerer ces donnees manquantes il serait possible de :
+i) les retirer (individus ou variables) ou si peu de variables :
+ii) utiliser PCA() de FactoMineR qui remplace ("impute") les NA par la valeur moyenne de la variable (approche "grossiere"), ou :
+iii) la plus juste : utiliser une ACP iterative regularisee avec la fonction imputePCA() du package missMDA, voir video pour plus de details : http://factominer.free.fr/missMDA/PCA-fr.html
+
+
++ ACP normee : **acp <- ade4::dudi.pca(data, scale=T, center=T, nf = 4, scannf = FALSE)**
+nf : nbr d'axes à garder
+Uniquement centré : uniquement quand variables de meme unite et de meme gamme de valeurs.
+
+barplot(acp$eig) # Valeurs propres
+mean(acp1$eig) doit être =1
+
+### Calcul du % d'explication de chaque axe (inertie)
+Quel est le nombre de composantes principales expliquant un minimum de x % de l’information (ou inertie totale).  
+Ce pourcentage d’inertie est calculé en divisant la valeur propre d’un axe par le nombre d’axes possibles (égal au nombre de variables du tableau de départ)
+```{r}
+pc <- round(acp1$eig/sum(acp1$eig)*100,2)#arrondi a 2 chiffres apres la virgule 
+pc <- as.numeric(as.character(pc)) #passer de character a numerique
+pc #72.96 22.85  3.67  0.52
+# ne retenir que les plus explicatifs (generalement > 10% de variation) (ici les 2 1ers)
+# % cumules
+cumsum(pc)
+
+```
+
+### Cercle de correlation (pour une ACP normee)
+La longueur des flèches indique la part de leur information représentée par les deux axes.  
+L’angle entre deux flèches représente la corrélation qui les lie : angle aigu = positive ; angle droit = nulle ; angle obtus = négative.  
+
+- Une variable est **bien représentée** si la longueur de son vecteur est proche de 1 (=proche du cercle).
+
+- Pour les variables bien représentées, les angles indiquent les corrélations entre:
+  - Variables et composantes principales : 
+  les variables très proches de l'axe sont donc les variables redondantes qui définissent la composante principale qu'on a créé.
+  - Variables entre elles (angle petit -> forte corrélation (=COS~1)) (angle proche de 90° -> corrélation nulle)
+  
+Si les flèches sont trop courtes, les axes ne peuvent pas être interprétés.  
+
+
++ version simple : 
+**pca <- FactoMineR::PCA(data, scale.unit = T,)**
+**plot.PCA (pca, choix="ind", invisible="ind.sup")**
+**plot.PCA (pca, choix="var", invisible="ind.sup")**
+**fviz_pca_var(pca, axes = 1:2)**
+
++ Version plus brute :
+**s.corcircle(acp1$co, xax=1, yax=2)** $co : column coordinates (variables) = corre des variables sur les composantes factorielles
+
++ Representation des variables dans le cas d'une ACP centree :
+**s.arrow(acp$co)**
+
+**s.label(acp$li[,1:2], clabel=0.5)** representation des individus sur les axes 1 et 2
+
+**s.label(acp1$li, label=Species)** avec leur nom d'sp
+
+Coordonnees des individus sur l'axe 1 (x) en fct de leur valeur pour chaque variable (y) : 
+**score(acp)** en ordonnees les valeurs des variables (cm)
+
++ Biplot (attention a l'interpretation)
+**scatter(acp)** projection des individus et des var sur le meme graph
+
+Les individus les plus éloignés du centre du nuage de points et les flèches les plus longues pour les variables, sont ceux qui sont le mieux représentés par les axes.
+
+### Representation d'une variable explicative qualitative :
+http://www.sthda.com/french/articles/38-methodes-des-composantes-principales-dans-r-guide-pratique/73-acp-analyse-en-composantes-principales-avec-r-l-essentiel/
+
+**s.class(acp$li, iris[,5], col=c(1:length(iris[,5])))**
+L'ellipse est un resume graphique et non un intervalle de confiance.
+Elle regroupe environ 67% des valeurs si cellipse = 1.5 (valeur par default),
+ou 95% si cellipse = 2.5 ; ceci si le nuage est un échantillon aléatoire simple d'une loi normale bivariée : voir details https://pbil.univ-lyon1.fr/R/pdf/qr3.pdf
+
++ Sans ellipses : 67% des données 
+**s.class(acp1$li, iris[,5], cellipse=F, col=c("purple","orange","green"))**
++ Sans lignes :
+**s.class(acp1$li, iris[,5], cstar=F, col=rainbow(3))**
+
+Si un 3eme axe avait ete pertinent a analyser, il est possible de realiser une representation 3D :
+https://planspace.org/2013/02/03/pca-3d-visualization-and-clustering-in-r/
+
+
+## AFC Analyse Factorielle des Correspondances
+Pour : 2 variables qualitatites
+
+## ACM Analyse des Correspondances Multiples
+Pour : >2 variables qualitatives
+
+## Analyse mixte/Analyse factorielle multiple
+Pour : variables quantitatives et qualitatives
+
+## Corrélations 
+
+Pearson ou Spearman ?
+Pearson : relations lineaires monotones
+Spearman : pas lineaires monotones et à valeurs extremes
+
++ simplement Pearson : **cor(data)**
++ simplement Spearman : **cor(data, method = "spearman")**
+
+### Draftsman plot pour étudier les variables et leur relation
+(pour moins de 10 variables)
+histograms and correlations
+L’ACP se prête mieux à l’analyse de relations linéaires et de variables
+ayant une distribution symétrique qu'on peut vérifier avec pairs.panels
+```{r}
+pairs.panels(iris, 
+             method = "spearman", #coef de correlation de Spearman à droite
+             hist.col = "#00AFBB",
+             density = TRUE,  # affiche la courbe de densite
+             ellipses = T) # show correlation ellipses (interprétable que pour les var quanti)
+```
+
+
+*Une base de données uniquement quantitatives et sans NA à tester :*
+baseforcor <- data %>% 
+  select(-var quali) %>% 
+  na.omit()
+
+*pas besoin de tester la normalité si n>30.*
+
+*Construire une matrice de corrélation :*
+CorMatrix1 <- round(cor(baseforcor, use = "pairwise.complete.obs"), digits = 2) # matrice de corrélation, avec 2 décimales
+
+CorMatrixS <- Hmisc::rcorr(as.matrix(baseforcor))
+CorMatrix <- CorMatrixS$r 
+
+*avec les p-values :*
+Pval_corr <- CorMatrixS$P
+
+*Plot de la matrice de corrélation :*
+http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme
+
+```{r}
+corrplot(CorMatrix, method="circle", type="lower", col=brewer.pal(n=8, name="PuOr"), tl.col="black", tl.srt=45, p.mat = Pval_corr, sig.level = 0.05) #avec une croix pour les p-value > 0.05.
+```
+
+
+un autre type :
+```{r}
+pairs.panels(iris, 
+             method = "spearman", #coef de correlation de Spearman à droite
+             hist.col = "#00AFBB",
+             density = TRUE,  # affiche la courbe de densite
+             ellipses = T # show correlation ellipses (interprétable que pour les var quanti)
+)
+```
 
 ## Evaluer la performance d’une prédiction
 ### Validation croisée (rééchantillonage)
@@ -55,4 +222,6 @@ généraliser la procédure à une quantité infinie de dimensions
 -> écart-type des prédictions, donnant une appréciation de la précision du modèle
 
 
+## Indices de distances et de dissimilarité/Classification ascendante hierarchique CAH/Creation de dendrogrammes/Kmeans (voir TP2 d'ecologie numérique)
 
+## Permanova : anova multivariée

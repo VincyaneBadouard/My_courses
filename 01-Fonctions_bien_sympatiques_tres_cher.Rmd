@@ -55,6 +55,8 @@ time.taken
 ## Mes raccourcis claviers
 
 + Tout selectionner : Ctrl + A  
++ Sélection de texte : maj + flèche dans sens de selection (on peut délimiter avec clic souris)
+
 + Indenter :  Ctrl + I  
 + Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)  
 
@@ -92,7 +94,7 @@ Puis tabulation pour qu’il propose mes fichiers.
 Stocker mon chemin relatif dans un objet « path ».  
 Pour lire mon chemin stocké : **file.path(path, "dossier", "file")**     
 
-+ fonction pour aller chercher le fichier : **nomObjt <- file.choose()**  
++ Pour ouvrir une fenetre pour choisir le fichier : **nomObjt <- file.choose()**  
 
 !!!!!!Environment > import dataset > **tjrs spécifier le séparateur (delimiter) et le marqueur de décimale (locale > decimal mark)!!!!!!!!!** (franchement ça fait trop de la m**rd sinon)  
 
@@ -106,7 +108,16 @@ filenames <- list.files(path, pattern="*.csv", full.names=TRUE) # catch the name
 df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the folder files
 ```
 
-+ Enregistrer en csv : **write.csv(objt, "path")**
++ Enregistrer 
+
+## Exportation des données
+
++ en csv : **write.csv(obj, "path/data.txt")**
+
++ en fichier texte : **write.table(obj, "path/data.txt",sep=";")**
+
++ en fichier Excel : **write.table(obj,"data.xls",sep="\t",row.names = F, dec=",")** il faut une tabulation "/t
+
 
 + Importer du shapefile (shp) :  
 **rgdal::readORG(dsn = "/path/to/your/file", layer = "filename")** ou  

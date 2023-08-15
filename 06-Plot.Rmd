@@ -92,12 +92,24 @@ geom_point(shape = "circle", size = 1.5,
   labs(color = "Stakes position")
 ```
 
+## Ajouter des lignes 
++ Pour ajouter une courbe de tendance du nuage de points : **panel.smooth(x,y)**  
++ Pour ajouter une droite horizontale : **abline(h=ordonnee)**  
++ Pour ajouter une droite verticale : **abline(v=abscisse)**  
+
 ## En 3D
 3D fixe **plot3D::scatter3D()**  
 3D pivotable : **rgl::plot3d()**  
 
 ## Animated plot
 package **gganimate** https://r-graph-gallery.com/animation.html
+
++ plot_ly()
+
++ identifier le num de lobservation sur le graphique en cliquant sur le point : **identify(varx,vary)** 
+
+## Plusieurs plots cote à cote
+**par(mfrow = c(2,2))** 2 lignes et 2 colonnes
 
 ## Télécharger dans le bon format, au bon endroit !
 
