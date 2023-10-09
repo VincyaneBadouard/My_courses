@@ -21,6 +21,12 @@ https://www.data-to-viz.com/caveats.html
 
 ## Des couleurs
 Voir les palettes : **RColorBrewer::display.brewer.all()**  
+Voir  palettes from ggsci R package
+```{r}
+# les couleurs que j'aime
+c("#00AFBB", "#E7B800", "#FC4E07")
+```
+
 
 + Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
 ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**  

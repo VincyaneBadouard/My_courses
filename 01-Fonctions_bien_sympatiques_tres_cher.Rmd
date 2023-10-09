@@ -130,6 +130,8 @@ df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the fol
 
 ## Transformation de données !
 
++ Renomer une variable : **rename(New = Old)**
+
 + De character à factor : **mutate(Vernacular = factor(as.character(Vernacular)))**  
 
 + Séparer 1 colonne en plsrs : **separate(data, col à séparer, sep = "_", into = c(nom des new col), remove = F)** remove = F pour conserver la colonne qu'on sépare  
@@ -145,6 +147,17 @@ si ya erreur essayer : **"'1' = 'A' ; '2' = 'B'"** guillemets double et simple e
 
 + Changer une variable sous condition : **mutate(var = ifelse(condition, si oui, sinon))**  
 Sous plusieurs conditions : séparer les conditions d'un **&**  
+
++ pour faire plusieurs ifelse pour le calcul d'une variable : 
+```{r}
+mutate(var = case_when(
+  x == 1 ~ "A",
+  x == 10 ~ "B",
+  x == 20 ~ "C"
+)
+)
+```
+
 
 + Changer le nombre de décimales : **format(x, digits = 0, scientific = F)** ou **round(x, digits = 0)**  
 + Arrondir tout un df sur uniquement les variables numériques :  *mutate_if(is.numeric, round, digits = 2)*
@@ -188,6 +201,10 @@ c <- paste(b, "\n", sep="")
 cat("Your data set is:\n", c, "\n")
 ```
 
++ Mettre en minuscule/majuscule : **tolower()/toupper()**  
++ 1ère lettre de l'expression en majuscule : **str_to_sentence()**  
+
+
 ### Remove
 
 + Remove specific pattern : **str_remove(string, pattern)**
@@ -198,16 +215,10 @@ cat("Your data set is:\n", c, "\n")
 x <- "a-,_b/"  
 **gsub("[[:punct:]]", "", x)** x la chaine de characters à modifier, entre " "   mettre par quoi remplacer les special charcters enlevés (ou ne rien mettre)  
 
-
-## La syntaxe qui fait ch**r, du balai !
-
 + Enlever un espace avant et/ou apres un character : **trimws(x, which = c("both", "left", "right"))**  
 
-+ Mettre en minuscule/majuscule : **tolower()/toupper()**  
-
-+ 1ère lettre de l'expression en majuscule : **str_to_sentence()**  
-
 + Enlever accent : **sub("é","e",vector))**  
+
 
 ## Comparaison de tables
 

@@ -115,7 +115,7 @@ Summary functions ex : mean(), median(), min(), max(), etc
 **dt[, c := 1 + 2]** : compute a column based on an expression (c = col name)  
 
 **dt[a == 1, c := 1 + 2]** : compute a column based on an expression but only for a subset
-of rows
+of rows (condition)
 
  + Si on veut mettre des NA ! :  **NA_integer_**, **NA_real_**, **NA_character_** (mettre juste NA pose des problèmes de classe)
 

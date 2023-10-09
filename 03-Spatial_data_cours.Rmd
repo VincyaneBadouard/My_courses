@@ -117,7 +117,7 @@ Objets géoréférencés R (=variables (data.frame) liés à des coordonées (sf
 Packages : *sp*, *sf* (mieux adapté au tidy)
 
 
-Transformer un dataframe en objet sf : *st_as_sf()* :
+Transformer un dataframe en objet sf : *st_as_sf(, coords = c('X','Y','Z'))* :
 - type de géométrie (geometry type: POINT (= *sfg objets*)), 
 - les limites des objets (bbox: ...),
 - le système de référence (epsg ou proj4string: ...)

@@ -13,7 +13,6 @@ detect
 extract
 convert
 remove
-la-syntaxe-qui-fait-chr-du-balai
 comparaison-de-tables
 tirage
 yo-arrange-mes-données
@@ -86,6 +85,7 @@ tools
 lastools
 r-packages
 load-laz
+load-several-laz
 write-laz
 check-if-the-las-is-complete
 see-their-summaries
@@ -227,6 +227,7 @@ pour-gerer-ces-donnees-manquantes-il-serait-possible-de
 calcul-du-dexplication-de-chaque-axe-inertie
 cercle-de-correlation-pour-une-acp-normee
 representation-dune-variable-explicative-qualitative
+data-transformation-in-new-dimensional-space
 afc-analyse-factorielle-des-correspondances
 acm-analyse-des-correspondances-multiples
 analyse-mixteanalyse-factorielle-multiple

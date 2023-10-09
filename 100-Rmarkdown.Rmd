@@ -56,6 +56,14 @@ eval = F : ne pas faire tourner le code
 include = F : ne pas afficher les sorties console  
 results = 'hide' : ne pas afficher les sorties console
 message=FALSE  : ne pas afficher les messages
+fig.width = 6 : taille des figures
+
+pour tout le doc :
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, echo = FALSE, fig.width = 6
+)
+```
 
 [Voir documentation](https://yihui.org/knitr/options/)  
 

@@ -54,14 +54,21 @@ Pour : var explicatives quantitatives et qualitatives
 
 ## ACP Analyse en Composantes Principales (TP3 d'écologie numérique)
 Pour : analyse de plusieurs variables quantitatives ou ordinales
-  - Représentation graphique
-  - Analyse des corrélations
-  - Réduction de dimension
-  
+- Représentation graphique
+- Analyse des corrélations
+- Réduction de dimension
+
 L'objectif est de définir de **nouvelles variables** (**composantes principales**) comme étant des **combinaisons linéaires** des variables d'origine, telles qu'elles soient:
-  - non redondantes
-  - **Non corrélées**(=indépendantes : angle de 90°):
-  - **De variances maximales** et décroissantes (= sont ordonnées)
+- non redondantes
+- **Non corrélées**(=indépendantes : angle de 90°):
+- **De variances maximales** et décroissantes (= sont ordonnées)
+
+Etapes :
+1) standardiser les données
+2) calcul de la matrice de covariance (symétrique) (cor())
+3) calcul des valeurs propres
+4) selection des composantes principales
+5) Transformation des données dans le nouvel espace
 
 
 ### Pour gerer ces donnees manquantes il serait possible de :
@@ -88,6 +95,31 @@ pc #72.96 22.85  3.67  0.52
 # % cumules
 cumsum(pc)
 
+# ou 
+data.pca <- princomp(corr_matrix) # l'ACP
+summary(data.pca) # les statitisques de l'ACP
+data.pca$loadings[, 1:2] # relation variables-composantes principales 1 et 2
+fviz_eig(data.pca, addlabels = TRUE) # eigenvalues plot (scree plot)
+fviz_pca_var(data.pca, col.var = "black") # Biplot of the variables
+fviz_cos2(data.pca, choice = "var", axes = 1:2) # COS2 plot (contribution of each variable) ou :
+corrplot(data.pca$cos2, is.corr=FALSE)
+fviz_pca_var(data.pca, # Biplot combined with cos2 
+             col.var = "cos2", # ou alpha.var = "cos2"
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE) # Avoid text overlapping 
+
+fviz_pca_ind(data.pca, # Biplot combined with cos2 
+             col.var = "cos2", # ou alpha.var = "cos2"
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE) # Avoid text overlapping 
+
+fviz_pca_ind(iris.pca,
+             geom.ind = "point", # show points only (nbut not "text")
+             col.ind = iris$Species, # color by groups
+             palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+             addEllipses = TRUE, # Concentration ellipses
+             legend.title = "Groups"
+             ) # To remove the group mean point, specify the argument mean.point = FALSE. If you want confidence ellipses instead of concentration ellipses, use ellipse.type = “confidence”.
 ```
 
 ### Cercle de correlation (pour une ACP normee)
@@ -97,10 +129,10 @@ L’angle entre deux flèches représente la corrélation qui les lie : angle ai
 - Une variable est **bien représentée** si la longueur de son vecteur est proche de 1 (=proche du cercle).
 
 - Pour les variables bien représentées, les angles indiquent les corrélations entre:
-  - Variables et composantes principales : 
-  les variables très proches de l'axe sont donc les variables redondantes qui définissent la composante principale qu'on a créé.
-  - Variables entre elles (angle petit -> forte corrélation (=COS~1)) (angle proche de 90° -> corrélation nulle)
-  
+- Variables et composantes principales : 
+les variables très proches de l'axe sont donc les variables redondantes qui définissent la composante principale qu'on a créé.
+- Variables entre elles (angle petit -> forte corrélation (=COS~1)) (angle proche de 90° -> corrélation nulle)
+
 Si les flèches sont trop courtes, les axes ne peuvent pas être interprétés.  
 
 
@@ -144,6 +176,10 @@ ou 95% si cellipse = 2.5 ; ceci si le nuage est un échantillon aléatoire simpl
 Si un 3eme axe avait ete pertinent a analyser, il est possible de realiser une representation 3D :
 https://planspace.org/2013/02/03/pca-3d-visualization-and-clustering-in-r/
 
+### Data transformation in new dimensional space
+This reorientation is done by multiplying the original data by the previously computed eigenvectors.  
+
+
 
 ## AFC Analyse Factorielle des Correspondances
 Pour : 2 variables qualitatites
@@ -179,8 +215,8 @@ pairs.panels(iris,
 
 *Une base de données uniquement quantitatives et sans NA à tester :*
 baseforcor <- data %>% 
-  select(-var quali) %>% 
-  na.omit()
+select(-var quali) %>% 
+na.omit()
 
 *pas besoin de tester la normalité si n>30.*
 
@@ -210,6 +246,8 @@ pairs.panels(iris,
              ellipses = T # show correlation ellipses (interprétable que pour les var quanti)
 )
 ```
+
+d'autres fcts de corplot : **ggcorrplot()**
 
 ## Evaluer la performance d’une prédiction
 ### Validation croisée (rééchantillonage)

@@ -307,7 +307,7 @@ constitution équipe
 - pas de double négatifs
 - précision : mots, chiffres, totaux, faits, opinions, ref
 - pas d'expressions émotionnelle
-- **peu d'adverbe**
+- **peu d'adverbe** (gérondif) (fr : en verbe-ant; en : verb-ing)
 - ne pas utiliser des mots indéfinis : *it/these/that*
 - éviter de commencer une phrase par un acronyme
 - pas faire de doubles parenthèses, mettre un ; entre les deux élements

@@ -66,7 +66,7 @@ las1 <- lidR::readLAS(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.l
 # ou
 las2 <- rlas::read.las(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz")
 ```
-Load several laz
+### Load several laz
 ```{r}
 # readLAScatalog() creates a las catalog from a folder to search in
 readLAScatalog(folder = "D:/Mes Donnees/PhD/Lidar", filter = "keep") # las catalog
@@ -114,6 +114,19 @@ las <- readLAS(LASfile)
 lidR::plot(las)
 ```
 
+Ploter une raster layer : d'abord en faire un data.frame
+```{r}
+TWI_df <- as.data.frame(TWI, xy = TRUE) %>%
+  na.omit() %>%
+  dplyr::rename('TWI' = 'P13_2022_TWI')
+
+ggplot() + 
+  geom_raster(data = TWI_df, aes(x = x, y = y, fill = TWI)) +
+  scale_fill_viridis_c() +
+  ggtitle("Paracou P13 - TWI") + 
+  coord_sf()
+```
+
 ## Trajectory
 Permet :  
 - de calculer les hauteurs de vol
@@ -148,8 +161,6 @@ plot3d(traj[,2:4], aspect=F) # plot the trajectory (x,y,z)
 ## Clip the point cloud
 - selon une géométrie : **clip_roi(las = ctg, geometry = ROI)**
 - selon des coordonées : **clip_rectangle()/clip_polygon()/clip_circle()**
-
-
 
 ## Classification
 7 = bruit
