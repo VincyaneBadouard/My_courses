@@ -116,6 +116,11 @@ df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the fol
 
 + en fichier texte : **write.table(obj, "path/data.txt",sep=";")**
 
+# Write Transmittances correlation in text file
+sink("D:/Mes Donnees/PhD/Light/LAI-2200/DATA/Transmittance_cor.txt") # path
+By
+sink() # close the external connection
+
 + en fichier Excel : **write.table(obj,"data.xls",sep="\t",row.names = F, dec=",")** il faut une tabulation "/t
 
 
@@ -153,8 +158,8 @@ Sous plusieurs conditions : séparer les conditions d'un **&**
 mutate(var = case_when(
   x == 1 ~ "A",
   x == 10 ~ "B",
-  x == 20 ~ "C"
-)
+  x == 20 ~ "C",
+  .default = var) # le reste reste comme c'est
 )
 ```
 
@@ -313,7 +318,7 @@ phase_stats <- pivot_wider(phase_stats, names_from = Phase,
 
 ```
 
-
++ par ordre croissant : **sort(x, decreasing = FALSE, na.last = NA, ...)** ou **order()**
 + Effectifs par ordre croissant : **arrange(N)**  
 + Effectifs par ordre décroissant : **arrange(desc(N))**  
 + Ordonner un vecteur : **sort(, decreasing = FALSE)**  
@@ -556,5 +561,6 @@ Df1 %>%
 + filter par date et heures séparément : **filter(Date >= as.Date("2023-03-30") & Hour >= chron(times="18:00:00"))**
 + filter par date et heures au format Date-times : **filter(Time >= mdy_hms("03/30/2023 18:00:00"))**
 
++ temps par ordre croissant **data <- data[order(data$Time),]**
 
 

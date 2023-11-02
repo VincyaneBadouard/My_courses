@@ -6,6 +6,7 @@ mes-raccourcis-claviers
 symbolname-charactères-variableobjet-tout-le-bazar
 charger-les-données
 exportation-des-données
+write-transmittances-correlation-in-text-file
 corection-préliminaires-des-données
 transformation-de-données
 histoire-de-characters
@@ -106,6 +107,7 @@ titres
 des-couleurs
 des-histoires-de-texte
 axes
+temporel
 double-axes
 multi-plots
 légende
@@ -219,7 +221,7 @@ autres-sources-cours
 stats-à-ne-plus-chercher
 inférer-des-données
 standardizer-centrer-réduire
-régressiosn
+régression
 analyse-de-variance-déviance
 analyse-de-la-covariance
 acp-analyse-en-composantes-principales-tp3-décologie-numérique

@@ -36,7 +36,7 @@ boxplot(d)
 ```
 
 
-## Régressiosn
+## Régression
 Pour : var explicative quantitative
 + droite de régression linéaire au sens des moindres carrés : **abline(lm(y~x))**
 Pour récupérer les paramètres de la droite : **lm(y~x)$coefficients**  

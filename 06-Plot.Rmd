@@ -33,17 +33,21 @@ ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**
 
 + utiliser une palette, donner un nombre de couleur et inverser la palette : **scale_fill_gradientn(name = "Altitude", colors = terrain.colors(45, rev=T))** # rev = T pour inverser la palette
 
+ou **scale_color_gradientn()** pour des points (ne pas mettre fill = mais color =)
+
 + n'importe quelle palette : **scale_fill_gradientn(name = "TWI", colors =  hcl.colors(12, "nom de la pallette", rev = T))**
 
 
 ## Des histoires de texte
 
++ **geom_text(label = data$var)**
 + Relier le label au point quand c'est pas visible : **geom_text_repel** 
 
 ## Axes
 
 + changer l'échelle des axes (ici y): **scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))**
 
+### Temporel
 + customiser l'échelle d'un axe temporel (date/time) : https://ggplot2.tidyverse.org/reference/scale_date.html#ref-examples
 
 + un plot avec l'axe des x à échelle temporelle de toutes :

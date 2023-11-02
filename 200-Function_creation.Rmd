@@ -356,8 +356,8 @@ cl <- parallel::makeCluster(cores)
 doSNOW::registerDoSNOW(cl)
 
 # la progressbar
-pb <- txtProgressBar(max = j, style = 3)
-progress <- function(n) setTxtProgressBar(pb, n)
+if(interactive()) pb <- txtProgressBar(max = j, style = 3) # if(interactive()) pour qu’elles n’apparaissent pas dans les documents markdown 
+progress <- function(n) if(interactive()) setTxtProgressBar(pb, n)
 opts <- list(progress = progress)
 
 output <- foreach::foreach(
