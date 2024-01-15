@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Cours 7 Plot | My cours</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Cours 7 Plot | My cours" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-11-02" />
+<meta name="date" content="2024-01-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -591,8 +591,8 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <h2><span class="header-section-number">7.5</span> Des couleurs<a href="plot-1.html#des-couleurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Voir les palettes : <strong>RColorBrewer::display.brewer.all()</strong><br />
 Voir palettes from ggsci R package</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="plot-1.html#cb57-1" tabindex="-1"></a><span class="co"># les couleurs que j&#39;aime</span></span>
-<span id="cb57-2"><a href="plot-1.html#cb57-2" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="plot-1.html#cb55-1" tabindex="-1"></a><span class="co"># les couleurs que j&#39;aime</span></span>
+<span id="cb55-2"><a href="plot-1.html#cb55-2" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)</span></code></pre></div>
 <ul>
 <li><p>Gradient de couleurs : <strong>colorRampPalette(c(“blue”, “white”, “red”))(4)</strong> 4 = nbr de catégories<br />
 ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white”)</strong></p></li>
@@ -627,21 +627,21 @@ ou <strong>scale_fill_gradient2(low=“blue”, high=“red”, mid = “white�
 </div>
 <div id="double-axes" class="section level3 hasAnchor" number="7.7.2">
 <h3><span class="header-section-number">7.7.2</span> Double axes<a href="plot-1.html#double-axes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="plot-1.html#cb58-1" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
-<span id="cb58-2"><a href="plot-1.html#cb58-2" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb58-3"><a href="plot-1.html#cb58-3" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
-<span id="cb58-4"><a href="plot-1.html#cb58-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb58-5"><a href="plot-1.html#cb58-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
-<span id="cb58-6"><a href="plot-1.html#cb58-6" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb58-7"><a href="plot-1.html#cb58-7" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
-<span id="cb58-8"><a href="plot-1.html#cb58-8" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
-<span id="cb58-9"><a href="plot-1.html#cb58-9" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
-<span id="cb58-10"><a href="plot-1.html#cb58-10" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
-<span id="cb58-11"><a href="plot-1.html#cb58-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb58-12"><a href="plot-1.html#cb58-12" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb58-13"><a href="plot-1.html#cb58-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
-<span id="cb58-14"><a href="plot-1.html#cb58-14" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb58-15"><a href="plot-1.html#cb58-15" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="plot-1.html#cb56-1" tabindex="-1"></a><span class="fu">mean</span>(Df1<span class="sc">$</span>Light<span class="sc">/</span>Df1<span class="sc">$</span>Temp) <span class="co"># find a good coeff</span></span>
+<span id="cb56-2"><a href="plot-1.html#cb56-2" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb56-3"><a href="plot-1.html#cb56-3" tabindex="-1"></a><span class="fu">ggplot</span>(Df1, <span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
+<span id="cb56-4"><a href="plot-1.html#cb56-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Temp), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb56-5"><a href="plot-1.html#cb56-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Light<span class="sc">/</span>coeff)) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="plot-1.html#cb56-6" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb56-7"><a href="plot-1.html#cb56-7" tabindex="-1"></a>    <span class="co"># Features of the first axis</span></span>
+<span id="cb56-8"><a href="plot-1.html#cb56-8" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb56-9"><a href="plot-1.html#cb56-9" tabindex="-1"></a>    <span class="co"># Add a second axis and specify its features</span></span>
+<span id="cb56-10"><a href="plot-1.html#cb56-10" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span>coeff, <span class="at">name=</span><span class="st">&quot;Light (lux)&quot;</span>)</span>
+<span id="cb56-11"><a href="plot-1.html#cb56-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb56-12"><a href="plot-1.html#cb56-12" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb56-13"><a href="plot-1.html#cb56-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb56-14"><a href="plot-1.html#cb56-14" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb56-15"><a href="plot-1.html#cb56-15" tabindex="-1"></a>  ) </span></code></pre></div>
 </div>
 </div>
 <div id="multi-plots" class="section level2 hasAnchor" number="7.8">
@@ -661,13 +661,13 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 </div>
 <div id="légende" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Légende<a href="plot-1.html#légende" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="plot-1.html#cb59-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>,</span>
-<span id="cb59-2"><a href="plot-1.html#cb59-2" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">&quot;Reality&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb59-3"><a href="plot-1.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> Piquets_theor, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">colour =</span> <span class="st">&quot;Expectation&quot;</span>), <span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb59-4"><a href="plot-1.html#cb59-4" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span> <span class="ot">=</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="co"># pour donner un nom à chaque intitulé</span></span>
-<span id="cb59-5"><a href="plot-1.html#cb59-5" tabindex="-1"></a>                                 <span class="st">&quot;Expectation&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>),</span>
-<span id="cb59-6"><a href="plot-1.html#cb59-6" tabindex="-1"></a>                      <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span>, <span class="st">&quot;Expectation&quot;</span>)) <span class="sc">+</span> <span class="co"># pour ordonner</span></span>
-<span id="cb59-7"><a href="plot-1.html#cb59-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Stakes position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="plot-1.html#cb57-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>,</span>
+<span id="cb57-2"><a href="plot-1.html#cb57-2" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">&quot;Reality&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb57-3"><a href="plot-1.html#cb57-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> Piquets_theor, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">colour =</span> <span class="st">&quot;Expectation&quot;</span>), <span class="at">shape =</span> <span class="st">&quot;circle&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href="plot-1.html#cb57-4" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span> <span class="ot">=</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="co"># pour donner un nom à chaque intitulé</span></span>
+<span id="cb57-5"><a href="plot-1.html#cb57-5" tabindex="-1"></a>                                 <span class="st">&quot;Expectation&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb57-6"><a href="plot-1.html#cb57-6" tabindex="-1"></a>                      <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">&quot;Reality&quot;</span>, <span class="st">&quot;Expectation&quot;</span>)) <span class="sc">+</span> <span class="co"># pour ordonner</span></span>
+<span id="cb57-7"><a href="plot-1.html#cb57-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Stakes position&quot;</span>)</span></code></pre></div>
 </div>
 <div id="ajouter-des-lignes" class="section level2 hasAnchor" number="7.10">
 <h2><span class="header-section-number">7.10</span> Ajouter des lignes<a href="plot-1.html#ajouter-des-lignes" class="anchor-section" aria-label="Anchor link to header"></a></h2>

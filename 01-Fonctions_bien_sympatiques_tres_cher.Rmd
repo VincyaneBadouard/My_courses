@@ -186,6 +186,8 @@ mutate(var = case_when(
 x <- "!"  
 **grepl('[[:punct:]]', x)** # TRUE if there are any special character, FALSE if not.  
 
++ Special pattern : **grepl("pattern", var)**
+
 
 ### Extract
 + Extraire un element numeric dans une chaîne de characters :   **extract_numeric(var)**  
@@ -213,8 +215,12 @@ cat("Your data set is:\n", c, "\n")
 ### Remove
 
 + Remove specific pattern : **str_remove(string, pattern)**
++ Remove rows with a special pattern : **filter(!grepl("pattern", var))**
 
 + Remove whitespace : **gsub("[[:space:]]", "", x)**
++ removes whitespace at the start and end, and replaces all internal whitespace with a single space : **str_squish()**
++ Remove parentheses : **gsub("[()]", "", my_string)**
++ Also remove text within () : **gsub("\\s*\\([^\\)]+\\)", "", my_string)**
 + Remove non-breaking space : **gsub("[^ -~]+","", x))**
 + Remove special characters :  
 x <- "a-,_b/"  

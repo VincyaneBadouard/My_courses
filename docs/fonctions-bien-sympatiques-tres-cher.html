@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Cours 1 Fonctions bien sympatiques tres cher | My cours</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Cours 1 Fonctions bien sympatiques tres cher | My cours" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-11-02" />
+<meta name="date" content="2024-01-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -579,11 +579,11 @@ Pour du data.table voir le cours concerné.</p>
 <li><p><strong>Selectionner tout ce qu’il ya dans la parenthèse/crochet/accolade</strong> : double clic à l’interieur de la 1ère/dernière</p></li>
 <li><p>Mesurer le temps d’exécution d’un code : <strong>system.time()</strong> ou <strong>microbenchmark (fct1,fct2)</strong> pour des codes trés courts. Ce sont les médianes des temps de calcul qu’il faut comparer.</p></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-1" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb4-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-2" tabindex="-1"></a><span class="co"># fonction appelée ici</span></span>
-<span id="cb4-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-3" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb4-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-4" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
-<span id="cb4-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-5" tabindex="-1"></a>time.taken</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-1" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-2" tabindex="-1"></a><span class="co"># fonction appelée ici</span></span>
+<span id="cb2-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-3" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-4" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
+<span id="cb2-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb2-5" tabindex="-1"></a>time.taken</span></code></pre></div>
 <ul>
 <li><p>détacher un package de l’environnement : <strong>unloadNamespace()</strong></p></li>
 <li><p>connaitre le code d’une fct : <strong>trace(pkgname::fct, edit=T)</strong></p></li>
@@ -626,12 +626,12 @@ Restart R</p></li>
 <li>chaine de characteres -&gt; objet : <strong>get(“var”)</strong> ou <strong>{{var}}</strong>
 ou <strong>…</strong> (<a href="https://dplyr.tidyverse.org/articles/programming.html" class="uri">https://dplyr.tidyverse.org/articles/programming.html</a>) :</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-1" tabindex="-1"></a>my_summarise <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, ...) {</span>
-<span id="cb5-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-2" tabindex="-1"></a>  .data <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-3" tabindex="-1"></a>    <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-4" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mass =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-5" tabindex="-1"></a>}</span>
-<span id="cb5-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb5-6" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> <span class="fu">my_summarise</span>(sex, gender)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-1" tabindex="-1"></a>my_summarise <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, ...) {</span>
+<span id="cb3-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-2" tabindex="-1"></a>  .data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-3" tabindex="-1"></a>    <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-4" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mass =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-5"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-5" tabindex="-1"></a>}</span>
+<span id="cb3-6"><a href="fonctions-bien-sympatiques-tres-cher.html#cb3-6" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> <span class="fu">my_summarise</span>(sex, gender)</span></code></pre></div>
 </div>
 <div id="charger-les-données" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Charger les données<a href="fonctions-bien-sympatiques-tres-cher.html#charger-les-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -653,9 +653,9 @@ Pour lire mon chemin stocké : <strong>file.path(path, “dossier”, “file”
 <li>Importer avec les accents : <strong>locale = locale(encoding = “latin1”)</strong></li>
 </ul>
 <p>Importer tous les fichiers d’un dossier :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-1" tabindex="-1"></a>filenames <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="at">pattern=</span><span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>) <span class="co"># catch the name of all the files of the folder</span></span>
-<span id="cb6-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb6-3" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(filenames, read.csv, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="co"># read all the folder files</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-1" tabindex="-1"></a>filenames <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="at">pattern=</span><span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names=</span><span class="cn">TRUE</span>) <span class="co"># catch the name of all the files of the folder</span></span>
+<span id="cb4-2"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="fonctions-bien-sympatiques-tres-cher.html#cb4-3" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(filenames, read.csv, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="co"># read all the folder files</span></span></code></pre></div>
 <ul>
 <li>Enregistrer</li>
 </ul>

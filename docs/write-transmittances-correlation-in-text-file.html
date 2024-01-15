@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Cours 2 Write Transmittances correlation in text file | My cours</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Cours 2 Write Transmittances correlation in text file | My cours" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2023-11-02" />
+<meta name="date" content="2024-01-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -593,12 +593,12 @@ si ya erreur essayer : <strong>“‘1’ = ‘A’ ; ‘2’ = ‘B’”</stro
 Sous plusieurs conditions : séparer les conditions d’un <strong>&amp;</strong></p></li>
 <li><p>pour faire plusieurs ifelse pour le calcul d’une variable :</p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="write-transmittances-correlation-in-text-file.html#cb7-1" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">var =</span> <span class="fu">case_when</span>(</span>
-<span id="cb7-2"><a href="write-transmittances-correlation-in-text-file.html#cb7-2" tabindex="-1"></a>  x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
-<span id="cb7-3"><a href="write-transmittances-correlation-in-text-file.html#cb7-3" tabindex="-1"></a>  x <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
-<span id="cb7-4"><a href="write-transmittances-correlation-in-text-file.html#cb7-4" tabindex="-1"></a>  x <span class="sc">==</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
-<span id="cb7-5"><a href="write-transmittances-correlation-in-text-file.html#cb7-5" tabindex="-1"></a>  <span class="at">.default =</span> var) <span class="co"># le reste reste comme c&#39;est</span></span>
-<span id="cb7-6"><a href="write-transmittances-correlation-in-text-file.html#cb7-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="write-transmittances-correlation-in-text-file.html#cb5-1" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">var =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-2"><a href="write-transmittances-correlation-in-text-file.html#cb5-2" tabindex="-1"></a>  x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb5-3"><a href="write-transmittances-correlation-in-text-file.html#cb5-3" tabindex="-1"></a>  x <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb5-4"><a href="write-transmittances-correlation-in-text-file.html#cb5-4" tabindex="-1"></a>  x <span class="sc">==</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb5-5"><a href="write-transmittances-correlation-in-text-file.html#cb5-5" tabindex="-1"></a>  <span class="at">.default =</span> var) <span class="co"># le reste reste comme c&#39;est</span></span>
+<span id="cb5-6"><a href="write-transmittances-correlation-in-text-file.html#cb5-6" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li><p>Changer le nombre de décimales : <strong>format(x, digits = 0, scientific = F)</strong> ou <strong>round(x, digits = 0)</strong><br />
 </p></li>
@@ -615,9 +615,10 @@ Sous plusieurs conditions : séparer les conditions d’un <strong>&amp;</strong
 <div id="detect" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Detect<a href="write-transmittances-correlation-in-text-file.html#detect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Detect special characters (logical) :<br />
+<li><p>Detect special characters (logical) :<br />
 x &lt;- “!”<br />
-<strong>grepl(‘[[:punct:]]’, x)</strong> # TRUE if there are any special character, FALSE if not.</li>
+<strong>grepl(‘[[:punct:]]’, x)</strong> # TRUE if there are any special character, FALSE if not.</p></li>
+<li><p>Special pattern : <strong>grepl(“pattern”, var)</strong></p></li>
 </ul>
 </div>
 <div id="extract" class="section level3 hasAnchor" number="2.3.2">
@@ -634,10 +635,10 @@ si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span
 <li><p>Mettre le nom d’un objet sous forme de characters : <strong>deparse(substitute(obj))</strong></p></li>
 <li><p>Afficher un data.frame en characters :</p></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="write-transmittances-correlation-in-text-file.html#cb8-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">y=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">z=</span><span class="fu">runif</span>(<span class="dv">4</span>))</span>
-<span id="cb8-2"><a href="write-transmittances-correlation-in-text-file.html#cb8-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">capture.output</span>(a)</span>
-<span id="cb8-3"><a href="write-transmittances-correlation-in-text-file.html#cb8-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">paste</span>(b, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb8-4"><a href="write-transmittances-correlation-in-text-file.html#cb8-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Your data set is:</span><span class="sc">\n</span><span class="st">&quot;</span>, c, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="write-transmittances-correlation-in-text-file.html#cb6-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">y=</span><span class="fu">runif</span>(<span class="dv">4</span>), <span class="at">z=</span><span class="fu">runif</span>(<span class="dv">4</span>))</span>
+<span id="cb6-2"><a href="write-transmittances-correlation-in-text-file.html#cb6-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">capture.output</span>(a)</span>
+<span id="cb6-3"><a href="write-transmittances-correlation-in-text-file.html#cb6-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">paste</span>(b, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb6-4"><a href="write-transmittances-correlation-in-text-file.html#cb6-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Your data set is:</span><span class="sc">\n</span><span class="st">&quot;</span>, c, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Mettre en minuscule/majuscule : <strong>tolower()/toupper()</strong><br />
 </li>
@@ -648,7 +649,11 @@ si data<span class="math inline">\(idtree = &quot;site_plot&quot; **data\)</span
 <h3><span class="header-section-number">2.3.4</span> Remove<a href="write-transmittances-correlation-in-text-file.html#remove" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Remove specific pattern : <strong>str_remove(string, pattern)</strong></p></li>
+<li><p>Remove rows with a special pattern : <strong>filter(!grepl(“pattern”, var))</strong></p></li>
 <li><p>Remove whitespace : <strong>gsub(“[[:space:]]”, ““, x)</strong></p></li>
+<li><p>removes whitespace at the start and end, and replaces all internal whitespace with a single space : <strong>str_squish()</strong></p></li>
+<li><p>Remove parentheses : <strong>gsub(“[()]”, ““, my_string)</strong></p></li>
+<li><p>Also remove text within () : **gsub(“\s*\([^\\)]+\)“,”“, my_string)**</p></li>
 <li><p>Remove non-breaking space : <strong>gsub(“[^ -~]+”,““, x))</strong></p></li>
 <li><p>Remove special characters :<br />
 x &lt;- “a-,_b/”<br />
@@ -672,35 +677,35 @@ x &lt;- “a-,_b/”<br />
 </div>
 <div id="yo-arrange-mes-données" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Yo ! arrange mes données !<a href="write-transmittances-correlation-in-text-file.html#yo-arrange-mes-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="write-transmittances-correlation-in-text-file.html#cb9-1" tabindex="-1"></a><span class="do">## Quand tu veux passer une collone de df en argument de fonction :</span></span>
-<span id="cb9-2"><a href="write-transmittances-correlation-in-text-file.html#cb9-2" tabindex="-1"></a><span class="do">## V0</span></span>
-<span id="cb9-3"><a href="write-transmittances-correlation-in-text-file.html#cb9-3" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span> <span class="do">## character string in an object</span></span>
-<span id="cb9-4"><a href="write-transmittances-correlation-in-text-file.html#cb9-4" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name] <span class="do">## character vector</span></span>
-<span id="cb9-5"><a href="write-transmittances-correlation-in-text-file.html#cb9-5" tabindex="-1"></a>line_nonna <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(column)) <span class="do">## which rows different of NA</span></span>
-<span id="cb9-6"><a href="write-transmittances-correlation-in-text-file.html#cb9-6" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[line_nonna,] <span class="do">## filter base version</span></span>
-<span id="cb9-7"><a href="write-transmittances-correlation-in-text-file.html#cb9-7" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="write-transmittances-correlation-in-text-file.html#cb9-8" tabindex="-1"></a><span class="do">## V1</span></span>
-<span id="cb9-9"><a href="write-transmittances-correlation-in-text-file.html#cb9-9" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
-<span id="cb9-10"><a href="write-transmittances-correlation-in-text-file.html#cb9-10" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name]</span>
-<span id="cb9-11"><a href="write-transmittances-correlation-in-text-file.html#cb9-11" tabindex="-1"></a>nonna <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(column) <span class="do">## logical vector </span></span>
-<span id="cb9-12"><a href="write-transmittances-correlation-in-text-file.html#cb9-12" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[nonna,] <span class="do">## take only the TRUE</span></span>
-<span id="cb9-13"><a href="write-transmittances-correlation-in-text-file.html#cb9-13" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="write-transmittances-correlation-in-text-file.html#cb9-14" tabindex="-1"></a><span class="do">## V2</span></span>
-<span id="cb9-15"><a href="write-transmittances-correlation-in-text-file.html#cb9-15" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
-<span id="cb9-16"><a href="write-transmittances-correlation-in-text-file.html#cb9-16" tabindex="-1"></a>inventory[<span class="sc">!</span><span class="fu">is.na</span>(inventory[,column_name]),] <span class="sc">%&gt;%</span></span>
-<span id="cb9-17"><a href="write-transmittances-correlation-in-text-file.html#cb9-17" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> column_name)</span>
-<span id="cb9-18"><a href="write-transmittances-correlation-in-text-file.html#cb9-18" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="write-transmittances-correlation-in-text-file.html#cb9-19" tabindex="-1"></a><span class="do">## Vdplyr</span></span>
-<span id="cb9-20"><a href="write-transmittances-correlation-in-text-file.html#cb9-20" tabindex="-1"></a>col_name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(var)) <span class="do">## object name to this name in character(get() pour faire l&#39;inverse)</span></span>
-<span id="cb9-21"><a href="write-transmittances-correlation-in-text-file.html#cb9-21" tabindex="-1"></a>inventory <span class="sc">%&gt;%</span></span>
-<span id="cb9-22"><a href="write-transmittances-correlation-in-text-file.html#cb9-22" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>( {{ var }} )) <span class="sc">%&gt;%</span> <span class="do">## {{var}} pour réccupérer l&#39;objet mis en argument &quot;var&quot;</span></span>
-<span id="cb9-23"><a href="write-transmittances-correlation-in-text-file.html#cb9-23" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> col_name) <span class="do">## quand t&#39;as besoin du nom de la colonne en charactère</span></span>
-<span id="cb9-24"><a href="write-transmittances-correlation-in-text-file.html#cb9-24" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="write-transmittances-correlation-in-text-file.html#cb9-25" tabindex="-1"></a><span class="co">#ou</span></span>
-<span id="cb9-26"><a href="write-transmittances-correlation-in-text-file.html#cb9-26" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="write-transmittances-correlation-in-text-file.html#cb9-27" tabindex="-1"></a>modif_var <span class="ot">&lt;-</span> <span class="cf">function</span>(data, nom_variable){</span>
-<span id="cb9-28"><a href="write-transmittances-correlation-in-text-file.html#cb9-28" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">nouveau_nom =</span> <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(nom_variable)<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb9-29"><a href="write-transmittances-correlation-in-text-file.html#cb9-29" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="write-transmittances-correlation-in-text-file.html#cb7-1" tabindex="-1"></a><span class="do">## Quand tu veux passer une collone de df en argument de fonction :</span></span>
+<span id="cb7-2"><a href="write-transmittances-correlation-in-text-file.html#cb7-2" tabindex="-1"></a><span class="do">## V0</span></span>
+<span id="cb7-3"><a href="write-transmittances-correlation-in-text-file.html#cb7-3" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span> <span class="do">## character string in an object</span></span>
+<span id="cb7-4"><a href="write-transmittances-correlation-in-text-file.html#cb7-4" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name] <span class="do">## character vector</span></span>
+<span id="cb7-5"><a href="write-transmittances-correlation-in-text-file.html#cb7-5" tabindex="-1"></a>line_nonna <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(column)) <span class="do">## which rows different of NA</span></span>
+<span id="cb7-6"><a href="write-transmittances-correlation-in-text-file.html#cb7-6" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[line_nonna,] <span class="do">## filter base version</span></span>
+<span id="cb7-7"><a href="write-transmittances-correlation-in-text-file.html#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="write-transmittances-correlation-in-text-file.html#cb7-8" tabindex="-1"></a><span class="do">## V1</span></span>
+<span id="cb7-9"><a href="write-transmittances-correlation-in-text-file.html#cb7-9" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
+<span id="cb7-10"><a href="write-transmittances-correlation-in-text-file.html#cb7-10" tabindex="-1"></a>column <span class="ot">&lt;-</span> inventory[,column_name]</span>
+<span id="cb7-11"><a href="write-transmittances-correlation-in-text-file.html#cb7-11" tabindex="-1"></a>nonna <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(column) <span class="do">## logical vector </span></span>
+<span id="cb7-12"><a href="write-transmittances-correlation-in-text-file.html#cb7-12" tabindex="-1"></a>subinventory <span class="ot">&lt;-</span> inventory[nonna,] <span class="do">## take only the TRUE</span></span>
+<span id="cb7-13"><a href="write-transmittances-correlation-in-text-file.html#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="write-transmittances-correlation-in-text-file.html#cb7-14" tabindex="-1"></a><span class="do">## V2</span></span>
+<span id="cb7-15"><a href="write-transmittances-correlation-in-text-file.html#cb7-15" tabindex="-1"></a>column_name <span class="ot">&lt;-</span> <span class="st">&quot;Position&quot;</span></span>
+<span id="cb7-16"><a href="write-transmittances-correlation-in-text-file.html#cb7-16" tabindex="-1"></a>inventory[<span class="sc">!</span><span class="fu">is.na</span>(inventory[,column_name]),] <span class="sc">%&gt;%</span></span>
+<span id="cb7-17"><a href="write-transmittances-correlation-in-text-file.html#cb7-17" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> column_name)</span>
+<span id="cb7-18"><a href="write-transmittances-correlation-in-text-file.html#cb7-18" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="write-transmittances-correlation-in-text-file.html#cb7-19" tabindex="-1"></a><span class="do">## Vdplyr</span></span>
+<span id="cb7-20"><a href="write-transmittances-correlation-in-text-file.html#cb7-20" tabindex="-1"></a>col_name <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(var)) <span class="do">## object name to this name in character(get() pour faire l&#39;inverse)</span></span>
+<span id="cb7-21"><a href="write-transmittances-correlation-in-text-file.html#cb7-21" tabindex="-1"></a>inventory <span class="sc">%&gt;%</span></span>
+<span id="cb7-22"><a href="write-transmittances-correlation-in-text-file.html#cb7-22" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>( {{ var }} )) <span class="sc">%&gt;%</span> <span class="do">## {{var}} pour réccupérer l&#39;objet mis en argument &quot;var&quot;</span></span>
+<span id="cb7-23"><a href="write-transmittances-correlation-in-text-file.html#cb7-23" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">wkt =</span> col_name) <span class="do">## quand t&#39;as besoin du nom de la colonne en charactère</span></span>
+<span id="cb7-24"><a href="write-transmittances-correlation-in-text-file.html#cb7-24" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="write-transmittances-correlation-in-text-file.html#cb7-25" tabindex="-1"></a><span class="co">#ou</span></span>
+<span id="cb7-26"><a href="write-transmittances-correlation-in-text-file.html#cb7-26" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="write-transmittances-correlation-in-text-file.html#cb7-27" tabindex="-1"></a>modif_var <span class="ot">&lt;-</span> <span class="cf">function</span>(data, nom_variable){</span>
+<span id="cb7-28"><a href="write-transmittances-correlation-in-text-file.html#cb7-28" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">nouveau_nom =</span> <span class="sc">!!</span>rlang<span class="sc">::</span><span class="fu">sym</span>(nom_variable)<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb7-29"><a href="write-transmittances-correlation-in-text-file.html#cb7-29" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p>Inverser lignes &amp; colonnes (retourner) (transposer) : <strong>t()</strong><br />
 </p></li>
@@ -726,28 +731,28 @@ Si on veut garder les NA, comme filter les vire d’office, rajouter <strong>| i
 <li><p>Créer une variable résumant les effectifs des éléments d’une variable : <strong>summarise(N = n())</strong> ou <strong>count()</strong></p></li>
 <li><p>Calculer des stats de base par variable, et variables groupées :</p></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="write-transmittances-correlation-in-text-file.html#cb10-1" tabindex="-1"></a>HOBOdata <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="write-transmittances-correlation-in-text-file.html#cb10-2" tabindex="-1"></a>  <span class="fu">group_by</span>(HoboID, Phase) <span class="sc">%&gt;%</span> <span class="co"># variables selon lesquelles grouper</span></span>
-<span id="cb10-3"><a href="write-transmittances-correlation-in-text-file.html#cb10-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">&quot;Temp&quot;</span>, <span class="st">&quot;Light&quot;</span>), <span class="co"># Variables à analyser</span></span>
-<span id="cb10-4"><a href="write-transmittances-correlation-in-text-file.html#cb10-4" tabindex="-1"></a>                   <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="co"># les stats</span></span>
-<span id="cb10-5"><a href="write-transmittances-correlation-in-text-file.html#cb10-5" tabindex="-1"></a>                        <span class="at">sd =</span> sd,</span>
-<span id="cb10-6"><a href="write-transmittances-correlation-in-text-file.html#cb10-6" tabindex="-1"></a>                        <span class="at">max =</span> max,</span>
-<span id="cb10-7"><a href="write-transmittances-correlation-in-text-file.html#cb10-7" tabindex="-1"></a>                        <span class="at">min =</span> min)))</span>
-<span id="cb10-8"><a href="write-transmittances-correlation-in-text-file.html#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="write-transmittances-correlation-in-text-file.html#cb10-9" tabindex="-1"></a><span class="co"># si ya une variable qui a besoin d&#39;autres variables :</span></span>
-<span id="cb10-10"><a href="write-transmittances-correlation-in-text-file.html#cb10-10" tabindex="-1"></a>phase_stats <span class="ot">&lt;-</span> HOBOdata <span class="sc">%&gt;%</span></span>
-<span id="cb10-11"><a href="write-transmittances-correlation-in-text-file.html#cb10-11" tabindex="-1"></a>  <span class="fu">group_by</span>(HoboID, Phase) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-12"><a href="write-transmittances-correlation-in-text-file.html#cb10-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">&quot;Temp&quot;</span>, <span class="st">&quot;Light&quot;</span>), </span>
-<span id="cb10-13"><a href="write-transmittances-correlation-in-text-file.html#cb10-13" tabindex="-1"></a>                   <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(.), </span>
-<span id="cb10-14"><a href="write-transmittances-correlation-in-text-file.html#cb10-14" tabindex="-1"></a>                        <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(.),</span>
-<span id="cb10-15"><a href="write-transmittances-correlation-in-text-file.html#cb10-15" tabindex="-1"></a>                        <span class="at">VarCoef =</span> <span class="sc">~</span>(<span class="fu">sd</span>(.) <span class="sc">/</span> <span class="fu">mean</span>(.)) <span class="sc">*</span> <span class="dv">100</span>, <span class="co"># la var qui en utilise d&#39;autres</span></span>
-<span id="cb10-16"><a href="write-transmittances-correlation-in-text-file.html#cb10-16" tabindex="-1"></a>                        <span class="at">max =</span> <span class="sc">~</span><span class="fu">max</span>(.),</span>
-<span id="cb10-17"><a href="write-transmittances-correlation-in-text-file.html#cb10-17" tabindex="-1"></a>                        <span class="at">min =</span> <span class="sc">~</span><span class="fu">min</span>(.)),</span>
-<span id="cb10-18"><a href="write-transmittances-correlation-in-text-file.html#cb10-18" tabindex="-1"></a>                   <span class="at">.names =</span> <span class="st">&quot;{.col}_{.fn}&quot;</span>))</span>
-<span id="cb10-19"><a href="write-transmittances-correlation-in-text-file.html#cb10-19" tabindex="-1"></a><span class="co"># &quot;Phase&quot; variable as an index for the computed variables</span></span>
-<span id="cb10-20"><a href="write-transmittances-correlation-in-text-file.html#cb10-20" tabindex="-1"></a>phase_stats <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(phase_stats, <span class="at">names_from =</span> Phase,</span>
-<span id="cb10-21"><a href="write-transmittances-correlation-in-text-file.html#cb10-21" tabindex="-1"></a>                           <span class="at">values_from =</span> <span class="fu">names</span>(phase_stats)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)],</span>
-<span id="cb10-22"><a href="write-transmittances-correlation-in-text-file.html#cb10-22" tabindex="-1"></a>                           <span class="at">names_glue =</span> <span class="st">&quot;{.value}_{Phase}&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="write-transmittances-correlation-in-text-file.html#cb8-1" tabindex="-1"></a>HOBOdata <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="write-transmittances-correlation-in-text-file.html#cb8-2" tabindex="-1"></a>  <span class="fu">group_by</span>(HoboID, Phase) <span class="sc">%&gt;%</span> <span class="co"># variables selon lesquelles grouper</span></span>
+<span id="cb8-3"><a href="write-transmittances-correlation-in-text-file.html#cb8-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">&quot;Temp&quot;</span>, <span class="st">&quot;Light&quot;</span>), <span class="co"># Variables à analyser</span></span>
+<span id="cb8-4"><a href="write-transmittances-correlation-in-text-file.html#cb8-4" tabindex="-1"></a>                   <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="co"># les stats</span></span>
+<span id="cb8-5"><a href="write-transmittances-correlation-in-text-file.html#cb8-5" tabindex="-1"></a>                        <span class="at">sd =</span> sd,</span>
+<span id="cb8-6"><a href="write-transmittances-correlation-in-text-file.html#cb8-6" tabindex="-1"></a>                        <span class="at">max =</span> max,</span>
+<span id="cb8-7"><a href="write-transmittances-correlation-in-text-file.html#cb8-7" tabindex="-1"></a>                        <span class="at">min =</span> min)))</span>
+<span id="cb8-8"><a href="write-transmittances-correlation-in-text-file.html#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="write-transmittances-correlation-in-text-file.html#cb8-9" tabindex="-1"></a><span class="co"># si ya une variable qui a besoin d&#39;autres variables :</span></span>
+<span id="cb8-10"><a href="write-transmittances-correlation-in-text-file.html#cb8-10" tabindex="-1"></a>phase_stats <span class="ot">&lt;-</span> HOBOdata <span class="sc">%&gt;%</span></span>
+<span id="cb8-11"><a href="write-transmittances-correlation-in-text-file.html#cb8-11" tabindex="-1"></a>  <span class="fu">group_by</span>(HoboID, Phase) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-12"><a href="write-transmittances-correlation-in-text-file.html#cb8-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">&quot;Temp&quot;</span>, <span class="st">&quot;Light&quot;</span>), </span>
+<span id="cb8-13"><a href="write-transmittances-correlation-in-text-file.html#cb8-13" tabindex="-1"></a>                   <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(.), </span>
+<span id="cb8-14"><a href="write-transmittances-correlation-in-text-file.html#cb8-14" tabindex="-1"></a>                        <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(.),</span>
+<span id="cb8-15"><a href="write-transmittances-correlation-in-text-file.html#cb8-15" tabindex="-1"></a>                        <span class="at">VarCoef =</span> <span class="sc">~</span>(<span class="fu">sd</span>(.) <span class="sc">/</span> <span class="fu">mean</span>(.)) <span class="sc">*</span> <span class="dv">100</span>, <span class="co"># la var qui en utilise d&#39;autres</span></span>
+<span id="cb8-16"><a href="write-transmittances-correlation-in-text-file.html#cb8-16" tabindex="-1"></a>                        <span class="at">max =</span> <span class="sc">~</span><span class="fu">max</span>(.),</span>
+<span id="cb8-17"><a href="write-transmittances-correlation-in-text-file.html#cb8-17" tabindex="-1"></a>                        <span class="at">min =</span> <span class="sc">~</span><span class="fu">min</span>(.)),</span>
+<span id="cb8-18"><a href="write-transmittances-correlation-in-text-file.html#cb8-18" tabindex="-1"></a>                   <span class="at">.names =</span> <span class="st">&quot;{.col}_{.fn}&quot;</span>))</span>
+<span id="cb8-19"><a href="write-transmittances-correlation-in-text-file.html#cb8-19" tabindex="-1"></a><span class="co"># &quot;Phase&quot; variable as an index for the computed variables</span></span>
+<span id="cb8-20"><a href="write-transmittances-correlation-in-text-file.html#cb8-20" tabindex="-1"></a>phase_stats <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(phase_stats, <span class="at">names_from =</span> Phase,</span>
+<span id="cb8-21"><a href="write-transmittances-correlation-in-text-file.html#cb8-21" tabindex="-1"></a>                           <span class="at">values_from =</span> <span class="fu">names</span>(phase_stats)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)],</span>
+<span id="cb8-22"><a href="write-transmittances-correlation-in-text-file.html#cb8-22" tabindex="-1"></a>                           <span class="at">names_glue =</span> <span class="st">&quot;{.value}_{Phase}&quot;</span>)</span></code></pre></div>
 <ul>
 <li><p>par ordre croissant : <strong>sort(x, decreasing = FALSE, na.last = NA, …)</strong> ou <strong>order()</strong></p></li>
 <li><p>Effectifs par ordre croissant : <strong>arrange(N)</strong><br />
@@ -770,12 +775,12 @@ Si on veut garder les NA, comme filter les vire d’office, rajouter <strong>| i
 <li><p>Répliquer une ligne n fois : <strong>do.call(“rbind”, replicate(n, df, simplify = FALSE))</strong></p></li>
 <li><p>Joindre 2 tables :</p></li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="write-transmittances-correlation-in-text-file.html#cb11-1" tabindex="-1"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="write-transmittances-correlation-in-text-file.html#cb11-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb11-3"><a href="write-transmittances-correlation-in-text-file.html#cb11-3" tabindex="-1"></a>    <span class="at">var1 =</span> <span class="fu">coalesce</span>(var1.x, var1.y), <span class="co"># pour combiner les valeurs de .x et .y </span></span>
-<span id="cb11-4"><a href="write-transmittances-correlation-in-text-file.html#cb11-4" tabindex="-1"></a>    <span class="at">var2 =</span> <span class="fu">coalesce</span>(var2.x, var2.y)</span>
-<span id="cb11-5"><a href="write-transmittances-correlation-in-text-file.html#cb11-5" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-6"><a href="write-transmittances-correlation-in-text-file.html#cb11-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>(<span class="fu">contains</span>(<span class="st">&quot;.x&quot;</span>) <span class="sc">|</span> <span class="fu">contains</span>(<span class="st">&quot;.y&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="write-transmittances-correlation-in-text-file.html#cb9-1" tabindex="-1"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="write-transmittances-correlation-in-text-file.html#cb9-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="write-transmittances-correlation-in-text-file.html#cb9-3" tabindex="-1"></a>    <span class="at">var1 =</span> <span class="fu">coalesce</span>(var1.x, var1.y), <span class="co"># pour combiner les valeurs de .x et .y </span></span>
+<span id="cb9-4"><a href="write-transmittances-correlation-in-text-file.html#cb9-4" tabindex="-1"></a>    <span class="at">var2 =</span> <span class="fu">coalesce</span>(var2.x, var2.y)</span>
+<span id="cb9-5"><a href="write-transmittances-correlation-in-text-file.html#cb9-5" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="write-transmittances-correlation-in-text-file.html#cb9-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>(<span class="fu">contains</span>(<span class="st">&quot;.x&quot;</span>) <span class="sc">|</span> <span class="fu">contains</span>(<span class="st">&quot;.y&quot;</span>)))</span></code></pre></div>
 <ul>
 <li>Ne garder les lignes que sans NA dans n’importe quelle colonne : <strong>na.omit(df)</strong>
 ou <strong>df[!complete.cases(df), ]</strong></li>
@@ -808,18 +813,18 @@ data[pH&gt;7,] : afficher les lignes dont les ph&gt;7</li>
 <li><p>Appliquer une fonction sur une liste/vecteur : <strong>lapply(liste, function(elementdelaliste) la fonction dépendante de l’élement)</strong> ou <strong>lapply(liste, function, autres arguments de la fct)</strong><br />
 ex :</p></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="write-transmittances-correlation-in-text-file.html#cb12-1" tabindex="-1"></a>multiply <span class="ot">&lt;-</span> <span class="cf">function</span>(x, factor, div) {</span>
-<span id="cb12-2"><a href="write-transmittances-correlation-in-text-file.html#cb12-2" tabindex="-1"></a>  (x <span class="sc">*</span> factor)<span class="sc">/</span>div</span>
-<span id="cb12-3"><a href="write-transmittances-correlation-in-text-file.html#cb12-3" tabindex="-1"></a>}</span>
-<span id="cb12-4"><a href="write-transmittances-correlation-in-text-file.html#cb12-4" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="write-transmittances-correlation-in-text-file.html#cb12-5" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), multiply, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">factor =</span> <span class="dv">3</span>) <span class="co"># the list is for the &quot;div&quot; argument</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="write-transmittances-correlation-in-text-file.html#cb13-1" tabindex="-1"></a><span class="fu">lapply</span>(a, <span class="cf">function</span>(element) <span class="fu">bcDiversity</span>(element<span class="sc">$</span>N, <span class="at">q =</span> <span class="dv">1</span>, <span class="at">Correction =</span> <span class="st">&quot;Best&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="write-transmittances-correlation-in-text-file.html#cb10-1" tabindex="-1"></a>multiply <span class="ot">&lt;-</span> <span class="cf">function</span>(x, factor, div) {</span>
+<span id="cb10-2"><a href="write-transmittances-correlation-in-text-file.html#cb10-2" tabindex="-1"></a>  (x <span class="sc">*</span> factor)<span class="sc">/</span>div</span>
+<span id="cb10-3"><a href="write-transmittances-correlation-in-text-file.html#cb10-3" tabindex="-1"></a>}</span>
+<span id="cb10-4"><a href="write-transmittances-correlation-in-text-file.html#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="write-transmittances-correlation-in-text-file.html#cb10-5" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), multiply, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">factor =</span> <span class="dv">3</span>) <span class="co"># the list is for the &quot;div&quot; argument</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="write-transmittances-correlation-in-text-file.html#cb11-1" tabindex="-1"></a><span class="fu">lapply</span>(a, <span class="cf">function</span>(element) <span class="fu">bcDiversity</span>(element<span class="sc">$</span>N, <span class="at">q =</span> <span class="dv">1</span>, <span class="at">Correction =</span> <span class="st">&quot;Best&quot;</span>))</span></code></pre></div>
 <p>ptit tips : la version fonction d’extraction d’élément d’un objet ($) : <strong>getElement(object, var)</strong> ex :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="write-transmittances-correlation-in-text-file.html#cb14-1" tabindex="-1"></a><span class="fu">lapply</span>(x, <span class="cf">function</span>(x) x<span class="sc">$</span>var) </span>
-<span id="cb14-2"><a href="write-transmittances-correlation-in-text-file.html#cb14-2" tabindex="-1"></a><span class="ot">=</span>  </span>
-<span id="cb14-3"><a href="write-transmittances-correlation-in-text-file.html#cb14-3" tabindex="-1"></a>  <span class="fu">lapply</span>(x, <span class="cf">function</span>(x) <span class="fu">getElement</span>(x, <span class="st">&quot;var&quot;</span>))  </span>
-<span id="cb14-4"><a href="write-transmittances-correlation-in-text-file.html#cb14-4" tabindex="-1"></a><span class="ot">=</span>  </span>
-<span id="cb14-5"><a href="write-transmittances-correlation-in-text-file.html#cb14-5" tabindex="-1"></a>  <span class="fu">lapply</span>(x, getElement, <span class="st">&quot;var&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="write-transmittances-correlation-in-text-file.html#cb12-1" tabindex="-1"></a><span class="fu">lapply</span>(x, <span class="cf">function</span>(x) x<span class="sc">$</span>var) </span>
+<span id="cb12-2"><a href="write-transmittances-correlation-in-text-file.html#cb12-2" tabindex="-1"></a><span class="ot">=</span>  </span>
+<span id="cb12-3"><a href="write-transmittances-correlation-in-text-file.html#cb12-3" tabindex="-1"></a>  <span class="fu">lapply</span>(x, <span class="cf">function</span>(x) <span class="fu">getElement</span>(x, <span class="st">&quot;var&quot;</span>))  </span>
+<span id="cb12-4"><a href="write-transmittances-correlation-in-text-file.html#cb12-4" tabindex="-1"></a><span class="ot">=</span>  </span>
+<span id="cb12-5"><a href="write-transmittances-correlation-in-text-file.html#cb12-5" tabindex="-1"></a>  <span class="fu">lapply</span>(x, getElement, <span class="st">&quot;var&quot;</span>) </span></code></pre></div>
 <ul>
 <li><p>Appliquer une fonction sur plsrs listes/vecteurs : <strong>mapply(function(X,Y) {la fonction(X, Y)}, X=list1, Y=list2, SIMPLIFY = F)</strong><br />
 SIMPLIFY = F : laisse la structure initiale de la liste</p></li>
@@ -863,10 +868,10 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <li>Body : Pour chaque valeur que peut prendre trait dans All_traits :<br />
 <strong>for(trait in All_traits){}</strong></li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="write-transmittances-correlation-in-text-file.html#cb15-1" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>)</span>
-<span id="cb15-2"><a href="write-transmittances-correlation-in-text-file.html#cb15-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="dv">3</span>)) {</span>
-<span id="cb15-3"><a href="write-transmittances-correlation-in-text-file.html#cb15-3" tabindex="-1"></a>  resultat[i] <span class="ot">&lt;-</span> i</span>
-<span id="cb15-4"><a href="write-transmittances-correlation-in-text-file.html#cb15-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="write-transmittances-correlation-in-text-file.html#cb13-1" tabindex="-1"></a>resultat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>)</span>
+<span id="cb13-2"><a href="write-transmittances-correlation-in-text-file.html#cb13-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="dv">3</span>)) {</span>
+<span id="cb13-3"><a href="write-transmittances-correlation-in-text-file.html#cb13-3" tabindex="-1"></a>  resultat[i] <span class="ot">&lt;-</span> i</span>
+<span id="cb13-4"><a href="write-transmittances-correlation-in-text-file.html#cb13-4" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>utiliser <strong>[[]]</strong> plutot que <strong>[]</strong> même pour les vecteurs</li>
 </ul>
@@ -875,9 +880,9 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <li><p>faire une boucle dont les résultats sont mis dans une liste: <strong>foreach()</strong></p></li>
 <li><p>Boucle while : boucle jusq’à ce que la condition soit fausse. Peut être utilisée lorsqu’on ne connait pas la longueur de la séquence.</p></li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="write-transmittances-correlation-in-text-file.html#cb16-1" tabindex="-1"></a><span class="cf">while</span> (condition) {</span>
-<span id="cb16-2"><a href="write-transmittances-correlation-in-text-file.html#cb16-2" tabindex="-1"></a>  <span class="do">## body</span></span>
-<span id="cb16-3"><a href="write-transmittances-correlation-in-text-file.html#cb16-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="write-transmittances-correlation-in-text-file.html#cb14-1" tabindex="-1"></a><span class="cf">while</span> (condition) {</span>
+<span id="cb14-2"><a href="write-transmittances-correlation-in-text-file.html#cb14-2" tabindex="-1"></a>  <span class="do">## body</span></span>
+<span id="cb14-3"><a href="write-transmittances-correlation-in-text-file.html#cb14-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>Arrêter la boucle : <strong>break()</strong><br />
 </li>
@@ -907,11 +912,11 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 </div>
 <div id="fonction" class="section level4 hasAnchor" number="2.11.0.3">
 <h4><span class="header-section-number">2.11.0.3</span> Fonction<a href="write-transmittances-correlation-in-text-file.html#fonction" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="write-transmittances-correlation-in-text-file.html#cb17-1" tabindex="-1"></a><span class="cf">function</span>(arguments){</span>
-<span id="cb17-2"><a href="write-transmittances-correlation-in-text-file.html#cb17-2" tabindex="-1"></a>  operation1</span>
-<span id="cb17-3"><a href="write-transmittances-correlation-in-text-file.html#cb17-3" tabindex="-1"></a>  operation2</span>
-<span id="cb17-4"><a href="write-transmittances-correlation-in-text-file.html#cb17-4" tabindex="-1"></a>  <span class="fu">return</span>()  <span class="do">## préciser ce que la fonction doit renvoyer</span></span>
-<span id="cb17-5"><a href="write-transmittances-correlation-in-text-file.html#cb17-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="write-transmittances-correlation-in-text-file.html#cb15-1" tabindex="-1"></a><span class="cf">function</span>(arguments){</span>
+<span id="cb15-2"><a href="write-transmittances-correlation-in-text-file.html#cb15-2" tabindex="-1"></a>  operation1</span>
+<span id="cb15-3"><a href="write-transmittances-correlation-in-text-file.html#cb15-3" tabindex="-1"></a>  operation2</span>
+<span id="cb15-4"><a href="write-transmittances-correlation-in-text-file.html#cb15-4" tabindex="-1"></a>  <span class="fu">return</span>()  <span class="do">## préciser ce que la fonction doit renvoyer</span></span>
+<span id="cb15-5"><a href="write-transmittances-correlation-in-text-file.html#cb15-5" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="condition" class="section level2 hasAnchor" number="2.12">
@@ -923,35 +928,35 @@ En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers
 <ul>
 <li>Dans les <strong>if else</strong> la place des brackets est importante:</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="write-transmittances-correlation-in-text-file.html#cb18-1" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
-<span id="cb18-2"><a href="write-transmittances-correlation-in-text-file.html#cb18-2" tabindex="-1"></a>  expression1</span>
-<span id="cb18-3"><a href="write-transmittances-correlation-in-text-file.html#cb18-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb18-4"><a href="write-transmittances-correlation-in-text-file.html#cb18-4" tabindex="-1"></a>  expression2</span>
-<span id="cb18-5"><a href="write-transmittances-correlation-in-text-file.html#cb18-5" tabindex="-1"></a>}</span>
-<span id="cb18-6"><a href="write-transmittances-correlation-in-text-file.html#cb18-6" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="write-transmittances-correlation-in-text-file.html#cb18-7" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
-<span id="cb18-8"><a href="write-transmittances-correlation-in-text-file.html#cb18-8" tabindex="-1"></a>  expression1</span>
-<span id="cb18-9"><a href="write-transmittances-correlation-in-text-file.html#cb18-9" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(case2) {</span>
-<span id="cb18-10"><a href="write-transmittances-correlation-in-text-file.html#cb18-10" tabindex="-1"></a>  expression2</span>
-<span id="cb18-11"><a href="write-transmittances-correlation-in-text-file.html#cb18-11" tabindex="-1"></a>}</span>
-<span id="cb18-12"><a href="write-transmittances-correlation-in-text-file.html#cb18-12" tabindex="-1"></a>...</span>
-<span id="cb18-13"><a href="write-transmittances-correlation-in-text-file.html#cb18-13" tabindex="-1"></a><span class="cf">else</span> last.expression</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="write-transmittances-correlation-in-text-file.html#cb16-1" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
+<span id="cb16-2"><a href="write-transmittances-correlation-in-text-file.html#cb16-2" tabindex="-1"></a>  expression1</span>
+<span id="cb16-3"><a href="write-transmittances-correlation-in-text-file.html#cb16-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb16-4"><a href="write-transmittances-correlation-in-text-file.html#cb16-4" tabindex="-1"></a>  expression2</span>
+<span id="cb16-5"><a href="write-transmittances-correlation-in-text-file.html#cb16-5" tabindex="-1"></a>}</span>
+<span id="cb16-6"><a href="write-transmittances-correlation-in-text-file.html#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="write-transmittances-correlation-in-text-file.html#cb16-7" tabindex="-1"></a><span class="cf">if</span>(case1) {</span>
+<span id="cb16-8"><a href="write-transmittances-correlation-in-text-file.html#cb16-8" tabindex="-1"></a>  expression1</span>
+<span id="cb16-9"><a href="write-transmittances-correlation-in-text-file.html#cb16-9" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(case2) {</span>
+<span id="cb16-10"><a href="write-transmittances-correlation-in-text-file.html#cb16-10" tabindex="-1"></a>  expression2</span>
+<span id="cb16-11"><a href="write-transmittances-correlation-in-text-file.html#cb16-11" tabindex="-1"></a>}</span>
+<span id="cb16-12"><a href="write-transmittances-correlation-in-text-file.html#cb16-12" tabindex="-1"></a>...</span>
+<span id="cb16-13"><a href="write-transmittances-correlation-in-text-file.html#cb16-13" tabindex="-1"></a><span class="cf">else</span> last.expression</span></code></pre></div>
 <ul>
 <li><strong>ifelse(condition, expression1, expression2)</strong> vectorized version of the if() statement. Warning: ifelse() is designed to work with vectors and matrices – not data frames.</li>
 </ul>
 </div>
 <div id="logical-operators" class="section level2 hasAnchor" number="2.13">
 <h2><span class="header-section-number">2.13</span> Logical Operators<a href="write-transmittances-correlation-in-text-file.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="write-transmittances-correlation-in-text-file.html#cb19-1" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">|</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE FALSE  TRUE</span></span>
-<span id="cb19-2"><a href="write-transmittances-correlation-in-text-file.html#cb19-2" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="write-transmittances-correlation-in-text-file.html#cb19-3" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE</span></span>
-<span id="cb19-4"><a href="write-transmittances-correlation-in-text-file.html#cb19-4" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="write-transmittances-correlation-in-text-file.html#cb19-5" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## FALSE</span></span>
-<span id="cb19-6"><a href="write-transmittances-correlation-in-text-file.html#cb19-6" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="write-transmittances-correlation-in-text-file.html#cb19-7" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(T, F, T) <span class="do">## TRUE</span></span>
-<span id="cb19-8"><a href="write-transmittances-correlation-in-text-file.html#cb19-8" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="write-transmittances-correlation-in-text-file.html#cb19-9" tabindex="-1"></a><span class="do">## |/&amp; to compare each value of different bolean vectors</span></span>
-<span id="cb19-10"><a href="write-transmittances-correlation-in-text-file.html#cb19-10" tabindex="-1"></a><span class="do">## ||/&amp;&amp; to compare single value conditions </span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="write-transmittances-correlation-in-text-file.html#cb17-1" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">|</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE FALSE  TRUE</span></span>
+<span id="cb17-2"><a href="write-transmittances-correlation-in-text-file.html#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="write-transmittances-correlation-in-text-file.html#cb17-3" tabindex="-1"></a><span class="fu">c</span>(T, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## TRUE</span></span>
+<span id="cb17-4"><a href="write-transmittances-correlation-in-text-file.html#cb17-4" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="write-transmittances-correlation-in-text-file.html#cb17-5" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(F, F, T) <span class="do">## FALSE</span></span>
+<span id="cb17-6"><a href="write-transmittances-correlation-in-text-file.html#cb17-6" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="write-transmittances-correlation-in-text-file.html#cb17-7" tabindex="-1"></a><span class="fu">c</span>(F, F, T) <span class="sc">||</span> <span class="fu">c</span>(T, F, T) <span class="do">## TRUE</span></span>
+<span id="cb17-8"><a href="write-transmittances-correlation-in-text-file.html#cb17-8" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="write-transmittances-correlation-in-text-file.html#cb17-9" tabindex="-1"></a><span class="do">## |/&amp; to compare each value of different bolean vectors</span></span>
+<span id="cb17-10"><a href="write-transmittances-correlation-in-text-file.html#cb17-10" tabindex="-1"></a><span class="do">## ||/&amp;&amp; to compare single value conditions </span></span></code></pre></div>
 </div>
 <div id="stan---modelo---bayes" class="section level2 hasAnchor" number="2.14">
 <h2><span class="header-section-number">2.14</span> Stan - Modelo - Bayes<a href="write-transmittances-correlation-in-text-file.html#stan---modelo---bayes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -981,9 +986,9 @@ To change permanently : change time zone of your computer</p></li>
 <li><p><strong>lubridate::as_datetime(, tz = “America/Cayenne”)</strong></p></li>
 <li><p>filtrer selon un pas de temps :</p></li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="write-transmittances-correlation-in-text-file.html#cb20-1" tabindex="-1"></a>Df1 <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="write-transmittances-correlation-in-text-file.html#cb20-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">mdy_hms</span>((Time))) <span class="sc">%&gt;%</span> <span class="co"># format: 2023-03-30 18:15:00</span></span>
-<span id="cb20-3"><a href="write-transmittances-correlation-in-text-file.html#cb20-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">minute</span>(Time) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;00&quot;</span>, <span class="st">&quot;15&quot;</span>, <span class="st">&quot;30&quot;</span>, <span class="st">&quot;45&quot;</span>)) <span class="co"># every 15 minutes</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="write-transmittances-correlation-in-text-file.html#cb18-1" tabindex="-1"></a>Df1 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="write-transmittances-correlation-in-text-file.html#cb18-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">mdy_hms</span>((Time))) <span class="sc">%&gt;%</span> <span class="co"># format: 2023-03-30 18:15:00</span></span>
+<span id="cb18-3"><a href="write-transmittances-correlation-in-text-file.html#cb18-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">minute</span>(Time) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;00&quot;</span>, <span class="st">&quot;15&quot;</span>, <span class="st">&quot;30&quot;</span>, <span class="st">&quot;45&quot;</span>)) <span class="co"># every 15 minutes</span></span></code></pre></div>
 <ul>
 <li><p>filter par date et heures séparément : <strong>filter(Date &gt;= as.Date(“2023-03-30”) &amp; Hour &gt;= chron(times=“18:00:00”))</strong></p></li>
 <li><p>filter par date et heures au format Date-times : <strong>filter(Time &gt;= mdy_hms(“03/30/2023 18:00:00”))</strong></p></li>
