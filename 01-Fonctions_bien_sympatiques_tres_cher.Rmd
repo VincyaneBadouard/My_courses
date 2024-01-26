@@ -174,7 +174,7 @@ mutate(var = case_when(
 
 + déplie la une sous-table existant dans une table : **unnest()**  
 
-+  Encode a column in utf8 : **tidyft::utf8_encoding(datatable, colname)**  
++ Encode a column in utf8 : **tidyft::utf8_encoding(datatable, colname)**  
 
 + Mettre à NA 10% du jeu de donnée aléatoirement : **data[sample(nrow(data), 0.1 * nrow(data)), c("X", "Y", "Z") := NA_real_]**
 
@@ -294,7 +294,8 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 
 + Réaliser les opérations suivantes par groupes de modalités : **group_by**  
 
-+ Créer une variable résumant les effectifs des éléments d'une variable : **summarise(N = n())** ou **count()**
++ Créer une variable résumant les effectifs des éléments d'une variable : **summarise(N = n())** ou **count(sp, sort = T,name = "N")**
+ou **group_by(var) %>% mutate(N = n()) %>% ungroup()** pour la mettre dans le df initial.  
 
 + Calculer des stats de base par variable, et variables groupées :
 ```{r}

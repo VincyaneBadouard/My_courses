@@ -13,6 +13,7 @@ https://www.data-to-viz.com/caveats.html
 + geom_point()
 + geom_line()
 + geom_bar()
++ geom_histogram(binwidth=1, fill="#69b3a2", color="#e9ecef", alpha=0.9)
     
 
 ## Titres
@@ -128,6 +129,31 @@ package **gganimate** https://r-graph-gallery.com/animation.html
 + **ggsave("mtcars.pdf", path = , width = 20, height = 20, units = "cm")**  (ne fonctionne qu'avec des ggplots)
 
 + compresser : **save(objt, file = "objt.rda", compress = "xz")** 
+
++ dans un pdf de plusieurs pages :
+```{r}
+sp <- data$ScientificName
+
+# Define nrow and ncol for the facet
+n <- length(unique(sp))
+if(n<4) {i = 1}else{ i = 4} # 4 col, 4 rows
+
+
+pdf("plotname.pdf", width = 15, height = 10)
+for(p in 1:(ceiling(length(unique(sp))/16))){ # p = page n°
+  print(
+    ggplot(data, aes(x=DBH)) +
+      geom_histogram(binwidth=1, fill="#69b3a2", color="#e9ecef", alpha=0.9) + # color to have the lines of the bars
+      
+      ggforce::facet_wrap_paginate(vars(ScientificName, N),
+                                   scales = "free",
+                                   ncol = min(n,4), nrow = i, page = p)
+    
+  )
+}
+dev.off() # Close the final graphics device
+```
+
 
 ## En faire de l'art !
 https://www.data-to-art.com/
