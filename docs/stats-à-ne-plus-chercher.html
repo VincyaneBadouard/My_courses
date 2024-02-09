@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -584,8 +584,8 @@ ou (var-mean(var))/sd(var)</p>
 - round(mean(var),2) la moyenne arrondie du ph doit etre =0
 - sd(var) doit etre =1</p>
 <p>ou</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="stats-à-ne-plus-chercher.html#cb94-1" tabindex="-1"></a>d<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">scale</span>(data))</span>
-<span id="cb94-2"><a href="stats-à-ne-plus-chercher.html#cb94-2" tabindex="-1"></a><span class="fu">boxplot</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="stats-à-ne-plus-chercher.html#cb95-1" tabindex="-1"></a>d<span class="ot">=</span><span class="fu">as.data.frame</span>(<span class="fu">scale</span>(data))</span>
+<span id="cb95-2"><a href="stats-à-ne-plus-chercher.html#cb95-2" tabindex="-1"></a><span class="fu">boxplot</span>(d)</span></code></pre></div>
 </div>
 <div id="régression" class="section level2 hasAnchor" number="15.3">
 <h2><span class="header-section-number">15.3</span> Régression<a href="stats-à-ne-plus-chercher.html#régression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -641,38 +641,38 @@ Uniquement centré : uniquement quand variables de meme unite et de meme gamme d
 <h3><span class="header-section-number">15.6.2</span> Calcul du % d’explication de chaque axe (inertie)<a href="stats-à-ne-plus-chercher.html#calcul-du-dexplication-de-chaque-axe-inertie" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quel est le nombre de composantes principales expliquant un minimum de x % de l’information (ou inertie totale).<br />
 Ce pourcentage d’inertie est calculé en divisant la valeur propre d’un axe par le nombre d’axes possibles (égal au nombre de variables du tableau de départ)</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="stats-à-ne-plus-chercher.html#cb95-1" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">round</span>(acp1<span class="sc">$</span>eig<span class="sc">/</span><span class="fu">sum</span>(acp1<span class="sc">$</span>eig)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)<span class="co">#arrondi a 2 chiffres apres la virgule </span></span>
-<span id="cb95-2"><a href="stats-à-ne-plus-chercher.html#cb95-2" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(pc)) <span class="co">#passer de character a numerique</span></span>
-<span id="cb95-3"><a href="stats-à-ne-plus-chercher.html#cb95-3" tabindex="-1"></a>pc <span class="co">#72.96 22.85  3.67  0.52</span></span>
-<span id="cb95-4"><a href="stats-à-ne-plus-chercher.html#cb95-4" tabindex="-1"></a><span class="co"># ne retenir que les plus explicatifs (generalement &gt; 10% de variation) (ici les 2 1ers)</span></span>
-<span id="cb95-5"><a href="stats-à-ne-plus-chercher.html#cb95-5" tabindex="-1"></a><span class="co"># % cumules</span></span>
-<span id="cb95-6"><a href="stats-à-ne-plus-chercher.html#cb95-6" tabindex="-1"></a><span class="fu">cumsum</span>(pc)</span>
-<span id="cb95-7"><a href="stats-à-ne-plus-chercher.html#cb95-7" tabindex="-1"></a></span>
-<span id="cb95-8"><a href="stats-à-ne-plus-chercher.html#cb95-8" tabindex="-1"></a><span class="co"># ou </span></span>
-<span id="cb95-9"><a href="stats-à-ne-plus-chercher.html#cb95-9" tabindex="-1"></a>data.pca <span class="ot">&lt;-</span> <span class="fu">princomp</span>(corr_matrix) <span class="co"># l&#39;ACP</span></span>
-<span id="cb95-10"><a href="stats-à-ne-plus-chercher.html#cb95-10" tabindex="-1"></a><span class="fu">summary</span>(data.pca) <span class="co"># les statitisques de l&#39;ACP</span></span>
-<span id="cb95-11"><a href="stats-à-ne-plus-chercher.html#cb95-11" tabindex="-1"></a>data.pca<span class="sc">$</span>loadings[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="co"># relation variables-composantes principales 1 et 2</span></span>
-<span id="cb95-12"><a href="stats-à-ne-plus-chercher.html#cb95-12" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co"># eigenvalues plot (scree plot)</span></span>
-<span id="cb95-13"><a href="stats-à-ne-plus-chercher.html#cb95-13" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">&quot;black&quot;</span>) <span class="co"># Biplot of the variables</span></span>
-<span id="cb95-14"><a href="stats-à-ne-plus-chercher.html#cb95-14" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="co"># COS2 plot (contribution of each variable) ou :</span></span>
-<span id="cb95-15"><a href="stats-à-ne-plus-chercher.html#cb95-15" tabindex="-1"></a><span class="fu">corrplot</span>(data.pca<span class="sc">$</span>cos2, <span class="at">is.corr=</span><span class="cn">FALSE</span>)</span>
-<span id="cb95-16"><a href="stats-à-ne-plus-chercher.html#cb95-16" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="co"># Biplot combined with cos2 </span></span>
-<span id="cb95-17"><a href="stats-à-ne-plus-chercher.html#cb95-17" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;cos2&quot;</span>, <span class="co"># ou alpha.var = &quot;cos2&quot;</span></span>
-<span id="cb95-18"><a href="stats-à-ne-plus-chercher.html#cb95-18" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
-<span id="cb95-19"><a href="stats-à-ne-plus-chercher.html#cb95-19" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="co"># Avoid text overlapping </span></span>
-<span id="cb95-20"><a href="stats-à-ne-plus-chercher.html#cb95-20" tabindex="-1"></a></span>
-<span id="cb95-21"><a href="stats-à-ne-plus-chercher.html#cb95-21" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(data.pca, <span class="co"># Biplot combined with cos2 </span></span>
-<span id="cb95-22"><a href="stats-à-ne-plus-chercher.html#cb95-22" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;cos2&quot;</span>, <span class="co"># ou alpha.var = &quot;cos2&quot;</span></span>
-<span id="cb95-23"><a href="stats-à-ne-plus-chercher.html#cb95-23" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
-<span id="cb95-24"><a href="stats-à-ne-plus-chercher.html#cb95-24" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="co"># Avoid text overlapping </span></span>
-<span id="cb95-25"><a href="stats-à-ne-plus-chercher.html#cb95-25" tabindex="-1"></a></span>
-<span id="cb95-26"><a href="stats-à-ne-plus-chercher.html#cb95-26" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(iris.pca,</span>
-<span id="cb95-27"><a href="stats-à-ne-plus-chercher.html#cb95-27" tabindex="-1"></a>             <span class="at">geom.ind =</span> <span class="st">&quot;point&quot;</span>, <span class="co"># show points only (nbut not &quot;text&quot;)</span></span>
-<span id="cb95-28"><a href="stats-à-ne-plus-chercher.html#cb95-28" tabindex="-1"></a>             <span class="at">col.ind =</span> iris<span class="sc">$</span>Species, <span class="co"># color by groups</span></span>
-<span id="cb95-29"><a href="stats-à-ne-plus-chercher.html#cb95-29" tabindex="-1"></a>             <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
-<span id="cb95-30"><a href="stats-à-ne-plus-chercher.html#cb95-30" tabindex="-1"></a>             <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="co"># Concentration ellipses</span></span>
-<span id="cb95-31"><a href="stats-à-ne-plus-chercher.html#cb95-31" tabindex="-1"></a>             <span class="at">legend.title =</span> <span class="st">&quot;Groups&quot;</span></span>
-<span id="cb95-32"><a href="stats-à-ne-plus-chercher.html#cb95-32" tabindex="-1"></a>             ) <span class="co"># To remove the group mean point, specify the argument mean.point = FALSE. If you want confidence ellipses instead of concentration ellipses, use ellipse.type = “confidence”.</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="stats-à-ne-plus-chercher.html#cb96-1" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">round</span>(acp1<span class="sc">$</span>eig<span class="sc">/</span><span class="fu">sum</span>(acp1<span class="sc">$</span>eig)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)<span class="co">#arrondi a 2 chiffres apres la virgule </span></span>
+<span id="cb96-2"><a href="stats-à-ne-plus-chercher.html#cb96-2" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(pc)) <span class="co">#passer de character a numerique</span></span>
+<span id="cb96-3"><a href="stats-à-ne-plus-chercher.html#cb96-3" tabindex="-1"></a>pc <span class="co">#72.96 22.85  3.67  0.52</span></span>
+<span id="cb96-4"><a href="stats-à-ne-plus-chercher.html#cb96-4" tabindex="-1"></a><span class="co"># ne retenir que les plus explicatifs (generalement &gt; 10% de variation) (ici les 2 1ers)</span></span>
+<span id="cb96-5"><a href="stats-à-ne-plus-chercher.html#cb96-5" tabindex="-1"></a><span class="co"># % cumules</span></span>
+<span id="cb96-6"><a href="stats-à-ne-plus-chercher.html#cb96-6" tabindex="-1"></a><span class="fu">cumsum</span>(pc)</span>
+<span id="cb96-7"><a href="stats-à-ne-plus-chercher.html#cb96-7" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="stats-à-ne-plus-chercher.html#cb96-8" tabindex="-1"></a><span class="co"># ou </span></span>
+<span id="cb96-9"><a href="stats-à-ne-plus-chercher.html#cb96-9" tabindex="-1"></a>data.pca <span class="ot">&lt;-</span> <span class="fu">princomp</span>(corr_matrix) <span class="co"># l&#39;ACP</span></span>
+<span id="cb96-10"><a href="stats-à-ne-plus-chercher.html#cb96-10" tabindex="-1"></a><span class="fu">summary</span>(data.pca) <span class="co"># les statitisques de l&#39;ACP</span></span>
+<span id="cb96-11"><a href="stats-à-ne-plus-chercher.html#cb96-11" tabindex="-1"></a>data.pca<span class="sc">$</span>loadings[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="co"># relation variables-composantes principales 1 et 2</span></span>
+<span id="cb96-12"><a href="stats-à-ne-plus-chercher.html#cb96-12" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co"># eigenvalues plot (scree plot)</span></span>
+<span id="cb96-13"><a href="stats-à-ne-plus-chercher.html#cb96-13" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">&quot;black&quot;</span>) <span class="co"># Biplot of the variables</span></span>
+<span id="cb96-14"><a href="stats-à-ne-plus-chercher.html#cb96-14" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="co"># COS2 plot (contribution of each variable) ou :</span></span>
+<span id="cb96-15"><a href="stats-à-ne-plus-chercher.html#cb96-15" tabindex="-1"></a><span class="fu">corrplot</span>(data.pca<span class="sc">$</span>cos2, <span class="at">is.corr=</span><span class="cn">FALSE</span>)</span>
+<span id="cb96-16"><a href="stats-à-ne-plus-chercher.html#cb96-16" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="co"># Biplot combined with cos2 </span></span>
+<span id="cb96-17"><a href="stats-à-ne-plus-chercher.html#cb96-17" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;cos2&quot;</span>, <span class="co"># ou alpha.var = &quot;cos2&quot;</span></span>
+<span id="cb96-18"><a href="stats-à-ne-plus-chercher.html#cb96-18" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
+<span id="cb96-19"><a href="stats-à-ne-plus-chercher.html#cb96-19" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="co"># Avoid text overlapping </span></span>
+<span id="cb96-20"><a href="stats-à-ne-plus-chercher.html#cb96-20" tabindex="-1"></a></span>
+<span id="cb96-21"><a href="stats-à-ne-plus-chercher.html#cb96-21" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(data.pca, <span class="co"># Biplot combined with cos2 </span></span>
+<span id="cb96-22"><a href="stats-à-ne-plus-chercher.html#cb96-22" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;cos2&quot;</span>, <span class="co"># ou alpha.var = &quot;cos2&quot;</span></span>
+<span id="cb96-23"><a href="stats-à-ne-plus-chercher.html#cb96-23" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
+<span id="cb96-24"><a href="stats-à-ne-plus-chercher.html#cb96-24" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="co"># Avoid text overlapping </span></span>
+<span id="cb96-25"><a href="stats-à-ne-plus-chercher.html#cb96-25" tabindex="-1"></a></span>
+<span id="cb96-26"><a href="stats-à-ne-plus-chercher.html#cb96-26" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(iris.pca,</span>
+<span id="cb96-27"><a href="stats-à-ne-plus-chercher.html#cb96-27" tabindex="-1"></a>             <span class="at">geom.ind =</span> <span class="st">&quot;point&quot;</span>, <span class="co"># show points only (nbut not &quot;text&quot;)</span></span>
+<span id="cb96-28"><a href="stats-à-ne-plus-chercher.html#cb96-28" tabindex="-1"></a>             <span class="at">col.ind =</span> iris<span class="sc">$</span>Species, <span class="co"># color by groups</span></span>
+<span id="cb96-29"><a href="stats-à-ne-plus-chercher.html#cb96-29" tabindex="-1"></a>             <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
+<span id="cb96-30"><a href="stats-à-ne-plus-chercher.html#cb96-30" tabindex="-1"></a>             <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="co"># Concentration ellipses</span></span>
+<span id="cb96-31"><a href="stats-à-ne-plus-chercher.html#cb96-31" tabindex="-1"></a>             <span class="at">legend.title =</span> <span class="st">&quot;Groups&quot;</span></span>
+<span id="cb96-32"><a href="stats-à-ne-plus-chercher.html#cb96-32" tabindex="-1"></a>             ) <span class="co"># To remove the group mean point, specify the argument mean.point = FALSE. If you want confidence ellipses instead of concentration ellipses, use ellipse.type = “confidence”.</span></span></code></pre></div>
 </div>
 <div id="cercle-de-correlation-pour-une-acp-normee" class="section level3 hasAnchor" number="15.6.3">
 <h3><span class="header-section-number">15.6.3</span> Cercle de correlation (pour une ACP normee)<a href="stats-à-ne-plus-chercher.html#cercle-de-correlation-pour-une-acp-normee" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -755,11 +755,11 @@ Spearman : pas lineaires monotones et à valeurs extremes</p>
 histograms and correlations
 L’ACP se prête mieux à l’analyse de relations linéaires et de variables
 ayant une distribution symétrique qu’on peut vérifier avec pairs.panels</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="stats-à-ne-plus-chercher.html#cb96-1" tabindex="-1"></a><span class="fu">pairs.panels</span>(iris, </span>
-<span id="cb96-2"><a href="stats-à-ne-plus-chercher.html#cb96-2" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="co">#coef de correlation de Spearman à droite</span></span>
-<span id="cb96-3"><a href="stats-à-ne-plus-chercher.html#cb96-3" tabindex="-1"></a>             <span class="at">hist.col =</span> <span class="st">&quot;#00AFBB&quot;</span>,</span>
-<span id="cb96-4"><a href="stats-à-ne-plus-chercher.html#cb96-4" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>,  <span class="co"># affiche la courbe de densite</span></span>
-<span id="cb96-5"><a href="stats-à-ne-plus-chercher.html#cb96-5" tabindex="-1"></a>             <span class="at">ellipses =</span> T) <span class="co"># show correlation ellipses (interprétable que pour les var quanti)</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="stats-à-ne-plus-chercher.html#cb97-1" tabindex="-1"></a><span class="fu">pairs.panels</span>(iris, </span>
+<span id="cb97-2"><a href="stats-à-ne-plus-chercher.html#cb97-2" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="co">#coef de correlation de Spearman à droite</span></span>
+<span id="cb97-3"><a href="stats-à-ne-plus-chercher.html#cb97-3" tabindex="-1"></a>             <span class="at">hist.col =</span> <span class="st">&quot;#00AFBB&quot;</span>,</span>
+<span id="cb97-4"><a href="stats-à-ne-plus-chercher.html#cb97-4" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>,  <span class="co"># affiche la courbe de densite</span></span>
+<span id="cb97-5"><a href="stats-à-ne-plus-chercher.html#cb97-5" tabindex="-1"></a>             <span class="at">ellipses =</span> T) <span class="co"># show correlation ellipses (interprétable que pour les var quanti)</span></span></code></pre></div>
 <p><em>Une base de données uniquement quantitatives et sans NA à tester :</em>
 baseforcor &lt;- data %&gt;%
 select(-var quali) %&gt;%
@@ -773,14 +773,14 @@ CorMatrix &lt;- CorMatrixS$r</p>
 Pval_corr &lt;- CorMatrixS$P</p>
 <p><em>Plot de la matrice de corrélation :</em>
 <a href="http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme" class="uri">http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme</a></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="stats-à-ne-plus-chercher.html#cb97-1" tabindex="-1"></a><span class="fu">corrplot</span>(CorMatrix, <span class="at">method=</span><span class="st">&quot;circle&quot;</span>, <span class="at">type=</span><span class="st">&quot;lower&quot;</span>, <span class="at">col=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">8</span>, <span class="at">name=</span><span class="st">&quot;PuOr&quot;</span>), <span class="at">tl.col=</span><span class="st">&quot;black&quot;</span>, <span class="at">tl.srt=</span><span class="dv">45</span>, <span class="at">p.mat =</span> Pval_corr, <span class="at">sig.level =</span> <span class="fl">0.05</span>) <span class="co">#avec une croix pour les p-value &gt; 0.05.</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="stats-à-ne-plus-chercher.html#cb98-1" tabindex="-1"></a><span class="fu">corrplot</span>(CorMatrix, <span class="at">method=</span><span class="st">&quot;circle&quot;</span>, <span class="at">type=</span><span class="st">&quot;lower&quot;</span>, <span class="at">col=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">8</span>, <span class="at">name=</span><span class="st">&quot;PuOr&quot;</span>), <span class="at">tl.col=</span><span class="st">&quot;black&quot;</span>, <span class="at">tl.srt=</span><span class="dv">45</span>, <span class="at">p.mat =</span> Pval_corr, <span class="at">sig.level =</span> <span class="fl">0.05</span>) <span class="co">#avec une croix pour les p-value &gt; 0.05.</span></span></code></pre></div>
 <p>un autre type :</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="stats-à-ne-plus-chercher.html#cb98-1" tabindex="-1"></a><span class="fu">pairs.panels</span>(iris, </span>
-<span id="cb98-2"><a href="stats-à-ne-plus-chercher.html#cb98-2" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="co">#coef de correlation de Spearman à droite</span></span>
-<span id="cb98-3"><a href="stats-à-ne-plus-chercher.html#cb98-3" tabindex="-1"></a>             <span class="at">hist.col =</span> <span class="st">&quot;#00AFBB&quot;</span>,</span>
-<span id="cb98-4"><a href="stats-à-ne-plus-chercher.html#cb98-4" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>,  <span class="co"># affiche la courbe de densite</span></span>
-<span id="cb98-5"><a href="stats-à-ne-plus-chercher.html#cb98-5" tabindex="-1"></a>             <span class="at">ellipses =</span> T <span class="co"># show correlation ellipses (interprétable que pour les var quanti)</span></span>
-<span id="cb98-6"><a href="stats-à-ne-plus-chercher.html#cb98-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="stats-à-ne-plus-chercher.html#cb99-1" tabindex="-1"></a><span class="fu">pairs.panels</span>(iris, </span>
+<span id="cb99-2"><a href="stats-à-ne-plus-chercher.html#cb99-2" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="co">#coef de correlation de Spearman à droite</span></span>
+<span id="cb99-3"><a href="stats-à-ne-plus-chercher.html#cb99-3" tabindex="-1"></a>             <span class="at">hist.col =</span> <span class="st">&quot;#00AFBB&quot;</span>,</span>
+<span id="cb99-4"><a href="stats-à-ne-plus-chercher.html#cb99-4" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>,  <span class="co"># affiche la courbe de densite</span></span>
+<span id="cb99-5"><a href="stats-à-ne-plus-chercher.html#cb99-5" tabindex="-1"></a>             <span class="at">ellipses =</span> T <span class="co"># show correlation ellipses (interprétable que pour les var quanti)</span></span>
+<span id="cb99-6"><a href="stats-à-ne-plus-chercher.html#cb99-6" tabindex="-1"></a>)</span></code></pre></div>
 <p>d’autres fcts de corplot : <strong>ggcorrplot()</strong></p>
 </div>
 </div>

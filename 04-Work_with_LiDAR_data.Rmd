@@ -151,7 +151,7 @@ Contient :
 
 
 ```{r}
-traj <- fread("Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj")
+traj <- fread("Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj") # or .txt
 traj 
 
 plot3d(traj[,2:4], aspect=F) # plot the trajectory (x,y,z)

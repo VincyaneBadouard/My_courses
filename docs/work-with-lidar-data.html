@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -678,7 +678,7 @@ help <a href="https://lastools.github.io/">here</a>.</p>
 - Angle du système d’axes par rapport au Nord (radian)
 - Accélération sur les axes X, Y, Z (m/s2)
 - Vitesse angulaire autour des axes X, Y, Z (rad/s)</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="work-with-lidar-data.html#cb47-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>)</span>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="work-with-lidar-data.html#cb47-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>) <span class="co"># or .txt</span></span>
 <span id="cb47-2"><a href="work-with-lidar-data.html#cb47-2" tabindex="-1"></a>traj </span>
 <span id="cb47-3"><a href="work-with-lidar-data.html#cb47-3" tabindex="-1"></a></span>
 <span id="cb47-4"><a href="work-with-lidar-data.html#cb47-4" tabindex="-1"></a><span class="fu">plot3d</span>(traj[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">aspect=</span>F) <span class="co"># plot the trajectory (x,y,z)</span></span></code></pre></div>

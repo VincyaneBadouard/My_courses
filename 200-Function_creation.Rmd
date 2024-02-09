@@ -31,17 +31,17 @@
 ```{r}
 nomdemafonction<-function(variable1,variable2...)
 {
-#ici on met le contenu de la fonction (généralement on effectue des transformations aux variables passées en argument)
-
-
-
-
-
-return(Variabledesortie) ## il s'agit du résultat que va renvoyer la fonction (non négligeable!)! c'est bien le but d'une fct!
+  #ici on met le contenu de la fonction (généralement on effectue des transformations aux variables passées en argument)
+  
+  
+  
+  
+  
+  return(Variabledesortie) ## il s'agit du résultat que va renvoyer la fonction (non négligeable!)! c'est bien le but d'une fct!
 }
 
 #une fois la fonction créée on peut l'utiliser:
- nomdemafonction(varA,varB,...)
+nomdemafonction(varA,varB,...)
 ```
 
 *Une fct normalement constituée ne travaille directement que sur ses arguments et non sur les objets stockés dans la console.*
@@ -99,8 +99,8 @@ return() renvoie la dernière valeur calculée
 
 ```{r}
 nom_de_fonction <- function(arguments) {
-    instructions
-    return(valeur) #non négligeable! c'est bien le but d'une fct!
+  instructions
+  return(valeur) #non négligeable! c'est bien le but d'une fct!
 }
 ```
 
@@ -133,11 +133,11 @@ Il est possible d’utiliser le symbole '...' (ellipsis) dans les paramètres d�
 
 ```{r Trouver un exemple à mon niveau}
 fun1 <- function(data, data.frame, graph=TRUE, limit=20, ...) {
-       [omitted statements]
-       if (graph)
-         par(pch="*", ...)
-       [more omissions]
-     }
+  [omitted statements]
+  if (graph)
+    par(pch="*", ...)
+  [more omissions]
+}
 ```
 
 ## Types de fonction
@@ -296,17 +296,17 @@ Plus simple de paralléliser des taches indépendantes, 1 par coeur.
 + diffèrent selon les syst d'exploit on dirait
 
 *Parallel* functions :
-  - detectCores() : détecte le nbr de coeur de la machine.
-  - mclapply() : utiliser plsrs coeurs sur un ordinateur local (= parallelized version of lapply) (pas sous windows)
-  - makeCluster() and clusterApply() : utiliser plusieurs processeurs sur des machines locales (et distantes) 
-  - clusterExport() : à distance
-  
+- detectCores() : détecte le nbr de coeur de la machine.
+- mclapply() : utiliser plsrs coeurs sur un ordinateur local (= parallelized version of lapply) (pas sous windows)
+- makeCluster() and clusterApply() : utiliser plusieurs processeurs sur des machines locales (et distantes) 
+- clusterExport() : à distance
+
 Sous windows on ne peut pas paralléliser en local il faut donc un cluster :
-  - créer un cluster : *cl <- makePSOCKcluster(nbr de copies de R à créer)* (à défaut d'avoir des coeurs il crée plsrs copies de R)
-  - créer l'envmt du cluster : *clusterExport(cl, varlist = c("var1", "var2"), envir = environment())*
-  - paralléliser : *parLapply(cl, seq_along(iter), myfun)*
-  - arrêter le cluster : *stopCluster(cl)*
-  
+- créer un cluster : *cl <- makePSOCKcluster(nbr de copies de R à créer)* (à défaut d'avoir des coeurs il crée plsrs copies de R)
+- créer l'envmt du cluster : *clusterExport(cl, varlist = c("var1", "var2"), envir = environment())*
+- paralléliser : *parLapply(cl, seq_along(iter), myfun)*
+- arrêter le cluster : *stopCluster(cl)*
+
 https://stackoverflow.com/questions/17196261/understanding-the-differences-between-mclapply-and-parlapply-in-r
 ```{r}
 library(parallel)
@@ -315,12 +315,9 @@ myfun <- function(i) { Sys.sleep(1); i } ## the function
 parLapply(cl, 1:8, myfun) ## parallelization
 stopCluster(cl) ## stop the cluster
 ```
-  
-
-  
 Sur des boucles :
-  - foreach sequential operator : *%do%*
-  - doParallel parallelizable operator : *%dopar%*
+- foreach sequential operator : *%do%*
+- doParallel parallelizable operator : *%dopar%*
 ```{r}
 ## nonparallel for loop
 for (i in 1:3) {
@@ -329,42 +326,43 @@ for (i in 1:3) {
 ## nonparallel foreach loop
 library(foreach)
 system.time({
-foreach (i=1:3, .combine=c) %do% { ## .combine=c si on veut unlist l'output, .combine=rbind si on veut un df 
-  sqrt(i)
-}
+  foreach (i=1:3, .combine=c) %do% { ## .combine=c si on veut unlist l'output, .combine=rbind si on veut un df 
+    sqrt(i)
+  }
 })
 ## doParallel = foreach parallel adaptor for the 'parallel' package
 library(doParallel)
 numCores <- parallel::detectCores(logical = FALSE) ## FALSE to have the physical cores
 
 system.time({
-registerDoParallel(numCores)
-foreach (i=1:3) %dopar% {
-  sqrt(i)
-}
+  registerDoParallel(numCores)
+  foreach (i=1:3) %dopar% {
+    sqrt(i)
+  }
 })
 ```
 
-When you're done, clean up the cluster : *stopImplicitCluster()*
 
 ```{r}
-cores = 2
+# with foreach
+cores <- detectCores()
 j = length(lases)
 
-# l'enregistrement des clusters
+# Create clusters
 cl <- parallel::makeCluster(cores)
 doSNOW::registerDoSNOW(cl)
 
-# la progressbar
+# Progressbar
 if(interactive()) pb <- txtProgressBar(max = j, style = 3) # if(interactive()) pour qu’elles n’apparaissent pas dans les documents markdown 
 progress <- function(n) if(interactive()) setTxtProgressBar(pb, n)
 opts <- list(progress = progress)
 
+# The loop
 output <- foreach::foreach(
   i=1:j,
   .packages = c("magrittr"), .options.snow = opts
 ) %dopar% {
-  print(i)
+  print(i) # to debug
   las_to_dem(lases[i], 
              las_path = las_path,
              mnt_path = mnt_path)
@@ -375,9 +373,8 @@ output <- foreach::foreach(
 close(pb)
 # close the cluster
 stopCluster(cl)
-
 ```
-
+When you're done, clean up the cluster : *stopImplicitCluster()*
 
 
 ## Choses à savoir

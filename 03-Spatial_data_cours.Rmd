@@ -327,6 +327,10 @@ Retourner des points interpolés selon une interpolation linéaire entre 2 point
 
 + Attribuer un crs à un objt sf ou sfc : **st_transform(objtsanscrs, st_crs(objtaveccrs))**  
 
++ Un buffer autour d'un objet spatial: **buffer <- st_buffer(pol, dist=100, endCapStyle = "SQUARE") %>% st_union()** # the square doesn't works
+
++ corners of a square : **st_coordinates(square)[,1:2]**
+
 + st_union ne préserve pas l'ordre des géométries dans la géométrie finale, il faut utiliser :  
 
 ```{r, eval = F}

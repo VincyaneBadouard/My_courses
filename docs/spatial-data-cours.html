@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -832,6 +832,8 @@ et basés sur les systèmes de coordonnées géographiques</p>
 <li><p>MULTIPOINT to POINT : <strong>st_cast(st_sfc(mutipoint), “POINT”, group_or_split = TRUE)</strong></p></li>
 <li><p>Simplification d’objet : <strong>st_cast(objet, “objt + simple”</strong> (ex : polygon to linestring)</p></li>
 <li><p>Attribuer un crs à un objt sf ou sfc : <strong>st_transform(objtsanscrs, st_crs(objtaveccrs))</strong></p></li>
+<li><p>Un buffer autour d’un objet spatial: <strong>buffer &lt;- st_buffer(pol, dist=100, endCapStyle = “SQUARE”) %&gt;% st_union()</strong> # the square doesn’t works</p></li>
+<li><p>corners of a square : <strong>st_coordinates(square)[,1:2]</strong></p></li>
 <li><p>st_union ne préserve pas l’ordre des géométries dans la géométrie finale, il faut utiliser :</p></li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="spatial-data-cours.html#cb37-1" tabindex="-1"></a>objt_sf_12 <span class="ot">&lt;-</span> objt_sf_1 <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(objt_sf_2)  </span>

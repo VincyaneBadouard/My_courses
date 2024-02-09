@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -728,7 +728,8 @@ Si on veut garder les NA, comme filter les vire d’office, rajouter <strong>| i
 </p></li>
 <li><p>Enlever des colonnes : <strong>select(-colname)</strong></p></li>
 <li><p>Réaliser les opérations suivantes par groupes de modalités : <strong>group_by</strong></p></li>
-<li><p>Créer une variable résumant les effectifs des éléments d’une variable : <strong>summarise(N = n())</strong> ou <strong>count()</strong></p></li>
+<li><p>Créer une variable résumant les effectifs des éléments d’une variable : <strong>summarise(N = n())</strong> ou <strong>count(sp, sort = T,name = “N”)</strong>
+ou <strong>group_by(var) %&gt;% mutate(N = n()) %&gt;% ungroup()</strong> pour la mettre dans le df initial.</p></li>
 <li><p>Calculer des stats de base par variable, et variables groupées :</p></li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="write-transmittances-correlation-in-text-file.html#cb8-1" tabindex="-1"></a>HOBOdata <span class="sc">%&gt;%</span></span>

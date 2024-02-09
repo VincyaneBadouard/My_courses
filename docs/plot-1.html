@@ -23,7 +23,7 @@
 <meta name="author" content="Vincyane Badouard" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -579,6 +579,7 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <li>geom_point()</li>
 <li>geom_line()</li>
 <li>geom_bar()</li>
+<li>geom_histogram(binwidth=1, fill=“#69b3a2”, color=“#e9ecef”, alpha=0.9)</li>
 </ul>
 </div>
 <div id="titres" class="section level2 hasAnchor" number="7.4">
@@ -702,7 +703,28 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 <li><p>PNG : <strong>png(path, width = 480, height = 480, units = “px”)</strong> avant commande du plot &amp; <strong>dev.off()</strong> après commande du plot</p></li>
 <li><p><strong>ggsave(“mtcars.pdf”, path = , width = 20, height = 20, units = “cm”)</strong> (ne fonctionne qu’avec des ggplots)</p></li>
 <li><p>compresser : <strong>save(objt, file = “objt.rda”, compress = “xz”)</strong></p></li>
+<li><p>dans un pdf de plusieurs pages :</p></li>
 </ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="plot-1.html#cb58-1" tabindex="-1"></a>sp <span class="ot">&lt;-</span> data<span class="sc">$</span>ScientificName</span>
+<span id="cb58-2"><a href="plot-1.html#cb58-2" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="plot-1.html#cb58-3" tabindex="-1"></a><span class="co"># Define nrow and ncol for the facet</span></span>
+<span id="cb58-4"><a href="plot-1.html#cb58-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(sp))</span>
+<span id="cb58-5"><a href="plot-1.html#cb58-5" tabindex="-1"></a><span class="cf">if</span>(n<span class="sc">&lt;</span><span class="dv">4</span>) {i <span class="ot">=</span> <span class="dv">1</span>}<span class="cf">else</span>{ i <span class="ot">=</span> <span class="dv">4</span>} <span class="co"># 4 col, 4 rows</span></span>
+<span id="cb58-6"><a href="plot-1.html#cb58-6" tabindex="-1"></a></span>
+<span id="cb58-7"><a href="plot-1.html#cb58-7" tabindex="-1"></a></span>
+<span id="cb58-8"><a href="plot-1.html#cb58-8" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;plotname.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">15</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb58-9"><a href="plot-1.html#cb58-9" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ceiling</span>(<span class="fu">length</span>(<span class="fu">unique</span>(sp))<span class="sc">/</span><span class="dv">16</span>))){ <span class="co"># p = page n°</span></span>
+<span id="cb58-10"><a href="plot-1.html#cb58-10" tabindex="-1"></a>  <span class="fu">print</span>(</span>
+<span id="cb58-11"><a href="plot-1.html#cb58-11" tabindex="-1"></a>    <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>DBH)) <span class="sc">+</span></span>
+<span id="cb58-12"><a href="plot-1.html#cb58-12" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">fill=</span><span class="st">&quot;#69b3a2&quot;</span>, <span class="at">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="at">alpha=</span><span class="fl">0.9</span>) <span class="sc">+</span> <span class="co"># color to have the lines of the bars</span></span>
+<span id="cb58-13"><a href="plot-1.html#cb58-13" tabindex="-1"></a>      </span>
+<span id="cb58-14"><a href="plot-1.html#cb58-14" tabindex="-1"></a>      ggforce<span class="sc">::</span><span class="fu">facet_wrap_paginate</span>(<span class="fu">vars</span>(ScientificName, N),</span>
+<span id="cb58-15"><a href="plot-1.html#cb58-15" tabindex="-1"></a>                                   <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>,</span>
+<span id="cb58-16"><a href="plot-1.html#cb58-16" tabindex="-1"></a>                                   <span class="at">ncol =</span> <span class="fu">min</span>(n,<span class="dv">4</span>), <span class="at">nrow =</span> i, <span class="at">page =</span> p)</span>
+<span id="cb58-17"><a href="plot-1.html#cb58-17" tabindex="-1"></a>    </span>
+<span id="cb58-18"><a href="plot-1.html#cb58-18" tabindex="-1"></a>  )</span>
+<span id="cb58-19"><a href="plot-1.html#cb58-19" tabindex="-1"></a>}</span>
+<span id="cb58-20"><a href="plot-1.html#cb58-20" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># Close the final graphics device</span></span></code></pre></div>
 </div>
 <div id="en-faire-de-lart" class="section level2 hasAnchor" number="7.15">
 <h2><span class="header-section-number">7.15</span> En faire de l’art !<a href="plot-1.html#en-faire-de-lart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
