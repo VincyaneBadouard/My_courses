@@ -571,3 +571,17 @@ Df1 %>%
 + temps par ordre croissant **data <- data[order(data$Time),]**
 
 
+# Gérer la RAM - tips !
++ ouvrir le moniteur de performance à côté, si la RAM augmente fortement arréter le calcul
++ développer son code sur un subset des données
++ éviter les répétitions du même calcul
++ les listes prennent moins de place que les vecteurs
++ [[]] permettent de remplacer les objets plutot que de les copier -> plus de place
++ vider l'environnement autant que possible : rm() et gc()
++ parlléliser à ce que peut surporter la RAM de l'ordinateur (regarder la taille des fichiers)
++ memoise:memoise(fct)
+
++ lancer l'ensemble des calculs sur cluster
++ sur cluster, découper en jobs plutot que paralléliser
+
+

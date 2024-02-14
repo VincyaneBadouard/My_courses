@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 4 datatable functions | My cours</title>
+  <title>Cours 3 Gérer la RAM - tips ! | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 4 datatable functions | My cours" />
+  <meta property="og:title" content="Cours 3 Gérer la RAM - tips ! | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 4 datatable functions | My cours" />
+  <meta name="twitter:title" content="Cours 3 Gérer la RAM - tips ! | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="gérer-la-ram---tips.html"/>
-<link rel="next" href="spatial-data-cours.html"/>
+<link rel="prev" href="write-transmittances-correlation-in-text-file.html"/>
+<link rel="next" href="datatable-functions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -562,362 +562,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="datatable-functions" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Cours 4</span> datatable functions<a href="datatable-functions.html#datatable-functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="sources" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Sources<a href="datatable-functions.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://www.rdocumentation.org/packages/data.table/versions/1.14.2" class="uri">https://www.rdocumentation.org/packages/data.table/versions/1.14.2</a> (R doc)<br />
-<a href="https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html" class="uri">https://larmarange.github.io/analyse-R/manipulations-avancees-avec-data-table.html</a> (French, trés bien!)<br />
-<a href="https://linogaliana.netlify.app/post/datatable/datatable-intro/" class="uri">https://linogaliana.netlify.app/post/datatable/datatable-intro/</a> (French, trop bien !!)<br />
-<a href="https://www.listendata.com/2016/10/r-data-table.html" class="uri">https://www.listendata.com/2016/10/r-data-table.html</a> (efficace)<br />
-<a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html" class="uri">https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html</a> (vignette)<br />
-<a href="https://stackoverflow.com/questions/tagged/data.table" class="uri">https://stackoverflow.com/questions/tagged/data.table</a> (stackoverflow)<br />
-<a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html" class="uri">https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html</a> (frequent questions in dt)</p>
-</div>
-<div id="pourquoi-data.table" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Pourquoi data.table<a href="datatable-functions.html#pourquoi-data.table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://dreamrs.github.io/talks/20180528_RAddicts_datatable.pdf" class="uri">https://dreamrs.github.io/talks/20180528_RAddicts_datatable.pdf</a></p>
+<div id="gérer-la-ram---tips" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Cours 3</span> Gérer la RAM - tips !<a href="gérer-la-ram---tips.html#gérer-la-ram---tips" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
-<li><p>data.table est particulièrement adapté aux données volumineuses (plus de 1Go) où l’utilisation de dplyr est vivement déconseillée</p></li>
-<li><p>data.table est beaucoup plus rapide et puissant que dplyr</p></li>
-<li><p>ne dépend que de R-base, importe uniquement le package “methods”</p></li>
+<li><p>ouvrir le moniteur de performance à côté, si la RAM augmente fortement arréter le calcul</p></li>
+<li><p>développer son code sur un subset des données</p></li>
+<li><p>éviter les répétitions du même calcul</p></li>
+<li><p>les listes prennent moins de place que les vecteurs</p></li>
+<li><p>[[]] permettent de remplacer les objets plutot que de les copier -&gt; plus de place</p></li>
+<li><p>vider l’environnement autant que possible : rm() et gc()</p></li>
+<li><p>parlléliser à ce que peut surporter la RAM de l’ordinateur (regarder la taille des fichiers)</p></li>
+<li><p>memoise:memoise(fct)</p></li>
+<li><p>lancer l’ensemble des calculs sur cluster</p></li>
+<li><p>sur cluster, découper en jobs plutot que paralléliser</p></li>
 </ul>
-</div>
-<div id="syntax" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Syntax<a href="datatable-functions.html#syntax" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[i, j, by]</strong><br />
-dt : data.table<br />
-<strong>i</strong> : rows<br />
-<strong>j</strong> : columns/expressions<br />
-<strong>by</strong> : grouped columns<br />
-ces 3 éléments ne sont pas toujours présents</p>
-<p>Les crochets permettent de ne pas utiliser le “$”.</p>
-<p>data.table also = to data.frame</p>
-</div>
-<div id="create-a-data.table" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Create a data.table<a href="datatable-functions.html#create-a-data.table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="datatable-functions.html#cb19-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="datatable-functions.html#cb20-1" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span>
-<span id="cb20-2"><a href="datatable-functions.html#cb20-2" tabindex="-1"></a>dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(<span class="at">c =</span> <span class="dv">1</span> , <span class="at">d =</span> <span class="dv">2</span>, <span class="at">e =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))]</span>
-<span id="cb20-3"><a href="datatable-functions.html#cb20-3" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>)] <span class="do">## remove b column (il faut assigner sinon il ne l&#39;enregistre pas)</span></span>
-<span id="cb20-4"><a href="datatable-functions.html#cb20-4" tabindex="-1"></a>dt[, e <span class="sc">:=</span> <span class="cn">NULL</span>] <span class="do">## là non</span></span>
-<span id="cb20-5"><a href="datatable-functions.html#cb20-5" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="datatable-functions.html#cb20-6" tabindex="-1"></a>dt[, c, by <span class="ot">=</span> .(a)] <span class="co"># group</span></span>
-<span id="cb20-7"><a href="datatable-functions.html#cb20-7" tabindex="-1"></a>dt[, c, keyby <span class="ot">=</span> .(a)] <span class="do">## group and order</span></span></code></pre></div>
-</div>
-<div id="convert-a-data.frame-or-list-to-a-data.table" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Convert a data.frame or list to a data.table<a href="datatable-functions.html#convert-a-data.frame-or-list-to-a-data.table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p><strong>setDT(df)</strong> (preferred)<br />
-or<br />
-</p></li>
-<li><p><strong>as.data.table(df)</strong></p></li>
-<li><p><strong>setDF(dt)</strong> to return in data.frame</p></li>
-</ul>
-</div>
-<div id="punctuation" class="section level2 hasAnchor" number="4.6">
-<h2><span class="header-section-number">4.6</span> Punctuation<a href="datatable-functions.html#punctuation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>les fonctions commençant par <strong>set</strong> ou contenant l’opérateur <strong>:=</strong> n’ont pas besoin d’être réassigné à l’objet avec “&lt;-”.<br />
-C’est mieux car ne garde pas de copie en mémoire.</p></li>
-<li><p>le <strong>.</strong> est un raccourci de list entre [ ] mais pas en dehors</p></li>
-<li><p><strong>:=</strong> ou <strong><code>:=</code>()</strong> (“assignation par référence”) permet de modifier une variable en assignation directe, <strong>donc pas besoin de “&lt;-”</strong><br />
--&gt; <strong>+ rapide et très économe en mémoire vive</strong></p></li>
-</ul>
-</div>
-<div id="subset-rows" class="section level2 hasAnchor" number="4.7">
-<h2><span class="header-section-number">4.7</span> Subset rows :<a href="datatable-functions.html#subset-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>by rows positions : <strong>dt[1:2, ]</strong><br />
-</li>
-<li>by values in one or more columns : <strong>dt[a &gt; 5, ]</strong></li>
-<li>both : <strong>dt[1:2][a &gt; 5]</strong> (ne marche pas pour calculer une colonne, utiliser ifelse)</li>
-<li>values between two values : <strong>dt[a %between% c(2,6)]</strong></li>
-<li>patern match : <strong>dt[a %like% “dep”]</strong></li>
-</ul>
-<p>! ne renvoie pas les NA contrairement au data.frame !<br />
-La virgule n’est pas obligatoire si pas de colonnes à spécifier.</p>
-</div>
-<div id="extract-columns" class="section level2 hasAnchor" number="4.8">
-<h2><span class="header-section-number">4.8</span> Extract columns<a href="datatable-functions.html#extract-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Les colonnes sont des listes.</p>
-<ul>
-<li><p>by position : <strong>dt[, c(2)]</strong>, prefix “-” to drop<br />
-</p></li>
-<li><p>by names : <strong>dt[, .(b, c)]</strong> le point est un raccourci de list dans les [] pas en dehors.</p></li>
-<li><p>return as vector : <strong>dt[, b]</strong> ou <strong>dt[[b]]</strong><br />
-</p></li>
-<li><p>return as data.table : <strong>dt[, list(b)]</strong></p></li>
-</ul>
-<p>On ne peut pas directement selctionner un var par sa position ou avec une chaine de charactères car compris comme des cstes :<br />
-<strong>dt[, c(“a”), with = FALSE]</strong><br />
-<strong>dt[, !c(“a”, “b”), with = FALSE]</strong> remove “a” and “b” columns<br />
-<strong>dt[, c(2:4), with = FALSE]</strong></p>
-<ul>
-<li>To find patern (like grepl()) <strong>%like%</strong><br />
-ex : <strong>dt[,names(dt) %like% “dep”, with=FALSE]</strong> patern : “dep”</li>
-</ul>
-<p><strong>%between%</strong></p>
-</div>
-<div id="summarize" class="section level2 hasAnchor" number="4.9">
-<h2><span class="header-section-number">4.9</span> Summarize<a href="datatable-functions.html#summarize" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[, .(x = sum(a))]</strong> create a data.table with new columns based on the summarized values of rows.
-Summary functions ex : mean(), median(), min(), max(), etc</p>
-<p><strong>dt[, lapply(.SD, mean), .SDcols = c(“a”, “b”)]</strong> for several columns<br />
-<strong>dt[, lapply(.SD, mean)]</strong> for all the columns
-<strong>dt[, sapply(.SD, function(x) c(mean=mean(x), median=median(x)))]</strong> multiple statistics</p>
-<p><strong>.N</strong> pour obtenir le nombres d’observations<br />
-<strong>,by =</strong> par sous-groupe</p>
-</div>
-<div id="compute-columns" class="section level2 hasAnchor" number="4.10">
-<h2><span class="header-section-number">4.10</span> Compute columns<a href="datatable-functions.html#compute-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><strong>:=</strong> permet de modifier une variable en assignation directe, donc pas besoin de “&lt;-”.</li>
-<li><strong>(“c”)</strong> pour dire que ce sont des colonnes existantes et non des nouvelles a creer</li>
-</ul>
-<p><strong>dt[, c := 1 + 2]</strong> : compute a column based on an expression (c = col name)</p>
-<p><strong>dt[a == 1, c := 1 + 2]</strong> : compute a column based on an expression but only for a subset
-of rows (condition)</p>
-<ul>
-<li>Si on veut mettre des NA ! : <strong>NA_integer_</strong>, <strong>NA_real_</strong>, <strong>NA_character_</strong> (mettre juste NA pose des problèmes de classe)</li>
-</ul>
-<p><strong>dt[, <code>:=</code>(c = 1 , d = 2)]</strong> : compute multiple columns based on separate expressions (se créent en meme temps donc ne peut pas dépendre de l’autre)</p>
-<p>ou <strong>dt[ , c(“newcol1”, “newcol2”) := list(col1 * 10, col2 * 20)]</strong></p>
-<ul>
-<li><p>With an ifelse : <strong>dt[, c := ifelse(min &lt; 50, 1,0)]</strong> (1 if TRUE, 0 if FALSE)</p></li>
-<li><p>Delete a column : <strong>dt[, c := NULL]</strong> (trés rapide)</p></li>
-<li><p>Séparer 1 col en 2 : <strong>dt[, c(“cola”, “colb”) := tstrsplit(col, “_“, fixed = TRUE)]</strong></p></li>
-<li><p>Unire 2 col en 1 : <strong>dt[, xy:= paste0(x,y)]</strong> ou <strong>dt[, xy:= paste(x,y, sep = “_“)]</strong></p></li>
-</ul>
-</div>
-<div id="change-column-class" class="section level2 hasAnchor" number="4.11">
-<h2><span class="header-section-number">4.11</span> Change column class<a href="datatable-functions.html#change-column-class" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[, b := as.integer(b)]</strong></p>
-</div>
-<div id="group" class="section level2 hasAnchor" number="4.12">
-<h2><span class="header-section-number">4.12</span> Group<a href="datatable-functions.html#group" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[, j, by = “colname”]</strong> : by 1 var<br />
-<strong>dt[, j, by = .(a)]</strong> : group rows by values in specified columns (a the column).<br />
-<strong>dt[, j, by = c(“var1”, “var2”, “var3”)]</strong><br />
-<strong>dt[, j, keyby = .(a)]</strong> : group and simultaneously order rows by values<br />
-in specified columns.</p>
-</div>
-<div id="common-grouped-operations" class="section level2 hasAnchor" number="4.13">
-<h2><span class="header-section-number">4.13</span> Common grouped operations<a href="datatable-functions.html#common-grouped-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[, .(c = sum(b)), by = a]</strong> : summarize rows within groups.<br />
-<strong>dt[, c := sum(b), by = a]</strong> : create a new column and compute rows within groups.<br />
-<strong>dt[, .SD[1], by = a]</strong> : extract first row of groups.<br />
-<strong>dt[, .SD[.N], by = a]</strong> : extract last row of groups.<br />
-<strong>dt[, .(new = old, new = col1 + col2)]</strong> : rename a col, and compute another</p>
-</div>
-<div id="a-sequence-operation-on-a-datatable" class="section level2 hasAnchor" number="4.14">
-<h2><span class="header-section-number">4.14</span> A sequence operation on a datatable<a href="datatable-functions.html#a-sequence-operation-on-a-datatable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Pour enchaîner les opérations : <strong>dt[…][…]</strong></p>
-<p>Règle : pas faire de lignes trop longues et crochet de fin d’op et celui de début de la prochaine doivent être accolé : <strong>][</strong></p>
-</div>
-<div id="functions" class="section level2 hasAnchor" number="4.15">
-<h2><span class="header-section-number">4.15</span> Functions !<a href="datatable-functions.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>On peut y appliquer n’importe quelle fct de n’importe quel pkg, mais préférer celles du pkg data.table.</p>
-<ul>
-<li>Remove rows with missing values : <strong>na.omit(dt, cols=c(cols1, col2), invert=FALSE)</strong> cols et invert ne sont pas obligatoires</li>
-<li>Order columns values : <strong>setorder(dt, a, -b)</strong> “-” to decreasing order
-ou <strong>dt[order(a, -b)]</strong></li>
-<li>Extract unique rows on specified col <strong>unique(dt, by = c(“a”, “b”))</strong> no by to use all columns</li>
-<li>Count the nbr of unique rows : <strong>uniqueN(dt, by = c(“a”, “b”))</strong></li>
-<li>Rename col : <strong>setnames(dt, c(“old1”, “old2”), c(“new1”, “new2”))</strong>
-ou <strong>dt[, .(new = old)]</strong></li>
-<li>changer ordre des colonnes : <strong>setcolorder(DT, c(“col1”,“col2”))</strong></li>
-</ul>
-<p>avec “:=” : <strong>dt[ , col_min := tolower(col)]</strong></p>
-</div>
-<div id="combine-data.tables" class="section level2 hasAnchor" number="4.16">
-<h2><span class="header-section-number">4.16</span> Combine data.tables<a href="datatable-functions.html#combine-data.tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Avec une fct : <strong>data.table::merge(x, y, all.x = TRUE, [options])</strong> (comme les join tidy, voir les options)
-<strong>all.x = TRUE</strong> permet de garder les colonnes de x même si elles ne matchent pas avec y</p></li>
-<li><p>Join on rows with equal values : <strong>dt_a[dt_b, on = .(b = y)]</strong> ‘on’ pour spécifier les col équivalentes mais de noms différents</p></li>
-<li><p>on equal and unequal : <strong>dt_a[dt_b, on = .(b = y, c &gt; z)]</strong></p></li>
-<li><p>Rolling join</p></li>
-<li><p>Combine rows of 2 datatables : <strong>rbind(dt1, dt2)</strong> or <strong>rbindlist(list(dt1, dt2), use.names=TRUE, fill=TRUE)</strong> (+ rapide)</p></li>
-<li><p>Combine columns of 2 datatables : <strong>cbind(dt1, dt2)</strong></p></li>
-</ul>
-</div>
-<div id="indexation" class="section level2 hasAnchor" number="4.17">
-<h2><span class="header-section-number">4.17</span> Indexation<a href="datatable-functions.html#indexation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Très puissant pour accélérer les opérations sur les lignes (filtres, jointures)</p>
-<ul>
-<li><p>Déclarer les variables faisant office de clef (key) : <strong>setkey(dt, a, b)</strong> ou <strong>setkeyv(dt, c(“a”,“b”))</strong> ou <strong>setkey(dt, a)</strong> si qu’1 var.<br />
--&gt; réordone selon cette clef<br />
-Peut prendre bcp de temps (qqmin)mais gros gain de temps pour les opérations ultérieures.</p></li>
-<li><p>Pour savoir si un data.table est déjà indexé : <strong>key(dt)</strong> qui renvoie le nom des clés ou NULL.</p></li>
-<li><p>Supprimer la clef :</p></li>
-</ul>
-</div>
-<div id="reshape" class="section level2 hasAnchor" number="4.18">
-<h2><span class="header-section-number">4.18</span> Reshape<a href="datatable-functions.html#reshape" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://rdatatable.gitlab.io/data.table/articles/datatable-reshape.html" class="uri">https://rdatatable.gitlab.io/data.table/articles/datatable-reshape.html</a></p>
-<ul>
-<li>Long to wide format :<br />
-<strong>dcast(dt, id ~ y, value.var = c(“a”, “b”), fun.aggregate = list(mean, sum))</strong><br />
-with:<br />
-<strong>y</strong> = col name in the longformat whose <strong>values</strong> will become the columns of the wide format<br />
-<strong>value.var</strong> : col name whose values in columns will be put in rows (colonnes à transposer)<br />
-<strong>fun.aggregate</strong> : si on veut utiliser des fcts pour aggrége les données</li>
-</ul>
-<p>Pour des noms plus significatifs des nouvelles colonnes : <strong>id ~ paste0(“y”, y)</strong> (préciser l’appartenance à y à chaque nom de col)</p>
-<p>Conseil : Il faut donc faire attention à ce que ces variables aient un nombre limité de valeurs, pour ne pas obtenir une table extrêmement large. On peut éventuellement discrétiser les variables continues, ou regrouper les modalités avant d’utiliser dcast()</p>
-<ul>
-<li>Wide to long format (ce qu’on veut!) :</li>
-</ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="datatable-functions.html#cb21-1" tabindex="-1"></a><span class="fu">melt</span>(dt,</span>
-<span id="cb21-2"><a href="datatable-functions.html#cb21-2" tabindex="-1"></a><span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>),</span>
-<span id="cb21-3"><a href="datatable-functions.html#cb21-3" tabindex="-1"></a><span class="at">measure.vars =</span> <span class="fu">patterns</span>(<span class="st">&quot;^a&quot;</span>, <span class="st">&quot;^b&quot;</span>),</span>
-<span id="cb21-4"><a href="datatable-functions.html#cb21-4" tabindex="-1"></a><span class="at">variable.name =</span> <span class="st">&quot;y&quot;</span>,</span>
-<span id="cb21-5"><a href="datatable-functions.html#cb21-5" tabindex="-1"></a><span class="at">value.name =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
-<p>with :<br />
-<strong>id.vars</strong> : variables qui identifient les lignes de table d’arrivée; col qui restent des cols.<br />
-<strong>measure.vars</strong> : cols to rows (variables qui sont transposées)<br />
-<strong>variable.name</strong> : new col name for values in rows to this column (nom de la nouvelle colonne qui contient le nom des variables transposées)<br />
-<strong>value.name</strong> : new col names (nom de la nouvelle colonne qui contient la valeur des variables transposées.)</p>
-</div>
-<div id="avoir-des-infoscalculer-des-statistiques" class="section level2 hasAnchor" number="4.19">
-<h2><span class="header-section-number">4.19</span> Avoir des infos/calculer des statistiques<a href="datatable-functions.html#avoir-des-infoscalculer-des-statistiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[, sum(b)]</strong> : pour renvoyer la valeur</p>
-<ul>
-<li><p>Pour en calculer plsrs à la fois : <strong>dt[, .(mean = mean(b), sd = sd(b))]</strong></p></li>
-<li><p><strong>.N</strong> : nbr d’obs</p></li>
-<li><p><strong>uniqueN</strong> : nbr d’obs uniques</p></li>
-<li><p><strong>%in%</strong> : nbr dans la liste</p></li>
-<li><p><strong>%chin%</strong> : character dans la liste</p></li>
-<li><p><strong>%between%</strong> : valeur entre deux nombres</p></li>
-<li><p><strong>%like% “^x”</strong> : Reconnaissance d’une chaîne de caractères (comme grepl())</p></li>
-<li><p><strong>rowid(var1, var2)</strong> : créer un identifiant de ligne unique pour un goupe de variables (= un compteur)</p></li>
-</ul>
-</div>
-<div id="apply-functions" class="section level2 hasAnchor" number="4.20">
-<h2><span class="header-section-number">4.20</span> Apply functions<a href="datatable-functions.html#apply-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>dt[, lapply(.SD, mean), .SDcols = c(“a”, “b”)]</strong> (create a new table)<br />
-<strong>dt[ , names(dt) := lapply(.SD, as.character)]</strong> for all the columns<br />
-<strong>dt[, (cols) := lapply(.SD, as.character), .SDcols = cols]</strong> for specified columns (cols = c(“a”, “b”))<br />
-() pour dire que ce sont des colonnes existantes et non des nouvelles a creer</p>
-<p><strong>dt[, paste0(cols, “_m”) := lapply(.SD, mean), .SDcols = cols]</strong> add a suffix</p>
-<p><strong>.SD</strong> : “Subset of Data” (= mot clef de data.table, représentant les colonnes)<br />
-<strong>.SDcols</strong> : columns on which to apply</p>
-</div>
-<div id="sequential-rows" class="section level2 hasAnchor" number="4.21">
-<h2><span class="header-section-number">4.21</span> Sequential rows<a href="datatable-functions.html#sequential-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sub Queries (like SQL) : <strong>DT[ ] [ ] [ ]</strong></p>
-</div>
-<div id="maniement-de-chaines-de-caractères" class="section level2 hasAnchor" number="4.22">
-<h2><span class="header-section-number">4.22</span> Maniement de chaines de caractères<a href="datatable-functions.html#maniement-de-chaines-de-caractères" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>séparer une colonne en fonction d’un caractère : <strong>data.table::tstrsplit()</strong></li>
-</ul>
-</div>
-<div id="read-and-write-files" class="section level2 hasAnchor" number="4.23">
-<h2><span class="header-section-number">4.23</span> Read and write files<a href="datatable-functions.html#read-and-write-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Lecture et ecriture de fichiers plats (= fichiers texte)<br />
-Import : <strong>fread(“file.csv”, select = c(“a”, “b”))</strong><br />
-+ Très rapide pour importer des gros volumes de données et nettement plus rapide que les fcts du pkg readr.
-+ Permet de selectionner les colonnes qu’on veut ou ne veut pas importer
-+ un grand nbr d’options</p>
-<p>Export : <strong>fwrite(dt, “file.csv”)</strong></p>
-</div>
-<div id="programmer-des-fonctions-avec-data.table" class="section level2 hasAnchor" number="4.24">
-<h2><span class="header-section-number">4.24</span> Programmer des fonctions avec data.table<a href="datatable-functions.html#programmer-des-fonctions-avec-data.table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="sécuriser" class="section level3 hasAnchor" number="4.24.1">
-<h3><span class="header-section-number">4.24.1</span> Sécuriser<a href="datatable-functions.html#sécuriser" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Quand on utilise “:=” on peut par erreur écraser des données. Donc la sécurité c’est de <strong>faire une copie des input</strong> en entrée de fonction et travailler sur cette copie (qui porte un autre nom).</p>
-</div>
-<div id="variables-en-argument" class="section level3 hasAnchor" number="4.24.2">
-<h3><span class="header-section-number">4.24.2</span> Variables en argument<a href="datatable-functions.html#variables-en-argument" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Pas necessaires si cest de la <strong>valeur en chaine de characteres</strong> dont on a besoin.
-Si on a besoin du <strong>symbol/name</strong>, ils nous faut ces outils :</p>
-<p><a href="https://linogaliana.netlify.app/post/datatable/datatable-nse/" class="uri">https://linogaliana.netlify.app/post/datatable/datatable-nse/</a></p>
-<p><strong>get()</strong> ne fctne que si l’argument <strong>n’a pas le même nom</strong> que la colonne du dt<br />
-<strong>eval()</strong> ne fctne que si l’argument <strong>a le même nom</strong> que la colonne du dt</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="datatable-functions.html#cb22-1" tabindex="-1"></a>modif_variable <span class="ot">&lt;-</span> <span class="cf">function</span>(dt, <span class="at">variable =</span> <span class="st">&quot;x&quot;</span>){</span>
-<span id="cb22-2"><a href="datatable-functions.html#cb22-2" tabindex="-1"></a>  dt_copy <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">copy</span>(dt) <span class="do">## on copie pour ne pas que les prochaines actions se fasse la version originale</span></span>
-<span id="cb22-3"><a href="datatable-functions.html#cb22-3" tabindex="-1"></a>  dt_copy[,<span class="fu">c</span>(variable) <span class="sc">:=</span> <span class="fu">get</span>(variable) <span class="sc">+</span> <span class="dv">1</span>] <span class="do">## get() pour appeler un nom de variable entre guillemets (character)</span></span>
-<span id="cb22-4"><a href="datatable-functions.html#cb22-4" tabindex="-1"></a>  <span class="fu">return</span>(dt_copy)</span>
-<span id="cb22-5"><a href="datatable-functions.html#cb22-5" tabindex="-1"></a>}</span></code></pre></div>
-<p>Select columns whose name is <strong>variable, using a character vector</strong><br />
-<strong>, with = FALSE]</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="datatable-functions.html#cb23-1" tabindex="-1"></a>IdTree <span class="ot">=</span> <span class="st">&quot;idTree&quot;</span></span>
-<span id="cb23-2"><a href="datatable-functions.html#cb23-2" tabindex="-1"></a>Plot <span class="ot">=</span> <span class="st">&quot;plot&quot;</span></span>
-<span id="cb23-3"><a href="datatable-functions.html#cb23-3" tabindex="-1"></a>SubPlot <span class="ot">=</span> <span class="st">&quot;subplot&quot;</span></span>
-<span id="cb23-4"><a href="datatable-functions.html#cb23-4" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="datatable-functions.html#cb23-5" tabindex="-1"></a>AssoVect <span class="ot">&lt;-</span> <span class="fu">c</span>(IdTree, Plot, SubPlot, TreeFieldNum)</span>
-<span id="cb23-6"><a href="datatable-functions.html#cb23-6" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">unique</span>(Data[, ..AssoVect]) <span class="do">## &quot;..&quot; </span></span>
-<span id="cb23-7"><a href="datatable-functions.html#cb23-7" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">unique</span>(Data[, <span class="fu">c</span>(IdTree, Plot, SubPlot, TreeFieldNum), <span class="at">with =</span> <span class="cn">FALSE</span>]) <span class="do">## with = FALSE : the column names can be used as variables</span></span></code></pre></div>
-<p>Cas plus générique : eval &amp; substitute<br />
-<strong>eval()</strong> exécute une expression<br />
-<strong>substitute()</strong> : attribut les valeurs, substitut les variables (=names=symbol) par leurs valeurs<br />
-<strong>as.name()</strong> : refer to R object by their name<br />
--&gt; avoid conflict and work with user variables names</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="datatable-functions.html#cb24-1" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">sp =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="do">## cas où l&#39;arg n&#39;a pas le même nom que la col</span></span>
-<span id="cb24-2"><a href="datatable-functions.html#cb24-2" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">species =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">var =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="do">## cas où l&#39;arg a le même nom que la col</span></span>
-<span id="cb24-3"><a href="datatable-functions.html#cb24-3" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="datatable-functions.html#cb24-4" tabindex="-1"></a>species <span class="ot">=</span> <span class="st">&quot;sp&quot;</span></span>
-<span id="cb24-5"><a href="datatable-functions.html#cb24-5" tabindex="-1"></a>var <span class="ot">=</span> <span class="st">&quot;x&quot;</span></span>
-<span id="cb24-6"><a href="datatable-functions.html#cb24-6" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="datatable-functions.html#cb24-7" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(df, species, var){</span>
-<span id="cb24-8"><a href="datatable-functions.html#cb24-8" tabindex="-1"></a>  env <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">list</span>(<span class="at">.species =</span> species, <span class="at">.var =</span> var), as.name) <span class="do">## environment</span></span>
-<span id="cb24-9"><a href="datatable-functions.html#cb24-9" tabindex="-1"></a>  <span class="fu">eval</span>(<span class="fu">substitute</span>(</span>
-<span id="cb24-10"><a href="datatable-functions.html#cb24-10" tabindex="-1"></a>      {</span>
-<span id="cb24-11"><a href="datatable-functions.html#cb24-11" tabindex="-1"></a>      df[, p <span class="sc">:=</span> <span class="fu">paste</span>(.species, .var)]</span>
-<span id="cb24-12"><a href="datatable-functions.html#cb24-12" tabindex="-1"></a>      df[, q <span class="sc">:=</span> <span class="fu">paste</span>(.species,  <span class="st">&quot;_&quot;</span>, .var)] <span class="do">## le . devant le nom n&#39;est pas nécessaire c&#39;est juste mieux de distinguer pour le codeur</span></span>
-<span id="cb24-13"><a href="datatable-functions.html#cb24-13" tabindex="-1"></a>    }, env))</span>
-<span id="cb24-14"><a href="datatable-functions.html#cb24-14" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
-<span id="cb24-15"><a href="datatable-functions.html#cb24-15" tabindex="-1"></a>}</span>
-<span id="cb24-16"><a href="datatable-functions.html#cb24-16" tabindex="-1"></a></span>
-<span id="cb24-17"><a href="datatable-functions.html#cb24-17" tabindex="-1"></a><span class="fu">fun</span>(df1, <span class="st">&quot;sp&quot;</span>, <span class="st">&quot;x&quot;</span>) <span class="do">## cas où l&#39;arg n&#39;a pas le même nom que la col</span></span>
-<span id="cb24-18"><a href="datatable-functions.html#cb24-18" tabindex="-1"></a>df1</span>
-<span id="cb24-19"><a href="datatable-functions.html#cb24-19" tabindex="-1"></a></span>
-<span id="cb24-20"><a href="datatable-functions.html#cb24-20" tabindex="-1"></a><span class="fu">fun</span>(df2, <span class="st">&quot;species&quot;</span>, <span class="st">&quot;var&quot;</span>) <span class="do">## cas où l&#39;arg a le même nom que la col</span></span>
-<span id="cb24-21"><a href="datatable-functions.html#cb24-21" tabindex="-1"></a>df2</span></code></pre></div>
-</div>
-<div id="sd-subset-of-data" class="section level3 hasAnchor" number="4.24.3">
-<h3><span class="header-section-number">4.24.3</span> .SD (Subset of Data)<a href="datatable-functions.html#sd-subset-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>.SD</strong> permet d’appliquer la même opération sur plusieurs colonnes.</p>
-<p><strong>.SDcols</strong> : sélection des colonnes sur lesquelles appliquer l’opération (par défaut elles sont toutes prises)</p>
-<p>-&gt; syntaxe très puissante, compact et lisible</p>
-</div>
-<div id="lapply.sd-pour-des-fonctions-de-statistiques-descriptives" class="section level3 hasAnchor" number="4.24.4">
-<h3><span class="header-section-number">4.24.4</span> lapply+.SD pour des fonctions de statistiques descriptives<a href="datatable-functions.html#lapply.sd-pour-des-fonctions-de-statistiques-descriptives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="datatable-functions.html#cb25-1" tabindex="-1"></a><span class="do">## fabriquer une table statistique</span></span>
-<span id="cb25-2"><a href="datatable-functions.html#cb25-2" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="datatable-functions.html#cb25-3" tabindex="-1"></a>DT[, <span class="fu">lapply</span>(.SD, min), .SDcol <span class="ot">=</span> <span class="st">&quot;a&quot;</span>, by <span class="ot">=</span> c]</span>
-<span id="cb25-4"><a href="datatable-functions.html#cb25-4" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="datatable-functions.html#cb25-5" tabindex="-1"></a>mes_statistiques <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">return</span>(<span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">var</span>(x), <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">5</span>,.<span class="dv">75</span>))))</span>
-<span id="cb25-6"><a href="datatable-functions.html#cb25-6" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="datatable-functions.html#cb25-7" tabindex="-1"></a>data_agregee <span class="ot">&lt;-</span> dt[, <span class="do">## i</span></span>
-<span id="cb25-8"><a href="datatable-functions.html#cb25-8" tabindex="-1"></a>                   <span class="fu">lapply</span>(.SD, mes_statistiques), <span class="do">## j (expression)</span></span>
-<span id="cb25-9"><a href="datatable-functions.html#cb25-9" tabindex="-1"></a>                    by <span class="ot">=</span> <span class="st">&quot;Species&quot;</span>, <span class="do">## by (group)</span></span>
-<span id="cb25-10"><a href="datatable-functions.html#cb25-10" tabindex="-1"></a>                   .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Petal.Width&quot;</span>,<span class="st">&quot;Petal.Length&quot;</span>)] </span>
-<span id="cb25-11"><a href="datatable-functions.html#cb25-11" tabindex="-1"></a>data_agregee[, <span class="st">&#39;stat&#39;</span> <span class="sc">:=</span> <span class="fu">c</span>(<span class="st">&quot;moyenne&quot;</span>,<span class="st">&quot;variance&quot;</span>,<span class="st">&quot;P25&quot;</span>,<span class="st">&quot;P50&quot;</span>,<span class="st">&quot;P75&quot;</span>), by <span class="ot">=</span> <span class="st">&quot;Species&quot;</span>] <span class="do">## add a col to define the values in rows</span></span>
-<span id="cb25-12"><a href="datatable-functions.html#cb25-12" tabindex="-1"></a>data_agregee</span></code></pre></div>
-</div>
-<div id="des-data.table-poupées-russes" class="section level3 hasAnchor" number="4.24.5">
-<h3><span class="header-section-number">4.24.5</span> Des data.table poupées russes<a href="datatable-functions.html#des-data.table-poupées-russes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Facilite la parallélisation</p>
-<p><strong>DT[, list(list(.SD)), by = Group]</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="datatable-functions.html#cb26-1" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">2</span>)</span>
-<span id="cb26-2"><a href="datatable-functions.html#cb26-2" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="datatable-functions.html#cb26-3" tabindex="-1"></a>DT[,</span>
-<span id="cb26-4"><a href="datatable-functions.html#cb26-4" tabindex="-1"></a>clust <span class="sc">:=</span> <span class="fu">list</span>(<span class="fu">parLapplyLB</span>(cl, V1,</span>
-<span id="cb26-5"><a href="datatable-functions.html#cb26-5" tabindex="-1"></a><span class="cf">function</span>(X){<span class="fu">kmeans</span>(X,<span class="dv">2</span>)<span class="sc">$</span>cluster}))]</span></code></pre></div>
 
-</div>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="gérer-la-ram---tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="spatial-data-cours.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-transmittances-correlation-in-text-file.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datatable-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

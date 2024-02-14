@@ -2,14 +2,11 @@
 
 
 LiDAR : "light detection and ranging"  ou  "laser imaging detection and ranging"  
-
 Lumière d'un laser en général : visible, infrarouge ou ultraviolet.    
-
 
 **Télémétrie** : détermination de la distance d’un objet  
 
 Principe d'**écholocalisation** : La distance est donnée par la mesure du délai entre l’émission d’une impulsion et la détection d’une impulsion réfléchie, connaissant la vitesse de la lumière.  
-
 
 Mesure de la matière : isoler l’effet des différentes interactions entre la lumière et la matière le long du faisceau laser.  
 
@@ -29,7 +26,51 @@ logiciels : cloudcompare, Fugroviewer
 Using [LAStools](https://github.com/LAStools/LAStools),
 help [here](https://lastools.github.io/).
 
+```{r, LAStools}
+# Define the R function that calls lastools executables
+LAStool <- function(tool, inputFile, ...){
+  cmd = paste(paste(LAStoolsDir, tool, sep=''), '-i', inputFile , ...)
+  cat(cmd)
+  system(cmd)
+  return(cmd)
+}
+
+# Define the directory for the ALS project
+cloudPath <- "//amap-data.cirad.fr/work/users/VincyaneBadouard/Lidar/HovermapUAV2023/P16_C19C20/" 
+
+# Define las/laz files to be processed
+inFiles = paste(cloudPath, 'Output_laz1_4.laz', sep ='')
+outFile = "FullDensity.laz"
+
+# Define output directory (and creates it ... if doesn't exist)
+outDir = paste(cloudPath, 'FullDens_split', sep ='')
+dir.create(outDir) # , showWarnings = F (pas le droit de le faire dans le serveur safe)
+
+# Call the lastools function to split il several files by gpstime
+cores <- detectCores()
+
+LASrun <- LAStool('lassplit64', inFiles,
+                  '-cores', cores,
+                  '-by_gps_time_interval 60',
+                  '-odir', outDir,
+                  '-odix _split',
+                  '-o', outFile
+)
+
+# Merge files once corrected
+outDir2 <- paste(cloudPath, 'FullDens_cor', sep='') # new folder: files rebinded and corrected
+dir.create(outDir2, showWarnings = F)
+inFiles <- paste(outDir, '/*.laz', sep='') # files corrected
+LASrun <- LAStool('lasmerge64', inFiles,
+                  '-odir', outDir2,
+                  '-odix _cor',
+                  '-o', outFile
+)
+```
+
+
 ```{bash}
+# laz to dem
 las2dem -i input/Paracou_284500_581500.laz -o output/dem.asc
 ```
 
@@ -42,8 +83,6 @@ library(lidR)
 library(data.table)
 library(rgl) # visualisation 3D
 ```
-
-
 
 ## Load laz 
 Le format binaire ASPRS LASer (.las) est un format ouvert permettant le stockage de données à 3 dimensions sous forme binaire. En plus des coordonnées x,y,z de chaque point, ce format permet de stocker des informations propres aux données LiDAR :
@@ -69,8 +108,11 @@ las2 <- rlas::read.las(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.
 ### Load several laz
 ```{r}
 # readLAScatalog() creates a las catalog from a folder to search in
-readLAScatalog(folder = "D:/Mes Donnees/PhD/Lidar", filter = "keep") # las catalog
+ctg <- readLAScatalog(folder = "D:/Mes Donnees/PhD/Lidar", filter = "keep") # las catalog. filter only 1st returns
 # readLAS(filter = "-help")
+
+# To apply a function to a LAScatalog
+catalog_apply(ctg,fct)
 ```
 ## Write laz
 ```{r}
@@ -91,14 +133,12 @@ class(las1)
 # [1] "lidR"
 class(las2) # "data.table" "data.frame"
 
-
 print(las1) 
 print(las2)
 # area         : 294704 m²
 # points       : 116.93 million points
 # density      : 396.77 points/m²
 # density      : 180.46 pulses/m²
-
 ```
 
 ## Plot
@@ -147,8 +187,7 @@ Contient :
 - "yaw" (lacet) : the yaw angle ψ which is defined around the vertical axis zi  (radian)
 - Angle du système d'axes par rapport au Nord (radian)
 - Accélération sur les axes X, Y, Z (m/s2)
-- Vitesse angulaire autour des axes X, Y, Z (rad/s)
-
+- Vitesse angulaire autour des axes X, Y, Z (rad/s)  
 
 ```{r}
 traj <- fread("Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj") # or .txt
@@ -161,6 +200,7 @@ plot3d(traj[,2:4], aspect=F) # plot the trajectory (x,y,z)
 ## Clip the point cloud
 - selon une géométrie : **clip_roi(las = ctg, geometry = ROI)**
 - selon des coordonées : **clip_rectangle()/clip_polygon()/clip_circle()**
+- sur un LAScatalog (ça ne coupera pas dans une dalle mais ça réduit le nombre de dalle à la région d'intéret) : **catalog_intersect(ctg, ROI)**
 
 ## Classification
 7 = bruit
@@ -265,4 +305,17 @@ VP$initial_intensity <- VP$Intensity
 # Intensité = réflectance apparente en ratio (albedo)
 VP$Intensity = 10^(VP$Reflectance/10) # Réflectance initialment en decibel (et selon une référence connue)
 ```
+
+# Parallelisation
+https://rdrr.io/cran/lidR/man/lidR-parallelism.html
+Laz sur ordi petits car compréssés, mais dans R plusieurs giga.
+```{r}
+library(future)
+# chunk-based parallelism
+plan(multisession, workers = 2L) # chunks numbers
+set_lidr_threads(2L) # Nested parallelism (threads numbers)
+# chunks nbrs * threads numbers need to be <= cores
+ctg <- readLAScatalog("folder/")
+```
+
 

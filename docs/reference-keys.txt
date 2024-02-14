@@ -30,6 +30,7 @@ logical-operators
 stan---modelo---bayes
 faire-de-la-biblio-comme-une-déesse
 date-time
+gérer-la-ram---tips
 datatable-functions
 sources
 pourquoi-data.table
@@ -98,6 +99,7 @@ ajouter-des-points-à-un-las-combiner-plusieurs-las
 caluler-des-métriques
 generate-a-dtm-mnt
 la-réflectance-albedo
+parallelisation
 c
 plot-1
 a-quoi-faire-attention
@@ -152,7 +154,7 @@ retourner-un-résultat
 fonctions-de-message-et-darrêt-de-fonction
 interaction-avec-lutilisateur
 iteration
-parallelisation
+parallelisation-1
 choses-à-savoir
 débogage-tips
 où-écrire-ses-fcts
