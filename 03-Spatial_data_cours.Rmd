@@ -1,5 +1,7 @@
 # Spatial data cours
 
+Contient pas mal d'infos : https://r-spatial.org/book/07-Introsf.html
+
 Géomatique avec R : https://rcarto.github.io/geomatique_avec_r/
 
 ```{r}
@@ -202,6 +204,7 @@ quebec %>%
 + Jointures spatiales (intersections de polygones, unions, différences) -> 1 nouvelle géométrie
 
 + Attribuer un crs à un objt sf ou sfc : *st_set_crs(objtsanscrs, st_crs(objtaveccrs))*
++ st_crs<- : replacing crs does not reproject data; use **st_transform** for that
 
 
 + Exporter un tableau sf en format csv incluant la géométrie : *st_write(obj = tableau,dsn = "tableau.csv", layer_options = "GEOMETRY=AS_XY")*
@@ -309,6 +312,7 @@ et basés sur les systèmes de coordonnées géographiques
 
 
 ## Functions
+chercher là dedans : https://r-spatial.org/book/07-Introsf.html
 
 Retourner des points interpolés selon une interpolation linéaire entre 2 points : **approx(x= coord, y = autrecoord, xout = coord selon laquelle interpoler)**
 
@@ -339,6 +343,9 @@ objt_sf_12 <- objt_sf_1 %>% rbind(objt_sf_2)
 objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))  
 ```
 
+### Stars package to work on rasters
+
+voir : https://r-spatial.org/book/07-Introsf.html
 ### en 3D
 + package : **plot3D** for 3-D arrows, segments, polygons, boxes, rectangles
 3D fixe **plot3D::scatter3D()**

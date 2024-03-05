@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 11 Bookdown | My cours</title>
+  <title>Cours 24 Formulation de phrases élégantes | My cours</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 11 Bookdown | My cours" />
+  <meta property="og:title" content="Cours 24 Formulation de phrases élégantes | My cours" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 11 Bookdown | My cours" />
+  <meta name="twitter:title" content="Cours 24 Formulation de phrases élégantes | My cours" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="github.html"/>
-<link rel="next" href="intégration-continue.html"/>
+<link rel="prev" href="conseils-de-rédaction-scientifique.html"/>
+<link rel="next" href="distinction-britaniqueamericain.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -560,46 +560,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="bookdown" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">Cours 11</span> Bookdown<a href="bookdown.html#bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>R proj particulier pour le bookdown</p>
-<div id="fichiers-particuliers" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Fichiers particuliers<a href="bookdown.html#fichiers-particuliers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="formulation-de-phrases-élégantes" class="section level1 hasAnchor" number="24">
+<h1><span class="header-section-number">Cours 24</span> Formulation de phrases élégantes<a href="formulation-de-phrases-élégantes.html#formulation-de-phrases-élégantes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
-<li><p>index.rmd : fichier pour indiquer le header de ts les fichiers, écrit la “préface”</p></li>
-<li><p>_bookdown.yml : def construction livre</p></li>
+<li>Dans ce sens, des études montrent que… (ref</li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="bookdown.html#cb68-1" tabindex="-1"></a>book_filename<span class="sc">:</span> <span class="st">&quot;My_cours&quot;</span></span>
-<span id="cb68-2"><a href="bookdown.html#cb68-2" tabindex="-1"></a>delete_merged_file<span class="sc">:</span> true <span class="co"># supprimer le fichier intermediaire de la compilation</span></span>
-<span id="cb68-3"><a href="bookdown.html#cb68-3" tabindex="-1"></a>language<span class="sc">:</span></span>
-<span id="cb68-4"><a href="bookdown.html#cb68-4" tabindex="-1"></a>  ui<span class="sc">:</span></span>
-<span id="cb68-5"><a href="bookdown.html#cb68-5" tabindex="-1"></a>    chapter_name<span class="sc">:</span> <span class="st">&quot;Cours &quot;</span></span>
-<span id="cb68-6"><a href="bookdown.html#cb68-6" tabindex="-1"></a>output_dir<span class="sc">:</span> <span class="st">&quot;docs&quot;</span> <span class="co"># dossier de stockage de la compilation</span></span></code></pre></div>
-<ul>
-<li>_output.yml : def construction des sorties</li>
-</ul>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="bookdown.html#cb69-1" tabindex="-1"></a>bookdown<span class="sc">::</span>gitbook<span class="sc">:</span></span>
-<span id="cb69-2"><a href="bookdown.html#cb69-2" tabindex="-1"></a>  config<span class="sc">:</span></span>
-<span id="cb69-3"><a href="bookdown.html#cb69-3" tabindex="-1"></a>    toc<span class="sc">:</span></span>
-<span id="cb69-4"><a href="bookdown.html#cb69-4" tabindex="-1"></a>      before<span class="sc">:</span> <span class="er">|</span></span>
-<span id="cb69-5"><a href="bookdown.html#cb69-5" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;./&quot;</span><span class="sc">&gt;</span>My_cours<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
-<span id="cb69-6"><a href="bookdown.html#cb69-6" tabindex="-1"></a>      after<span class="sc">:</span> <span class="er">|</span> <span class="co"># lien &quot;source&quot; vers le dépot Github</span></span>
-<span id="cb69-7"><a href="bookdown.html#cb69-7" tabindex="-1"></a>        <span class="er">&lt;</span>li<span class="sc">&gt;</span><span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">&quot;https://github.com/VincyaneBadouard/My_cours&quot;</span> target<span class="ot">=</span><span class="st">&quot;blank&quot;</span><span class="sc">&gt;</span>Source<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
-<span id="cb69-8"><a href="bookdown.html#cb69-8" tabindex="-1"></a>      collapse<span class="sc">:</span> section <span class="co"># pour ne pas afficher les sous-parties ds le menu deroulant</span></span>
-<span id="cb69-9"><a href="bookdown.html#cb69-9" tabindex="-1"></a>  includes<span class="sc">:</span></span>
-<span id="cb69-10"><a href="bookdown.html#cb69-10" tabindex="-1"></a>    in_header<span class="sc">:</span> hypothesis.html <span class="co"># permet les comentaires dans le doc (open review)</span></span>
-<span id="cb69-11"><a href="bookdown.html#cb69-11" tabindex="-1"></a>    before_body<span class="sc">:</span> open_review_block.html</span></code></pre></div>
-<p>scroll_hillight: yes # mise en couleur qd on est dans la partie</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intégration-continue.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conseils-de-rédaction-scientifique.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distinction-britaniqueamericain.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

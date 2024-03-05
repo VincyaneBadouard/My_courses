@@ -122,7 +122,6 @@ writeLAS(las, "Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz")
 ## Check if the las is complete
 ```{r}
 lidR::las_check(las1)
-# lidR::las_check(las2)
 ```
 
 ## See their summaries 
@@ -237,7 +236,7 @@ ST <- lidR::unnormalize_height(ST_norm)
 # transform in a LAS object
 las2 <- LAS(vector_coord[,.(XB,YB,ZB)], las1@header)
 
-# This triggers some warning because we input some inccorectly quantized coordinates. Check the output of las_check()
+# This triggers some warning because we input some incorrectly quantized coordinates. Check the output of las_check()
 las_check(las2)
 # We can fix that
 las2 <- las_quantize(las2, TRUE)

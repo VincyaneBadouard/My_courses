@@ -199,6 +199,8 @@ Spearman : pas lineaires monotones et à valeurs extremes
 + simplement Pearson : **cor(data)**
 + simplement Spearman : **cor(data, method = "spearman")**
 
++ par indices : **by(datatocor, INDICES = colindex, cor)**
+
 ### Draftsman plot pour étudier les variables et leur relation
 (pour moins de 10 variables)
 histograms and correlations

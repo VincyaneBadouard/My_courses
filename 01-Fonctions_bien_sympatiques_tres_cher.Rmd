@@ -60,12 +60,13 @@ time.taken
 + Indenter :  Ctrl + I  
 + Recherche sur toutes les pages du projet : Ctrl + Shift + F (on peut faire du replace !)  
 
++ **%>%** : Ctrl + Shift + M  
+
 + **%in%** : Ctrl + Shift + I (nécéssite un package)
 Install the package:
 devtools::install_github("rstudio/addinexamples", type = "source")
 Restart R
 
-+ **%>%** : Ctrl + Shift + M  
 
 ## Symbol/name, charactères, variable/objet tout le bazar
 + nom d'objet -> ce nom en characteres : **deparse(substitute(var))**  
@@ -116,10 +117,12 @@ df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the fol
 
 + en fichier texte : **write.table(obj, "path/data.txt",sep=";")**
 
-# Write Transmittances correlation in text file
++ un renvoi consol :
+```{r}
 sink("D:/Mes Donnees/PhD/Light/LAI-2200/DATA/Transmittance_cor.txt") # path
-By
+objt
 sink() # close the external connection
+```
 
 + en fichier Excel : **write.table(obj,"data.xls",sep="\t",row.names = F, dec=",")** il faut une tabulation "/t
 
@@ -333,7 +336,7 @@ phase_stats <- pivot_wider(phase_stats, names_from = Phase,
 + Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis **arrange(var)**  
 + Selectionner les n valeurs maximales : **top_n**  
 + Afficher les 30 1ères lignes : **slice(1:30)**  
-+ Changer ordre des colonnes :   **select(c(a, y, x, b : w))**  
++ Changer ordre des colonnes :   **select(c(a, y, x, 1ercolnonmodified : dercol))**  
 
 + Séparer une base de données, selon un facteur, en une liste de bases de données : **split(data, data$fact)**  
 
@@ -345,7 +348,7 @@ ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales
 
 + Joindre 2 tables :
 ```{r}
-left_join(df1, df2, by = 'key') %>% 
+left_join(df1, df2, by = 'key') %>% # by = c('coldf1' = 'coldf2')) if not the same name
   mutate(
     var1 = coalesce(var1.x, var1.y), # pour combiner les valeurs de .x et .y 
     var2 = coalesce(var2.x, var2.y)
@@ -420,6 +423,7 @@ Les map ne produisent que des vecteurs, pas de matrice)
 
 Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu'il ne va pas : **map(safely(fct))** qui renvoie le résultat et le message d'erreur  
 
++ Appliquer une fonction par indices/catégorie : **by(data, INDICES = colindex, fct)**
 
 ## Nettoyage
 
@@ -547,6 +551,8 @@ c(F, F, T) || c(T, F, T) ## TRUE
 To find our time zone : **OlsonNames()**  
 Set the new time zone : **Sys.setenv(TZ = "America/Cayenne")**  
 To change permanently : change time zone of your computer  
+
++ Convert Julian Day to calendar date **as.Date(`Julian Day`, origin = "2021-12-31")** to start the 2022-01-01
 
 + convertir une date (y, m, d) en année numeric : **as.numeric(format(ExactDate, "%Y"))**  
 

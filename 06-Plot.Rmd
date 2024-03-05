@@ -82,6 +82,8 @@ ggplot(Df1, aes(x = Date)) +
 
 + Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**  
 
++ facet avec 2 variables : **facet_wrap(~ var1 + var2)**
+
 + Séparer un facet_wrap en plusieurs pages : **facet_wrap_paginate()**  
 
 + Echelles différentes sur un facet :  

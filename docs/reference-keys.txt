@@ -6,7 +6,6 @@ mes-raccourcis-claviers
 symbolname-charactères-variableobjet-tout-le-bazar
 charger-les-données
 exportation-des-données
-write-transmittances-correlation-in-text-file
 corection-préliminaires-des-données
 transformation-de-données
 histoire-de-characters
@@ -81,7 +80,7 @@ système-de-coordonnées-géographiques
 système-de-référence-de-coordonnées-pojetées
 functions-1
 sf-package
-en-3d
+stars-package-to-work-on-rasters
 work-with-lidar-data
 tools
 lastools
@@ -114,7 +113,7 @@ double-axes
 multi-plots
 légende
 ajouter-des-lignes
-en-3d-1
+en-3d
 animated-plot
 plusieurs-plots-cote-à-cote
 télécharger-dans-le-bon-format-au-bon-endroit
@@ -302,6 +301,7 @@ en-englais
 embellissement-de-larticle-pas-bien
 lettre-de-motivation-de-soumission-pas-tjrs-demandée
 au-cirad
+formulation-de-phrases-élégantes
 distinction-britaniqueamericain
 our-uk-ou--or-us
 re-uk-ou--er-us

@@ -309,6 +309,7 @@ constitution équipe
 - pas d'expressions émotionnelle
 - **peu d'adverbe** (gérondif) (fr : en verbe-ant; en : verb-ing)
 - ne pas utiliser des mots indéfinis : *it/these/that*
+- éviter les **démonstratifs** (ces, cette etc)
 - éviter de commencer une phrase par un acronyme
 - pas faire de doubles parenthèses, mettre un ; entre les deux élements
 - pas parler de "good" ou "bad" mais de "quality of"
@@ -347,3 +348,6 @@ aide à la publication à la DIST au Cirad “portail du libre accès” du site
 Agritrop : archives ouvertes (base de données) en ligne du CIRAD
 
 Mme Fovet-Rabot : s’occupe de l’archivage au cirad Montpellier
+
+# Formulation de phrases élégantes
+- Dans ce sens, des études montrent que... (ref
