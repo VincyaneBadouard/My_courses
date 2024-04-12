@@ -139,6 +139,7 @@ sink() # close the external connection
 ## Transformation de données !
 
 + Renomer une variable : **rename(New = Old)**
++ Renames columns using a function (here add a suffix): **rename_with(.fn = ~paste0(., "_suffix"), .cols = c("a", "b", "c"))**
 
 + De character à factor : **mutate(Vernacular = factor(as.character(Vernacular)))**  
 
@@ -171,7 +172,7 @@ mutate(var = case_when(
 + Arrondir tout un df sur uniquement les variables numériques :  *mutate_if(is.numeric, round, digits = 2)*
 
 
-+ effectuer par ligne : **rowise**  
++ effectuer par ligne : **rowwise()**  
 
 + Remplir une colonne à partir d'une fonction dont l'input est une table : **do()**  
 
@@ -181,8 +182,12 @@ mutate(var = case_when(
 
 + Mettre à NA 10% du jeu de donnée aléatoirement : **data[sample(nrow(data), 0.1 * nrow(data)), c("X", "Y", "Z") := NA_real_]**
 
++ Calculate row means on subset of columns : **mutate(Mean = rowMeans(select(., var1, var2)))**
 
 ## Histoire de characters
+
+### Create
++ paste(val, " truc", val, "truc", "\n", sep = ", ")
 
 ### Detect
 + Detect special characters (logical) :  
@@ -348,8 +353,8 @@ ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales
 
 + Joindre 2 tables :
 ```{r}
-left_join(df1, df2, by = 'key') %>% # by = c('coldf1' = 'coldf2')) if not the same name
-  mutate(
+left_join(df1, df2, by = 'key', suffix = c("_1", "_2")) %>% # by = c('coldf1' = 'coldf2')) if not the same name
+  mutate( # mutate sur plusieurs variables
     var1 = coalesce(var1.x, var1.y), # pour combiner les valeurs de .x et .y 
     var2 = coalesce(var2.x, var2.y)
   ) %>% 
@@ -563,6 +568,8 @@ To change permanently : change time zone of your computer
 - **base::strptime(Time, format = "%Y.%m.%d %H:%M", tz = "America/Cayenne")**
 - **lubridate::as_datetime(, tz = "America/Cayenne")**
 
++ Convertir des heures en numériques (ex:2.5h) en hh:mm:ss : **hms::hms(seconds_to_period(2.5 * 3600))**
+
 + filtrer selon un pas de temps :
 ```{r}
 Df1 %>%
@@ -574,7 +581,7 @@ Df1 %>%
 + filter par date et heures séparément : **filter(Date >= as.Date("2023-03-30") & Hour >= chron(times="18:00:00"))**
 + filter par date et heures au format Date-times : **filter(Time >= mdy_hms("03/30/2023 18:00:00"))**
 
-+ temps par ordre croissant **data <- data[order(data$Time),]**
++ temps par ordre croissant **data <- data[order(data$Time, decreasing = FALSE),]**
 
 
 # Gérer la RAM - tips !

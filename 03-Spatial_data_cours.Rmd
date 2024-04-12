@@ -227,6 +227,8 @@ La fonction plot() permet d’explorer les données en créant *1 graphique par 
 
 Les tif sont trés volumineux. Si l'on n'as pas besoin d'une si haute résolution, on peut simplifier le raster avec *raster::aggregate()*
 
+ + Attribuer un crs à  raster : **crs(mnt) <- crs(obj2)**
+ 
 #### Travailler sur du vectoriel & du raster 
 
 Le package "raster" ne supporte pas le format sf, il faut donc préalablement convertir en sp : *poly_sp <- as(poly, "Spatial")* (poly étant ici un polygone)
@@ -319,7 +321,14 @@ Retourner des points interpolés selon une interpolation linéaire entre 2 point
 
 ### sf package
 
-+ Passer d'un sf à un dataframe (supprimer la col géométrie) : **st_geometry(sf) <- NULL**  
++ Passer d'un sf à un dataframe (supprimer la col géométrie) : **st_geometry(sf) <- NULL** 
+```{r}
+# from sf to df with original coordinates
+XY <- st_coordinates(traj_crop) # stock coordinates
+st_geometry(traj_crop) <- NULL # no more sf object
+traj_crop <- cbind(traj_crop, XY) # bind XY coord
+```
+
 
 + sfg to sfc : **st_sfc(sfg)**  
 
@@ -341,6 +350,17 @@ Retourner des points interpolés selon une interpolation linéaire entre 2 point
 objt_sf_12 <- objt_sf_1 %>% rbind(objt_sf_2)  
 
 objt_sf_12 <- do.call(c, st_geometry(objt_sf_12))  
+```
+
++ Create a regular grid :
+```{r}
+# Subplots (1ha) grid for 25 ha
+grid <- data.frame(expand.grid(
+  x = seq(0,500, by= 100),
+  y = seq(0,500, by= 100)
+)
+)
+plot(grid)
 ```
 
 ### Stars package to work on rasters

@@ -235,7 +235,7 @@ Pval_corr <- CorMatrixS$P
 http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme
 
 ```{r}
-corrplot(CorMatrix, method="circle", type="lower", col=brewer.pal(n=8, name="PuOr"), tl.col="black", tl.srt=45, p.mat = Pval_corr, sig.level = 0.05) #avec une croix pour les p-value > 0.05.
+corrplot::corrplot(CorMatrix, method="circle", type="lower", diag = F, col= RColorBrewer::brewer.pal(n=8, name="PuOr"), tl.col="black", tl.srt=45, p.mat = Pval_corr, sig.level = 0.05) #avec une croix pour les p-value > 0.05.
 ```
 
 

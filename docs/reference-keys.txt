@@ -9,6 +9,7 @@ exportation-des-données
 corection-préliminaires-des-données
 transformation-de-données
 histoire-de-characters
+create
 detect
 extract
 convert
@@ -113,6 +114,7 @@ double-axes
 multi-plots
 légende
 ajouter-des-lignes
+dans-une-boucle
 en-3d
 animated-plot
 plusieurs-plots-cote-à-cote

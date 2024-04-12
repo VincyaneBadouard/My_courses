@@ -14,11 +14,19 @@ https://www.data-to-viz.com/caveats.html
 + geom_line()
 + geom_bar()
 + geom_histogram(binwidth=1, fill="#69b3a2", color="#e9ecef", alpha=0.9)
-    
++ geom_boxplot()
+
+```{r}
+# Points from different variables of the same dataset
+ggplot(data, aes(x = x)) +
+  geom_point(aes(y = y1), color = "blue") +  
+  geom_point(aes(y = y2), color = "red")
+```
 
 ## Titres
 
 + Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
+ ou **ggtitle("Figure title")**
 
 ## Des couleurs
 Voir les palettes : **RColorBrewer::display.brewer.all()**  
@@ -30,7 +38,16 @@ c("#00AFBB", "#E7B800", "#FC4E07")
 
 
 + Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
-ou **scale_fill_gradient2(low="blue", high="red", mid = "white")**  
+ou **scale_fill_gradient2(name = "LegendTitle", low="blue", high="red", mid = "white", midpoint = 0)**  
+
++ Couleur pour des paliers :
+```{r}
++ scale_colour_steps2(name = "Title",
+                      low="#00AFBB", high="#FC4E07", mid = "white", midpoint = 0,
+                      breaks = seq(min(var), max(var), by = 0.02),
+                      labels = as.character(round(seq(min(var), max(var), by = 0.02), digits = 2)))
+```
+
 
 + utiliser une palette, donner un nombre de couleur et inverser la palette : **scale_fill_gradientn(name = "Altitude", colors = terrain.colors(45, rev=T))** # rev = T pour inverser la palette
 
@@ -38,15 +55,22 @@ ou **scale_color_gradientn()** pour des points (ne pas mettre fill = mais color 
 
 + n'importe quelle palette : **scale_fill_gradientn(name = "TWI", colors =  hcl.colors(12, "nom de la pallette", rev = T))**
 
++ limites au gradient de couleur : **, limits = c(0,0.25)**
+
 
 ## Des histoires de texte
 
-+ **geom_text(label = data$var)**
-+ Relier le label au point quand c'est pas visible : **geom_text_repel** 
++ **geom_text(data = data, aes(x = x, y = y, label = Id))**
++ Relier le label au point quand c'est pas visible : **geom_text_repel(data = data, aes(x = x, y = y, label = Id), color = "black", size = 2)** 
 
 ## Axes
+https://r-charts.com/ggplot2/axis/
 
++ Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
 + changer l'échelle des axes (ici y): **scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))**
++ axe de meme longeur : **coord_fixed(ratio=1)**
++ limites des axes : **xlim(0,1) +** ; **ylim(0,60) +**
+
 
 ### Temporel
 + customiser l'échelle d'un axe temporel (date/time) : https://ggplot2.tidyverse.org/reference/scale_date.html#ref-examples
@@ -54,6 +78,7 @@ ou **scale_color_gradientn()** pour des points (ne pas mettre fill = mais color 
 + un plot avec l'axe des x à échelle temporelle de toutes :
 - les 15 minutes : **+ scale_x_time(breaks = hms::hms(minutes = seq(0, 3600, 15)))**
 - les semaines : **+ scale_x_date(date_breaks = "1 week")**
+- mois : **+scale_x_date(breaks = scales::breaks_width("1 month"), date_labels = "%d-%m")**
 - les 4 heures : **+ scale_x_time(breaks = hms::hms(hours = seq(0, 24, 4)))**
 
 ### Double axes
@@ -95,20 +120,34 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
 
 ## Légende
+
 ```{r}
 geom_point(shape = "circle", size = 1.5,
-             aes(colour = "Reality")) +
+           aes(colour = "Reality")) +
   geom_point(data = Piquets_theor, aes(x = X, y = Y, colour = "Expectation"), shape = "circle", size = 1.5) +
   scale_colour_manual(values = c("Reality" = "forestgreen", # pour donner un nom à chaque intitulé
                                  "Expectation" = "red"),
                       breaks=c("Reality", "Expectation")) + # pour ordonner
-  labs(color = "Stakes position")
+  labs(color = "Stakes position") # legend title
 ```
 
 ## Ajouter des lignes 
 + Pour ajouter une courbe de tendance du nuage de points : **panel.smooth(x,y)**  
-+ Pour ajouter une droite horizontale : **abline(h=ordonnee)**  
-+ Pour ajouter une droite verticale : **abline(v=abscisse)**  
+
++ Pour ajouter une droite horizontale : 
+**abline(h=ordonnee)** avec plot
+**geom_hline(yintercept=0)** avec ggplot
+
++ Pour ajouter une droite verticale : 
+**abline(v=abscisse)** avec plot
+**geom_vline(xintercept = 1:5)** avec ggplot
+
++ Pour ajouter une droite x=y : **geom_abline()**
+
++ des segments entre des points et des limites : **geom_segment(aes(x=x, xend=x, y=y, yend=0))** ici entre chaque point et une ligne à y=0
+
+## Dans une boucle
+Pour boucler un ggplot il faut l'enlober dans un print()
 
 ## En 3D
 3D fixe **plot3D::scatter3D()**  
