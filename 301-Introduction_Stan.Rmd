@@ -32,6 +32,7 @@ Stan = un language :
 
 ## Stan program :
 Ôuvrir un fichier stan.
+aucun # n'est toléré !!
 3 blocks de commande :
 
 *data block*
@@ -94,6 +95,8 @@ fit1 <- stan("stan.stan", data = data) #LET'S GOOOO! Données injectées, compil
 * Rhat doit être égal à 1 (ou 1.1): ça veut dire que l'estimation des paramètres a réussi à converger
 
 Ici les chaînes n'ont pas réusi à converger, et ce sont perdues (tres peu de chaînes effectives).
+
+**on peut rajouter des lignes ggplot pour modifier les plots**
 
 ```{r, visualiser la progression des chaînes pour chaque paramètres}
 mcmc_trace(as.array(fit1), #as.array = comme vecteurs

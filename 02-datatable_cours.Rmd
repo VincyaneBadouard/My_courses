@@ -65,7 +65,7 @@ C'est mieux car ne garde pas de copie en mémoire.
 + **:=** ou **`:=`()** (“assignation par référence”) permet de modifier une variable en assignation directe, **donc pas besoin de "<-"**  
 -> **+ rapide et très économe en mémoire vive**
 
-## Subset rows :
+## Subset rows
 - by rows positions : **dt[1:2, ]**  
 - by values in one or more columns : **dt[a > 5, ]**
 - both : **dt[1:2][a > 5]**  (ne marche pas pour calculer une colonne, utiliser ifelse)
@@ -169,6 +169,8 @@ ou **dt[, .(new = old)]**
 + changer ordre des colonnes : **setcolorder(DT, c("col1","col2"))**
 
 avec ":=" : **dt[ , col_min := tolower(col)]**
+
++ Moyenne entre 2 colonnes par ligne : **data[, Var := rowMeans(.SD), .SDcols = c("Var1", "var2")]**
 
 ## Combine data.tables
 

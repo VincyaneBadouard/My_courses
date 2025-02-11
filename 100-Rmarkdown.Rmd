@@ -67,11 +67,12 @@ knitr::opts_chunk$set(
 
 [Voir documentation](https://yihui.org/knitr/options/)  
 
-
 le reste à voir dans le petit engrenage du chunk  
 ```{r, echo=FALSE, warning=FALSE, include=TRUE}
 1+2
 ```
+
+Pour faire tourner un chunk avant tous les autres sans meme le runner : **```{r Setup}**
 
 Afficher une valeur dans le texte :
 1+2 = 'r 1+2'

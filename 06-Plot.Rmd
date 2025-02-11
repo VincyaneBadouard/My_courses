@@ -8,6 +8,10 @@ https://www.data-to-viz.com/caveats.html
 
 + Des plots tout beau prêts à publier : **ggpubr**  
 
+#  Theme
++ fond blanc avec lignes sans cadre : **theme_minimal() +**
++ fond blanc sans lignes : **theme_classic() +** 
+
 ## Types
 
 + geom_point()
@@ -15,6 +19,9 @@ https://www.data-to-viz.com/caveats.html
 + geom_bar()
 + geom_histogram(binwidth=1, fill="#69b3a2", color="#e9ecef", alpha=0.9)
 + geom_boxplot()
++ heatmap : ggplot(data, aes(x, y)) + 
+  geom_tile() + # heatmap
+  geom_bin2d(bins = 50) + # for counts
 
 ```{r}
 # Points from different variables of the same dataset
@@ -26,21 +33,42 @@ ggplot(data, aes(x = x)) +
 ## Titres
 
 + Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
- ou **ggtitle("Figure title")**
+ou **ggtitle("Figure title")**
 
 ## Des couleurs
 Voir les palettes : **RColorBrewer::display.brewer.all()**  
 Voir  palettes from ggsci R package
+
++ Couleurs colorblind (daltonien) friendly : **RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)**
 ```{r}
-# les couleurs que j'aime
-c("#00AFBB", "#E7B800", "#FC4E07")
+library(colorBlindness)
+availableColors()
+c("black", "#000000","#999999", "skyBlue","bluishGreen","blue", "#0072B2","#56B4E9", 
+  "#009E73","#D55E00", "#CC79A7","vermillion", "reddishPurple","#E69F00","orange","#F0E442", "yellow") 
+
+colorblindPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+availablePalette()
 ```
 
+```{r}
+# les couleurs que j'aime
+c("#00AFBB", "#E7B800", "#FC4E07", "steelblue")
+```
+
++ attribuer une couleur à chaque level
+```{r}
+scale_color_manual(values = c("1-5" = "#00AFBB",
+                              "5-10"= "#CC79A7",
+                              "10-20"= "#E7B800",
+                              ">20" = "#FC4E07")) + 
+```
 
 + Gradient de couleurs : **colorRampPalette(c("blue", "white", "red"))(4)** 4 = nbr de catégories  
 ou **scale_fill_gradient2(name = "LegendTitle", low="blue", high="red", mid = "white", midpoint = 0)**  
 
 + Couleur pour des paliers :
+  
 ```{r}
 + scale_colour_steps2(name = "Title",
                       low="#00AFBB", high="#FC4E07", mid = "white", midpoint = 0,
@@ -61,15 +89,46 @@ ou **scale_color_gradientn()** pour des points (ne pas mettre fill = mais color 
 ## Des histoires de texte
 
 + **geom_text(data = data, aes(x = x, y = y, label = Id))**
-+ Relier le label au point quand c'est pas visible : **geom_text_repel(data = data, aes(x = x, y = y, label = Id), color = "black", size = 2)** 
++ Relier le label au point quand c'est pas visible : **ggrepel::geom_text_repel(data = data, aes(x = x, y = y, label = Id), color = "black", size = 2)** 
++ Si positions varient selon une variable : créer un dataset avec :
+label <- data.frame(
+var_x = 4, 
+var_y = c(0.08, 0.075, 0.07), 
+color = unique(long$LIDF),
+label = paste("MAE = ",round(unique(long$MAE),3))
+)
++ geom_text(data = label, aes(label = label), show.legend = F) +
+
 
 ## Axes
 https://r-charts.com/ggplot2/axis/
 
 + Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
 + changer l'échelle des axes (ici y): **scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))**
+pour un facet_wrap :
+
+ggh4x::facetted_pos_scales(
+x = list(
+Transect == "LAY" ~ scale_x_continuous(breaks = seq(1:26)),
+Transect == "HOBO" ~ scale_x_continuous(breaks = seq(1:20))
+)
+) +
+
++ pour arrondir les valeurs des axes : **scale_y_continuous(labels = scales::number_format(accuracy = 0.001))**
+
++ pour transformer l'axe : **scale_y_continuous(trans="log")**
+
++ pour les factor et character : **scale_x_discrete(limits = as.character(seq(1, 48, by= 5)))** ou breaks
 + axe de meme longeur : **coord_fixed(ratio=1)**
 + limites des axes : **xlim(0,1) +** ; **ylim(0,60) +**
+
++ changer taille des titres, valeurs des axes et légende :
+**theme(title= element_text(size=16), axis.title= element_text(size=14), axis.text= element_text(size=16), legend.title= element_text(size=16), legend.text= element_text(size=16), strip.text.x = element_text(size=16)) +**  ,face="bold" si en gras
+
++ changer la couleur que du titre : **theme(plot.title = element_text(colour = "red"))**
+
+
++ Rotation des labels : **theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size=7)) +**
 
 
 ### Temporel
@@ -88,7 +147,7 @@ mean(Df1$Light/Df1$Temp) # find a good coeff
 coeff <- 2
 ggplot(Df1, aes(x = Date)) +
   geom_line(aes(y = Temp), col = "red") +
-  geom_line(aes(y = Light/coeff)) +
+  geom_line(aes(y = Light/coeff), linewidth = 2) +
   scale_y_continuous(
     # Features of the first axis
     name = "Temperature (°C)",
@@ -105,6 +164,8 @@ ggplot(Df1, aes(x = Date)) +
 
 ## Multi-plots
 
++ Pour coller des plots de différentes natures : **devtools::install_github("thomasp85/patchwork")**
+
 + Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**  
 
 + facet avec 2 variables : **facet_wrap(~ var1 + var2)**
@@ -119,6 +180,8 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 
 puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
 
++ Plusieurs graphiques sur une même page : **ggarrange(plot1, plot2, labels = c("A", "B"), ncol = 1, nrow = 2)**
+
 ## Légende
 
 ```{r}
@@ -131,43 +194,121 @@ geom_point(shape = "circle", size = 1.5,
   labs(color = "Stakes position") # legend title
 ```
 
++ Changer le titre de la légende : **labs(color= "title")**
+
++ pas de titre de légende : **theme(legend.title=element_blank()) +**
+
++ cacher certaines légendes : **guides(color = FALSE, fill = FALSE)**
+
++ pas la notation scientifique : **, labels = scales::comma** ou **+ scale_y_continuous(labels = scales::comma)** ou **options(scipen = 999)**
+
++ Position de la légende : **theme(legend.position="bottom")**
+
++ Pour modifier la légende : **guides(fill= guide_legend(title, theme, position, direction, override.aes = list(), nrow, ncol, reverse, order))**
+
 ## Ajouter des lignes 
-+ Pour ajouter une courbe de tendance du nuage de points : **panel.smooth(x,y)**  
 
 + Pour ajouter une droite horizontale : 
 **abline(h=ordonnee)** avec plot
-**geom_hline(yintercept=0)** avec ggplot
+**geom_hline(data, aes(yintercept=0, linetype='value'))** avec ggplot
 
 + Pour ajouter une droite verticale : 
 **abline(v=abscisse)** avec plot
-**geom_vline(xintercept = 1:5)** avec ggplot
+**geom_vline(xintercept = value)** avec ggplot
 
 + Pour ajouter une droite x=y : **geom_abline()**
 
 + des segments entre des points et des limites : **geom_segment(aes(x=x, xend=x, y=y, yend=0))** ici entre chaque point et une ligne à y=0
 
++ pour la légende : **scale_linetype_manual(name = "", values = "solid")**
++ et du texte : **geom_text(data = data2,
+mapping = aes(x= x, y = y, label= as.character(var)),
+size = 3)** # les colonnes de data1 et data2 impliqués dans le plot doivent etre communes
+
+# Ajouter une shaded area
+
++ verticale : **geom_rect(aes(xmin=1990, xmax=2001,ymin=-Inf,ymax=Inf), fill='red', alpha= 0.3)**
+
+## Stats
++ écart-types : **geom_errorbar(aes(ymin=Mean-Sd, ymax=Mean+Sd), width=.2)**
+ou geom_linerange()
+```{r}
+df %>% 
+  ggplot(aes(x = Id)) +
+  
+  geom_linerange(aes(ymin= mean_Dry - se_Dry,
+                     ymax= mean_Dry + se_Dry,  color = "Standard error")) + # une partie des données pour créer la légende de la barre d'erreur
+  
+  geom_linerange(aes(ymin= mean_Dry - se_Dry,
+                     ymax= mean_Dry + se_Dry,  color = "Dry season")) + # bar d'erreur de la couleur de la donnée
+  geom_point(aes(y = mean_Dry, colour = "Dry season")) +
+  geom_line(aes(y = mean_Dry, colour = "Dry season")) +
+  
+  geom_linerange(aes(ymin= mean_Wet - se_Wet,
+                     ymax= mean_Wet + se_Wet, color = "Wet season")) +
+  geom_point(aes(y = mean_Wet, colour = "Wet season")) +
+  geom_line(aes(y = mean_Wet, colour = "Wet season")) +
+  
+  
+  scale_colour_manual(values = c("Wet season" = "#0072B2",
+                                 "Dry season" = "#999999",
+                                 "Standard error" = "#666666"),
+                      breaks=c("Dry season",  "Wet season", 
+                               "Standard error")) +
+  
+  guides(colour = guide_legend(override.aes = list(linetype = c("blank", "blank", "solid"), # autant que d'entité de légende
+                                                   linewidth = 0.4))) 
+```
+
+
++ Pour ajouter une courbe de tendance (régression) du nuage de points : **panel.smooth(x,y)**  
+
++ ajouter l'equation et le R2 de la régression : 
+ggpubr::stat_cor(label.x = 0.01, label.y = 40000000) +
+ggpubr::stat_regline_equation(label.x = 0.01, label.y = 37000000)
+
 ## Dans une boucle
 Pour boucler un ggplot il faut l'enlober dans un print()
 
+## Des if
++ si qu'une commande à mettre dans le if :
+{if(condition) geom_hline(yintercept=15) } +
+
+
++ Si plsrs commandes : il ne faut pas de + dans le if, mettre en liste :
+{if(condition) list(geom_hline(yintercept=15), geom_hline(yintercept = 13) )} +
+
 ## En 3D
 3D fixe **plot3D::scatter3D()**  
-3D pivotable : **rgl::plot3d()**  
+3D pivotable : **plotly::plot_ly(data, x = ~x, y = ~y, z = ~z, color=var)**
+**rgl::plot3d()**  
 
 ## Animated plot
 package **gganimate** https://r-graph-gallery.com/animation.html
 
-+ plot_ly()
++ **plotly::plot_ly(data, x = ~x, y = ~y, z = ~z, color=var)**
 
 + identifier le num de lobservation sur le graphique en cliquant sur le point : **identify(varx,vary)** 
 
 ## Plusieurs plots cote à cote
 **par(mfrow = c(2,2))** 2 lignes et 2 colonnes
 
-## Télécharger dans le bon format, au bon endroit !
+ ## Télécharger dans le bon format, en bonne qualité, au bon endroit !
 
-+ PNG : **png(path, width = 480, height = 480, units = "px")** avant commande du plot & **dev.off()** après commande du plot  
+Bonne qualité : au moins 300 dpi (72 par défaut)
+Quand on augmente la résolution il faut aussi augmenter la hauteur et largeur du plot
 
-+ **ggsave("mtcars.pdf", path = , width = 20, height = 20, units = "cm")**  (ne fonctionne qu'avec des ggplots)
+You can convert inches to centimeters dividing by 2.54.
+
+avec le postscript format (.ps) on peut zoomer sans perdre de qualité : postscript()
+
++ PNG : **png(path, pointsize=30, width=1400, height=960, res=800)** avant commande du plot & **dev.off()** après commande du plot  
+
++ jpeg : **jpeg("my_plot.jpeg", quality = 100)** quality en %
+
++ pdf : **pdf(path,  pointsize=30, width=40, height=25, paper = "A4")** avant commande du plot & **dev.off()** après commande du plot  
+
++ **ggsave("mtcars.pdf", path = , width = 25, height = 15, units = "cm", dpi=800, bg="white")**  (ne fonctionne qu'avec des ggplots)
 
 + compresser : **save(objt, file = "objt.rda", compress = "xz")** 
 
@@ -195,6 +336,7 @@ for(p in 1:(ceiling(length(unique(sp))/16))){ # p = page n°
 dev.off() # Close the final graphics device
 ```
 
++ augmenter la taille des pages graphiques dans Rstudio : **par(mar = c(4.1, 4.4, 4.1, 1.9))**
 
 ## En faire de l'art !
 https://www.data-to-art.com/

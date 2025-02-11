@@ -227,7 +227,8 @@ La fonction plot() permet d’explorer les données en créant *1 graphique par 
 
 Les tif sont trés volumineux. Si l'on n'as pas besoin d'une si haute résolution, on peut simplifier le raster avec *raster::aggregate()*
 
- + Attribuer un crs à  raster : **crs(mnt) <- crs(obj2)**
+ + Attribuer un crs à  raster : **crs(mnt) <- crs(obj2)** ou **crs(mnt) <- crs("EPSG:2972")**
+
  
 #### Travailler sur du vectoriel & du raster 
 
@@ -238,11 +239,22 @@ Le package **terra** : https://rcarto.github.io/geomatique_avec_r/les-donn%C3%A9
 
 + Intersection (ce qu'il y a en commun) entre un polygone et un raster : *mask()*
 + Découper (rectangulaire selon les limites de l’objet) : *crop()*
++ Découper un raster selon un autre raster, ou mettre à la meme résolution :**resample()**
 + Extraction : *extract()*
 ```{r}
 ##Pour effectuer un calcul sur l’intérieur du polygone avec extract()… on spécifie le raster, le polygone et la fonction!
 
 extract(canopy, poly_sp, fun = mean) # "canopy" =  raster, "poly_sp" = polygone
+```
+
++ Convert values to classes : **cut()** :
+```{r}
+# Reclasser en intervalles avec `cut()`
+MNT <- stars::st_as_stars(MNT) # first transform in stars
+MNT <- raster::cut(MNT, 
+                   breaks = c(0, 6, 23.67), 
+                   labels = c("0-6", "6-23.67"),
+                   include.lowest = TRUE)
 ```
 
 ```{r}
@@ -281,6 +293,7 @@ ggplot() +
 
 ### Shapefiles
 
++ lire un shapefile : **st_read()**
 Contiennent plsrs fichiers :
 fichier .prj : informations du système de coordonnées 
 
@@ -324,9 +337,9 @@ Retourner des points interpolés selon une interpolation linéaire entre 2 point
 + Passer d'un sf à un dataframe (supprimer la col géométrie) : **st_geometry(sf) <- NULL** 
 ```{r}
 # from sf to df with original coordinates
-XY <- st_coordinates(traj_crop) # stock coordinates
-st_geometry(traj_crop) <- NULL # no more sf object
-traj_crop <- cbind(traj_crop, XY) # bind XY coord
+XY <- st_coordinates(datasf) # stock coordinates
+st_geometry(datasf) <- NULL # no more sf object
+data <- cbind(datasf, XY) # bind XY coord
 ```
 
 
@@ -371,6 +384,12 @@ voir : https://r-spatial.org/book/07-Introsf.html
 3D fixe **plot3D::scatter3D()**
 
 + **rgl** for visualisation in 3D
-3D pivotable : **rgl::plot3d()**
+3D pivotable : **plotly::plot_ly(data, x = ~x, y = ~y, z = ~z, color=var)**
+**rgl::plot3d()**
 
+# Geometry
 
++ Compute solid angle from plane angle : 
+un angle solide (omega) est l'analogue tridimensionnel de l'angle plan ou bidimensionnel. unité : stéradian (sr)
+theta = 11.8 * pi/180 # en radian
+omega = 2*pi*(1-cos(theta/2)) # /2 pour demi angle

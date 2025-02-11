@@ -1,0 +1,77 @@
+---
+title: "Utilisation_cluster_de_calcul"
+author: "Vincyane"
+date: "`r Sys.Date()`"
+output: html_document
+---
+Philippe Verley, Thomas, Dominique Lamoniqua
+
+Pq : trop lent, trop de données, pas assez de RAM
+
+HPC : High Performance Computing
+
+Supercalculateurs : grappe de serveurs, grille informatique
+  - cluster de calcul :  grappe de serveurs/CPU models
+ 
+CPU : unité de calcul
+
+  - Bigmem : noeud gras/fat nodes, beaucoup de mémoire
+
+  - GPU : sur carte graphique (machine learning)
+
+Logiciels : mPI, OpenMP, CUDA (surtout pour le graphique)
+
+FLOPS : nbr d'opérations par seconde (puissance de calcul)
+ordi de bureau : 10 GFlops
+cluster MUSE : 3300 TFlops
+
+# Cluster de calcul
+Machine HPC : le cluster
+noeud de login : pour préparer le calcul (salle d'attente) (ordinateur de façade) (pas lancer de calcul dessus)
+
+job scheduler : gestion des taches
+
+Plrs espaces disques : pour stocker les différents types de fichier
+
+Plsrs noeuds interconnectés
+
+Il faut connaitre le temps de calcul et l'espace de stockage, le nombre de coeur nécessaire
+
+Avantages:
+- fiabilité (pas biais machine, opérateur)
+- performance
+- confort (installation de logiciel)
+- scabilité (petit -> gros)
+- assistance technique
+- pas d'entretien ni de maintenance
+
+Inconvénients :
+- technicité (chronophage à la mise en place)
+- installation des outils (version, licence, linux only)
+- transfert des données et réccupération des résultats
+- temps d'attente car on n'est pas le seul usager
+- noeuds de calcul pas tjrs pas performants
+
+
+# Parllélisation
+- pas de boucle mais plutot des fonctions et on paralélise sur les inputs pris en argument
+dans la boucle il stocke tout, si ce sont des fonctions, stocke que par fonction
+Rscript
+
+# Meso-lr
+amap-polis@cirad.fr pour demander acces au cluster
+- 308 noeuds
+- 28 cours
+- 128 Go RAM
+
+# Conteneurs (dockers)
+
+syst d'exploitation virtuel (environnment)
+dployable sur la plupart des clusters
+ex : Docker, Singularity
+
+# TP
+Hote : muse-login.meso.umontpellier.fr
+user : etu-f_amap-01
+mtp : f_amap-wNu
+port : 22

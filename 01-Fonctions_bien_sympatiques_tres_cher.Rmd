@@ -48,6 +48,10 @@ time.taken
 
 + Tracer un warning : **options(warn = 2)** (le transforme en erreur) quand fin de debuger **options(warn = 0)**  
 
++ mettre au propre un code (réindenter, ->, espaces, taille des lignes) : **package "styler" > Addins > Style active file**
+
++ créer une table de combinaisons de paramètres : **tidyr::crossing(a, b, c)**
+
 ## Packages inédits!
 
 + Shiny pour trouver des packages R dans le milieu forestier : **ForestAnalysisInR::launchRFA()**  
@@ -117,6 +121,11 @@ df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the fol
 
 + en fichier texte : **write.table(obj, "path/data.txt",sep=";")**
 
++ 1 object en r data : **saveRDS(obj, file = "./folder/filename.rds")** puis **objname <- readRDS("./folder/filename.rds")**
++ plsrs objets : **save(obj1, obj2, file = "./folder/filename.Rdata")**  puis **load("./folder/filename.Rdata")**
++ tout l'environnement : **save.image(file = "my_work_space.RData")** puis **load("my_work_space.RData")**
+
+
 + un renvoi consol :
 ```{r}
 sink("D:/Mes Donnees/PhD/Light/LAI-2200/DATA/Transmittance_cor.txt") # path
@@ -131,12 +140,14 @@ sink() # close the external connection
 **rgdal::readORG(dsn = "/path/to/your/file", layer = "filename")** ou  
 **raster::shapefile("path/to/your/file.shp")**  
 
-## Corection préliminaires des données
+## Correction préliminaires des données
 
 + Corriger les arbres non touvés mais vivants dans inventaires : package **forestdata** sur github ecofog  
 
 
 ## Transformation de données !
+
++ Supprimer une colonne/ligne vide : **janitor::remove_empty(data,"cols")**
 
 + Renomer une variable : **rename(New = Old)**
 + Renames columns using a function (here add a suffix): **rename_with(.fn = ~paste0(., "_suffix"), .cols = c("a", "b", "c"))**
@@ -151,7 +162,7 @@ sink() # close the external connection
 **StrLeft(x, n)**   
 **StrRight(x, n)** en partant de la fin. -n pour enlever n paramètre  
 
-+ Recoder une variable : **mutate(var = recode(var, "1" = "A" , "2" = "B"))** le nouveau code derière le =  
++ Recoder une variable : **mutate(var = recode(var, "old1" = "new1" , "old2" = "new2"))** le nouveau code derière le =  
 si ya erreur essayer : **"'1' = 'A' ; '2' = 'B'"** guillemets double et simple et point virgule  
 
 + Changer une variable sous condition : **mutate(var = ifelse(condition, si oui, sinon))**  
@@ -184,6 +195,14 @@ mutate(var = case_when(
 
 + Calculate row means on subset of columns : **mutate(Mean = rowMeans(select(., var1, var2)))**
 
++ Standardiser pour sommer à 100% : **var/sum(Sum))*100**
+
++ joindre des tables : **left_join(dataB, by= c("var1", "var2"), suffix = c("_A", "_B")))**
+
++ Replace each NA with the most recent non-NA prior to it : **zoo::na.locf()**
+
++ prendre toutes les colones : **everything()**
+
 ## Histoire de characters
 
 ### Create
@@ -198,12 +217,14 @@ x <- "!"
 
 
 ### Extract
-+ Extraire un element numeric dans une chaîne de characters :   **extract_numeric(var)**  
++ Extraire un element numeric dans une chaîne de characters :   **readr::parse_number(var)**  ou **gsub("[[:digit:]]", "", var)**
 
 + Extraire un élément d'une chaine de characters :  
+**substring(ID, first=1, last=2)**
+
 si data$idtree = "site_plot"  
-**data$site = tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt  
-**data$plot = tstrsplit(data$idtree, split = "_")[[2]]** 2nd  
+**data$site = data.table::tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt  
+**data$plot = data.table::tstrsplit(data$idtree, split = "_")[[2]]** 2nd  
 
 ### Convert
 + Mettre le nom d'un objet sous forme de characters : **deparse(substitute(obj))**  
@@ -218,6 +239,7 @@ cat("Your data set is:\n", c, "\n")
 
 + Mettre en minuscule/majuscule : **tolower()/toupper()**  
 + 1ère lettre de l'expression en majuscule : **str_to_sentence()**  
++ Remplacer un pattern : **str_replace(df$address, "St", "Street")**
 
 
 ### Remove
@@ -286,7 +308,7 @@ modif_var <- function(data, nom_variable){
 
 + Inverser lignes & colonnes (retourner) (transposer) : **t()**  
 + Mettre une colonne en colonne "rownames" : **column_to_rownames(data, varàdéplacer)**  
-+ Metrre l'information de plusieurs colonnes en 1 : **melt()**  
++ Mettre l'information de plusieurs colonnes en 1 : **melt()**  
 + Inverse : **dcast(col1 + col2 ~ newcol)**  
 + Ne prendre qu'une partie des données : **filter()** ou **subset()**  
 Si on veut garder les NA, comme filter les vire d'office, rajouter **| is.na(var)**  
@@ -333,10 +355,9 @@ phase_stats <- pivot_wider(phase_stats, names_from = Phase,
 
 ```
 
-+ par ordre croissant : **sort(x, decreasing = FALSE, na.last = NA, ...)** ou **order()**
-+ Effectifs par ordre croissant : **arrange(N)**  
++ par ordre croissant (pour un vecteur!) : **sort(x, decreasing = FALSE, na.last = NA, ...)** ou **order()**
++ Pour une col dans un dataframe : Effectifs par ordre croissant : **arrange(N)**  
 + Effectifs par ordre décroissant : **arrange(desc(N))**  
-+ Ordonner un vecteur : **sort(, decreasing = FALSE)**  
 + Ordonner des chiffres en character : **gtools::mixedsort(sort(filenames))**
 + Ranger par ordre alphabétique : d'abord transformer la variable character en factor, puis **arrange(var)**  
 + Selectionner les n valeurs maximales : **top_n**  
@@ -345,11 +366,14 @@ phase_stats <- pivot_wider(phase_stats, names_from = Phase,
 
 + Séparer une base de données, selon un facteur, en une liste de bases de données : **split(data, data$fact)**  
 
-+ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()** ou **distinct()**
++ Enlever les lignes en plusieurs exemplaires/connaitre les valeurs que peut prendre une colonnne : **unique()** ou que sur une variable : **distinct(idTree, .keep_all = T)**
 + Savoir si ttes les valeurs d'une colonne sont les mêmes: **length(unique(data$var)) == 1**  
 ou **all(data$var == data$var[1])** = est-ce que toutes les valeurs sont égales à la 1ère  
 
 + Répliquer une ligne n fois : **do.call("rbind", replicate(n, df, simplify = FALSE))**  
+
++ Populer les valeurs (si NA) pour une var groupée : group_by(TreeID) %>% 
+**fill(X, Guyafor.nb, ScientificName, .direction = "downup")**
 
 + Joindre 2 tables :
 ```{r}
@@ -364,6 +388,9 @@ left_join(df1, df2, by = 'key', suffix = c("_1", "_2")) %>% # by = c('coldf1' = 
 + Ne garder les lignes que sans NA dans n'importe quelle colonne : **na.omit(df)**
 ou **df[!complete.cases(df), ]**
 
++ Removing Rows with Only NAs : **data[rowSums(is.na(data)) != ncol(data), ]**
+ou **filter(data, rowSums(is.na(data)) != ncol(data))**
+
 
 ## Donne moi des infos sur mes données
 
@@ -376,6 +403,8 @@ which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat
 + Indicer selon une modalité : **data[data$var =="modalite",]**  
 
 + Nombre de NA dans 1 colonne : **sum(is.na(data$x_num))**  
+
++ quelles colonne ont des NA : **names(df)[sapply(df, anyNA)]**
 
 + Nombre de lignes ayant pour valeur "truc" dans telle variable   **sum(as.numeric(data$var == "truc"), na.rm = TRUE)** pcq as.numeric transforme un vecteur de booléen en vecteur de 0 et 1.  
 
@@ -390,12 +419,15 @@ which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat
 
 + Générer la numérotation/les id des lignes : **seq.int(nrow(df))**  
 
++ Nombre pair/impair : **var %% 2 == F**
+
 
 ## Calcul informatif
 
 + Faire la somme/moyenne/autre de chaque ligne/colonne : **apply(data, c(1,2), sum)** 1 : par ligne ou 2 : par colonne  
 
 + Appliquer une fonction sur une liste/vecteur : **lapply(liste, function(elementdelaliste) la fonction dépendante de l'élement)** ou **lapply(liste, function, autres arguments de la fct)**  
+https://www.datacamp.com/tutorial/r-tutorial-apply-family
 ex :  
 ```{r, eval=F}
 multiply <- function(x, factor, div) {
@@ -441,7 +473,7 @@ Quand onotre map ne fctne pas il ne renvoie rien. Pour savoir ce qu'il ne va pas
 - chaine de charactère vide : **""**  
 - vecteur/liste : **vector("numeric", length(x)), ou juste vector(), list()**  
 
-+ Quand on ne connait pas la longeur de l'output apriori, on peut l'aggrandir progressivement dans le corps de la boucle : **output <- c(output, action qu'on boucle)**  
++ Quand on ne connait pas la longeur de l'output a priori, on peut l'aggrandir progressivement dans le corps de la boucle : **output <- c(output, action qu'on boucle)**  
 ou on stocke les outputs de chaque itération dans un élément d'une liste crée en amont (**vector("list", length(x))**), puis qd la loop est finie on unlist (+efficace).  
 En résumé pour les gros outputs, il vaut mieux créer des outputs plus légers à chaque iteration puis tout coller ensemble après la boucle (-lourd).  
 
@@ -472,7 +504,18 @@ while (condition) {
 ```
 
 + Arrêter la boucle : **break()**  
-+ Arreter l'itération actuelle et asser à la prochaine : **next()**  
++ Arreter l'itération actuelle et passer à la prochaine : **next()**  
+
++ répéter jusqu'à ce qu'il n'y est plus d'erreur :
+```{r}
+repeat { 
+  # code
+  if (!(inherits(test,"try-error"))) 
+    break
+}
+```
+
+
 
 ## Les objets
 
@@ -570,6 +613,8 @@ To change permanently : change time zone of your computer
 
 + Convertir des heures en numériques (ex:2.5h) en hh:mm:ss : **hms::hms(seconds_to_period(2.5 * 3600))**
 
++ extraire d'un date_time : **date()**, **year()**, **month()**, **day()**, **hour()**, **minute()**, **second()**, **format(Date_Time, format = "%H:%M:%S")**
+
 + filtrer selon un pas de temps :
 ```{r}
 Df1 %>%
@@ -583,6 +628,42 @@ Df1 %>%
 
 + temps par ordre croissant **data <- data[order(data$Time, decreasing = FALSE),]**
 
++ calcul : **Time = Time_UTC-(3 * 60 * 60)** pour enlever 3h
+
+# Paralléliser
+```{r}
+library(foreach)
+
+cores = 2 # nbr of cores to use
+# parallel::detectCores() # 8
+i <- NULL
+j = length(object)
+
+# L'enregistrement des clusters
+cl <- parallel::makeCluster(cores)
+doSNOW::registerDoSNOW(cl)
+
+# Progress bar:
+pb <- txtProgressBar(min = 0, max = j, style = 3)
+progress <- function(n) setTxtProgressBar(pb, n)
+opts <- list(progress = progress)
+
+output <- foreach::foreach(
+  i=1:j,
+  .packages = c("magrittr"), # necessary packages
+  .options.snow = opts # ProgressBar
+) %dopar% {
+  print(i) # to check
+  # the function to parallelise:
+  las_to_dem(lases[i], 
+             las_path = las_path,
+             mnt_path = mnt_path)
+}
+
+# close progressbar and cluster
+close(pb)
+stopCluster(cl)
+```
 
 # Gérer la RAM - tips !
 + ouvrir le moniteur de performance à côté, si la RAM augmente fortement arréter le calcul

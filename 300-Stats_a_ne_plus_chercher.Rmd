@@ -198,6 +198,7 @@ Spearman : pas lineaires monotones et à valeurs extremes
 
 + simplement Pearson : **cor(data)**
 + simplement Spearman : **cor(data, method = "spearman")**
+**cor.test(var1, var2, method= "spearman")**
 
 + par indices : **by(datatocor, INDICES = colindex, cor)**
 
@@ -235,9 +236,60 @@ Pval_corr <- CorMatrixS$P
 http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme
 
 ```{r}
-corrplot::corrplot(CorMatrix, method="circle", type="lower", diag = F, col= RColorBrewer::brewer.pal(n=8, name="PuOr"), tl.col="black", tl.srt=45, p.mat = Pval_corr, sig.level = 0.05) #avec une croix pour les p-value > 0.05.
+corrplot(CorMatrix, method="circle", type="lower", diag = F,
+         col=brewer.pal(n=8, name="PuOr"), # "PuBu"
+         addCoef.col = 'white', 
+         number.cex = 0.7, 
+         is.corr = F, # to range the legend with the values
+         col.lim=c(0, 1), # to limit the legend
+         tl.col="black", tl.cex = 1, tl.srt=45,
+         p.mat = Pval_corr) #avec une croix pour les p-value > 0.05 (sig.level = 0.05)
 ```
 
+# Version seulment corr >0.5
+```{r}
+# inspired by the function of Catherine Williams
+onlySignCorr <- function(df, file){
+  corr <- cor(df)
+  
+  #drop perfect correlations
+  corr[corr == 1] <- NA 
+  #turn into a 3-column table
+  corr <- as.data.frame(as.table(corr))
+  #remove the NA values from above 
+  corr <- na.omit(corr) 
+  
+  #select significant values  
+  corr <- subset(corr, abs(Freq) > 0.5) 
+  #sort by highest correlation
+  corr <- corr[order(-abs(corr$Freq)),] 
+  #turn corr back into matrix in order to plot with corrplot
+  mtx_corr <- reshape2::acast(corr, Var1~Var2, value.var="Freq")
+  
+  #plot correlations visually
+  # corrplot(mtx_corr, type="upper", is.corr=FALSE, tl.col="black", na.label=" ")
+  
+  # file <- "LiDAR_vs_LAI2200"
+  # file <- "LiDAR_Acquisitions"
+  png(paste("D:/Mes Donnees/PhD/Figures/lidar/Correlations/Correlations/Intensity_1m/Correlation_plot_",file,"_sup0_5.png", sep=""),
+      width = 1000, height = 743, pointsize=20)
+  
+  corrplot(mtx_corr, method="color", col=brewer.pal(n=8, name="PuOr"),  
+           type="upper",
+           # order="hclust",
+           addCoef.col = "white", # Add coefficient of correlation
+           tl.col="black", tl.cex = 0.8, #Text label color and rotation
+           number.cex = 0.55, # values
+           # hide correlation coefficient on the principal diagonal
+           diag=FALSE,
+           na.label=" ") 
+  
+  dev.off()
+}
+
+onlySignCorr(DF_cor_LiDARvsLAI2200, "LiDAR_vs_LAI2200")
+
+```
 
 un autre type :
 ```{r}

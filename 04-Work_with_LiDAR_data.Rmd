@@ -25,8 +25,11 @@ logiciels : cloudcompare, Fugroviewer
 
 Using [LAStools](https://github.com/LAStools/LAStools),
 help [here](https://lastools.github.io/).
-
+In R :
 ```{r, LAStools}
+# Define the path for lastools executables
+LAStoolsDir =  "D:/Program/LAStools/bin/"
+
 # Define the R function that calls lastools executables
 LAStool <- function(tool, inputFile, ...){
   cmd = paste(paste(LAStoolsDir, tool, sep=''), '-i', inputFile , ...)
@@ -46,7 +49,7 @@ outFile = "FullDensity.laz"
 outDir = paste(cloudPath, 'FullDens_split', sep ='')
 dir.create(outDir) # , showWarnings = F (pas le droit de le faire dans le serveur safe)
 
-# Call the lastools function to split il several files by gpstime
+# Call the lastools function to split in several files by gpstime
 cores <- detectCores()
 
 LASrun <- LAStool('lassplit64', inFiles,
@@ -61,6 +64,7 @@ LASrun <- LAStool('lassplit64', inFiles,
 outDir2 <- paste(cloudPath, 'FullDens_cor', sep='') # new folder: files rebinded and corrected
 dir.create(outDir2, showWarnings = F)
 inFiles <- paste(outDir, '/*.laz', sep='') # files corrected
+
 LASrun <- LAStool('lasmerge64', inFiles,
                   '-odir', outDir2,
                   '-odix _cor',
@@ -110,10 +114,25 @@ las2 <- rlas::read.las(files = "D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.
 # readLAScatalog() creates a las catalog from a folder to search in
 ctg <- readLAScatalog(folder = "D:/Mes Donnees/PhD/Lidar", filter = "keep") # las catalog. filter only 1st returns
 # readLAS(filter = "-help")
+# "-first_only"
+# , select = "xyz")  # load XYZ only
+# filter = "-keep_first -drop_z_below 5 -drop_z_above 50")
 
 # To apply a function to a LAScatalog
 catalog_apply(ctg,fct)
 ```
+
+### Load/Create a subset of the laz to developpe the code with smaller data
+```{r}
+range(las$gpstime) #  1697733332 1697734174
+readLAS(filter = "-help")
+las <- readLAS("Y:/users/VincyaneBadouard/Lidar/HovermapUAV2023/Translation/LAZ/UAV_C19C20_translated.las",
+               filter = "-keep_gps_time 1697733332 1697733334")
+
+sampletowork <- decimate_points(las, random(1)) # reduce point density (13 MB)
+plot(sampletowork)
+```
+
 ## Write laz
 ```{r}
 writeLAS(las, "Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz")
@@ -269,6 +288,32 @@ las3 <- lidR::rbind(las1, las2)
 
 ## Caluler des métriques
 
+### Generate a CHM (Canopy Height Model) and DSM (Digital Surface Model)
+
+In the case of a **normalized point cloud**, the derived surface represents the canopy height (for vegetated areas) and is referred to as **CHM**.
+When the original (non-normalized) point cloud with absolute elevations is used, the derived layer represents the elevation of the top of the canopy above sea level, and is referred to as **DSM**
+
+```{r}
+
+CHM <- rasterize_canopy(normalize_height(ST, knnidw()), res = 1, algorithm = p2r()) 
+# p2r() : for each pixel of the output raster the function attributes the height of the highest point found
+# tin() : triangulation algorithm
+plot(CHM, col = height.colors(25))
+
+DSM <- rasterize_canopy(ST, res = 0.5, algorithm = dsmtin())
+# dsmtin() : algorithm for digital surface model computation using a Delaunay triangulation of first returns with a linear interpolation within each triangle.
+
+ggplot() + 
+  geom_spatraster(data = CHM, aes(fill = Z)) +
+  scale_fill_gradientn(name = "Canopy height (m)",
+                       colors = height.colors(25), na.value="white") + 
+  geom_sf(data = sf::st_cast(ROI, "LINESTRING")) +
+  ggtitle("Paracou P16 4ha - CHM ALS 2023 - 1m res") + 
+  theme_classic() +
+  coord_sf()
+```
+
+
 ### Generate a DTM (MNT)
 https://r-lidar.github.io/lidRbook/dtm.html
 l'élévation est dans la variable Z (dtm$Z)
@@ -290,14 +335,15 @@ mnt <- dtm_tin
 ggplot() + 
   geom_spatraster(data = mnt, aes(fill = Z)) +
   scale_fill_gradientn(name = "Elevation (m)",
-                       colors = terrain.colors(20))
+                       colors = terrain.colors(20), na.value="white") +
+  theme_classic() 
 ```
 
 ### La réflectance (albedo)
 Calculer la réflectance apparente en ratio (albedo)
 
 Réflectance (ou Albedo) = énergie lumineuse réfléchie/énergie lumineuse incidente
- 
+
 ```{r}
 VP$initial_intensity <- VP$Intensity 
 
