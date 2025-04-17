@@ -21,7 +21,7 @@ https://www.data-to-viz.com/caveats.html
 + geom_boxplot()
 + heatmap : ggplot(data, aes(x, y)) + 
   geom_tile() + # heatmap
-  geom_bin2d(bins = 50) + # for counts
+  geom_bin2d(bins = 50) # for counts
 
 ```{r}
 # Points from different variables of the same dataset
@@ -123,6 +123,7 @@ Transect == "HOBO" ~ scale_x_continuous(breaks = seq(1:20))
 + limites des axes : **xlim(0,1) +** ; **ylim(0,60) +**
 
 + changer taille des titres, valeurs des axes et légende :
+**theme(text = element_text(size = 20))** ou 
 **theme(title= element_text(size=16), axis.title= element_text(size=14), axis.text= element_text(size=16), legend.title= element_text(size=16), legend.text= element_text(size=16), strip.text.x = element_text(size=16)) +**  ,face="bold" si en gras
 
 + changer la couleur que du titre : **theme(plot.title = element_text(colour = "red"))**
@@ -164,6 +165,8 @@ ggplot(Df1, aes(x = Date)) +
 
 ## Multi-plots
 
++ **par(mfrow = c(2,2))** 2 lignes et 2 colonnes
+
 + Pour coller des plots de différentes natures : **devtools::install_github("thomasp85/patchwork")**
 
 + Pour pouvoir faire un facet_wrap (plsrs graphs en 1 figure), il est plus aisé de transformer sa table de 'Wide-format' à 'long-format' (https://seananderson.ca/2013/10/19/reshape/): **melt()**  
@@ -180,7 +183,7 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 
 puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
 
-+ Plusieurs graphiques sur une même page : **ggarrange(plot1, plot2, labels = c("A", "B"), ncol = 1, nrow = 2)**
++ Plusieurs graphiques sur une même page : **ggpubr::ggarrange(plot1, plot2, labels = c("A", "B"), ncol = 1, nrow = 2)**
 
 ## Légende
 
@@ -279,6 +282,7 @@ Pour boucler un ggplot il faut l'enlober dans un print()
 {if(condition) list(geom_hline(yintercept=15), geom_hline(yintercept = 13) )} +
 
 ## En 3D
+https://www.sthda.com/english/wiki/impressive-package-for-3d-and-4d-graph-r-software-and-data-visualization
 3D fixe **plot3D::scatter3D()**  
 3D pivotable : **plotly::plot_ly(data, x = ~x, y = ~y, z = ~z, color=var)**
 **rgl::plot3d()**  
@@ -290,10 +294,7 @@ package **gganimate** https://r-graph-gallery.com/animation.html
 
 + identifier le num de lobservation sur le graphique en cliquant sur le point : **identify(varx,vary)** 
 
-## Plusieurs plots cote à cote
-**par(mfrow = c(2,2))** 2 lignes et 2 colonnes
-
- ## Télécharger dans le bon format, en bonne qualité, au bon endroit !
+## Télécharger dans le bon format, en bonne qualité, au bon endroit !
 
 Bonne qualité : au moins 300 dpi (72 par défaut)
 Quand on augmente la résolution il faut aussi augmenter la hauteur et largeur du plot

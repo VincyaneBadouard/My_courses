@@ -71,6 +71,11 @@ Les données spatiales sont des données localisées dans un système de coordon
 Cartes intéractives (mode leaflet) : *tmap_mode("view")*
 Pour revenir en mode statique : *tmap_mode("plot")*
 
+### ggspatial
+- ajouter une échelle :  **annotation_scale(location = "br") +**
+- ajouter une boussole : **annotation_north_arrow(pad_y = unit(1, "cm"),style = north_arrow_nautical())**
+
+
 ### Les rasters
 
 = données (variable(s)) associées à une grille comprenant les *combinaisons de longitudes et latitudes*.

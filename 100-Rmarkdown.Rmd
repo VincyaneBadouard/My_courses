@@ -77,6 +77,21 @@ Pour faire tourner un chunk avant tous les autres sans meme le runner : **```{r 
 Afficher une valeur dans le texte :
 1+2 = 'r 1+2'
 
+## Quarto options
+---
+title: "title"
+author: "Vincyane Badouard"
+date: "`r Sys.Date()`"
+format: html
+self-contained: true # (pour partager le fichier indépendamment)
+theme: cosmo
+editor: source
+code-fold: true # (bouton on/off pour voir ou non les codes)
+execute: 
+  cache: true
+---
+
+
 ## Spécifier un working directory différent de celui du fichier
 ```{r, eval=FALSE}
 knitr::opts_knit$set(root.dir = 'chemin')
@@ -139,7 +154,7 @@ ggplot(cars, aes(speed, dist)) + geom_point()
 
 ## Cache
 
-Le cache vous permet d'enregistrer les sorties d'un fragment de code pour que lors des prochaines compilation il ne soit pas recalculer. Il créé un dossier `_files`  et `_cache` avec les images R des objets du chunk et les figures respectives. **Attention**, si votre chunk dépend d'un chunk qui est mise à jour et que vous ne précisez pas la dépendance il ne sera pas mis à jour. Utilisez l'option `dependson` ou nettoyez le cache pour éviter cela.
+Le cache vous permet d'enregistrer les sorties d'un fragment de code pour que lors des prochaines compilation il ne soit pas recalculer. Il créé un dossier `_files`  et `_cache` avec les images R des objets du chunk et les figures respectives. **Attention**, si votre chunk dépend d'un chunk qui est mis à jour et que vous ne précisez pas la dépendance il ne sera pas mis à jour. Utilisez l'option `dependson` ou nettoyez le cache pour éviter cela.
 
 ```{r, cache=TRUE}
 ```

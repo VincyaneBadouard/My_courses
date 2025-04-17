@@ -50,7 +50,7 @@ time.taken
 
 + mettre au propre un code (réindenter, ->, espaces, taille des lignes) : **package "styler" > Addins > Style active file**
 
-+ créer une table de combinaisons de paramètres : **tidyr::crossing(a, b, c)**
++ créer une table de combinaisons de paramètres : **tidyr::crossing(a, b, c)** 
 
 ## Packages inédits!
 
@@ -113,6 +113,7 @@ filenames <- list.files(path, pattern="*.csv", full.names=TRUE) # catch the name
 df_list <- lapply(filenames, read.csv, header=FALSE, sep=";") # read all the folder files
 ```
 
++ lire du texte qui n'est pas une table : **readLines()**
 + Enregistrer 
 
 ## Exportation des données
@@ -206,7 +207,7 @@ mutate(var = case_when(
 ## Histoire de characters
 
 ### Create
-+ paste(val, " truc", val, "truc", "\n", sep = ", ")
++ **paste(val, " truc", val, "truc", "\n", sep = ", ")**
 
 ### Detect
 + Detect special characters (logical) :  
@@ -214,6 +215,8 @@ x <- "!"
 **grepl('[[:punct:]]', x)** # TRUE if there are any special character, FALSE if not.  
 
 + Special pattern : **grepl("pattern", var)**
+
++ dot/point can be **"\\."**
 
 
 ### Extract
@@ -250,6 +253,7 @@ cat("Your data set is:\n", c, "\n")
 + Remove whitespace : **gsub("[[:space:]]", "", x)**
 + removes whitespace at the start and end, and replaces all internal whitespace with a single space : **str_squish()**
 + Remove parentheses : **gsub("[()]", "", my_string)**
++ Remove brackets : **gsub("\\[|\\]", "", string)**
 + Also remove text within () : **gsub("\\s*\\([^\\)]+\\)", "", my_string)**
 + Remove non-breaking space : **gsub("[^ -~]+","", x))**
 + Remove special characters :  
@@ -308,6 +312,7 @@ modif_var <- function(data, nom_variable){
 
 + Inverser lignes & colonnes (retourner) (transposer) : **t()**  
 + Mettre une colonne en colonne "rownames" : **column_to_rownames(data, varàdéplacer)**  
++ Mettre "rownames" en colonne : **tibble::rownames_to_column("colname")**
 + Mettre l'information de plusieurs colonnes en 1 : **melt()**  
 + Inverse : **dcast(col1 + col2 ~ newcol)**  
 + Ne prendre qu'une partie des données : **filter()** ou **subset()**  
@@ -412,9 +417,9 @@ which(x==a) : renvoie les indices (n°de lignes) de x pour lesquels le résultat
 
 + est-ce que tt ça est vrai : **all()**  
 
-+ au moins 1 vrai : **any()** ne prend pas de liste (enfin si mais il n'est pas cntent)!  
++ au moins 1 vrai : **any()** ne prend pas de liste (enfin si mais il n'est pas content)!  
 
-+ renvoyer les éléments dupliqué : **duplicated()** (booléen)   data[!duplicated(data$var), ] (dataframe)  
++ renvoyer les éléments dupliqué : **duplicated()** (booléen)   data[duplicated(data$var), ] (dataframe)  
 **anyDuplicated**  
 
 + Générer la numérotation/les id des lignes : **seq.int(nrow(df))**  
