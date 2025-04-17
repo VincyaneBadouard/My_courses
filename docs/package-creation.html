@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 14 Package creation | My cours</title>
+  <title>Cours 23 Package creation | Utilisation_cluster_de_calcul</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 14 Package creation | My cours" />
+  <meta property="og:title" content="Cours 23 Package creation | Utilisation_cluster_de_calcul" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 14 Package creation | My cours" />
+  <meta name="twitter:title" content="Cours 23 Package creation | Utilisation_cluster_de_calcul" />
   
   <meta name="twitter:description" content="Description." />
   
 
-<meta name="author" content="Vincyane Badouard" />
+<meta name="author" content="Vincyane" />
 
 
-<meta name="date" content="2024-04-12" />
+<meta name="date" content="2025-04-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -141,404 +141,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="part"><span><b>I Coder sous R</b></span></li>
-<li class="chapter" data-level="1" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html"><i class="fa fa-check"></i><b>1</b> Fonctions bien sympatiques tres cher</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#conseils"><i class="fa fa-check"></i><b>1.1</b> Conseils</a></li>
-<li class="chapter" data-level="1.2" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#tips-de-codeur"><i class="fa fa-check"></i><b>1.2</b> Tips de codeur</a></li>
-<li class="chapter" data-level="1.3" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#packages-inédits"><i class="fa fa-check"></i><b>1.3</b> Packages inédits!</a></li>
-<li class="chapter" data-level="1.4" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#mes-raccourcis-claviers"><i class="fa fa-check"></i><b>1.4</b> Mes raccourcis claviers</a></li>
-<li class="chapter" data-level="1.5" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#symbolname-charactères-variableobjet-tout-le-bazar"><i class="fa fa-check"></i><b>1.5</b> Symbol/name, charactères, variable/objet tout le bazar</a></li>
-<li class="chapter" data-level="1.6" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#charger-les-données"><i class="fa fa-check"></i><b>1.6</b> Charger les données</a></li>
-<li class="chapter" data-level="1.7" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#exportation-des-données"><i class="fa fa-check"></i><b>1.7</b> Exportation des données</a></li>
-<li class="chapter" data-level="1.8" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#corection-préliminaires-des-données"><i class="fa fa-check"></i><b>1.8</b> Corection préliminaires des données</a></li>
-<li class="chapter" data-level="1.9" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#transformation-de-données"><i class="fa fa-check"></i><b>1.9</b> Transformation de données !</a></li>
-<li class="chapter" data-level="1.10" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#histoire-de-characters"><i class="fa fa-check"></i><b>1.10</b> Histoire de characters</a>
-<ul>
-<li class="chapter" data-level="1.10.1" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#create"><i class="fa fa-check"></i><b>1.10.1</b> Create</a></li>
-<li class="chapter" data-level="1.10.2" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#detect"><i class="fa fa-check"></i><b>1.10.2</b> Detect</a></li>
-<li class="chapter" data-level="1.10.3" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#extract"><i class="fa fa-check"></i><b>1.10.3</b> Extract</a></li>
-<li class="chapter" data-level="1.10.4" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#convert"><i class="fa fa-check"></i><b>1.10.4</b> Convert</a></li>
-<li class="chapter" data-level="1.10.5" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#remove"><i class="fa fa-check"></i><b>1.10.5</b> Remove</a></li>
-</ul></li>
-<li class="chapter" data-level="1.11" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#comparaison-de-tables"><i class="fa fa-check"></i><b>1.11</b> Comparaison de tables</a></li>
-<li class="chapter" data-level="1.12" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#tirage"><i class="fa fa-check"></i><b>1.12</b> Tirage</a></li>
-<li class="chapter" data-level="1.13" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#yo-arrange-mes-données"><i class="fa fa-check"></i><b>1.13</b> Yo ! arrange mes données !</a></li>
-<li class="chapter" data-level="1.14" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#donne-moi-des-infos-sur-mes-données"><i class="fa fa-check"></i><b>1.14</b> Donne moi des infos sur mes données</a></li>
-<li class="chapter" data-level="1.15" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#calcul-informatif"><i class="fa fa-check"></i><b>1.15</b> Calcul informatif</a></li>
-<li class="chapter" data-level="1.16" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#nettoyage"><i class="fa fa-check"></i><b>1.16</b> Nettoyage</a></li>
-<li class="chapter" data-level="1.17" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#boucle"><i class="fa fa-check"></i><b>1.17</b> Boucle</a></li>
-<li class="chapter" data-level="1.18" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#les-objets"><i class="fa fa-check"></i><b>1.18</b> Les objets</a></li>
-<li class="chapter" data-level="1.19" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#condition"><i class="fa fa-check"></i><b>1.19</b> Condition</a></li>
-<li class="chapter" data-level="1.20" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#logical-operators"><i class="fa fa-check"></i><b>1.20</b> Logical Operators</a></li>
-<li class="chapter" data-level="1.21" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#stan---modelo---bayes"><i class="fa fa-check"></i><b>1.21</b> Stan - Modelo - Bayes</a></li>
-<li class="chapter" data-level="1.22" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#faire-de-la-biblio-comme-une-déesse"><i class="fa fa-check"></i><b>1.22</b> Faire de la biblio comme une déesse</a></li>
-<li class="chapter" data-level="1.23" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#date-time"><i class="fa fa-check"></i><b>1.23</b> Date &amp; time</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="gérer-la-ram---tips.html"><a href="gérer-la-ram---tips.html"><i class="fa fa-check"></i><b>2</b> Gérer la RAM - tips !</a></li>
-<li class="chapter" data-level="3" data-path="datatable-functions.html"><a href="datatable-functions.html"><i class="fa fa-check"></i><b>3</b> datatable functions</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="datatable-functions.html"><a href="datatable-functions.html#sources"><i class="fa fa-check"></i><b>3.1</b> Sources</a></li>
-<li class="chapter" data-level="3.2" data-path="datatable-functions.html"><a href="datatable-functions.html#pourquoi-data.table"><i class="fa fa-check"></i><b>3.2</b> Pourquoi data.table</a></li>
-<li class="chapter" data-level="3.3" data-path="datatable-functions.html"><a href="datatable-functions.html#syntax"><i class="fa fa-check"></i><b>3.3</b> Syntax</a></li>
-<li class="chapter" data-level="3.4" data-path="datatable-functions.html"><a href="datatable-functions.html#create-a-data.table"><i class="fa fa-check"></i><b>3.4</b> Create a data.table</a></li>
-<li class="chapter" data-level="3.5" data-path="datatable-functions.html"><a href="datatable-functions.html#convert-a-data.frame-or-list-to-a-data.table"><i class="fa fa-check"></i><b>3.5</b> Convert a data.frame or list to a data.table</a></li>
-<li class="chapter" data-level="3.6" data-path="datatable-functions.html"><a href="datatable-functions.html#punctuation"><i class="fa fa-check"></i><b>3.6</b> Punctuation</a></li>
-<li class="chapter" data-level="3.7" data-path="datatable-functions.html"><a href="datatable-functions.html#subset-rows"><i class="fa fa-check"></i><b>3.7</b> Subset rows :</a></li>
-<li class="chapter" data-level="3.8" data-path="datatable-functions.html"><a href="datatable-functions.html#extract-columns"><i class="fa fa-check"></i><b>3.8</b> Extract columns</a></li>
-<li class="chapter" data-level="3.9" data-path="datatable-functions.html"><a href="datatable-functions.html#summarize"><i class="fa fa-check"></i><b>3.9</b> Summarize</a></li>
-<li class="chapter" data-level="3.10" data-path="datatable-functions.html"><a href="datatable-functions.html#compute-columns"><i class="fa fa-check"></i><b>3.10</b> Compute columns</a></li>
-<li class="chapter" data-level="3.11" data-path="datatable-functions.html"><a href="datatable-functions.html#change-column-class"><i class="fa fa-check"></i><b>3.11</b> Change column class</a></li>
-<li class="chapter" data-level="3.12" data-path="datatable-functions.html"><a href="datatable-functions.html#group"><i class="fa fa-check"></i><b>3.12</b> Group</a></li>
-<li class="chapter" data-level="3.13" data-path="datatable-functions.html"><a href="datatable-functions.html#common-grouped-operations"><i class="fa fa-check"></i><b>3.13</b> Common grouped operations</a></li>
-<li class="chapter" data-level="3.14" data-path="datatable-functions.html"><a href="datatable-functions.html#a-sequence-operation-on-a-datatable"><i class="fa fa-check"></i><b>3.14</b> A sequence operation on a datatable</a></li>
-<li class="chapter" data-level="3.15" data-path="datatable-functions.html"><a href="datatable-functions.html#functions"><i class="fa fa-check"></i><b>3.15</b> Functions !</a></li>
-<li class="chapter" data-level="3.16" data-path="datatable-functions.html"><a href="datatable-functions.html#combine-data.tables"><i class="fa fa-check"></i><b>3.16</b> Combine data.tables</a></li>
-<li class="chapter" data-level="3.17" data-path="datatable-functions.html"><a href="datatable-functions.html#indexation"><i class="fa fa-check"></i><b>3.17</b> Indexation</a></li>
-<li class="chapter" data-level="3.18" data-path="datatable-functions.html"><a href="datatable-functions.html#reshape"><i class="fa fa-check"></i><b>3.18</b> Reshape</a></li>
-<li class="chapter" data-level="3.19" data-path="datatable-functions.html"><a href="datatable-functions.html#avoir-des-infoscalculer-des-statistiques"><i class="fa fa-check"></i><b>3.19</b> Avoir des infos/calculer des statistiques</a></li>
-<li class="chapter" data-level="3.20" data-path="datatable-functions.html"><a href="datatable-functions.html#apply-functions"><i class="fa fa-check"></i><b>3.20</b> Apply functions</a></li>
-<li class="chapter" data-level="3.21" data-path="datatable-functions.html"><a href="datatable-functions.html#sequential-rows"><i class="fa fa-check"></i><b>3.21</b> Sequential rows</a></li>
-<li class="chapter" data-level="3.22" data-path="datatable-functions.html"><a href="datatable-functions.html#maniement-de-chaines-de-caractères"><i class="fa fa-check"></i><b>3.22</b> Maniement de chaines de caractères</a></li>
-<li class="chapter" data-level="3.23" data-path="datatable-functions.html"><a href="datatable-functions.html#read-and-write-files"><i class="fa fa-check"></i><b>3.23</b> Read and write files</a></li>
-<li class="chapter" data-level="3.24" data-path="datatable-functions.html"><a href="datatable-functions.html#programmer-des-fonctions-avec-data.table"><i class="fa fa-check"></i><b>3.24</b> Programmer des fonctions avec data.table</a>
-<ul>
-<li class="chapter" data-level="3.24.1" data-path="datatable-functions.html"><a href="datatable-functions.html#sécuriser"><i class="fa fa-check"></i><b>3.24.1</b> Sécuriser</a></li>
-<li class="chapter" data-level="3.24.2" data-path="datatable-functions.html"><a href="datatable-functions.html#variables-en-argument"><i class="fa fa-check"></i><b>3.24.2</b> Variables en argument</a></li>
-<li class="chapter" data-level="3.24.3" data-path="datatable-functions.html"><a href="datatable-functions.html#sd-subset-of-data"><i class="fa fa-check"></i><b>3.24.3</b> .SD (Subset of Data)</a></li>
-<li class="chapter" data-level="3.24.4" data-path="datatable-functions.html"><a href="datatable-functions.html#lapply.sd-pour-des-fonctions-de-statistiques-descriptives"><i class="fa fa-check"></i><b>3.24.4</b> lapply+.SD pour des fonctions de statistiques descriptives</a></li>
-<li class="chapter" data-level="3.24.5" data-path="datatable-functions.html"><a href="datatable-functions.html#des-data.table-poupées-russes"><i class="fa fa-check"></i><b>3.24.5</b> Des data.table poupées russes</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html"><i class="fa fa-check"></i><b>4</b> Spatial data cours</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#tips"><i class="fa fa-check"></i><b>4.1</b> Tips</a></li>
-<li class="chapter" data-level="4.2" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#mapper-des-données"><i class="fa fa-check"></i><b>4.2</b> Mapper des données</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#types-de-données-spatiales"><i class="fa fa-check"></i><b>4.2.1</b> Types de données spatiales</a></li>
-<li class="chapter" data-level="4.2.2" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#ggplot"><i class="fa fa-check"></i><b>4.2.2</b> ggplot</a></li>
-<li class="chapter" data-level="4.2.3" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#les-rasters"><i class="fa fa-check"></i><b>4.2.3</b> Les rasters</a></li>
-<li class="chapter" data-level="4.2.4" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#les-objets-spatialisés-en-r"><i class="fa fa-check"></i><b>4.2.4</b> Les objets spatialisés en R</a></li>
-<li class="chapter" data-level="4.2.5" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#shapefiles"><i class="fa fa-check"></i><b>4.2.5</b> Shapefiles</a></li>
-<li class="chapter" data-level="4.2.6" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#systèmes-de-coordonnées-de-références-crs"><i class="fa fa-check"></i><b>4.2.6</b> Systèmes de coordonnées de références (CRS)</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#functions-1"><i class="fa fa-check"></i><b>4.3</b> Functions</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#sf-package"><i class="fa fa-check"></i><b>4.3.1</b> sf package</a></li>
-<li class="chapter" data-level="4.3.2" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#stars-package-to-work-on-rasters"><i class="fa fa-check"></i><b>4.3.2</b> Stars package to work on rasters</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html"><i class="fa fa-check"></i><b>5</b> Work with LiDAR data</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#tools"><i class="fa fa-check"></i><b>5.1</b> Tools</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#lastools"><i class="fa fa-check"></i><b>5.1.1</b> LAStools</a></li>
-<li class="chapter" data-level="5.1.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>5.1.2</b> R packages</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>5.2</b> Load laz</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-several-laz"><i class="fa fa-check"></i><b>5.2.1</b> Load several laz</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#write-laz"><i class="fa fa-check"></i><b>5.3</b> Write laz</a></li>
-<li class="chapter" data-level="5.4" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#check-if-the-las-is-complete"><i class="fa fa-check"></i><b>5.4</b> Check if the las is complete</a></li>
-<li class="chapter" data-level="5.5" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#see-their-summaries"><i class="fa fa-check"></i><b>5.5</b> See their summaries</a></li>
-<li class="chapter" data-level="5.6" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#plot"><i class="fa fa-check"></i><b>5.6</b> Plot</a></li>
-<li class="chapter" data-level="5.7" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#trajectory"><i class="fa fa-check"></i><b>5.7</b> Trajectory</a></li>
-<li class="chapter" data-level="5.8" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#clip-the-point-cloud"><i class="fa fa-check"></i><b>5.8</b> Clip the point cloud</a></li>
-<li class="chapter" data-level="5.9" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#classification"><i class="fa fa-check"></i><b>5.9</b> Classification</a></li>
-<li class="chapter" data-level="5.10" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#ajouter-des-points-à-un-las-combiner-plusieurs-las"><i class="fa fa-check"></i><b>5.10</b> Ajouter des points à un las, combiner plusieurs las</a></li>
-<li class="chapter" data-level="5.11" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#caluler-des-métriques"><i class="fa fa-check"></i><b>5.11</b> Caluler des métriques</a>
-<ul>
-<li class="chapter" data-level="5.11.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#generate-a-dtm-mnt"><i class="fa fa-check"></i><b>5.11.1</b> Generate a DTM (MNT)</a></li>
-<li class="chapter" data-level="5.11.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#la-réflectance-albedo"><i class="fa fa-check"></i><b>5.11.2</b> La réflectance (albedo)</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="parallelisation.html"><a href="parallelisation.html"><i class="fa fa-check"></i><b>6</b> Parallelisation</a></li>
-<li class="chapter" data-level="7" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>7</b> C++</a></li>
-<li class="chapter" data-level="8" data-path="plot-1.html"><a href="plot-1.html"><i class="fa fa-check"></i><b>8</b> Plot</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="plot-1.html"><a href="plot-1.html#a-quoi-faire-attention"><i class="fa fa-check"></i><b>8.1</b> A quoi faire attention</a></li>
-<li class="chapter" data-level="8.2" data-path="plot-1.html"><a href="plot-1.html#des-packages-intéressants"><i class="fa fa-check"></i><b>8.2</b> Des packages intéressants</a></li>
-<li class="chapter" data-level="8.3" data-path="plot-1.html"><a href="plot-1.html#types"><i class="fa fa-check"></i><b>8.3</b> Types</a></li>
-<li class="chapter" data-level="8.4" data-path="plot-1.html"><a href="plot-1.html#titres"><i class="fa fa-check"></i><b>8.4</b> Titres</a></li>
-<li class="chapter" data-level="8.5" data-path="plot-1.html"><a href="plot-1.html#des-couleurs"><i class="fa fa-check"></i><b>8.5</b> Des couleurs</a></li>
-<li class="chapter" data-level="8.6" data-path="plot-1.html"><a href="plot-1.html#des-histoires-de-texte"><i class="fa fa-check"></i><b>8.6</b> Des histoires de texte</a></li>
-<li class="chapter" data-level="8.7" data-path="plot-1.html"><a href="plot-1.html#axes"><i class="fa fa-check"></i><b>8.7</b> Axes</a>
-<ul>
-<li class="chapter" data-level="8.7.1" data-path="plot-1.html"><a href="plot-1.html#temporel"><i class="fa fa-check"></i><b>8.7.1</b> Temporel</a></li>
-<li class="chapter" data-level="8.7.2" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>8.7.2</b> Double axes</a></li>
-</ul></li>
-<li class="chapter" data-level="8.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>8.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="8.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>8.9</b> Légende</a></li>
-<li class="chapter" data-level="8.10" data-path="plot-1.html"><a href="plot-1.html#ajouter-des-lignes"><i class="fa fa-check"></i><b>8.10</b> Ajouter des lignes</a></li>
-<li class="chapter" data-level="8.11" data-path="plot-1.html"><a href="plot-1.html#dans-une-boucle"><i class="fa fa-check"></i><b>8.11</b> Dans une boucle</a></li>
-<li class="chapter" data-level="8.12" data-path="plot-1.html"><a href="plot-1.html#en-3d"><i class="fa fa-check"></i><b>8.12</b> En 3D</a></li>
-<li class="chapter" data-level="8.13" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>8.13</b> Animated plot</a></li>
-<li class="chapter" data-level="8.14" data-path="plot-1.html"><a href="plot-1.html#plusieurs-plots-cote-à-cote"><i class="fa fa-check"></i><b>8.14</b> Plusieurs plots cote à cote</a></li>
-<li class="chapter" data-level="8.15" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>8.15</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="8.16" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>8.16</b> En faire de l’art !</a></li>
-</ul></li>
-<li class="part"><span><b>II Outils autour de R</b></span></li>
-<li class="chapter" data-level="9" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>9</b> Rmarkdown</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="rmarkdown.html"><a href="rmarkdown.html#packages"><i class="fa fa-check"></i><b>9.1</b> Packages</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#sous-titre"><i class="fa fa-check"></i><b>9.1.1</b> Sous-titre</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="rmarkdown.html"><a href="rmarkdown.html#chunk"><i class="fa fa-check"></i><b>9.2</b> Chunk</a></li>
-<li class="chapter" data-level="9.3" data-path="rmarkdown.html"><a href="rmarkdown.html#spécifier-un-working-directory-différent-de-celui-du-fichier"><i class="fa fa-check"></i><b>9.3</b> Spécifier un working directory différent de celui du fichier</a></li>
-<li class="chapter" data-level="9.4" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>9.4</b> Table</a></li>
-<li class="chapter" data-level="9.5" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>9.5</b> Figure</a></li>
-<li class="chapter" data-level="9.6" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>9.6</b> Equations</a></li>
-<li class="chapter" data-level="9.7" data-path="rmarkdown.html"><a href="rmarkdown.html#des-diagrammes-avec-mermaid"><i class="fa fa-check"></i><b>9.7</b> Des diagrammes avec Mermaid !</a></li>
-<li class="chapter" data-level="9.8" data-path="rmarkdown.html"><a href="rmarkdown.html#bibliographie"><i class="fa fa-check"></i><b>9.8</b> Bibliographie</a></li>
-<li class="chapter" data-level="9.9" data-path="rmarkdown.html"><a href="rmarkdown.html#références-croisées"><i class="fa fa-check"></i><b>9.9</b> Références croisées</a></li>
-<li class="chapter" data-level="9.10" data-path="rmarkdown.html"><a href="rmarkdown.html#cache"><i class="fa fa-check"></i><b>9.10</b> Cache</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>10</b> Github</a></li>
-<li class="chapter" data-level="11" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>11</b> Bookdown</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="bookdown.html"><a href="bookdown.html#fichiers-particuliers"><i class="fa fa-check"></i><b>11.1</b> Fichiers particuliers</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="intégration-continue.html"><a href="intégration-continue.html"><i class="fa fa-check"></i><b>12</b> Intégration continue</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="intégration-continue.html"><a href="intégration-continue.html#travis"><i class="fa fa-check"></i><b>12.1</b> Travis</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="intégration-continue.html"><a href="intégration-continue.html#script-de-contrôle-de-travis"><i class="fa fa-check"></i><b>12.1.1</b> Script de contrôle de Travis</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="intégration-continue.html"><a href="intégration-continue.html#codecov"><i class="fa fa-check"></i><b>12.2</b> Codecov</a></li>
-</ul></li>
-<li class="part"><span><b>III Developper sous R</b></span></li>
-<li class="chapter" data-level="13" data-path="function-creation.html"><a href="function-creation.html"><i class="fa fa-check"></i><b>13</b> Function creation</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="function-creation.html"><a href="function-creation.html#étapes-de-développement"><i class="fa fa-check"></i><b>13.1</b> Étapes de développement :</a></li>
-<li class="chapter" data-level="13.2" data-path="function-creation.html"><a href="function-creation.html#structure"><i class="fa fa-check"></i><b>13.2</b> Structure :</a></li>
-<li class="chapter" data-level="13.3" data-path="function-creation.html"><a href="function-creation.html#nommer-ses-arguments"><i class="fa fa-check"></i><b>13.3</b> Nommer ses arguments</a></li>
-<li class="chapter" data-level="13.4" data-path="function-creation.html"><a href="function-creation.html#valeurs-par-défaut"><i class="fa fa-check"></i><b>13.4</b> Valeurs par défaut</a></li>
-<li class="chapter" data-level="13.5" data-path="function-creation.html"><a href="function-creation.html#évaluation-de-la-fonction"><i class="fa fa-check"></i><b>13.5</b> évaluation de la fonction</a></li>
-<li class="chapter" data-level="13.6" data-path="function-creation.html"><a href="function-creation.html#vérification-de-la-classe-des-arguments"><i class="fa fa-check"></i><b>13.6</b> Vérification de la classe des arguments</a></li>
-<li class="chapter" data-level="13.7" data-path="function-creation.html"><a href="function-creation.html#largument-fun"><i class="fa fa-check"></i><b>13.7</b> L’argument ‘fun’</a></li>
-<li class="chapter" data-level="13.8" data-path="function-creation.html"><a href="function-creation.html#largument"><i class="fa fa-check"></i><b>13.8</b> L’argument ‘…’</a></li>
-<li class="chapter" data-level="13.9" data-path="function-creation.html"><a href="function-creation.html#types-de-fonction"><i class="fa fa-check"></i><b>13.9</b> Types de fonction</a>
-<ul>
-<li class="chapter" data-level="13.9.1" data-path="function-creation.html"><a href="function-creation.html#appel-récursif"><i class="fa fa-check"></i><b>13.9.1</b> Appel récursif</a></li>
-<li class="chapter" data-level="13.9.2" data-path="function-creation.html"><a href="function-creation.html#fct-anonyme-dans-une-autre-fonction"><i class="fa fa-check"></i><b>13.9.2</b> Fct anonyme dans une autre fonction</a></li>
-</ul></li>
-<li class="chapter" data-level="13.10" data-path="function-creation.html"><a href="function-creation.html#retourner-un-résultat"><i class="fa fa-check"></i><b>13.10</b> Retourner un résultat</a></li>
-<li class="chapter" data-level="13.11" data-path="function-creation.html"><a href="function-creation.html#fonctions-de-message-et-darrêt-de-fonction"><i class="fa fa-check"></i><b>13.11</b> Fonctions de message et d’arrêt de fonction</a></li>
-<li class="chapter" data-level="13.12" data-path="function-creation.html"><a href="function-creation.html#interaction-avec-lutilisateur"><i class="fa fa-check"></i><b>13.12</b> Interaction avec l’utilisateur</a></li>
-<li class="chapter" data-level="13.13" data-path="function-creation.html"><a href="function-creation.html#iteration"><i class="fa fa-check"></i><b>13.13</b> Iteration</a></li>
-<li class="chapter" data-level="13.14" data-path="function-creation.html"><a href="function-creation.html#parallelisation-1"><i class="fa fa-check"></i><b>13.14</b> Parallelisation</a></li>
-<li class="chapter" data-level="13.15" data-path="function-creation.html"><a href="function-creation.html#choses-à-savoir"><i class="fa fa-check"></i><b>13.15</b> Choses à savoir</a></li>
-<li class="chapter" data-level="13.16" data-path="function-creation.html"><a href="function-creation.html#débogage-tips"><i class="fa fa-check"></i><b>13.16</b> Débogage tips</a></li>
-<li class="chapter" data-level="13.17" data-path="function-creation.html"><a href="function-creation.html#où-écrire-ses-fcts"><i class="fa fa-check"></i><b>13.17</b> Où écrire ses fcts ?</a></li>
-<li class="chapter" data-level="13.18" data-path="function-creation.html"><a href="function-creation.html#comment-les-utiliser"><i class="fa fa-check"></i><b>13.18</b> Comment les utiliser ?</a></li>
-<li class="chapter" data-level="13.19" data-path="function-creation.html"><a href="function-creation.html#plusieurs-fonctions-internes---passation-dinfos"><i class="fa fa-check"></i><b>13.19</b> Plusieurs fonctions internes - passation d’infos</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="package-creation.html"><a href="package-creation.html"><i class="fa fa-check"></i><b>14</b> Package creation</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="package-creation.html"><a href="package-creation.html#references"><i class="fa fa-check"></i><b>14.1</b> References</a></li>
-<li class="chapter" data-level="14.2" data-path="package-creation.html"><a href="package-creation.html#les-packages-r-nécessaires"><i class="fa fa-check"></i><b>14.2</b> Les packages R nécessaires</a></li>
-<li class="chapter" data-level="14.3" data-path="package-creation.html"><a href="package-creation.html#creation-du-package"><i class="fa fa-check"></i><b>14.3</b> Creation du package</a></li>
-<li class="chapter" data-level="14.4" data-path="package-creation.html"><a href="package-creation.html#tips-de-codeur-1"><i class="fa fa-check"></i><b>14.4</b> Tips de codeur</a></li>
-<li class="chapter" data-level="14.5" data-path="package-creation.html"><a href="package-creation.html#eviter-les-messages-derreurs"><i class="fa fa-check"></i><b>14.5</b> Eviter les messages d’erreurs</a></li>
-<li class="chapter" data-level="14.6" data-path="package-creation.html"><a href="package-creation.html#commandes"><i class="fa fa-check"></i><b>14.6</b> Commandes</a>
-<ul>
-<li class="chapter" data-level="14.6.1" data-path="package-creation.html"><a href="package-creation.html#comprendre-le-skeleton"><i class="fa fa-check"></i><b>14.6.1</b> Comprendre le Skeleton</a></li>
-<li class="chapter" data-level="14.6.2" data-path="package-creation.html"><a href="package-creation.html#r-folfer"><i class="fa fa-check"></i><b>14.6.2</b> R folfer</a></li>
-<li class="chapter" data-level="14.6.3" data-path="package-creation.html"><a href="package-creation.html#nom-package.r-file"><i class="fa fa-check"></i><b>14.6.3</b> nom-package.R file</a></li>
-<li class="chapter" data-level="14.6.4" data-path="package-creation.html"><a href="package-creation.html#namespace-file"><i class="fa fa-check"></i><b>14.6.4</b> NAMESPACE file</a></li>
-<li class="chapter" data-level="14.6.5" data-path="package-creation.html"><a href="package-creation.html#description-file"><i class="fa fa-check"></i><b>14.6.5</b> DESCRIPTION file</a></li>
-<li class="chapter" data-level="14.6.6" data-path="package-creation.html"><a href="package-creation.html#rbuildignore"><i class="fa fa-check"></i><b>14.6.6</b> .Rbuildignore</a></li>
-</ul></li>
-<li class="chapter" data-level="14.7" data-path="package-creation.html"><a href="package-creation.html#importation-de-fonctions"><i class="fa fa-check"></i><b>14.7</b> Importation de fonctions</a></li>
-<li class="chapter" data-level="14.8" data-path="package-creation.html"><a href="package-creation.html#créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base"><i class="fa fa-check"></i><b>14.8</b> Créer des classes pour ses objets en plus de ceux de base</a></li>
-<li class="chapter" data-level="14.9" data-path="package-creation.html"><a href="package-creation.html#créer-une-méthode-générique"><i class="fa fa-check"></i><b>14.9</b> Créer une “méthode générique”</a></li>
-<li class="chapter" data-level="14.10" data-path="package-creation.html"><a href="package-creation.html#tidyverse"><i class="fa fa-check"></i><b>14.10</b> tidyverse</a></li>
-<li class="chapter" data-level="14.11" data-path="package-creation.html"><a href="package-creation.html#vignette"><i class="fa fa-check"></i><b>14.11</b> Vignette</a></li>
-<li class="chapter" data-level="14.12" data-path="package-creation.html"><a href="package-creation.html#site-du-package-pkgdown"><i class="fa fa-check"></i><b>14.12</b> Site du package : Pkgdown</a></li>
-<li class="chapter" data-level="14.13" data-path="package-creation.html"><a href="package-creation.html#des-petits-messages-à-lutilisateur"><i class="fa fa-check"></i><b>14.13</b> Des petits messages à l’utilisateur</a></li>
-<li class="chapter" data-level="14.14" data-path="package-creation.html"><a href="package-creation.html#c-1"><i class="fa fa-check"></i><b>14.14</b> C++</a></li>
-<li class="chapter" data-level="14.15" data-path="package-creation.html"><a href="package-creation.html#biblio"><i class="fa fa-check"></i><b>14.15</b> Biblio</a></li>
-<li class="chapter" data-level="14.16" data-path="package-creation.html"><a href="package-creation.html#where-stock-my-data-in-my-package"><i class="fa fa-check"></i><b>14.16</b> Where stock my data in my package</a>
-<ul>
-<li class="chapter" data-level="14.16.1" data-path="package-creation.html"><a href="package-creation.html#testing-data"><i class="fa fa-check"></i><b>14.16.1</b> <strong>Testing data</strong>:</a></li>
-<li class="chapter" data-level="14.16.2" data-path="package-creation.html"><a href="package-creation.html#default-data"><i class="fa fa-check"></i><b>14.16.2</b> <strong>Default data</strong>:</a></li>
-<li class="chapter" data-level="14.16.3" data-path="package-creation.html"><a href="package-creation.html#exported-data-in-data"><i class="fa fa-check"></i><b>14.16.3</b> Exported data (in <strong>data/</strong>)</a></li>
-<li class="chapter" data-level="14.16.4" data-path="package-creation.html"><a href="package-creation.html#documenter-ces-données-exportées"><i class="fa fa-check"></i><b>14.16.4</b> Documenter ces données exportées</a></li>
-<li class="chapter" data-level="14.16.5" data-path="package-creation.html"><a href="package-creation.html#internal-data-for-a-function-in-rsysdata.rda"><i class="fa fa-check"></i><b>14.16.5</b> Internal data for a function (in <strong>R/sysdata.rda</strong>)</a></li>
-</ul></li>
-<li class="chapter" data-level="14.17" data-path="package-creation.html"><a href="package-creation.html#charger-ces-data"><i class="fa fa-check"></i><b>14.17</b> Charger ces data</a></li>
-<li class="chapter" data-level="14.18" data-path="package-creation.html"><a href="package-creation.html#tests"><i class="fa fa-check"></i><b>14.18</b> Tests</a></li>
-<li class="chapter" data-level="14.19" data-path="package-creation.html"><a href="package-creation.html#un-package-pour-tous"><i class="fa fa-check"></i><b>14.19</b> Un package pour tous</a></li>
-<li class="chapter" data-level="14.20" data-path="package-creation.html"><a href="package-creation.html#mettre-le-package-sur-cran"><i class="fa fa-check"></i><b>14.20</b> Mettre le package sur CRAN</a>
-<ul>
-<li class="chapter" data-level="14.20.1" data-path="package-creation.html"><a href="package-creation.html#les-tests"><i class="fa fa-check"></i><b>14.20.1</b> Les tests</a></li>
-</ul></li>
-<li class="chapter" data-level="14.21" data-path="package-creation.html"><a href="package-creation.html#debugger"><i class="fa fa-check"></i><b>14.21</b> Debugger</a></li>
-<li class="chapter" data-level="14.22" data-path="package-creation.html"><a href="package-creation.html#versioning"><i class="fa fa-check"></i><b>14.22</b> Versioning</a></li>
-<li class="chapter" data-level="14.23" data-path="package-creation.html"><a href="package-creation.html#renommer-le-package"><i class="fa fa-check"></i><b>14.23</b> Renommer le package</a></li>
-<li class="chapter" data-level="14.24" data-path="package-creation.html"><a href="package-creation.html#installer-le-package"><i class="fa fa-check"></i><b>14.24</b> Installer le package</a></li>
-<li class="chapter" data-level="14.25" data-path="package-creation.html"><a href="package-creation.html#générer-la-citation-du-package"><i class="fa fa-check"></i><b>14.25</b> Générer la citation du package</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="shiny-cours.html"><a href="shiny-cours.html"><i class="fa fa-check"></i><b>15</b> Shiny cours</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="shiny-cours.html"><a href="shiny-cours.html#packages-1"><i class="fa fa-check"></i><b>15.1</b> Packages</a></li>
-<li class="chapter" data-level="15.2" data-path="shiny-cours.html"><a href="shiny-cours.html#tips-codeur"><i class="fa fa-check"></i><b>15.2</b> Tips codeur</a></li>
-<li class="chapter" data-level="15.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shiny"><i class="fa fa-check"></i><b>15.3</b> Shiny:</a></li>
-<li class="chapter" data-level="15.4" data-path="shiny-cours.html"><a href="shiny-cours.html#structurer-lappli"><i class="fa fa-check"></i><b>15.4</b> Structurer l’appli</a></li>
-<li class="chapter" data-level="15.5" data-path="shiny-cours.html"><a href="shiny-cours.html#créer-linterface"><i class="fa fa-check"></i><b>15.5</b> Créer l’interface</a>
-<ul>
-<li class="chapter" data-level="15.5.1" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-page"><i class="fa fa-check"></i><b>15.5.1</b> Mise en page</a></li>
-<li class="chapter" data-level="15.5.2" data-path="shiny-cours.html"><a href="shiny-cours.html#inputs-ouputs"><i class="fa fa-check"></i><b>15.5.2</b> INPUTS &amp; OUPUTS</a></li>
-</ul></li>
-<li class="chapter" data-level="15.6" data-path="shiny-cours.html"><a href="shiny-cours.html#gérer-les-intéractions"><i class="fa fa-check"></i><b>15.6</b> Gérer les intéractions</a></li>
-<li class="chapter" data-level="15.7" data-path="shiny-cours.html"><a href="shiny-cours.html#enrichir-lappli"><i class="fa fa-check"></i><b>15.7</b> Enrichir l’appli</a>
-<ul>
-<li class="chapter" data-level="15.7.1" data-path="shiny-cours.html"><a href="shiny-cours.html#leaflet"><i class="fa fa-check"></i><b>15.7.1</b> Leaflet</a></li>
-<li class="chapter" data-level="15.7.2" data-path="shiny-cours.html"><a href="shiny-cours.html#chargerenregistrer-des-fichiers"><i class="fa fa-check"></i><b>15.7.2</b> Charger/enregistrer des fichiers</a></li>
-<li class="chapter" data-level="15.7.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shinydashboard"><i class="fa fa-check"></i><b>15.7.3</b> Shinydashboard</a></li>
-</ul></li>
-<li class="chapter" data-level="15.8" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-packages"><i class="fa fa-check"></i><b>15.8</b> Autres packages</a></li>
-<li class="chapter" data-level="15.9" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-ligne-et-partage-de-lappli"><i class="fa fa-check"></i><b>15.9</b> Mise en ligne et partage de l’appli</a>
-<ul>
-<li class="chapter" data-level="15.9.1" data-path="shiny-cours.html"><a href="shiny-cours.html#en-local-cest-mieux-plus-rapide-car-outils-de-calcul-et-on-y-est-seul"><i class="fa fa-check"></i><b>15.9.1</b> En local : c’est mieux, plus rapide car outils de calcul et on y est seul</a></li>
-<li class="chapter" data-level="15.9.2" data-path="shiny-cours.html"><a href="shiny-cours.html#a-distance"><i class="fa fa-check"></i><b>15.9.2</b> A distance</a></li>
-</ul></li>
-<li class="chapter" data-level="15.10" data-path="shiny-cours.html"><a href="shiny-cours.html#module"><i class="fa fa-check"></i><b>15.10</b> Module</a></li>
-<li class="chapter" data-level="15.11" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-sources-cours"><i class="fa fa-check"></i><b>15.11</b> Autres sources cours</a></li>
-</ul></li>
-<li class="part"><span><b>IV Statistics</b></span></li>
-<li class="chapter" data-level="16" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html"><i class="fa fa-check"></i><b>16</b> Stats à ne plus chercher</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#inférer-des-données"><i class="fa fa-check"></i><b>16.1</b> Inférer des données</a></li>
-<li class="chapter" data-level="16.2" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#standardizer-centrer-réduire"><i class="fa fa-check"></i><b>16.2</b> Standardizer (centrer-réduire)</a></li>
-<li class="chapter" data-level="16.3" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#régression"><i class="fa fa-check"></i><b>16.3</b> Régression</a></li>
-<li class="chapter" data-level="16.4" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#analyse-de-variance-déviance"><i class="fa fa-check"></i><b>16.4</b> Analyse de variance / déviance</a></li>
-<li class="chapter" data-level="16.5" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#analyse-de-la-covariance"><i class="fa fa-check"></i><b>16.5</b> Analyse de la covariance</a></li>
-<li class="chapter" data-level="16.6" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#acp-analyse-en-composantes-principales-tp3-décologie-numérique"><i class="fa fa-check"></i><b>16.6</b> ACP Analyse en Composantes Principales (TP3 d’écologie numérique)</a>
-<ul>
-<li class="chapter" data-level="16.6.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#pour-gerer-ces-donnees-manquantes-il-serait-possible-de"><i class="fa fa-check"></i><b>16.6.1</b> Pour gerer ces donnees manquantes il serait possible de :</a></li>
-<li class="chapter" data-level="16.6.2" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#calcul-du-dexplication-de-chaque-axe-inertie"><i class="fa fa-check"></i><b>16.6.2</b> Calcul du % d’explication de chaque axe (inertie)</a></li>
-<li class="chapter" data-level="16.6.3" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#cercle-de-correlation-pour-une-acp-normee"><i class="fa fa-check"></i><b>16.6.3</b> Cercle de correlation (pour une ACP normee)</a></li>
-<li class="chapter" data-level="16.6.4" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#representation-dune-variable-explicative-qualitative"><i class="fa fa-check"></i><b>16.6.4</b> Representation d’une variable explicative qualitative :</a></li>
-<li class="chapter" data-level="16.6.5" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#data-transformation-in-new-dimensional-space"><i class="fa fa-check"></i><b>16.6.5</b> Data transformation in new dimensional space</a></li>
-</ul></li>
-<li class="chapter" data-level="16.7" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#afc-analyse-factorielle-des-correspondances"><i class="fa fa-check"></i><b>16.7</b> AFC Analyse Factorielle des Correspondances</a></li>
-<li class="chapter" data-level="16.8" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#acm-analyse-des-correspondances-multiples"><i class="fa fa-check"></i><b>16.8</b> ACM Analyse des Correspondances Multiples</a></li>
-<li class="chapter" data-level="16.9" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#analyse-mixteanalyse-factorielle-multiple"><i class="fa fa-check"></i><b>16.9</b> Analyse mixte/Analyse factorielle multiple</a></li>
-<li class="chapter" data-level="16.10" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#corrélations"><i class="fa fa-check"></i><b>16.10</b> Corrélations</a>
-<ul>
-<li class="chapter" data-level="16.10.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#draftsman-plot-pour-étudier-les-variables-et-leur-relation"><i class="fa fa-check"></i><b>16.10.1</b> Draftsman plot pour étudier les variables et leur relation</a></li>
-</ul></li>
-<li class="chapter" data-level="16.11" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#evaluer-la-performance-dune-prédiction"><i class="fa fa-check"></i><b>16.11</b> Evaluer la performance d’une prédiction</a>
-<ul>
-<li class="chapter" data-level="16.11.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#validation-croisée-rééchantillonage"><i class="fa fa-check"></i><b>16.11.1</b> Validation croisée (rééchantillonage)</a></li>
-</ul></li>
-<li class="chapter" data-level="16.12" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#processus-gaussiens"><i class="fa fa-check"></i><b>16.12</b> Processus gaussiens</a></li>
-<li class="chapter" data-level="16.13" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#indices-de-distances-et-de-dissimilaritéclassification-ascendante-hierarchique-cahcreation-de-dendrogrammeskmeans-voir-tp2-decologie-numérique"><i class="fa fa-check"></i><b>16.13</b> Indices de distances et de dissimilarité/Classification ascendante hierarchique CAH/Creation de dendrogrammes/Kmeans (voir TP2 d’ecologie numérique)</a></li>
-<li class="chapter" data-level="16.14" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#permanova-anova-multivariée"><i class="fa fa-check"></i><b>16.14</b> Permanova : anova multivariée</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html"><i class="fa fa-check"></i><b>17</b> Introduction à Stan</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes"><i class="fa fa-check"></i><b>17.1</b> Pourquoi les stats bayesiennes ?</a></li>
-<li class="chapter" data-level="17.2" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#stan-program"><i class="fa fa-check"></i><b>17.2</b> Stan program :</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html"><i class="fa fa-check"></i><b>18</b> I am a modeler</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#la-modélisation"><i class="fa fa-check"></i><b>18.1</b> La modélisation</a></li>
-<li class="chapter" data-level="18.2" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-linéaire-simple"><i class="fa fa-check"></i><b>18.2</b> Modèle linéaire simple</a></li>
-<li class="chapter" data-level="18.3" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#lois-de-probabilité-de-la-fonction-de-réponse"><i class="fa fa-check"></i><b>18.3</b> Lois de probabilité de la fonction de réponse</a></li>
-<li class="chapter" data-level="18.4" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#glm-modèles-linéaires-généralisés"><i class="fa fa-check"></i><b>18.4</b> GLM (modèles linéaires généralisés)</a></li>
-<li class="chapter" data-level="18.5" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-mixte"><i class="fa fa-check"></i><b>18.5</b> Modèle mixte</a></li>
-<li class="chapter" data-level="18.6" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#créer-nos-prédicteurs-selon-leffet-que-lon-veut-tester"><i class="fa fa-check"></i><b>18.6</b> Créer nos prédicteurs selon l’effet que l’on veut tester</a></li>
-<li class="chapter" data-level="18.7" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#tests-1"><i class="fa fa-check"></i><b>18.7</b> tests</a></li>
-<li class="chapter" data-level="18.8" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#estimations-des-paramètres"><i class="fa fa-check"></i><b>18.8</b> Estimations des paramètres</a></li>
-<li class="chapter" data-level="18.9" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#variable-réponse-qualitatite"><i class="fa fa-check"></i><b>18.9</b> Variable réponse qualitatite</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html"><i class="fa fa-check"></i><b>19</b> Bayesian stats cours</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html#grid-approximation-to-define-posterior"><i class="fa fa-check"></i><b>19.1</b> Grid approximation (to define posterior) :</a></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html"><i class="fa fa-check"></i><b>20</b> Bayesian and Stan langage</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#règles"><i class="fa fa-check"></i><b>20.1</b> Règles</a></li>
-<li class="chapter" data-level="20.2" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#les-données"><i class="fa fa-check"></i><b>20.2</b> Les données</a></li>
-<li class="chapter" data-level="20.3" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#definitions"><i class="fa fa-check"></i><b>20.3</b> Definitions</a></li>
-<li class="chapter" data-level="20.4" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-poisson-positif-discret-par-exemble-un-abondance"><i class="fa fa-check"></i><b>20.4</b> Loi Poisson (positif &amp; discret) (par exemble un abondance)</a></li>
-<li class="chapter" data-level="20.5" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-bernouilli-logistique-blogit-réponse-binaire"><i class="fa fa-check"></i><b>20.5</b> Loi Bernouilli-logistique (Blogit) (réponse binaire)</a></li>
-<li class="chapter" data-level="20.6" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#tools-1"><i class="fa fa-check"></i><b>20.6</b> Tools</a></li>
-<li class="chapter" data-level="20.7" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#rapidité"><i class="fa fa-check"></i><b>20.7</b> Rapidité</a></li>
-<li class="chapter" data-level="20.8" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#non-identifiabilité"><i class="fa fa-check"></i><b>20.8</b> Non-identifiabilité</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><i class="fa fa-check"></i><b>21</b> Inla-Inlabru statistiques bayésiennes spatialisées</a>
-<ul>
-<li class="chapter" data-level="21.1" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#install-inla-r-package"><i class="fa fa-check"></i><b>21.1</b> Install INLA R package</a></li>
-<li class="chapter" data-level="21.2" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#other-packages"><i class="fa fa-check"></i><b>21.2</b> Other packages</a></li>
-<li class="chapter" data-level="21.3" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#load-packages"><i class="fa fa-check"></i><b>21.3</b> Load packages</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="cours.html"><a href="cours.html"><i class="fa fa-check"></i><b>22</b> Cours</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="cours.html"><a href="cours.html#approche-bayésienne"><i class="fa fa-check"></i><b>22.1</b> Approche bayésienne</a></li>
-<li class="chapter" data-level="22.2" data-path="cours.html"><a href="cours.html#inlabru"><i class="fa fa-check"></i><b>22.2</b> inlabru</a></li>
-</ul></li>
-<li class="part"><span><b>V Rédaction</b></span></li>
-<li class="chapter" data-level="23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html"><i class="fa fa-check"></i><b>23</b> Conseils de rédaction scientifique</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conseils-généraux"><i class="fa fa-check"></i><b>23.1</b> Conseils généraux:</a></li>
-<li class="chapter" data-level="23.2" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#pq-écrire-pq-publier"><i class="fa fa-check"></i><b>23.2</b> Pq écrire ? / Pq publier ?</a></li>
-<li class="chapter" data-level="23.3" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-barrières-pour-écrire-et-publier"><i class="fa fa-check"></i><b>23.3</b> Les barrières pour écrire et publier :</a></li>
-<li class="chapter" data-level="23.4" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#que-veulent-les-rédacteurs"><i class="fa fa-check"></i><b>23.4</b> Que veulent les rédacteurs ?</a></li>
-<li class="chapter" data-level="23.5" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#fonctionnement-dune-revue"><i class="fa fa-check"></i><b>23.5</b> Fonctionnement d’une revue :</a>
-<ul>
-<li class="chapter" data-level="23.5.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#différents-types-darticles"><i class="fa fa-check"></i><b>23.5.1</b> Différents types d’articles :</a></li>
-</ul></li>
-<li class="chapter" data-level="23.6" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#introduction-3-paragraphes-250-mots-¼-des-refs"><i class="fa fa-check"></i><b>23.6</b> Introduction (3 paragraphes) (250 mots) (¼ des refs)</a></li>
-<li class="chapter" data-level="23.7" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#méthodes-pour-que-ce-soit-reproductible"><i class="fa fa-check"></i><b>23.7</b> Méthodes (pour que ce soit reproductible) ()</a></li>
-<li class="chapter" data-level="23.8" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résultats-pas-de-plan-par-défaut-voir-les-consignes-de-la-revue"><i class="fa fa-check"></i><b>23.8</b> Résultats (pas de plan par défaut, voir les consignes de la revue)</a></li>
-<li class="chapter" data-level="23.9" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#discussion-on-discute-le-résultat-tout-le-long-10-20h-de-travail"><i class="fa fa-check"></i><b>23.9</b> Discussion on discute le résultat tout le long (10-20h de travail</a></li>
-<li class="chapter" data-level="23.10" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#annexes"><i class="fa fa-check"></i><b>23.10</b> Annexes</a></li>
-<li class="chapter" data-level="23.11" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-auteurs-les-4-pts-validé-international"><i class="fa fa-check"></i><b>23.11</b> Les auteurs (les 4 pts validé, international)</a></li>
-<li class="chapter" data-level="23.12" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#références"><i class="fa fa-check"></i><b>23.12</b> Références :</a></li>
-<li class="chapter" data-level="23.13" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#titre-de-larticle"><i class="fa fa-check"></i><b>23.13</b> Titre de l’article :</a></li>
-<li class="chapter" data-level="23.14" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#science-ouverte-diffusion-des-produits-scientifiques-résultats-données-écrits-et-code-source"><i class="fa fa-check"></i><b>23.14</b> science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)</a></li>
-<li class="chapter" data-level="23.15" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#data-availability"><i class="fa fa-check"></i><b>23.15</b> Data availability:</a></li>
-<li class="chapter" data-level="23.16" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résumé"><i class="fa fa-check"></i><b>23.16</b> Résumé :</a></li>
-<li class="chapter" data-level="23.17" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#choix-dune-revue-coopist-journal-selector"><i class="fa fa-check"></i><b>23.17</b> Choix d’une revue (Coopist, “journal selector”)</a></li>
-<li class="chapter" data-level="23.18" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#remerciement"><i class="fa fa-check"></i><b>23.18</b> Remerciement :</a></li>
-<li class="chapter" data-level="23.19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#creditcontributeurs"><i class="fa fa-check"></i><b>23.19</b> CRediT/contributeurs :</a></li>
-<li class="chapter" data-level="23.20" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer"><i class="fa fa-check"></i><b>23.20</b> Conflit d’intérêt (relations et activités qui ont pu influencer) :</a></li>
-<li class="chapter" data-level="23.21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-du-temps"><i class="fa fa-check"></i><b>23.21</b> Gestion du temps</a></li>
-<li class="chapter" data-level="23.22" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-des-coauteurs"><i class="fa fa-check"></i><b>23.22</b> Gestion des coauteurs :</a></li>
-<li class="chapter" data-level="23.23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#ecriture-qqsoit-la-langue"><i class="fa fa-check"></i><b>23.23</b> Ecriture (qqsoit la langue) :</a>
-<ul>
-<li class="chapter" data-level="23.23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#en-englais"><i class="fa fa-check"></i><b>23.23.1</b> En englais</a></li>
-</ul></li>
-<li class="chapter" data-level="23.24" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#embellissement-de-larticle-pas-bien"><i class="fa fa-check"></i><b>23.24</b> Embellissement de l’article (pas bien)</a></li>
-<li class="chapter" data-level="23.25" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#lettre-de-motivation-de-soumission-pas-tjrs-demandée"><i class="fa fa-check"></i><b>23.25</b> Lettre de motivation de soumission (pas tjrs demandée) :</a></li>
-<li class="chapter" data-level="23.26" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#au-cirad"><i class="fa fa-check"></i><b>23.26</b> Au Cirad</a></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="formulation-de-phrases-élégantes.html"><a href="formulation-de-phrases-élégantes.html"><i class="fa fa-check"></i><b>24</b> Formulation de phrases élégantes</a></li>
-<li class="chapter" data-level="25" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html"><i class="fa fa-check"></i><b>25</b> Distinction britanique/americain</a>
-<ul>
-<li class="chapter" data-level="25.1" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#our-uk-ou--or-us"><i class="fa fa-check"></i><b>25.1</b> -our (UK) ou -or (US)</a></li>
-<li class="chapter" data-level="25.2" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#re-uk-ou--er-us"><i class="fa fa-check"></i><b>25.2</b> -re (UK) ou -er (US)</a></li>
-<li class="chapter" data-level="25.3" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ise-uk-ou--ize-us"><i class="fa fa-check"></i><b>25.3</b> -ise (UK) ou -ize (US)</a></li>
-<li class="chapter" data-level="25.4" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#nce-uk-ou--nse-us"><i class="fa fa-check"></i><b>25.4</b> -nce (UK) ou -nse (US)</a></li>
-<li class="chapter" data-level="25.5" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ge-uk-ou--g-us"><i class="fa fa-check"></i><b>25.5</b> -ge (UK) ou -g (US)</a></li>
-<li class="chapter" data-level="25.6" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ae-uk-ou--e-us"><i class="fa fa-check"></i><b>25.6</b> -ae (UK) ou -e (US)</a></li>
-<li class="chapter" data-level="25.7" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ogue-uk-ou--og-us"><i class="fa fa-check"></i><b>25.7</b> -ogue (UK) ou -og (US)</a></li>
-<li class="chapter" data-level="25.8" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#que-uk-ou--ck-us"><i class="fa fa-check"></i><b>25.8</b> -que (UK) ou -ck (US)</a></li>
-<li class="chapter" data-level="25.9" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#voyelle-l"><i class="fa fa-check"></i><b>25.9</b> voyelle + L</a></li>
-<li class="chapter" data-level="25.10" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#past-simple"><i class="fa fa-check"></i><b>25.10</b> Past simple</a></li>
-<li class="chapter" data-level="25.11" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#get"><i class="fa fa-check"></i><b>25.11</b> Get</a></li>
-<li class="chapter" data-level="25.12" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#prépositions"><i class="fa fa-check"></i><b>25.12</b> Prépositions</a></li>
-<li class="chapter" data-level="25.13" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#have-got-uk-vs-have-us"><i class="fa fa-check"></i><b>25.13</b> have got (UK) vs have (US)</a></li>
-<li class="chapter" data-level="25.14" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#as-uklike-us"><i class="fa fa-check"></i><b>25.14</b> as (UK)/like (US)</a></li>
-<li class="chapter" data-level="25.15" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-dates"><i class="fa fa-check"></i><b>25.15</b> Les dates</a></li>
-<li class="chapter" data-level="25.16" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-contractions"><i class="fa fa-check"></i><b>25.16</b> Les contractions</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
 
@@ -551,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My cours</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utilisation_cluster_de_calcul</a>
           </h1>
         </div>
 
@@ -562,53 +164,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="package-creation" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Cours 14</span> Package creation<a href="package-creation.html#package-creation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="references" class="section level2 hasAnchor" number="14.1">
-<h2><span class="header-section-number">14.1</span> References<a href="package-creation.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="package-creation" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">Cours 23</span> Package creation<a href="package-creation.html#package-creation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="references" class="section level2 hasAnchor" number="23.1">
+<h2><span class="header-section-number">23.1</span> References<a href="package-creation.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>The original bible : <a href="https://r-pkgs.org/index.html" class="uri">https://r-pkgs.org/index.html</a></li>
 <li>en francais : <a href="https://www.imo.universite-paris-saclay.fr/~goude/Materials/ProjetMLF/editer_package_R.html" class="uri">https://www.imo.universite-paris-saclay.fr/~goude/Materials/ProjetMLF/editer_package_R.html</a></li>
 <li>Eric Marcon’s cours : <a href="https://ericmarcon.github.io/Cours-travailleR/" class="uri">https://ericmarcon.github.io/Cours-travailleR/</a></li>
 </ul>
 </div>
-<div id="les-packages-r-nécessaires" class="section level2 hasAnchor" number="14.2">
-<h2><span class="header-section-number">14.2</span> Les packages R nécessaires<a href="package-creation.html#les-packages-r-nécessaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="les-packages-r-nécessaires" class="section level2 hasAnchor" number="23.2">
+<h2><span class="header-section-number">23.2</span> Les packages R nécessaires<a href="package-creation.html#les-packages-r-nécessaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Télécharger des packages d’aide à l’organisation et structure, nécessaire à l’écriture d’un package :</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="package-creation.html#cb91-1" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
-<span id="cb91-2"><a href="package-creation.html#cb91-2" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-3"><a href="package-creation.html#cb91-3" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
-<span id="cb91-4"><a href="package-creation.html#cb91-4" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-5"><a href="package-creation.html#cb91-5" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
-<span id="cb91-6"><a href="package-creation.html#cb91-6" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-7"><a href="package-creation.html#cb91-7" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
-<span id="cb91-8"><a href="package-creation.html#cb91-8" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
-<span id="cb91-9"><a href="package-creation.html#cb91-9" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-10"><a href="package-creation.html#cb91-10" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
-<span id="cb91-11"><a href="package-creation.html#cb91-11" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-12"><a href="package-creation.html#cb91-12" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
-<span id="cb91-13"><a href="package-creation.html#cb91-13" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-14"><a href="package-creation.html#cb91-14" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
-<span id="cb91-15"><a href="package-creation.html#cb91-15" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-16"><a href="package-creation.html#cb91-16" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
-<span id="cb91-17"><a href="package-creation.html#cb91-17" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb91-18"><a href="package-creation.html#cb91-18" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
-<span id="cb91-19"><a href="package-creation.html#cb91-19" tabindex="-1"></a></span>
-<span id="cb91-20"><a href="package-creation.html#cb91-20" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="package-creation.html#cb92-1" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
-<span id="cb92-2"><a href="package-creation.html#cb92-2" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
-<span id="cb92-3"><a href="package-creation.html#cb92-3" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="package-creation.html#cb99-1" tabindex="-1"></a><span class="do">## install.packages(c(&quot;usethis&quot;, &quot;roxygen2&quot;, &quot;devtools&quot;, &quot;testthat&quot;, &quot;covr&quot;, &quot;goodpractice&quot;))</span></span>
+<span id="cb99-2"><a href="package-creation.html#cb99-2" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-3"><a href="package-creation.html#cb99-3" tabindex="-1"></a><span class="do">## library(usethis) #automatise la création des dossiers, vignette, site</span></span>
+<span id="cb99-4"><a href="package-creation.html#cb99-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-5"><a href="package-creation.html#cb99-5" tabindex="-1"></a><span class="do">## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages</span></span>
+<span id="cb99-6"><a href="package-creation.html#cb99-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-7"><a href="package-creation.html#cb99-7" tabindex="-1"></a><span class="do">## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages</span></span>
+<span id="cb99-8"><a href="package-creation.html#cb99-8" tabindex="-1"></a><span class="do">## # roxygen2::roxygenise()#refresh de la documentation</span></span>
+<span id="cb99-9"><a href="package-creation.html#cb99-9" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-10"><a href="package-creation.html#cb99-10" tabindex="-1"></a><span class="do">## library(testthat) # Create test units</span></span>
+<span id="cb99-11"><a href="package-creation.html#cb99-11" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-12"><a href="package-creation.html#cb99-12" tabindex="-1"></a><span class="do">## library(covr) # Test coverage report()</span></span>
+<span id="cb99-13"><a href="package-creation.html#cb99-13" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-14"><a href="package-creation.html#cb99-14" tabindex="-1"></a><span class="do">## library(available) #vérifier la disponibilité du nom de votre package</span></span>
+<span id="cb99-15"><a href="package-creation.html#cb99-15" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-16"><a href="package-creation.html#cb99-16" tabindex="-1"></a><span class="do">## # available::available(&quot;LoggingLab&quot;) # TreeData</span></span>
+<span id="cb99-17"><a href="package-creation.html#cb99-17" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb99-18"><a href="package-creation.html#cb99-18" tabindex="-1"></a><span class="do">## library(goodpractice) # Bonnes pratiques dans la construction de package (functions and syntax to avoid, package structure, code complexity, code formatting)</span></span>
+<span id="cb99-19"><a href="package-creation.html#cb99-19" tabindex="-1"></a></span>
+<span id="cb99-20"><a href="package-creation.html#cb99-20" tabindex="-1"></a><span class="do">## gp(system.file(package = &quot;Maria&quot;)) #trouve les mauvaises pratiques de notre package</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="package-creation.html#cb100-1" tabindex="-1"></a><span class="do">## si on avait une ancienne version de withr pour rstan</span></span>
+<span id="cb100-2"><a href="package-creation.html#cb100-2" tabindex="-1"></a><span class="do">## remove.packages(&quot;withr&quot;)</span></span>
+<span id="cb100-3"><a href="package-creation.html#cb100-3" tabindex="-1"></a><span class="do">## install.packages(&quot;withr&quot;)</span></span></code></pre></div>
 </div>
-<div id="creation-du-package" class="section level2 hasAnchor" number="14.3">
-<h2><span class="header-section-number">14.3</span> Creation du package<a href="package-creation.html#creation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="creation-du-package" class="section level2 hasAnchor" number="23.3">
+<h2><span class="header-section-number">23.3</span> Creation du package<a href="package-creation.html#creation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>New Project &gt; New Directory &gt; R package using devtools…</strong></p></li>
 <li><p>Nom du package : pas d’espace, pas d’underscore, ne pas commencer par un chiffre et en minuscule</p></li>
 <li><p><strong>Build &gt; Install and restart</strong> construit et charge le package dans R</p></li>
 </ul>
 </div>
-<div id="tips-de-codeur-1" class="section level2 hasAnchor" number="14.4">
-<h2><span class="header-section-number">14.4</span> Tips de codeur<a href="package-creation.html#tips-de-codeur-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tips-de-codeur-1" class="section level2 hasAnchor" number="23.4">
+<h2><span class="header-section-number">23.4</span> Tips de codeur<a href="package-creation.html#tips-de-codeur-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Mesurer le temps d’exécution d’un code : <strong>system.time</strong> ou <strong>microbenchmark (fct1,fct2)</strong> pour des codes trés courts. Ce sont les médianes des temps de calcul qu’il faut comparer.</p></li>
 <li><p>Détacher un package de l’environnement : <strong>unloadNamespace()</strong>
@@ -620,14 +222,14 @@ dans un cas comme dans l’autre, le package est chargé (load) : on l’utilise
 <li><p>les lignes doivent faire 80 charactères max</p></li>
 </ul>
 </div>
-<div id="eviter-les-messages-derreurs" class="section level2 hasAnchor" number="14.5">
-<h2><span class="header-section-number">14.5</span> Eviter les messages d’erreurs<a href="package-creation.html#eviter-les-messages-derreurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="eviter-les-messages-derreurs" class="section level2 hasAnchor" number="23.5">
+<h2><span class="header-section-number">23.5</span> Eviter les messages d’erreurs<a href="package-creation.html#eviter-les-messages-derreurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Ne pas sauter de lignes dans “DESCRIPTION” file</li>
 </ul>
 </div>
-<div id="commandes" class="section level2 hasAnchor" number="14.6">
-<h2><span class="header-section-number">14.6</span> Commandes<a href="package-creation.html#commandes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="commandes" class="section level2 hasAnchor" number="23.6">
+<h2><span class="header-section-number">23.6</span> Commandes<a href="package-creation.html#commandes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>Build &gt; Install and restart</strong> permet de tester des modifications de code</p></li>
 <li><p><strong>check</strong> ou <strong>devtools::check()</strong> permet de vérifier son code (màj de la documentation (dossier “man”), tests sur le code, renvoie erreurs et avertissements)</p></li>
@@ -636,8 +238,8 @@ dans un cas comme dans l’autre, le package est chargé (load) : on l’utilise
 <li><p>Documentation-exporter une fonction : placer le curseur dans la fonction et appeler le menu “Code &gt; <strong>Insert Roxygen Skeleton</strong>” (ou CTRL + ALT + SHIFT + R): roxygen2 la déclarera dans “NAMESPACE” après un “check”</p></li>
 <li><p>raccourcir les lignes du squelette : <strong>ctrl + shift + /</strong></p></li>
 </ul>
-<div id="comprendre-le-skeleton" class="section level3 hasAnchor" number="14.6.1">
-<h3><span class="header-section-number">14.6.1</span> Comprendre le Skeleton<a href="package-creation.html#comprendre-le-skeleton" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="comprendre-le-skeleton" class="section level3 hasAnchor" number="23.6.1">
+<h3><span class="header-section-number">23.6.1</span> Comprendre le Skeleton<a href="package-creation.html#comprendre-le-skeleton" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>= la page d’aide de la fonction !</p>
 <p>Roxygen tags :<br />
 <span class="citation">@include</span> : mentionne des fichiers .R appelés dans le fichier<br />
@@ -665,46 +267,46 @@ dans un cas comme dans l’autre, le package est chargé (load) : on l’utilise
 <li><p>Créer une fct pour les écrire !! <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html</a> (Evaluating arbitrary code)</p></li>
 </ul>
 </div>
-<div id="r-folfer" class="section level3 hasAnchor" number="14.6.2">
-<h3><span class="header-section-number">14.6.2</span> R folfer<a href="package-creation.html#r-folfer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-folfer" class="section level3 hasAnchor" number="23.6.2">
+<h3><span class="header-section-number">23.6.2</span> R folfer<a href="package-creation.html#r-folfer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Contiendra 1 ou plsrs fichiers .R contenant nos fonctions.
 1 fichier peut contenir 1 fonction
 ou on peut y rassembler plsrs fonctions regroupables</p>
 </div>
-<div id="nom-package.r-file" class="section level3 hasAnchor" number="14.6.3">
-<h3><span class="header-section-number">14.6.3</span> nom-package.R file<a href="package-creation.html#nom-package.r-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="nom-package.r-file" class="section level3 hasAnchor" number="23.6.3">
+<h3><span class="header-section-number">23.6.3</span> nom-package.R file<a href="package-creation.html#nom-package.r-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>= page d’aide du package (=1er bloc) (visible avec <strong>?nomdupackage</strong>)
 = commentaires pour roxygen2
 = supplément de la vignette
 C’est aussi là qu’on renseigne les global variables</p>
 <p>La générer : <strong>usethis::use_package_doc()</strong></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="package-creation.html#cb93-1" tabindex="-1"></a><span class="co">#&#39; TreeData-package</span></span>
-<span id="cb93-2"><a href="package-creation.html#cb93-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb93-3"><a href="package-creation.html#cb93-3" tabindex="-1"></a><span class="co">#&#39; Forest Inventories Harmonization &amp; Correction</span></span>
-<span id="cb93-4"><a href="package-creation.html#cb93-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb93-5"><a href="package-creation.html#cb93-5" tabindex="-1"></a><span class="co">#&#39; @name TreeData</span></span>
-<span id="cb93-6"><a href="package-creation.html#cb93-6" tabindex="-1"></a><span class="co">#&#39; @docType package</span></span>
-<span id="cb93-7"><a href="package-creation.html#cb93-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb93-8"><a href="package-creation.html#cb93-8" tabindex="-1"></a><span class="co">#&#39; @section TreeData functions:</span></span>
-<span id="cb93-9"><a href="package-creation.html#cb93-9" tabindex="-1"></a><span class="co">#&#39; RequiredFormat</span></span>
-<span id="cb93-10"><a href="package-creation.html#cb93-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb93-11"><a href="package-creation.html#cb93-11" tabindex="-1"></a><span class="co">#&#39; @keywords internal</span></span>
-<span id="cb93-12"><a href="package-creation.html#cb93-12" tabindex="-1"></a><span class="st">&quot;_PACKAGE&quot;</span></span>
-<span id="cb93-13"><a href="package-creation.html#cb93-13" tabindex="-1"></a></span>
-<span id="cb93-14"><a href="package-creation.html#cb93-14" tabindex="-1"></a><span class="do">## usethis namespace: start</span></span>
-<span id="cb93-15"><a href="package-creation.html#cb93-15" tabindex="-1"></a><span class="do">### quiets concerns of R CMD check &quot;no visible binding for global variables&quot;</span></span>
-<span id="cb93-16"><a href="package-creation.html#cb93-16" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">globalVariables</span>(<span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
-<span id="cb93-17"><a href="package-creation.html#cb93-17" tabindex="-1"></a></span>
-<span id="cb93-18"><a href="package-creation.html#cb93-18" tabindex="-1"></a><span class="do">## usethis namespace: end</span></span>
-<span id="cb93-19"><a href="package-creation.html#cb93-19" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="package-creation.html#cb101-1" tabindex="-1"></a><span class="co">#&#39; TreeData-package</span></span>
+<span id="cb101-2"><a href="package-creation.html#cb101-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb101-3"><a href="package-creation.html#cb101-3" tabindex="-1"></a><span class="co">#&#39; Forest Inventories Harmonization &amp; Correction</span></span>
+<span id="cb101-4"><a href="package-creation.html#cb101-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb101-5"><a href="package-creation.html#cb101-5" tabindex="-1"></a><span class="co">#&#39; @name TreeData</span></span>
+<span id="cb101-6"><a href="package-creation.html#cb101-6" tabindex="-1"></a><span class="co">#&#39; @docType package</span></span>
+<span id="cb101-7"><a href="package-creation.html#cb101-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb101-8"><a href="package-creation.html#cb101-8" tabindex="-1"></a><span class="co">#&#39; @section TreeData functions:</span></span>
+<span id="cb101-9"><a href="package-creation.html#cb101-9" tabindex="-1"></a><span class="co">#&#39; RequiredFormat</span></span>
+<span id="cb101-10"><a href="package-creation.html#cb101-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb101-11"><a href="package-creation.html#cb101-11" tabindex="-1"></a><span class="co">#&#39; @keywords internal</span></span>
+<span id="cb101-12"><a href="package-creation.html#cb101-12" tabindex="-1"></a><span class="st">&quot;_PACKAGE&quot;</span></span>
+<span id="cb101-13"><a href="package-creation.html#cb101-13" tabindex="-1"></a></span>
+<span id="cb101-14"><a href="package-creation.html#cb101-14" tabindex="-1"></a><span class="do">## usethis namespace: start</span></span>
+<span id="cb101-15"><a href="package-creation.html#cb101-15" tabindex="-1"></a><span class="do">### quiets concerns of R CMD check &quot;no visible binding for global variables&quot;</span></span>
+<span id="cb101-16"><a href="package-creation.html#cb101-16" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">globalVariables</span>(<span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
+<span id="cb101-17"><a href="package-creation.html#cb101-17" tabindex="-1"></a></span>
+<span id="cb101-18"><a href="package-creation.html#cb101-18" tabindex="-1"></a><span class="do">## usethis namespace: end</span></span>
+<span id="cb101-19"><a href="package-creation.html#cb101-19" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
 </div>
-<div id="namespace-file" class="section level3 hasAnchor" number="14.6.4">
-<h3><span class="header-section-number">14.6.4</span> NAMESPACE file<a href="package-creation.html#namespace-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="namespace-file" class="section level3 hasAnchor" number="23.6.4">
+<h3><span class="header-section-number">23.6.4</span> NAMESPACE file<a href="package-creation.html#namespace-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>“gestion des noms des objets”
 = interaction du package avec le monde exterieur : importation d’autres fonctions/packages, exportation de nos fonctions.</p>
 </div>
-<div id="description-file" class="section level3 hasAnchor" number="14.6.5">
-<h3><span class="header-section-number">14.6.5</span> DESCRIPTION file<a href="package-creation.html#description-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="description-file" class="section level3 hasAnchor" number="23.6.5">
+<h3><span class="header-section-number">23.6.5</span> DESCRIPTION file<a href="package-creation.html#description-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Depends: liste des packages d’origine de chaque générique<br />
 Depends:<br />
 R (&gt;= 2.10),<br />
@@ -714,13 +316,13 @@ Les alinéas sont nécessaires</p>
 <p><strong>Tout package utilisé (dépendances) doit être mentionné dans le fichier DESCRIPTION, section ‘Imports’</strong></p>
 <p>Attention : les dépendences appartenant à <em>R core</em> (ex: stats, parallel) doivent être de meme version munimum que celle de R demandée.</p>
 </div>
-<div id="rbuildignore" class="section level3 hasAnchor" number="14.6.6">
-<h3><span class="header-section-number">14.6.6</span> .Rbuildignore<a href="package-creation.html#rbuildignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="rbuildignore" class="section level3 hasAnchor" number="23.6.6">
+<h3><span class="header-section-number">23.6.6</span> .Rbuildignore<a href="package-creation.html#rbuildignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>= fichiers dans le package pour le constructeur, mais qui ne seront pas chargés avec le package pour l’utilisateur.</p>
 </div>
 </div>
-<div id="importation-de-fonctions" class="section level2 hasAnchor" number="14.7">
-<h2><span class="header-section-number">14.7</span> Importation de fonctions<a href="package-creation.html#importation-de-fonctions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="importation-de-fonctions" class="section level2 hasAnchor" number="23.7">
+<h2><span class="header-section-number">23.7</span> Importation de fonctions<a href="package-creation.html#importation-de-fonctions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>le package d’appartenance de la fonction doit obligatoirement être déclaré :<br />
 <strong>DESCRIPTION &lt; Imports: nom package, nom package</strong><br />
@@ -736,35 +338,35 @@ l’environnement du package en création : la meilleure pratique est de qualifi
 d’autres packages dans le code avec la syntaxe <strong>package::fonction()</strong> (Sylvain dit que non)</p></li>
 </ul>
 </div>
-<div id="créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base" class="section level2 hasAnchor" number="14.8">
-<h2><span class="header-section-number">14.8</span> Créer des classes pour ses objets en plus de ceux de base<a href="package-creation.html#créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base" class="section level2 hasAnchor" number="23.8">
+<h2><span class="header-section-number">23.8</span> Créer des classes pour ses objets en plus de ceux de base<a href="package-creation.html#créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>class(x) &lt;- “MyClass”</strong> ou
 <strong>class(y) &lt;- c(“MyClass”, class(y))</strong> si on veut ajouter une classe aux classes de l’objet déjà existantes</p>
 </div>
-<div id="créer-une-méthode-générique" class="section level2 hasAnchor" number="14.9">
-<h2><span class="header-section-number">14.9</span> Créer une “méthode générique”<a href="package-creation.html#créer-une-méthode-générique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="créer-une-méthode-générique" class="section level2 hasAnchor" number="23.9">
+<h2><span class="header-section-number">23.9</span> Créer une “méthode générique”<a href="package-creation.html#créer-une-méthode-générique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>méthode générique = modèle de fonction, sans code, à décliner selon la classe d’objet à traiter (ex : “plot”).</p>
 <p>Une méthode générique est plus lente en calcul que ses fonctions dérivées qui sont spécialisées à une classe d’objet.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="package-creation.html#cb94-1" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb94-2"><a href="package-creation.html#cb94-2" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
-<span id="cb94-3"><a href="package-creation.html#cb94-3" tabindex="-1"></a>}</span>
-<span id="cb94-4"><a href="package-creation.html#cb94-4" tabindex="-1"></a></span>
-<span id="cb94-5"><a href="package-creation.html#cb94-5" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
-<span id="cb94-6"><a href="package-creation.html#cb94-6" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb94-7"><a href="package-creation.html#cb94-7" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> 3L)</span>
-<span id="cb94-8"><a href="package-creation.html#cb94-8" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
-<span id="cb94-9"><a href="package-creation.html#cb94-9" tabindex="-1"></a>}</span>
-<span id="cb94-10"><a href="package-creation.html#cb94-10" tabindex="-1"></a></span>
-<span id="cb94-11"><a href="package-creation.html#cb94-11" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
-<span id="cb94-12"><a href="package-creation.html#cb94-12" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb94-13"><a href="package-creation.html#cb94-13" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
-<span id="cb94-14"><a href="package-creation.html#cb94-14" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="package-creation.html#cb102-1" tabindex="-1"></a>meth_generique <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb102-2"><a href="package-creation.html#cb102-2" tabindex="-1"></a>  <span class="fu">UseMethod</span>(<span class="st">&quot;meth_generique&quot;</span>)</span>
+<span id="cb102-3"><a href="package-creation.html#cb102-3" tabindex="-1"></a>}</span>
+<span id="cb102-4"><a href="package-creation.html#cb102-4" tabindex="-1"></a></span>
+<span id="cb102-5"><a href="package-creation.html#cb102-5" tabindex="-1"></a><span class="do">## Fonction dérivée :</span></span>
+<span id="cb102-6"><a href="package-creation.html#cb102-6" tabindex="-1"></a>meth_generique.class <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb102-7"><a href="package-creation.html#cb102-7" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">*</span> <span class="dv">3</span><span class="dt">L</span>)</span>
+<span id="cb102-8"><a href="package-creation.html#cb102-8" tabindex="-1"></a>  <span class="co">#le suffixe L signifiant que 3 doit être compris comme un entier.</span></span>
+<span id="cb102-9"><a href="package-creation.html#cb102-9" tabindex="-1"></a>}</span>
+<span id="cb102-10"><a href="package-creation.html#cb102-10" tabindex="-1"></a></span>
+<span id="cb102-11"><a href="package-creation.html#cb102-11" tabindex="-1"></a><span class="do">##créer une fonction dérivée à partir d&#39;une fonction dérivée déjà existante</span></span>
+<span id="cb102-12"><a href="package-creation.html#cb102-12" tabindex="-1"></a>print.multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb102-13"><a href="package-creation.html#cb102-13" tabindex="-1"></a>  <span class="fu">print.default</span>(x<span class="sc">$</span>y)<span class="co">#n&#39;afficher que le resultats y</span></span>
+<span id="cb102-14"><a href="package-creation.html#cb102-14" tabindex="-1"></a>}</span></code></pre></div>
 <p>Sa signature : ensemble de ses arguments
 Les fonctions dérivées de cette méthode devront obligatoirement avoir les <strong>mêmes arguments</strong> dans le <strong>même ordre</strong> et pourront seulement ajouter des arguments supplémentaires avant “…” (qui est obligatoire).</p>
 <p>1er argument : “x”. Dépend de la classe de l’objet</p>
 </div>
-<div id="tidyverse" class="section level2 hasAnchor" number="14.10">
-<h2><span class="header-section-number">14.10</span> tidyverse<a href="package-creation.html#tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tidyverse" class="section level2 hasAnchor" number="23.10">
+<h2><span class="header-section-number">23.10</span> tidyverse<a href="package-creation.html#tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Tout package doit être compatible avec le tydiverse.</p>
 <ul>
 <li><p>pour permettre l’utilisation de pipelines, l’argument principal = le premier</p></li>
@@ -778,8 +380,8 @@ autoplot() : permet de visualiser tt type d’objet, meilleur que ggplot2.</p></
 <li><p>R CMD CHECK NOTE “no visible binding for global variable” : mettre <strong><span class="citation">@importFrom</span> rlang .data</strong></p></li>
 </ul>
 </div>
-<div id="vignette" class="section level2 hasAnchor" number="14.11">
-<h2><span class="header-section-number">14.11</span> Vignette<a href="package-creation.html#vignette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vignette" class="section level2 hasAnchor" number="23.11">
+<h2><span class="header-section-number">23.11</span> Vignette<a href="package-creation.html#vignette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Création <strong>usethis::use_vignette(“nomdupackage”)</strong></li>
 <li>Les packages utilisés par la vignette doivent apparaitre dans DESCRIPTION</li>
@@ -800,8 +402,8 @@ Cette methode (installer le package à partir de sa source) le permet aussi, mai
 <li><p>Si le build renvoie une erreur relative à qpdf : il faut installer les Rtools et au bon endroit (voir 1.1.2 Rtools TravailleR d’Eric Marcon)</p></li>
 </ul>
 </div>
-<div id="site-du-package-pkgdown" class="section level2 hasAnchor" number="14.12">
-<h2><span class="header-section-number">14.12</span> Site du package : Pkgdown<a href="package-creation.html#site-du-package-pkgdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="site-du-package-pkgdown" class="section level2 hasAnchor" number="23.12">
+<h2><span class="header-section-number">23.12</span> Site du package : Pkgdown<a href="package-creation.html#site-du-package-pkgdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://pkgdown.r-lib.org/articles/pkgdown.html" class="uri">https://pkgdown.r-lib.org/articles/pkgdown.html</a></p>
 <p>! le dépot doit être <strong>public</strong> !</p>
 <ul>
@@ -817,15 +419,15 @@ News : NEWS.md</p>
 <li>Customise your site: <a href="https://pkgdown.r-lib.org/articles/customise.html" class="uri">https://pkgdown.r-lib.org/articles/customise.html</a></li>
 </ul>
 </div>
-<div id="des-petits-messages-à-lutilisateur" class="section level2 hasAnchor" number="14.13">
-<h2><span class="header-section-number">14.13</span> Des petits messages à l’utilisateur<a href="package-creation.html#des-petits-messages-à-lutilisateur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="des-petits-messages-à-lutilisateur" class="section level2 hasAnchor" number="23.13">
+<h2><span class="header-section-number">23.13</span> Des petits messages à l’utilisateur<a href="package-creation.html#des-petits-messages-à-lutilisateur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Afficher des messages informatifs : <strong>cat()</strong>
 ex : cat(“multiplied by”, object$times, “is:”) donne “multiplied by 2 is:”</li>
 </ul>
 </div>
-<div id="c-1" class="section level2 hasAnchor" number="14.14">
-<h2><span class="header-section-number">14.14</span> C++<a href="package-creation.html#c-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="c-1" class="section level2 hasAnchor" number="23.14">
+<h2><span class="header-section-number">23.14</span> C++<a href="package-creation.html#c-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>un C++ file dans dossier “src”</li>
 <li>un .gitignore dans ce même dossier, dans lequel on met :
@@ -835,13 +437,13 @@ src/</em>.so
 src/*.dll”</li>
 </ul>
 </div>
-<div id="biblio" class="section level2 hasAnchor" number="14.15">
-<h2><span class="header-section-number">14.15</span> Biblio<a href="package-creation.html#biblio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="biblio" class="section level2 hasAnchor" number="23.15">
+<h2><span class="header-section-number">23.15</span> Biblio<a href="package-creation.html#biblio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Les réf biblio (sauf celles des .rmd (vignette, site) sont gérées automatiquement avec <strong>Rdpack</strong> et <strong>roxygen2</strong></p>
 <p>De notre zotero/mendeley vers : <strong>REFERENCES.bib</strong> dans le dossier <strong>inst</strong></p>
 <p>Ajouter dans le fichier DESCRIPTION :</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="package-creation.html#cb95-1" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
-<span id="cb95-2"><a href="package-creation.html#cb95-2" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="package-creation.html#cb103-1" tabindex="-1"></a>RdMacros<span class="sc">:</span> Rdpack</span>
+<span id="cb103-2"><a href="package-creation.html#cb103-2" tabindex="-1"></a>Imports<span class="sc">:</span> Rdpack</span></code></pre></div>
 <p>Comment citer :
 citation(packagename)</p>
 <p>Biblio de la vignette :
@@ -850,17 +452,17 @@ citation(packagename)</p>
 + citer avec <span class="citation">@citation</span>.</p>
 <p>On peut éviter de multiplier les fichiers bib en utilisant celui de <strong>RdPack</strong> qui est <strong>inst/REFERENCES.bib</strong> : dans la vignette, tu déclares le chemin relatif : <strong>bibliography: ../inst/REFERENCES.bib</strong></p>
 </div>
-<div id="where-stock-my-data-in-my-package" class="section level2 hasAnchor" number="14.16">
-<h2><span class="header-section-number">14.16</span> Where stock my data in my package<a href="package-creation.html#where-stock-my-data-in-my-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="testing-data" class="section level3 hasAnchor" number="14.16.1">
-<h3><span class="header-section-number">14.16.1</span> <strong>Testing data</strong>:<a href="package-creation.html#testing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="where-stock-my-data-in-my-package" class="section level2 hasAnchor" number="23.16">
+<h2><span class="header-section-number">23.16</span> Where stock my data in my package<a href="package-creation.html#where-stock-my-data-in-my-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="testing-data" class="section level3 hasAnchor" number="23.16.1">
+<h3><span class="header-section-number">23.16.1</span> <strong>Testing data</strong>:<a href="package-creation.html#testing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Just for me : in <strong>inst/extdata</strong> (‘inst’ pour ‘installed’) : external data (private) (en csv) -&gt; no need to document</li>
 <li>For the user (and me) : in “data” : internal data (= deliver with the package) (public) -&gt; need to document</li>
 </ul>
 </div>
-<div id="default-data" class="section level3 hasAnchor" number="14.16.2">
-<h3><span class="header-section-number">14.16.2</span> <strong>Default data</strong>:<a href="package-creation.html#default-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="default-data" class="section level3 hasAnchor" number="23.16.2">
+<h3><span class="header-section-number">23.16.2</span> <strong>Default data</strong>:<a href="package-creation.html#default-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Dataset : in “data” : internal data (= deliver with the package) (public) -&gt; need to document</p></li>
 <li><p>Valeurs par default d’arguments de fct :</p></li>
@@ -868,8 +470,8 @@ citation(packagename)</p>
 <li><p>Liste dans data : on peut aussi juste créer la liste et en faire un data que l’utilisateur loadera, modifira, et injectera dans la fct en argument, mais ça lui demande donc du travail préliminaire.</p></li>
 <li><p>“Global options” in <strong>zzz file</strong></p></li>
 </ul>
-<div id="global-options" class="section level4 hasAnchor" number="14.16.2.1">
-<h4><span class="header-section-number">14.16.2.1</span> “Global options”<a href="package-creation.html#global-options" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="global-options" class="section level4 hasAnchor" number="23.16.2.1">
+<h4><span class="header-section-number">23.16.2.1</span> “Global options”<a href="package-creation.html#global-options" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Where write options: in <strong>zzz file</strong> (in R folder), as a named list or vector (eg. pars &lt;- list(track_size = 2, method = “EFI”). Then you called pars$method.).</p>
 <p>Options = an object (here a list/vector)</p>
 <p>zzz file : on y met généralement les actions devant se réaliser au chargement du package.
@@ -886,8 +488,8 @@ citation(packagename)</p>
 </ul>
 </div>
 </div>
-<div id="exported-data-in-data" class="section level3 hasAnchor" number="14.16.3">
-<h3><span class="header-section-number">14.16.3</span> Exported data (in <strong>data/</strong>)<a href="package-creation.html#exported-data-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exported-data-in-data" class="section level3 hasAnchor" number="23.16.3">
+<h3><span class="header-section-number">23.16.3</span> Exported data (in <strong>data/</strong>)<a href="package-creation.html#exported-data-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>accessible à l’utilisateur !</p></li>
 <li><p><strong>usethis::use_data(data1, data2)</strong> : crée un fichier (.rda) pour chaque jeu de données/variable, dans le dossier <strong>data</strong></p></li>
@@ -897,8 +499,8 @@ citation(packagename)</p>
 <li><p>si le fichier data est une version transformée d’une base de donnée, il est conseillé de mettre le code de transformation dans <strong>data-raw/</strong> grace à : <strong>usethis::use_data_raw(“nom du data”)</strong></p></li>
 </ul>
 </div>
-<div id="documenter-ces-données-exportées" class="section level3 hasAnchor" number="14.16.4">
-<h3><span class="header-section-number">14.16.4</span> Documenter ces données exportées<a href="package-creation.html#documenter-ces-données-exportées" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="documenter-ces-données-exportées" class="section level3 hasAnchor" number="23.16.4">
+<h3><span class="header-section-number">23.16.4</span> Documenter ces données exportées<a href="package-creation.html#documenter-ces-données-exportées" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Où : dossier ‘R’ nommé ‘data.R’</li>
 <li>roxygen squeleton :</li>
@@ -916,8 +518,8 @@ citation(packagename)</p>
 ##&#39; @source \url{} commande d&#39;acquisition des données
 &quot;name&quot;</code></pre>
 </div>
-<div id="internal-data-for-a-function-in-rsysdata.rda" class="section level3 hasAnchor" number="14.16.5">
-<h3><span class="header-section-number">14.16.5</span> Internal data for a function (in <strong>R/sysdata.rda</strong>)<a href="package-creation.html#internal-data-for-a-function-in-rsysdata.rda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="internal-data-for-a-function-in-rsysdata.rda" class="section level3 hasAnchor" number="23.16.5">
+<h3><span class="header-section-number">23.16.5</span> Internal data for a function (in <strong>R/sysdata.rda</strong>)<a href="package-creation.html#internal-data-for-a-function-in-rsysdata.rda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Pour : stocker une base de données analysée/pré-calculée, dont a besoin une fonction.</p></li>
 <li><p>non-accessible à l’utilisateur ! -&gt; pas à être documenté</p></li>
@@ -926,8 +528,8 @@ citation(packagename)</p>
 </ul>
 </div>
 </div>
-<div id="charger-ces-data" class="section level2 hasAnchor" number="14.17">
-<h2><span class="header-section-number">14.17</span> Charger ces data<a href="package-creation.html#charger-ces-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="charger-ces-data" class="section level2 hasAnchor" number="23.17">
+<h2><span class="header-section-number">23.17</span> Charger ces data<a href="package-creation.html#charger-ces-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Quand : pour les exemples et les tests, pas dans les fonctions ! Les fonctions ne manipulent que leurs propres objets (en 1er lieu leurs arguments).
 (Le mieux c’est de garder son environnement global vide lors de la création de la fonction.)</p></li>
@@ -937,18 +539,18 @@ citation(packagename)</p>
 <li><p><strong>data(nomdufichier)</strong> : charge le fichier s’il est dans le dossier “data” du package</p></li>
 </ul>
 </div>
-<div id="tests" class="section level2 hasAnchor" number="14.18">
-<h2><span class="header-section-number">14.18</span> Tests<a href="package-creation.html#tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tests" class="section level2 hasAnchor" number="23.18">
+<h2><span class="header-section-number">23.18</span> Tests<a href="package-creation.html#tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Créer un dossier “tests” : <strong>usethis::use_testthat()</strong></li>
 <li>écrire des tests à nos fonctions dans tests/testthat : <strong>usethis::use_test(name = “nomdelafct”)</strong></li>
 <li>The test name should complete the sentence “Test that …”.</li>
 </ul>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="package-creation.html#cb97-1" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
-<span id="cb97-2"><a href="package-creation.html#cb97-2" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
-<span id="cb97-3"><a href="package-creation.html#cb97-3" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
-<span id="cb97-4"><a href="package-creation.html#cb97-4" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
-<span id="cb97-5"><a href="package-creation.html#cb97-5" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="package-creation.html#cb105-1" tabindex="-1"></a><span class="do">## test_that(&quot;Math works&quot;, {</span></span>
+<span id="cb105-2"><a href="package-creation.html#cb105-2" tabindex="-1"></a><span class="do">##   expect_equal(1 + 1, 2)</span></span>
+<span id="cb105-3"><a href="package-creation.html#cb105-3" tabindex="-1"></a><span class="do">##   expect_equal(1 + 2, 3)</span></span>
+<span id="cb105-4"><a href="package-creation.html#cb105-4" tabindex="-1"></a><span class="do">##   expect_equal(1 + 3, 4)</span></span>
+<span id="cb105-5"><a href="package-creation.html#cb105-5" tabindex="-1"></a><span class="do">## })</span></span></code></pre></div>
 <ul>
 <li>lancer tous les tests : devtools::test() (Ctrl + Shift + T)</li>
 <li>Each test is run in its own environment and is self-contained.</li>
@@ -982,14 +584,14 @@ make_expectation() : Make an equality test.
 test_examples() : Test package examples</p>
 <p>these functions have two arguments: the 1st is the actual result, the 2nd is what you expect.</p>
 </div>
-<div id="un-package-pour-tous" class="section level2 hasAnchor" number="14.19">
-<h2><span class="header-section-number">14.19</span> Un package pour tous<a href="package-creation.html#un-package-pour-tous" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="un-package-pour-tous" class="section level2 hasAnchor" number="23.19">
+<h2><span class="header-section-number">23.19</span> Un package pour tous<a href="package-creation.html#un-package-pour-tous" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Pour tout système d’exploitation : mentionnés dans le yaml de githubactions : il fait les tests pour chacun d’eux</li>
 </ul>
 </div>
-<div id="mettre-le-package-sur-cran" class="section level2 hasAnchor" number="14.20">
-<h2><span class="header-section-number">14.20</span> Mettre le package sur CRAN<a href="package-creation.html#mettre-le-package-sur-cran" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mettre-le-package-sur-cran" class="section level2 hasAnchor" number="23.20">
+<h2><span class="header-section-number">23.20</span> Mettre le package sur CRAN<a href="package-creation.html#mettre-le-package-sur-cran" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><em>Version number</em> : changer le numéro en version (plus en dévelopement = sans le 9000) (major.minor.patch)
 (1.0.0)</p></li>
@@ -1001,16 +603,16 @@ test_examples() : Test package examples</p>
 <li><p><em>Dépendances</em> : toutes les dépendances hors <em>base</em> doivent être inclue, y compris des packages <em>core</em> comme <em>stat</em> ou <em>utils</em> (à discuter).</p></li>
 <li><p>Prepare for <em>next version</em> : je pense que c’est super important et que la plupart des gens ne le font pas. En gros une fois que CRAN a dit oui tu es contente et tu vas vouloir t’arrêter là. Sauf qu’un package est souvent destiné à évoluer et cette petite étape te permettra juste de réattaquer facilement, donc je trouve ça vitale.</p></li>
 </ul>
-<div id="les-tests" class="section level3 hasAnchor" number="14.20.1">
-<h3><span class="header-section-number">14.20.1</span> Les tests<a href="package-creation.html#les-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="les-tests" class="section level3 hasAnchor" number="23.20.1">
+<h3><span class="header-section-number">23.20.1</span> Les tests<a href="package-creation.html#les-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Githubactions : pour un contrôle standard :<strong>usethis::use_github_action_check_standard()</strong> -&gt; R-CMD-check.yaml creation
 <a href="https://youtu.be/K4x-uqLl_m4" class="uri">https://youtu.be/K4x-uqLl_m4</a></p></li>
 <li><p>Si les Github Actions Windows ne fctnent pas (ne trouve pas les fcts du package), alors que ça marche sur les autres OS, dans le R-CMD-check.yaml:</p></li>
 </ul>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="package-creation.html#cb98-1" tabindex="-1"></a><span class="co"># https://github.com/privefl/minipkg/commit/50224bcf5f1fd4e30a8c15d2a10534fb247fef4b</span></span>
-<span id="cb98-2"><a href="package-creation.html#cb98-2" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Install dependencies</span>
-<span id="cb98-3"><a href="package-creation.html#cb98-3" tabindex="-1"></a>        run<span class="sc">:</span> Rscript <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;devtools&#39;)&quot;</span> <span class="sc">-</span>e <span class="st">&quot;devtools::install(dependencies = TRUE)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="package-creation.html#cb106-1" tabindex="-1"></a><span class="co"># https://github.com/privefl/minipkg/commit/50224bcf5f1fd4e30a8c15d2a10534fb247fef4b</span></span>
+<span id="cb106-2"><a href="package-creation.html#cb106-2" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Install dependencies</span>
+<span id="cb106-3"><a href="package-creation.html#cb106-3" tabindex="-1"></a>        run<span class="sc">:</span> Rscript <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;devtools&#39;)&quot;</span> <span class="sc">-</span>e <span class="st">&quot;devtools::install(dependencies = TRUE)&quot;</span></span></code></pre></div>
 <ul>
 <li><p>Codecov : test-coverage.yaml <strong>usethis::use_github_action(“test-coverage”)</strong>
 (<a href="https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow" class="uri">https://github.com/r-lib/actions/tree/master/examples#test-coverage-workflow</a>) (créer un “secret” pour le token sur github si le dépot est privé)
@@ -1019,15 +621,15 @@ Il faut créer un compte codecov</p></li>
 </ul>
 </div>
 </div>
-<div id="debugger" class="section level2 hasAnchor" number="14.21">
-<h2><span class="header-section-number">14.21</span> Debugger<a href="package-creation.html#debugger" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="debugger" class="section level2 hasAnchor" number="23.21">
+<h2><span class="header-section-number">23.21</span> Debugger<a href="package-creation.html#debugger" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>tapper ligne par ligne dans la console la partie qui coince</li>
 <li>Lorsque <strong>Browse[1]&gt;</strong> s’affiche dans la console, on peut écrire des commandes utilisant l’environnement de la fonction en bug, et donc la travailler.</li>
 </ul>
 </div>
-<div id="versioning" class="section level2 hasAnchor" number="14.22">
-<h2><span class="header-section-number">14.22</span> Versioning<a href="package-creation.html#versioning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="versioning" class="section level2 hasAnchor" number="23.22">
+<h2><span class="header-section-number">23.22</span> Versioning<a href="package-creation.html#versioning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://r-pkgs.org/release.html#release-version" class="uri">https://r-pkgs.org/release.html#release-version</a></p>
 <p><strong>major.minor.patch.9000</strong></p>
 <p>.9000 only for dvlmpt version
@@ -1040,26 +642,26 @@ major, nimor, patch for released version</p>
 <p><strong>minor</strong> : debuging, addings, with backward compatibility (same functions and arguments names)</p>
 <p><strong>major</strong> : substantive changes, not backward compatible, affect many users</p>
 </div>
-<div id="renommer-le-package" class="section level2 hasAnchor" number="14.23">
-<h2><span class="header-section-number">14.23</span> Renommer le package<a href="package-creation.html#renommer-le-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="renommer-le-package" class="section level2 hasAnchor" number="23.23">
+<h2><span class="header-section-number">23.23</span> Renommer le package<a href="package-creation.html#renommer-le-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository" class="uri">https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository</a>
 + Renommer le dépôt Github puis
 + <strong>$ git remote set-url origin new_url</strong> in the shell
 + ctrl + shift + F remplacer l’ancien nom par le nouveau dans tous le package</p>
 </div>
-<div id="installer-le-package" class="section level2 hasAnchor" number="14.24">
-<h2><span class="header-section-number">14.24</span> Installer le package<a href="package-creation.html#installer-le-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="installer-le-package" class="section level2 hasAnchor" number="23.24">
+<h2><span class="header-section-number">23.24</span> Installer le package<a href="package-creation.html#installer-le-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dépot public :</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="package-creation.html#cb99-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DeveloperName/PackageName&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="package-creation.html#cb107-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DeveloperName/PackageName&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Dépot privé :
 Create an access token in: <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a></p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="package-creation.html#cb100-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;user/repo&quot;</span></span>
-<span id="cb100-2"><a href="package-creation.html#cb100-2" tabindex="-1"></a>                         ,<span class="at">ref=</span><span class="st">&quot;master&quot;</span></span>
-<span id="cb100-3"><a href="package-creation.html#cb100-3" tabindex="-1"></a>                         ,<span class="at">auth_token =</span> <span class="st">&quot;tokenstring&quot;</span> <span class="co"># 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</span></span>
-<span id="cb100-4"><a href="package-creation.html#cb100-4" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="package-creation.html#cb108-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;user/repo&quot;</span></span>
+<span id="cb108-2"><a href="package-creation.html#cb108-2" tabindex="-1"></a>                         ,<span class="at">ref=</span><span class="st">&quot;master&quot;</span></span>
+<span id="cb108-3"><a href="package-creation.html#cb108-3" tabindex="-1"></a>                         ,<span class="at">auth_token =</span> <span class="st">&quot;tokenstring&quot;</span> <span class="co"># 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</span></span>
+<span id="cb108-4"><a href="package-creation.html#cb108-4" tabindex="-1"></a>)</span></code></pre></div>
 </div>
-<div id="générer-la-citation-du-package" class="section level2 hasAnchor" number="14.25">
-<h2><span class="header-section-number">14.25</span> Générer la citation du package<a href="package-creation.html#générer-la-citation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="générer-la-citation-du-package" class="section level2 hasAnchor" number="23.25">
+<h2><span class="header-section-number">23.25</span> Générer la citation du package<a href="package-creation.html#générer-la-citation-du-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>mettre un onglet <strong>Date</strong> dans le fichier DESCRIPTION, y écrire une date dans le format yyyy-mm-dd et runer <strong>citation(“nom du package”)</strong></p>
 
 </div>

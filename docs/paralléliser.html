@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 3 Gérer la RAM - tips ! | Utilisation_cluster_de_calcul</title>
+  <title>Cours 2 Paralléliser | Utilisation_cluster_de_calcul</title>
   <meta name="description" content="Description." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 3 Gérer la RAM - tips ! | Utilisation_cluster_de_calcul" />
+  <meta property="og:title" content="Cours 2 Paralléliser | Utilisation_cluster_de_calcul" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 3 Gérer la RAM - tips ! | Utilisation_cluster_de_calcul" />
+  <meta name="twitter:title" content="Cours 2 Paralléliser | Utilisation_cluster_de_calcul" />
   
   <meta name="twitter:description" content="Description." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="paralléliser.html"/>
-<link rel="next" href="datatable-functions.html"/>
+<link rel="prev" href="fonctions-bien-sympatiques-tres-cher.html"/>
+<link rel="next" href="gérer-la-ram---tips.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -164,29 +164,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="gérer-la-ram---tips" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Cours 3</span> Gérer la RAM - tips !<a href="gérer-la-ram---tips.html#gérer-la-ram---tips" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<ul>
-<li><p>ouvrir le moniteur de performance à côté, si la RAM augmente fortement arréter le calcul</p></li>
-<li><p>développer son code sur un subset des données</p></li>
-<li><p>éviter les répétitions du même calcul</p></li>
-<li><p>les listes prennent moins de place que les vecteurs</p></li>
-<li><p>[[]] permettent de remplacer les objets plutot que de les copier -&gt; plus de place</p></li>
-<li><p>vider l’environnement autant que possible : rm() et gc()</p></li>
-<li><p>parlléliser à ce que peut surporter la RAM de l’ordinateur (regarder la taille des fichiers)</p></li>
-<li><p>memoise:memoise(fct)</p></li>
-<li><p>lancer l’ensemble des calculs sur cluster</p></li>
-<li><p>sur cluster, découper en jobs plutot que paralléliser</p></li>
-</ul>
-
+<div id="paralléliser" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Cours 2</span> Paralléliser<a href="paralléliser.html#paralléliser" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="paralléliser.html#cb21-1" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
+<span id="cb21-2"><a href="paralléliser.html#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="paralléliser.html#cb21-3" tabindex="-1"></a>cores <span class="ot">=</span> <span class="dv">2</span> <span class="co"># nbr of cores to use</span></span>
+<span id="cb21-4"><a href="paralléliser.html#cb21-4" tabindex="-1"></a><span class="co"># parallel::detectCores() # 8</span></span>
+<span id="cb21-5"><a href="paralléliser.html#cb21-5" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb21-6"><a href="paralléliser.html#cb21-6" tabindex="-1"></a>j <span class="ot">=</span> <span class="fu">length</span>(object)</span>
+<span id="cb21-7"><a href="paralléliser.html#cb21-7" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="paralléliser.html#cb21-8" tabindex="-1"></a><span class="co"># L&#39;enregistrement des clusters</span></span>
+<span id="cb21-9"><a href="paralléliser.html#cb21-9" tabindex="-1"></a>cl <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">makeCluster</span>(cores)</span>
+<span id="cb21-10"><a href="paralléliser.html#cb21-10" tabindex="-1"></a>doSNOW<span class="sc">::</span><span class="fu">registerDoSNOW</span>(cl)</span>
+<span id="cb21-11"><a href="paralléliser.html#cb21-11" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="paralléliser.html#cb21-12" tabindex="-1"></a><span class="co"># Progress bar:</span></span>
+<span id="cb21-13"><a href="paralléliser.html#cb21-13" tabindex="-1"></a>pb <span class="ot">&lt;-</span> <span class="fu">txtProgressBar</span>(<span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> j, <span class="at">style =</span> <span class="dv">3</span>)</span>
+<span id="cb21-14"><a href="paralléliser.html#cb21-14" tabindex="-1"></a>progress <span class="ot">&lt;-</span> <span class="cf">function</span>(n) <span class="fu">setTxtProgressBar</span>(pb, n)</span>
+<span id="cb21-15"><a href="paralléliser.html#cb21-15" tabindex="-1"></a>opts <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">progress =</span> progress)</span>
+<span id="cb21-16"><a href="paralléliser.html#cb21-16" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="paralléliser.html#cb21-17" tabindex="-1"></a>output <span class="ot">&lt;-</span> foreach<span class="sc">::</span><span class="fu">foreach</span>(</span>
+<span id="cb21-18"><a href="paralléliser.html#cb21-18" tabindex="-1"></a>  <span class="at">i=</span><span class="dv">1</span><span class="sc">:</span>j,</span>
+<span id="cb21-19"><a href="paralléliser.html#cb21-19" tabindex="-1"></a>  <span class="at">.packages =</span> <span class="fu">c</span>(<span class="st">&quot;magrittr&quot;</span>), <span class="co"># necessary packages</span></span>
+<span id="cb21-20"><a href="paralléliser.html#cb21-20" tabindex="-1"></a>  <span class="at">.options.snow =</span> opts <span class="co"># ProgressBar</span></span>
+<span id="cb21-21"><a href="paralléliser.html#cb21-21" tabindex="-1"></a>) <span class="sc">%dopar%</span> {</span>
+<span id="cb21-22"><a href="paralléliser.html#cb21-22" tabindex="-1"></a>  <span class="fu">print</span>(i) <span class="co"># to check</span></span>
+<span id="cb21-23"><a href="paralléliser.html#cb21-23" tabindex="-1"></a>  <span class="co"># the function to parallelise:</span></span>
+<span id="cb21-24"><a href="paralléliser.html#cb21-24" tabindex="-1"></a>  <span class="fu">las_to_dem</span>(lases[i], </span>
+<span id="cb21-25"><a href="paralléliser.html#cb21-25" tabindex="-1"></a>             <span class="at">las_path =</span> las_path,</span>
+<span id="cb21-26"><a href="paralléliser.html#cb21-26" tabindex="-1"></a>             <span class="at">mnt_path =</span> mnt_path)</span>
+<span id="cb21-27"><a href="paralléliser.html#cb21-27" tabindex="-1"></a>}</span>
+<span id="cb21-28"><a href="paralléliser.html#cb21-28" tabindex="-1"></a></span>
+<span id="cb21-29"><a href="paralléliser.html#cb21-29" tabindex="-1"></a><span class="co"># close progressbar and cluster</span></span>
+<span id="cb21-30"><a href="paralléliser.html#cb21-30" tabindex="-1"></a><span class="fu">close</span>(pb)</span>
+<span id="cb21-31"><a href="paralléliser.html#cb21-31" tabindex="-1"></a><span class="fu">stopCluster</span>(cl)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="paralléliser.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="datatable-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="fonctions-bien-sympatiques-tres-cher.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gérer-la-ram---tips.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

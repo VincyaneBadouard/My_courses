@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Cours 26 Version seulment corr &gt;0.5 | Utilisation_cluster_de_calcul</title>
+  <meta name="description" content="Description." />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Cours 26 Version seulment corr &gt;0.5 | Utilisation_cluster_de_calcul" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Description." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Cours 26 Version seulment corr &gt;0.5 | Utilisation_cluster_de_calcul" />
+  
+  <meta name="twitter:description" content="Description." />
+  
+
+<meta name="author" content="Vincyane" />
+
+
+<meta name="date" content="2025-04-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="stats-à-ne-plus-chercher.html"/>
+<link rel="next" href="introduction-à-stan.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script async defer src="https://hypothes.is/embed.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">My_cours</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utilisation_cluster_de_calcul</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div class = rmdreview>
+This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
+</div>
+<div id="version-seulment-corr-0.5" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Cours 26</span> Version seulment corr &gt;0.5<a href="version-seulment-corr-0.html#version-seulment-corr-0.5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="version-seulment-corr-0.html#cb114-1" tabindex="-1"></a><span class="co"># inspired by the function of Catherine Williams</span></span>
+<span id="cb114-2"><a href="version-seulment-corr-0.html#cb114-2" tabindex="-1"></a>onlySignCorr <span class="ot">&lt;-</span> <span class="cf">function</span>(df, file){</span>
+<span id="cb114-3"><a href="version-seulment-corr-0.html#cb114-3" tabindex="-1"></a>  corr <span class="ot">&lt;-</span> <span class="fu">cor</span>(df)</span>
+<span id="cb114-4"><a href="version-seulment-corr-0.html#cb114-4" tabindex="-1"></a>  </span>
+<span id="cb114-5"><a href="version-seulment-corr-0.html#cb114-5" tabindex="-1"></a>  <span class="co">#drop perfect correlations</span></span>
+<span id="cb114-6"><a href="version-seulment-corr-0.html#cb114-6" tabindex="-1"></a>  corr[corr <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> </span>
+<span id="cb114-7"><a href="version-seulment-corr-0.html#cb114-7" tabindex="-1"></a>  <span class="co">#turn into a 3-column table</span></span>
+<span id="cb114-8"><a href="version-seulment-corr-0.html#cb114-8" tabindex="-1"></a>  corr <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(corr))</span>
+<span id="cb114-9"><a href="version-seulment-corr-0.html#cb114-9" tabindex="-1"></a>  <span class="co">#remove the NA values from above </span></span>
+<span id="cb114-10"><a href="version-seulment-corr-0.html#cb114-10" tabindex="-1"></a>  corr <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(corr) </span>
+<span id="cb114-11"><a href="version-seulment-corr-0.html#cb114-11" tabindex="-1"></a>  </span>
+<span id="cb114-12"><a href="version-seulment-corr-0.html#cb114-12" tabindex="-1"></a>  <span class="co">#select significant values  </span></span>
+<span id="cb114-13"><a href="version-seulment-corr-0.html#cb114-13" tabindex="-1"></a>  corr <span class="ot">&lt;-</span> <span class="fu">subset</span>(corr, <span class="fu">abs</span>(Freq) <span class="sc">&gt;</span> <span class="fl">0.5</span>) </span>
+<span id="cb114-14"><a href="version-seulment-corr-0.html#cb114-14" tabindex="-1"></a>  <span class="co">#sort by highest correlation</span></span>
+<span id="cb114-15"><a href="version-seulment-corr-0.html#cb114-15" tabindex="-1"></a>  corr <span class="ot">&lt;-</span> corr[<span class="fu">order</span>(<span class="sc">-</span><span class="fu">abs</span>(corr<span class="sc">$</span>Freq)),] </span>
+<span id="cb114-16"><a href="version-seulment-corr-0.html#cb114-16" tabindex="-1"></a>  <span class="co">#turn corr back into matrix in order to plot with corrplot</span></span>
+<span id="cb114-17"><a href="version-seulment-corr-0.html#cb114-17" tabindex="-1"></a>  mtx_corr <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">acast</span>(corr, Var1<span class="sc">~</span>Var2, <span class="at">value.var=</span><span class="st">&quot;Freq&quot;</span>)</span>
+<span id="cb114-18"><a href="version-seulment-corr-0.html#cb114-18" tabindex="-1"></a>  </span>
+<span id="cb114-19"><a href="version-seulment-corr-0.html#cb114-19" tabindex="-1"></a>  <span class="co">#plot correlations visually</span></span>
+<span id="cb114-20"><a href="version-seulment-corr-0.html#cb114-20" tabindex="-1"></a>  <span class="co"># corrplot(mtx_corr, type=&quot;upper&quot;, is.corr=FALSE, tl.col=&quot;black&quot;, na.label=&quot; &quot;)</span></span>
+<span id="cb114-21"><a href="version-seulment-corr-0.html#cb114-21" tabindex="-1"></a>  </span>
+<span id="cb114-22"><a href="version-seulment-corr-0.html#cb114-22" tabindex="-1"></a>  <span class="co"># file &lt;- &quot;LiDAR_vs_LAI2200&quot;</span></span>
+<span id="cb114-23"><a href="version-seulment-corr-0.html#cb114-23" tabindex="-1"></a>  <span class="co"># file &lt;- &quot;LiDAR_Acquisitions&quot;</span></span>
+<span id="cb114-24"><a href="version-seulment-corr-0.html#cb114-24" tabindex="-1"></a>  <span class="fu">png</span>(<span class="fu">paste</span>(<span class="st">&quot;D:/Mes Donnees/PhD/Figures/lidar/Correlations/Correlations/Intensity_1m/Correlation_plot_&quot;</span>,file,<span class="st">&quot;_sup0_5.png&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>),</span>
+<span id="cb114-25"><a href="version-seulment-corr-0.html#cb114-25" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">1000</span>, <span class="at">height =</span> <span class="dv">743</span>, <span class="at">pointsize=</span><span class="dv">20</span>)</span>
+<span id="cb114-26"><a href="version-seulment-corr-0.html#cb114-26" tabindex="-1"></a>  </span>
+<span id="cb114-27"><a href="version-seulment-corr-0.html#cb114-27" tabindex="-1"></a>  <span class="fu">corrplot</span>(mtx_corr, <span class="at">method=</span><span class="st">&quot;color&quot;</span>, <span class="at">col=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">8</span>, <span class="at">name=</span><span class="st">&quot;PuOr&quot;</span>),  </span>
+<span id="cb114-28"><a href="version-seulment-corr-0.html#cb114-28" tabindex="-1"></a>           <span class="at">type=</span><span class="st">&quot;upper&quot;</span>,</span>
+<span id="cb114-29"><a href="version-seulment-corr-0.html#cb114-29" tabindex="-1"></a>           <span class="co"># order=&quot;hclust&quot;,</span></span>
+<span id="cb114-30"><a href="version-seulment-corr-0.html#cb114-30" tabindex="-1"></a>           <span class="at">addCoef.col =</span> <span class="st">&quot;white&quot;</span>, <span class="co"># Add coefficient of correlation</span></span>
+<span id="cb114-31"><a href="version-seulment-corr-0.html#cb114-31" tabindex="-1"></a>           <span class="at">tl.col=</span><span class="st">&quot;black&quot;</span>, <span class="at">tl.cex =</span> <span class="fl">0.8</span>, <span class="co">#Text label color and rotation</span></span>
+<span id="cb114-32"><a href="version-seulment-corr-0.html#cb114-32" tabindex="-1"></a>           <span class="at">number.cex =</span> <span class="fl">0.55</span>, <span class="co"># values</span></span>
+<span id="cb114-33"><a href="version-seulment-corr-0.html#cb114-33" tabindex="-1"></a>           <span class="co"># hide correlation coefficient on the principal diagonal</span></span>
+<span id="cb114-34"><a href="version-seulment-corr-0.html#cb114-34" tabindex="-1"></a>           <span class="at">diag=</span><span class="cn">FALSE</span>,</span>
+<span id="cb114-35"><a href="version-seulment-corr-0.html#cb114-35" tabindex="-1"></a>           <span class="at">na.label=</span><span class="st">&quot; &quot;</span>) </span>
+<span id="cb114-36"><a href="version-seulment-corr-0.html#cb114-36" tabindex="-1"></a>  </span>
+<span id="cb114-37"><a href="version-seulment-corr-0.html#cb114-37" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
+<span id="cb114-38"><a href="version-seulment-corr-0.html#cb114-38" tabindex="-1"></a>}</span>
+<span id="cb114-39"><a href="version-seulment-corr-0.html#cb114-39" tabindex="-1"></a></span>
+<span id="cb114-40"><a href="version-seulment-corr-0.html#cb114-40" tabindex="-1"></a><span class="fu">onlySignCorr</span>(DF_cor_LiDARvsLAI2200, <span class="st">&quot;LiDAR_vs_LAI2200&quot;</span>)</span></code></pre></div>
+<p>un autre type :</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="version-seulment-corr-0.html#cb115-1" tabindex="-1"></a><span class="fu">pairs.panels</span>(iris, </span>
+<span id="cb115-2"><a href="version-seulment-corr-0.html#cb115-2" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="co">#coef de correlation de Spearman à droite</span></span>
+<span id="cb115-3"><a href="version-seulment-corr-0.html#cb115-3" tabindex="-1"></a>             <span class="at">hist.col =</span> <span class="st">&quot;#00AFBB&quot;</span>,</span>
+<span id="cb115-4"><a href="version-seulment-corr-0.html#cb115-4" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>,  <span class="co"># affiche la courbe de densite</span></span>
+<span id="cb115-5"><a href="version-seulment-corr-0.html#cb115-5" tabindex="-1"></a>             <span class="at">ellipses =</span> T <span class="co"># show correlation ellipses (interprétable que pour les var quanti)</span></span>
+<span id="cb115-6"><a href="version-seulment-corr-0.html#cb115-6" tabindex="-1"></a>)</span></code></pre></div>
+<p>d’autres fcts de corplot : <strong>ggcorrplot()</strong></p>
+<div id="evaluer-la-performance-dune-prédiction" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> Evaluer la performance d’une prédiction<a href="version-seulment-corr-0.html#evaluer-la-performance-dune-prédiction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="validation-croisée-rééchantillonage" class="section level3 hasAnchor" number="26.1.1">
+<h3><span class="header-section-number">26.1.1</span> Validation croisée (rééchantillonage)<a href="version-seulment-corr-0.html#validation-croisée-rééchantillonage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>= séparer données en jeux d’entraînement et de test :
+<em>caret::createDataPartition()</em></p>
+</div>
+</div>
+<div id="processus-gaussiens" class="section level2 hasAnchor" number="26.2">
+<h2><span class="header-section-number">26.2</span> Processus gaussiens<a href="version-seulment-corr-0.html#processus-gaussiens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>généraliser la procédure à une quantité infinie de dimensions
+<em>kernlab::gausspr()</em>
+-&gt; écart-type des prédictions, donnant une appréciation de la précision du modèle</p>
+</div>
+<div id="indices-de-distances-et-de-dissimilaritéclassification-ascendante-hierarchique-cahcreation-de-dendrogrammeskmeans-voir-tp2-decologie-numérique" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> Indices de distances et de dissimilarité/Classification ascendante hierarchique CAH/Creation de dendrogrammes/Kmeans (voir TP2 d’ecologie numérique)<a href="version-seulment-corr-0.html#indices-de-distances-et-de-dissimilaritéclassification-ascendante-hierarchique-cahcreation-de-dendrogrammeskmeans-voir-tp2-decologie-numérique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="permanova-anova-multivariée" class="section level2 hasAnchor" number="26.4">
+<h2><span class="header-section-number">26.4</span> Permanova : anova multivariée<a href="version-seulment-corr-0.html#permanova-anova-multivariée" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="stats-à-ne-plus-chercher.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-à-stan.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

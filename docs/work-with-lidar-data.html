@@ -4,33 +4,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours 5 Work with LiDAR data | My cours</title>
+  <title>Cours 7 Work with LiDAR data | Utilisation_cluster_de_calcul</title>
   <meta name="description" content="Description." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours 5 Work with LiDAR data | My cours" />
+  <meta property="og:title" content="Cours 7 Work with LiDAR data | Utilisation_cluster_de_calcul" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Description." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours 5 Work with LiDAR data | My cours" />
+  <meta name="twitter:title" content="Cours 7 Work with LiDAR data | Utilisation_cluster_de_calcul" />
   
   <meta name="twitter:description" content="Description." />
   
 
-<meta name="author" content="Vincyane Badouard" />
+<meta name="author" content="Vincyane" />
 
 
-<meta name="date" content="2024-04-12" />
+<meta name="date" content="2025-04-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="spatial-data-cours.html"/>
+<link rel="prev" href="geometry-1.html"/>
 <link rel="next" href="parallelisation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -141,404 +141,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="part"><span><b>I Coder sous R</b></span></li>
-<li class="chapter" data-level="1" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html"><i class="fa fa-check"></i><b>1</b> Fonctions bien sympatiques tres cher</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#conseils"><i class="fa fa-check"></i><b>1.1</b> Conseils</a></li>
-<li class="chapter" data-level="1.2" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#tips-de-codeur"><i class="fa fa-check"></i><b>1.2</b> Tips de codeur</a></li>
-<li class="chapter" data-level="1.3" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#packages-inédits"><i class="fa fa-check"></i><b>1.3</b> Packages inédits!</a></li>
-<li class="chapter" data-level="1.4" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#mes-raccourcis-claviers"><i class="fa fa-check"></i><b>1.4</b> Mes raccourcis claviers</a></li>
-<li class="chapter" data-level="1.5" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#symbolname-charactères-variableobjet-tout-le-bazar"><i class="fa fa-check"></i><b>1.5</b> Symbol/name, charactères, variable/objet tout le bazar</a></li>
-<li class="chapter" data-level="1.6" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#charger-les-données"><i class="fa fa-check"></i><b>1.6</b> Charger les données</a></li>
-<li class="chapter" data-level="1.7" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#exportation-des-données"><i class="fa fa-check"></i><b>1.7</b> Exportation des données</a></li>
-<li class="chapter" data-level="1.8" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#corection-préliminaires-des-données"><i class="fa fa-check"></i><b>1.8</b> Corection préliminaires des données</a></li>
-<li class="chapter" data-level="1.9" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#transformation-de-données"><i class="fa fa-check"></i><b>1.9</b> Transformation de données !</a></li>
-<li class="chapter" data-level="1.10" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#histoire-de-characters"><i class="fa fa-check"></i><b>1.10</b> Histoire de characters</a>
-<ul>
-<li class="chapter" data-level="1.10.1" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#create"><i class="fa fa-check"></i><b>1.10.1</b> Create</a></li>
-<li class="chapter" data-level="1.10.2" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#detect"><i class="fa fa-check"></i><b>1.10.2</b> Detect</a></li>
-<li class="chapter" data-level="1.10.3" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#extract"><i class="fa fa-check"></i><b>1.10.3</b> Extract</a></li>
-<li class="chapter" data-level="1.10.4" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#convert"><i class="fa fa-check"></i><b>1.10.4</b> Convert</a></li>
-<li class="chapter" data-level="1.10.5" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#remove"><i class="fa fa-check"></i><b>1.10.5</b> Remove</a></li>
-</ul></li>
-<li class="chapter" data-level="1.11" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#comparaison-de-tables"><i class="fa fa-check"></i><b>1.11</b> Comparaison de tables</a></li>
-<li class="chapter" data-level="1.12" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#tirage"><i class="fa fa-check"></i><b>1.12</b> Tirage</a></li>
-<li class="chapter" data-level="1.13" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#yo-arrange-mes-données"><i class="fa fa-check"></i><b>1.13</b> Yo ! arrange mes données !</a></li>
-<li class="chapter" data-level="1.14" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#donne-moi-des-infos-sur-mes-données"><i class="fa fa-check"></i><b>1.14</b> Donne moi des infos sur mes données</a></li>
-<li class="chapter" data-level="1.15" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#calcul-informatif"><i class="fa fa-check"></i><b>1.15</b> Calcul informatif</a></li>
-<li class="chapter" data-level="1.16" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#nettoyage"><i class="fa fa-check"></i><b>1.16</b> Nettoyage</a></li>
-<li class="chapter" data-level="1.17" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#boucle"><i class="fa fa-check"></i><b>1.17</b> Boucle</a></li>
-<li class="chapter" data-level="1.18" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#les-objets"><i class="fa fa-check"></i><b>1.18</b> Les objets</a></li>
-<li class="chapter" data-level="1.19" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#condition"><i class="fa fa-check"></i><b>1.19</b> Condition</a></li>
-<li class="chapter" data-level="1.20" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#logical-operators"><i class="fa fa-check"></i><b>1.20</b> Logical Operators</a></li>
-<li class="chapter" data-level="1.21" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#stan---modelo---bayes"><i class="fa fa-check"></i><b>1.21</b> Stan - Modelo - Bayes</a></li>
-<li class="chapter" data-level="1.22" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#faire-de-la-biblio-comme-une-déesse"><i class="fa fa-check"></i><b>1.22</b> Faire de la biblio comme une déesse</a></li>
-<li class="chapter" data-level="1.23" data-path="fonctions-bien-sympatiques-tres-cher.html"><a href="fonctions-bien-sympatiques-tres-cher.html#date-time"><i class="fa fa-check"></i><b>1.23</b> Date &amp; time</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="gérer-la-ram---tips.html"><a href="gérer-la-ram---tips.html"><i class="fa fa-check"></i><b>2</b> Gérer la RAM - tips !</a></li>
-<li class="chapter" data-level="3" data-path="datatable-functions.html"><a href="datatable-functions.html"><i class="fa fa-check"></i><b>3</b> datatable functions</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="datatable-functions.html"><a href="datatable-functions.html#sources"><i class="fa fa-check"></i><b>3.1</b> Sources</a></li>
-<li class="chapter" data-level="3.2" data-path="datatable-functions.html"><a href="datatable-functions.html#pourquoi-data.table"><i class="fa fa-check"></i><b>3.2</b> Pourquoi data.table</a></li>
-<li class="chapter" data-level="3.3" data-path="datatable-functions.html"><a href="datatable-functions.html#syntax"><i class="fa fa-check"></i><b>3.3</b> Syntax</a></li>
-<li class="chapter" data-level="3.4" data-path="datatable-functions.html"><a href="datatable-functions.html#create-a-data.table"><i class="fa fa-check"></i><b>3.4</b> Create a data.table</a></li>
-<li class="chapter" data-level="3.5" data-path="datatable-functions.html"><a href="datatable-functions.html#convert-a-data.frame-or-list-to-a-data.table"><i class="fa fa-check"></i><b>3.5</b> Convert a data.frame or list to a data.table</a></li>
-<li class="chapter" data-level="3.6" data-path="datatable-functions.html"><a href="datatable-functions.html#punctuation"><i class="fa fa-check"></i><b>3.6</b> Punctuation</a></li>
-<li class="chapter" data-level="3.7" data-path="datatable-functions.html"><a href="datatable-functions.html#subset-rows"><i class="fa fa-check"></i><b>3.7</b> Subset rows :</a></li>
-<li class="chapter" data-level="3.8" data-path="datatable-functions.html"><a href="datatable-functions.html#extract-columns"><i class="fa fa-check"></i><b>3.8</b> Extract columns</a></li>
-<li class="chapter" data-level="3.9" data-path="datatable-functions.html"><a href="datatable-functions.html#summarize"><i class="fa fa-check"></i><b>3.9</b> Summarize</a></li>
-<li class="chapter" data-level="3.10" data-path="datatable-functions.html"><a href="datatable-functions.html#compute-columns"><i class="fa fa-check"></i><b>3.10</b> Compute columns</a></li>
-<li class="chapter" data-level="3.11" data-path="datatable-functions.html"><a href="datatable-functions.html#change-column-class"><i class="fa fa-check"></i><b>3.11</b> Change column class</a></li>
-<li class="chapter" data-level="3.12" data-path="datatable-functions.html"><a href="datatable-functions.html#group"><i class="fa fa-check"></i><b>3.12</b> Group</a></li>
-<li class="chapter" data-level="3.13" data-path="datatable-functions.html"><a href="datatable-functions.html#common-grouped-operations"><i class="fa fa-check"></i><b>3.13</b> Common grouped operations</a></li>
-<li class="chapter" data-level="3.14" data-path="datatable-functions.html"><a href="datatable-functions.html#a-sequence-operation-on-a-datatable"><i class="fa fa-check"></i><b>3.14</b> A sequence operation on a datatable</a></li>
-<li class="chapter" data-level="3.15" data-path="datatable-functions.html"><a href="datatable-functions.html#functions"><i class="fa fa-check"></i><b>3.15</b> Functions !</a></li>
-<li class="chapter" data-level="3.16" data-path="datatable-functions.html"><a href="datatable-functions.html#combine-data.tables"><i class="fa fa-check"></i><b>3.16</b> Combine data.tables</a></li>
-<li class="chapter" data-level="3.17" data-path="datatable-functions.html"><a href="datatable-functions.html#indexation"><i class="fa fa-check"></i><b>3.17</b> Indexation</a></li>
-<li class="chapter" data-level="3.18" data-path="datatable-functions.html"><a href="datatable-functions.html#reshape"><i class="fa fa-check"></i><b>3.18</b> Reshape</a></li>
-<li class="chapter" data-level="3.19" data-path="datatable-functions.html"><a href="datatable-functions.html#avoir-des-infoscalculer-des-statistiques"><i class="fa fa-check"></i><b>3.19</b> Avoir des infos/calculer des statistiques</a></li>
-<li class="chapter" data-level="3.20" data-path="datatable-functions.html"><a href="datatable-functions.html#apply-functions"><i class="fa fa-check"></i><b>3.20</b> Apply functions</a></li>
-<li class="chapter" data-level="3.21" data-path="datatable-functions.html"><a href="datatable-functions.html#sequential-rows"><i class="fa fa-check"></i><b>3.21</b> Sequential rows</a></li>
-<li class="chapter" data-level="3.22" data-path="datatable-functions.html"><a href="datatable-functions.html#maniement-de-chaines-de-caractères"><i class="fa fa-check"></i><b>3.22</b> Maniement de chaines de caractères</a></li>
-<li class="chapter" data-level="3.23" data-path="datatable-functions.html"><a href="datatable-functions.html#read-and-write-files"><i class="fa fa-check"></i><b>3.23</b> Read and write files</a></li>
-<li class="chapter" data-level="3.24" data-path="datatable-functions.html"><a href="datatable-functions.html#programmer-des-fonctions-avec-data.table"><i class="fa fa-check"></i><b>3.24</b> Programmer des fonctions avec data.table</a>
-<ul>
-<li class="chapter" data-level="3.24.1" data-path="datatable-functions.html"><a href="datatable-functions.html#sécuriser"><i class="fa fa-check"></i><b>3.24.1</b> Sécuriser</a></li>
-<li class="chapter" data-level="3.24.2" data-path="datatable-functions.html"><a href="datatable-functions.html#variables-en-argument"><i class="fa fa-check"></i><b>3.24.2</b> Variables en argument</a></li>
-<li class="chapter" data-level="3.24.3" data-path="datatable-functions.html"><a href="datatable-functions.html#sd-subset-of-data"><i class="fa fa-check"></i><b>3.24.3</b> .SD (Subset of Data)</a></li>
-<li class="chapter" data-level="3.24.4" data-path="datatable-functions.html"><a href="datatable-functions.html#lapply.sd-pour-des-fonctions-de-statistiques-descriptives"><i class="fa fa-check"></i><b>3.24.4</b> lapply+.SD pour des fonctions de statistiques descriptives</a></li>
-<li class="chapter" data-level="3.24.5" data-path="datatable-functions.html"><a href="datatable-functions.html#des-data.table-poupées-russes"><i class="fa fa-check"></i><b>3.24.5</b> Des data.table poupées russes</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html"><i class="fa fa-check"></i><b>4</b> Spatial data cours</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#tips"><i class="fa fa-check"></i><b>4.1</b> Tips</a></li>
-<li class="chapter" data-level="4.2" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#mapper-des-données"><i class="fa fa-check"></i><b>4.2</b> Mapper des données</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#types-de-données-spatiales"><i class="fa fa-check"></i><b>4.2.1</b> Types de données spatiales</a></li>
-<li class="chapter" data-level="4.2.2" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#ggplot"><i class="fa fa-check"></i><b>4.2.2</b> ggplot</a></li>
-<li class="chapter" data-level="4.2.3" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#les-rasters"><i class="fa fa-check"></i><b>4.2.3</b> Les rasters</a></li>
-<li class="chapter" data-level="4.2.4" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#les-objets-spatialisés-en-r"><i class="fa fa-check"></i><b>4.2.4</b> Les objets spatialisés en R</a></li>
-<li class="chapter" data-level="4.2.5" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#shapefiles"><i class="fa fa-check"></i><b>4.2.5</b> Shapefiles</a></li>
-<li class="chapter" data-level="4.2.6" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#systèmes-de-coordonnées-de-références-crs"><i class="fa fa-check"></i><b>4.2.6</b> Systèmes de coordonnées de références (CRS)</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#functions-1"><i class="fa fa-check"></i><b>4.3</b> Functions</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#sf-package"><i class="fa fa-check"></i><b>4.3.1</b> sf package</a></li>
-<li class="chapter" data-level="4.3.2" data-path="spatial-data-cours.html"><a href="spatial-data-cours.html#stars-package-to-work-on-rasters"><i class="fa fa-check"></i><b>4.3.2</b> Stars package to work on rasters</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html"><i class="fa fa-check"></i><b>5</b> Work with LiDAR data</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#tools"><i class="fa fa-check"></i><b>5.1</b> Tools</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#lastools"><i class="fa fa-check"></i><b>5.1.1</b> LAStools</a></li>
-<li class="chapter" data-level="5.1.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#r-packages"><i class="fa fa-check"></i><b>5.1.2</b> R packages</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-laz"><i class="fa fa-check"></i><b>5.2</b> Load laz</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#load-several-laz"><i class="fa fa-check"></i><b>5.2.1</b> Load several laz</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#write-laz"><i class="fa fa-check"></i><b>5.3</b> Write laz</a></li>
-<li class="chapter" data-level="5.4" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#check-if-the-las-is-complete"><i class="fa fa-check"></i><b>5.4</b> Check if the las is complete</a></li>
-<li class="chapter" data-level="5.5" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#see-their-summaries"><i class="fa fa-check"></i><b>5.5</b> See their summaries</a></li>
-<li class="chapter" data-level="5.6" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#plot"><i class="fa fa-check"></i><b>5.6</b> Plot</a></li>
-<li class="chapter" data-level="5.7" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#trajectory"><i class="fa fa-check"></i><b>5.7</b> Trajectory</a></li>
-<li class="chapter" data-level="5.8" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#clip-the-point-cloud"><i class="fa fa-check"></i><b>5.8</b> Clip the point cloud</a></li>
-<li class="chapter" data-level="5.9" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#classification"><i class="fa fa-check"></i><b>5.9</b> Classification</a></li>
-<li class="chapter" data-level="5.10" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#ajouter-des-points-à-un-las-combiner-plusieurs-las"><i class="fa fa-check"></i><b>5.10</b> Ajouter des points à un las, combiner plusieurs las</a></li>
-<li class="chapter" data-level="5.11" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#caluler-des-métriques"><i class="fa fa-check"></i><b>5.11</b> Caluler des métriques</a>
-<ul>
-<li class="chapter" data-level="5.11.1" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#generate-a-dtm-mnt"><i class="fa fa-check"></i><b>5.11.1</b> Generate a DTM (MNT)</a></li>
-<li class="chapter" data-level="5.11.2" data-path="work-with-lidar-data.html"><a href="work-with-lidar-data.html#la-réflectance-albedo"><i class="fa fa-check"></i><b>5.11.2</b> La réflectance (albedo)</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="parallelisation.html"><a href="parallelisation.html"><i class="fa fa-check"></i><b>6</b> Parallelisation</a></li>
-<li class="chapter" data-level="7" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>7</b> C++</a></li>
-<li class="chapter" data-level="8" data-path="plot-1.html"><a href="plot-1.html"><i class="fa fa-check"></i><b>8</b> Plot</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="plot-1.html"><a href="plot-1.html#a-quoi-faire-attention"><i class="fa fa-check"></i><b>8.1</b> A quoi faire attention</a></li>
-<li class="chapter" data-level="8.2" data-path="plot-1.html"><a href="plot-1.html#des-packages-intéressants"><i class="fa fa-check"></i><b>8.2</b> Des packages intéressants</a></li>
-<li class="chapter" data-level="8.3" data-path="plot-1.html"><a href="plot-1.html#types"><i class="fa fa-check"></i><b>8.3</b> Types</a></li>
-<li class="chapter" data-level="8.4" data-path="plot-1.html"><a href="plot-1.html#titres"><i class="fa fa-check"></i><b>8.4</b> Titres</a></li>
-<li class="chapter" data-level="8.5" data-path="plot-1.html"><a href="plot-1.html#des-couleurs"><i class="fa fa-check"></i><b>8.5</b> Des couleurs</a></li>
-<li class="chapter" data-level="8.6" data-path="plot-1.html"><a href="plot-1.html#des-histoires-de-texte"><i class="fa fa-check"></i><b>8.6</b> Des histoires de texte</a></li>
-<li class="chapter" data-level="8.7" data-path="plot-1.html"><a href="plot-1.html#axes"><i class="fa fa-check"></i><b>8.7</b> Axes</a>
-<ul>
-<li class="chapter" data-level="8.7.1" data-path="plot-1.html"><a href="plot-1.html#temporel"><i class="fa fa-check"></i><b>8.7.1</b> Temporel</a></li>
-<li class="chapter" data-level="8.7.2" data-path="plot-1.html"><a href="plot-1.html#double-axes"><i class="fa fa-check"></i><b>8.7.2</b> Double axes</a></li>
-</ul></li>
-<li class="chapter" data-level="8.8" data-path="plot-1.html"><a href="plot-1.html#multi-plots"><i class="fa fa-check"></i><b>8.8</b> Multi-plots</a></li>
-<li class="chapter" data-level="8.9" data-path="plot-1.html"><a href="plot-1.html#légende"><i class="fa fa-check"></i><b>8.9</b> Légende</a></li>
-<li class="chapter" data-level="8.10" data-path="plot-1.html"><a href="plot-1.html#ajouter-des-lignes"><i class="fa fa-check"></i><b>8.10</b> Ajouter des lignes</a></li>
-<li class="chapter" data-level="8.11" data-path="plot-1.html"><a href="plot-1.html#dans-une-boucle"><i class="fa fa-check"></i><b>8.11</b> Dans une boucle</a></li>
-<li class="chapter" data-level="8.12" data-path="plot-1.html"><a href="plot-1.html#en-3d"><i class="fa fa-check"></i><b>8.12</b> En 3D</a></li>
-<li class="chapter" data-level="8.13" data-path="plot-1.html"><a href="plot-1.html#animated-plot"><i class="fa fa-check"></i><b>8.13</b> Animated plot</a></li>
-<li class="chapter" data-level="8.14" data-path="plot-1.html"><a href="plot-1.html#plusieurs-plots-cote-à-cote"><i class="fa fa-check"></i><b>8.14</b> Plusieurs plots cote à cote</a></li>
-<li class="chapter" data-level="8.15" data-path="plot-1.html"><a href="plot-1.html#télécharger-dans-le-bon-format-au-bon-endroit"><i class="fa fa-check"></i><b>8.15</b> Télécharger dans le bon format, au bon endroit !</a></li>
-<li class="chapter" data-level="8.16" data-path="plot-1.html"><a href="plot-1.html#en-faire-de-lart"><i class="fa fa-check"></i><b>8.16</b> En faire de l’art !</a></li>
-</ul></li>
-<li class="part"><span><b>II Outils autour de R</b></span></li>
-<li class="chapter" data-level="9" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>9</b> Rmarkdown</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="rmarkdown.html"><a href="rmarkdown.html#packages"><i class="fa fa-check"></i><b>9.1</b> Packages</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="rmarkdown.html"><a href="rmarkdown.html#sous-titre"><i class="fa fa-check"></i><b>9.1.1</b> Sous-titre</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="rmarkdown.html"><a href="rmarkdown.html#chunk"><i class="fa fa-check"></i><b>9.2</b> Chunk</a></li>
-<li class="chapter" data-level="9.3" data-path="rmarkdown.html"><a href="rmarkdown.html#spécifier-un-working-directory-différent-de-celui-du-fichier"><i class="fa fa-check"></i><b>9.3</b> Spécifier un working directory différent de celui du fichier</a></li>
-<li class="chapter" data-level="9.4" data-path="rmarkdown.html"><a href="rmarkdown.html#table"><i class="fa fa-check"></i><b>9.4</b> Table</a></li>
-<li class="chapter" data-level="9.5" data-path="rmarkdown.html"><a href="rmarkdown.html#figure"><i class="fa fa-check"></i><b>9.5</b> Figure</a></li>
-<li class="chapter" data-level="9.6" data-path="rmarkdown.html"><a href="rmarkdown.html#equations"><i class="fa fa-check"></i><b>9.6</b> Equations</a></li>
-<li class="chapter" data-level="9.7" data-path="rmarkdown.html"><a href="rmarkdown.html#des-diagrammes-avec-mermaid"><i class="fa fa-check"></i><b>9.7</b> Des diagrammes avec Mermaid !</a></li>
-<li class="chapter" data-level="9.8" data-path="rmarkdown.html"><a href="rmarkdown.html#bibliographie"><i class="fa fa-check"></i><b>9.8</b> Bibliographie</a></li>
-<li class="chapter" data-level="9.9" data-path="rmarkdown.html"><a href="rmarkdown.html#références-croisées"><i class="fa fa-check"></i><b>9.9</b> Références croisées</a></li>
-<li class="chapter" data-level="9.10" data-path="rmarkdown.html"><a href="rmarkdown.html#cache"><i class="fa fa-check"></i><b>9.10</b> Cache</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>10</b> Github</a></li>
-<li class="chapter" data-level="11" data-path="bookdown.html"><a href="bookdown.html"><i class="fa fa-check"></i><b>11</b> Bookdown</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="bookdown.html"><a href="bookdown.html#fichiers-particuliers"><i class="fa fa-check"></i><b>11.1</b> Fichiers particuliers</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="intégration-continue.html"><a href="intégration-continue.html"><i class="fa fa-check"></i><b>12</b> Intégration continue</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="intégration-continue.html"><a href="intégration-continue.html#travis"><i class="fa fa-check"></i><b>12.1</b> Travis</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="intégration-continue.html"><a href="intégration-continue.html#script-de-contrôle-de-travis"><i class="fa fa-check"></i><b>12.1.1</b> Script de contrôle de Travis</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="intégration-continue.html"><a href="intégration-continue.html#codecov"><i class="fa fa-check"></i><b>12.2</b> Codecov</a></li>
-</ul></li>
-<li class="part"><span><b>III Developper sous R</b></span></li>
-<li class="chapter" data-level="13" data-path="function-creation.html"><a href="function-creation.html"><i class="fa fa-check"></i><b>13</b> Function creation</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="function-creation.html"><a href="function-creation.html#étapes-de-développement"><i class="fa fa-check"></i><b>13.1</b> Étapes de développement :</a></li>
-<li class="chapter" data-level="13.2" data-path="function-creation.html"><a href="function-creation.html#structure"><i class="fa fa-check"></i><b>13.2</b> Structure :</a></li>
-<li class="chapter" data-level="13.3" data-path="function-creation.html"><a href="function-creation.html#nommer-ses-arguments"><i class="fa fa-check"></i><b>13.3</b> Nommer ses arguments</a></li>
-<li class="chapter" data-level="13.4" data-path="function-creation.html"><a href="function-creation.html#valeurs-par-défaut"><i class="fa fa-check"></i><b>13.4</b> Valeurs par défaut</a></li>
-<li class="chapter" data-level="13.5" data-path="function-creation.html"><a href="function-creation.html#évaluation-de-la-fonction"><i class="fa fa-check"></i><b>13.5</b> évaluation de la fonction</a></li>
-<li class="chapter" data-level="13.6" data-path="function-creation.html"><a href="function-creation.html#vérification-de-la-classe-des-arguments"><i class="fa fa-check"></i><b>13.6</b> Vérification de la classe des arguments</a></li>
-<li class="chapter" data-level="13.7" data-path="function-creation.html"><a href="function-creation.html#largument-fun"><i class="fa fa-check"></i><b>13.7</b> L’argument ‘fun’</a></li>
-<li class="chapter" data-level="13.8" data-path="function-creation.html"><a href="function-creation.html#largument"><i class="fa fa-check"></i><b>13.8</b> L’argument ‘…’</a></li>
-<li class="chapter" data-level="13.9" data-path="function-creation.html"><a href="function-creation.html#types-de-fonction"><i class="fa fa-check"></i><b>13.9</b> Types de fonction</a>
-<ul>
-<li class="chapter" data-level="13.9.1" data-path="function-creation.html"><a href="function-creation.html#appel-récursif"><i class="fa fa-check"></i><b>13.9.1</b> Appel récursif</a></li>
-<li class="chapter" data-level="13.9.2" data-path="function-creation.html"><a href="function-creation.html#fct-anonyme-dans-une-autre-fonction"><i class="fa fa-check"></i><b>13.9.2</b> Fct anonyme dans une autre fonction</a></li>
-</ul></li>
-<li class="chapter" data-level="13.10" data-path="function-creation.html"><a href="function-creation.html#retourner-un-résultat"><i class="fa fa-check"></i><b>13.10</b> Retourner un résultat</a></li>
-<li class="chapter" data-level="13.11" data-path="function-creation.html"><a href="function-creation.html#fonctions-de-message-et-darrêt-de-fonction"><i class="fa fa-check"></i><b>13.11</b> Fonctions de message et d’arrêt de fonction</a></li>
-<li class="chapter" data-level="13.12" data-path="function-creation.html"><a href="function-creation.html#interaction-avec-lutilisateur"><i class="fa fa-check"></i><b>13.12</b> Interaction avec l’utilisateur</a></li>
-<li class="chapter" data-level="13.13" data-path="function-creation.html"><a href="function-creation.html#iteration"><i class="fa fa-check"></i><b>13.13</b> Iteration</a></li>
-<li class="chapter" data-level="13.14" data-path="function-creation.html"><a href="function-creation.html#parallelisation-1"><i class="fa fa-check"></i><b>13.14</b> Parallelisation</a></li>
-<li class="chapter" data-level="13.15" data-path="function-creation.html"><a href="function-creation.html#choses-à-savoir"><i class="fa fa-check"></i><b>13.15</b> Choses à savoir</a></li>
-<li class="chapter" data-level="13.16" data-path="function-creation.html"><a href="function-creation.html#débogage-tips"><i class="fa fa-check"></i><b>13.16</b> Débogage tips</a></li>
-<li class="chapter" data-level="13.17" data-path="function-creation.html"><a href="function-creation.html#où-écrire-ses-fcts"><i class="fa fa-check"></i><b>13.17</b> Où écrire ses fcts ?</a></li>
-<li class="chapter" data-level="13.18" data-path="function-creation.html"><a href="function-creation.html#comment-les-utiliser"><i class="fa fa-check"></i><b>13.18</b> Comment les utiliser ?</a></li>
-<li class="chapter" data-level="13.19" data-path="function-creation.html"><a href="function-creation.html#plusieurs-fonctions-internes---passation-dinfos"><i class="fa fa-check"></i><b>13.19</b> Plusieurs fonctions internes - passation d’infos</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="package-creation.html"><a href="package-creation.html"><i class="fa fa-check"></i><b>14</b> Package creation</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="package-creation.html"><a href="package-creation.html#references"><i class="fa fa-check"></i><b>14.1</b> References</a></li>
-<li class="chapter" data-level="14.2" data-path="package-creation.html"><a href="package-creation.html#les-packages-r-nécessaires"><i class="fa fa-check"></i><b>14.2</b> Les packages R nécessaires</a></li>
-<li class="chapter" data-level="14.3" data-path="package-creation.html"><a href="package-creation.html#creation-du-package"><i class="fa fa-check"></i><b>14.3</b> Creation du package</a></li>
-<li class="chapter" data-level="14.4" data-path="package-creation.html"><a href="package-creation.html#tips-de-codeur-1"><i class="fa fa-check"></i><b>14.4</b> Tips de codeur</a></li>
-<li class="chapter" data-level="14.5" data-path="package-creation.html"><a href="package-creation.html#eviter-les-messages-derreurs"><i class="fa fa-check"></i><b>14.5</b> Eviter les messages d’erreurs</a></li>
-<li class="chapter" data-level="14.6" data-path="package-creation.html"><a href="package-creation.html#commandes"><i class="fa fa-check"></i><b>14.6</b> Commandes</a>
-<ul>
-<li class="chapter" data-level="14.6.1" data-path="package-creation.html"><a href="package-creation.html#comprendre-le-skeleton"><i class="fa fa-check"></i><b>14.6.1</b> Comprendre le Skeleton</a></li>
-<li class="chapter" data-level="14.6.2" data-path="package-creation.html"><a href="package-creation.html#r-folfer"><i class="fa fa-check"></i><b>14.6.2</b> R folfer</a></li>
-<li class="chapter" data-level="14.6.3" data-path="package-creation.html"><a href="package-creation.html#nom-package.r-file"><i class="fa fa-check"></i><b>14.6.3</b> nom-package.R file</a></li>
-<li class="chapter" data-level="14.6.4" data-path="package-creation.html"><a href="package-creation.html#namespace-file"><i class="fa fa-check"></i><b>14.6.4</b> NAMESPACE file</a></li>
-<li class="chapter" data-level="14.6.5" data-path="package-creation.html"><a href="package-creation.html#description-file"><i class="fa fa-check"></i><b>14.6.5</b> DESCRIPTION file</a></li>
-<li class="chapter" data-level="14.6.6" data-path="package-creation.html"><a href="package-creation.html#rbuildignore"><i class="fa fa-check"></i><b>14.6.6</b> .Rbuildignore</a></li>
-</ul></li>
-<li class="chapter" data-level="14.7" data-path="package-creation.html"><a href="package-creation.html#importation-de-fonctions"><i class="fa fa-check"></i><b>14.7</b> Importation de fonctions</a></li>
-<li class="chapter" data-level="14.8" data-path="package-creation.html"><a href="package-creation.html#créer-des-classes-pour-ses-objets-en-plus-de-ceux-de-base"><i class="fa fa-check"></i><b>14.8</b> Créer des classes pour ses objets en plus de ceux de base</a></li>
-<li class="chapter" data-level="14.9" data-path="package-creation.html"><a href="package-creation.html#créer-une-méthode-générique"><i class="fa fa-check"></i><b>14.9</b> Créer une “méthode générique”</a></li>
-<li class="chapter" data-level="14.10" data-path="package-creation.html"><a href="package-creation.html#tidyverse"><i class="fa fa-check"></i><b>14.10</b> tidyverse</a></li>
-<li class="chapter" data-level="14.11" data-path="package-creation.html"><a href="package-creation.html#vignette"><i class="fa fa-check"></i><b>14.11</b> Vignette</a></li>
-<li class="chapter" data-level="14.12" data-path="package-creation.html"><a href="package-creation.html#site-du-package-pkgdown"><i class="fa fa-check"></i><b>14.12</b> Site du package : Pkgdown</a></li>
-<li class="chapter" data-level="14.13" data-path="package-creation.html"><a href="package-creation.html#des-petits-messages-à-lutilisateur"><i class="fa fa-check"></i><b>14.13</b> Des petits messages à l’utilisateur</a></li>
-<li class="chapter" data-level="14.14" data-path="package-creation.html"><a href="package-creation.html#c-1"><i class="fa fa-check"></i><b>14.14</b> C++</a></li>
-<li class="chapter" data-level="14.15" data-path="package-creation.html"><a href="package-creation.html#biblio"><i class="fa fa-check"></i><b>14.15</b> Biblio</a></li>
-<li class="chapter" data-level="14.16" data-path="package-creation.html"><a href="package-creation.html#where-stock-my-data-in-my-package"><i class="fa fa-check"></i><b>14.16</b> Where stock my data in my package</a>
-<ul>
-<li class="chapter" data-level="14.16.1" data-path="package-creation.html"><a href="package-creation.html#testing-data"><i class="fa fa-check"></i><b>14.16.1</b> <strong>Testing data</strong>:</a></li>
-<li class="chapter" data-level="14.16.2" data-path="package-creation.html"><a href="package-creation.html#default-data"><i class="fa fa-check"></i><b>14.16.2</b> <strong>Default data</strong>:</a></li>
-<li class="chapter" data-level="14.16.3" data-path="package-creation.html"><a href="package-creation.html#exported-data-in-data"><i class="fa fa-check"></i><b>14.16.3</b> Exported data (in <strong>data/</strong>)</a></li>
-<li class="chapter" data-level="14.16.4" data-path="package-creation.html"><a href="package-creation.html#documenter-ces-données-exportées"><i class="fa fa-check"></i><b>14.16.4</b> Documenter ces données exportées</a></li>
-<li class="chapter" data-level="14.16.5" data-path="package-creation.html"><a href="package-creation.html#internal-data-for-a-function-in-rsysdata.rda"><i class="fa fa-check"></i><b>14.16.5</b> Internal data for a function (in <strong>R/sysdata.rda</strong>)</a></li>
-</ul></li>
-<li class="chapter" data-level="14.17" data-path="package-creation.html"><a href="package-creation.html#charger-ces-data"><i class="fa fa-check"></i><b>14.17</b> Charger ces data</a></li>
-<li class="chapter" data-level="14.18" data-path="package-creation.html"><a href="package-creation.html#tests"><i class="fa fa-check"></i><b>14.18</b> Tests</a></li>
-<li class="chapter" data-level="14.19" data-path="package-creation.html"><a href="package-creation.html#un-package-pour-tous"><i class="fa fa-check"></i><b>14.19</b> Un package pour tous</a></li>
-<li class="chapter" data-level="14.20" data-path="package-creation.html"><a href="package-creation.html#mettre-le-package-sur-cran"><i class="fa fa-check"></i><b>14.20</b> Mettre le package sur CRAN</a>
-<ul>
-<li class="chapter" data-level="14.20.1" data-path="package-creation.html"><a href="package-creation.html#les-tests"><i class="fa fa-check"></i><b>14.20.1</b> Les tests</a></li>
-</ul></li>
-<li class="chapter" data-level="14.21" data-path="package-creation.html"><a href="package-creation.html#debugger"><i class="fa fa-check"></i><b>14.21</b> Debugger</a></li>
-<li class="chapter" data-level="14.22" data-path="package-creation.html"><a href="package-creation.html#versioning"><i class="fa fa-check"></i><b>14.22</b> Versioning</a></li>
-<li class="chapter" data-level="14.23" data-path="package-creation.html"><a href="package-creation.html#renommer-le-package"><i class="fa fa-check"></i><b>14.23</b> Renommer le package</a></li>
-<li class="chapter" data-level="14.24" data-path="package-creation.html"><a href="package-creation.html#installer-le-package"><i class="fa fa-check"></i><b>14.24</b> Installer le package</a></li>
-<li class="chapter" data-level="14.25" data-path="package-creation.html"><a href="package-creation.html#générer-la-citation-du-package"><i class="fa fa-check"></i><b>14.25</b> Générer la citation du package</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="shiny-cours.html"><a href="shiny-cours.html"><i class="fa fa-check"></i><b>15</b> Shiny cours</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="shiny-cours.html"><a href="shiny-cours.html#packages-1"><i class="fa fa-check"></i><b>15.1</b> Packages</a></li>
-<li class="chapter" data-level="15.2" data-path="shiny-cours.html"><a href="shiny-cours.html#tips-codeur"><i class="fa fa-check"></i><b>15.2</b> Tips codeur</a></li>
-<li class="chapter" data-level="15.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shiny"><i class="fa fa-check"></i><b>15.3</b> Shiny:</a></li>
-<li class="chapter" data-level="15.4" data-path="shiny-cours.html"><a href="shiny-cours.html#structurer-lappli"><i class="fa fa-check"></i><b>15.4</b> Structurer l’appli</a></li>
-<li class="chapter" data-level="15.5" data-path="shiny-cours.html"><a href="shiny-cours.html#créer-linterface"><i class="fa fa-check"></i><b>15.5</b> Créer l’interface</a>
-<ul>
-<li class="chapter" data-level="15.5.1" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-page"><i class="fa fa-check"></i><b>15.5.1</b> Mise en page</a></li>
-<li class="chapter" data-level="15.5.2" data-path="shiny-cours.html"><a href="shiny-cours.html#inputs-ouputs"><i class="fa fa-check"></i><b>15.5.2</b> INPUTS &amp; OUPUTS</a></li>
-</ul></li>
-<li class="chapter" data-level="15.6" data-path="shiny-cours.html"><a href="shiny-cours.html#gérer-les-intéractions"><i class="fa fa-check"></i><b>15.6</b> Gérer les intéractions</a></li>
-<li class="chapter" data-level="15.7" data-path="shiny-cours.html"><a href="shiny-cours.html#enrichir-lappli"><i class="fa fa-check"></i><b>15.7</b> Enrichir l’appli</a>
-<ul>
-<li class="chapter" data-level="15.7.1" data-path="shiny-cours.html"><a href="shiny-cours.html#leaflet"><i class="fa fa-check"></i><b>15.7.1</b> Leaflet</a></li>
-<li class="chapter" data-level="15.7.2" data-path="shiny-cours.html"><a href="shiny-cours.html#chargerenregistrer-des-fichiers"><i class="fa fa-check"></i><b>15.7.2</b> Charger/enregistrer des fichiers</a></li>
-<li class="chapter" data-level="15.7.3" data-path="shiny-cours.html"><a href="shiny-cours.html#shinydashboard"><i class="fa fa-check"></i><b>15.7.3</b> Shinydashboard</a></li>
-</ul></li>
-<li class="chapter" data-level="15.8" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-packages"><i class="fa fa-check"></i><b>15.8</b> Autres packages</a></li>
-<li class="chapter" data-level="15.9" data-path="shiny-cours.html"><a href="shiny-cours.html#mise-en-ligne-et-partage-de-lappli"><i class="fa fa-check"></i><b>15.9</b> Mise en ligne et partage de l’appli</a>
-<ul>
-<li class="chapter" data-level="15.9.1" data-path="shiny-cours.html"><a href="shiny-cours.html#en-local-cest-mieux-plus-rapide-car-outils-de-calcul-et-on-y-est-seul"><i class="fa fa-check"></i><b>15.9.1</b> En local : c’est mieux, plus rapide car outils de calcul et on y est seul</a></li>
-<li class="chapter" data-level="15.9.2" data-path="shiny-cours.html"><a href="shiny-cours.html#a-distance"><i class="fa fa-check"></i><b>15.9.2</b> A distance</a></li>
-</ul></li>
-<li class="chapter" data-level="15.10" data-path="shiny-cours.html"><a href="shiny-cours.html#module"><i class="fa fa-check"></i><b>15.10</b> Module</a></li>
-<li class="chapter" data-level="15.11" data-path="shiny-cours.html"><a href="shiny-cours.html#autres-sources-cours"><i class="fa fa-check"></i><b>15.11</b> Autres sources cours</a></li>
-</ul></li>
-<li class="part"><span><b>IV Statistics</b></span></li>
-<li class="chapter" data-level="16" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html"><i class="fa fa-check"></i><b>16</b> Stats à ne plus chercher</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#inférer-des-données"><i class="fa fa-check"></i><b>16.1</b> Inférer des données</a></li>
-<li class="chapter" data-level="16.2" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#standardizer-centrer-réduire"><i class="fa fa-check"></i><b>16.2</b> Standardizer (centrer-réduire)</a></li>
-<li class="chapter" data-level="16.3" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#régression"><i class="fa fa-check"></i><b>16.3</b> Régression</a></li>
-<li class="chapter" data-level="16.4" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#analyse-de-variance-déviance"><i class="fa fa-check"></i><b>16.4</b> Analyse de variance / déviance</a></li>
-<li class="chapter" data-level="16.5" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#analyse-de-la-covariance"><i class="fa fa-check"></i><b>16.5</b> Analyse de la covariance</a></li>
-<li class="chapter" data-level="16.6" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#acp-analyse-en-composantes-principales-tp3-décologie-numérique"><i class="fa fa-check"></i><b>16.6</b> ACP Analyse en Composantes Principales (TP3 d’écologie numérique)</a>
-<ul>
-<li class="chapter" data-level="16.6.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#pour-gerer-ces-donnees-manquantes-il-serait-possible-de"><i class="fa fa-check"></i><b>16.6.1</b> Pour gerer ces donnees manquantes il serait possible de :</a></li>
-<li class="chapter" data-level="16.6.2" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#calcul-du-dexplication-de-chaque-axe-inertie"><i class="fa fa-check"></i><b>16.6.2</b> Calcul du % d’explication de chaque axe (inertie)</a></li>
-<li class="chapter" data-level="16.6.3" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#cercle-de-correlation-pour-une-acp-normee"><i class="fa fa-check"></i><b>16.6.3</b> Cercle de correlation (pour une ACP normee)</a></li>
-<li class="chapter" data-level="16.6.4" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#representation-dune-variable-explicative-qualitative"><i class="fa fa-check"></i><b>16.6.4</b> Representation d’une variable explicative qualitative :</a></li>
-<li class="chapter" data-level="16.6.5" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#data-transformation-in-new-dimensional-space"><i class="fa fa-check"></i><b>16.6.5</b> Data transformation in new dimensional space</a></li>
-</ul></li>
-<li class="chapter" data-level="16.7" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#afc-analyse-factorielle-des-correspondances"><i class="fa fa-check"></i><b>16.7</b> AFC Analyse Factorielle des Correspondances</a></li>
-<li class="chapter" data-level="16.8" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#acm-analyse-des-correspondances-multiples"><i class="fa fa-check"></i><b>16.8</b> ACM Analyse des Correspondances Multiples</a></li>
-<li class="chapter" data-level="16.9" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#analyse-mixteanalyse-factorielle-multiple"><i class="fa fa-check"></i><b>16.9</b> Analyse mixte/Analyse factorielle multiple</a></li>
-<li class="chapter" data-level="16.10" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#corrélations"><i class="fa fa-check"></i><b>16.10</b> Corrélations</a>
-<ul>
-<li class="chapter" data-level="16.10.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#draftsman-plot-pour-étudier-les-variables-et-leur-relation"><i class="fa fa-check"></i><b>16.10.1</b> Draftsman plot pour étudier les variables et leur relation</a></li>
-</ul></li>
-<li class="chapter" data-level="16.11" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#evaluer-la-performance-dune-prédiction"><i class="fa fa-check"></i><b>16.11</b> Evaluer la performance d’une prédiction</a>
-<ul>
-<li class="chapter" data-level="16.11.1" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#validation-croisée-rééchantillonage"><i class="fa fa-check"></i><b>16.11.1</b> Validation croisée (rééchantillonage)</a></li>
-</ul></li>
-<li class="chapter" data-level="16.12" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#processus-gaussiens"><i class="fa fa-check"></i><b>16.12</b> Processus gaussiens</a></li>
-<li class="chapter" data-level="16.13" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#indices-de-distances-et-de-dissimilaritéclassification-ascendante-hierarchique-cahcreation-de-dendrogrammeskmeans-voir-tp2-decologie-numérique"><i class="fa fa-check"></i><b>16.13</b> Indices de distances et de dissimilarité/Classification ascendante hierarchique CAH/Creation de dendrogrammes/Kmeans (voir TP2 d’ecologie numérique)</a></li>
-<li class="chapter" data-level="16.14" data-path="stats-à-ne-plus-chercher.html"><a href="stats-à-ne-plus-chercher.html#permanova-anova-multivariée"><i class="fa fa-check"></i><b>16.14</b> Permanova : anova multivariée</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html"><i class="fa fa-check"></i><b>17</b> Introduction à Stan</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#pourquoi-les-stats-bayesiennes"><i class="fa fa-check"></i><b>17.1</b> Pourquoi les stats bayesiennes ?</a></li>
-<li class="chapter" data-level="17.2" data-path="introduction-à-stan.html"><a href="introduction-à-stan.html#stan-program"><i class="fa fa-check"></i><b>17.2</b> Stan program :</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html"><i class="fa fa-check"></i><b>18</b> I am a modeler</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#la-modélisation"><i class="fa fa-check"></i><b>18.1</b> La modélisation</a></li>
-<li class="chapter" data-level="18.2" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-linéaire-simple"><i class="fa fa-check"></i><b>18.2</b> Modèle linéaire simple</a></li>
-<li class="chapter" data-level="18.3" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#lois-de-probabilité-de-la-fonction-de-réponse"><i class="fa fa-check"></i><b>18.3</b> Lois de probabilité de la fonction de réponse</a></li>
-<li class="chapter" data-level="18.4" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#glm-modèles-linéaires-généralisés"><i class="fa fa-check"></i><b>18.4</b> GLM (modèles linéaires généralisés)</a></li>
-<li class="chapter" data-level="18.5" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#modèle-mixte"><i class="fa fa-check"></i><b>18.5</b> Modèle mixte</a></li>
-<li class="chapter" data-level="18.6" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#créer-nos-prédicteurs-selon-leffet-que-lon-veut-tester"><i class="fa fa-check"></i><b>18.6</b> Créer nos prédicteurs selon l’effet que l’on veut tester</a></li>
-<li class="chapter" data-level="18.7" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#tests-1"><i class="fa fa-check"></i><b>18.7</b> tests</a></li>
-<li class="chapter" data-level="18.8" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#estimations-des-paramètres"><i class="fa fa-check"></i><b>18.8</b> Estimations des paramètres</a></li>
-<li class="chapter" data-level="18.9" data-path="i-am-a-modeler.html"><a href="i-am-a-modeler.html#variable-réponse-qualitatite"><i class="fa fa-check"></i><b>18.9</b> Variable réponse qualitatite</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html"><i class="fa fa-check"></i><b>19</b> Bayesian stats cours</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="bayesian-stats-cours.html"><a href="bayesian-stats-cours.html#grid-approximation-to-define-posterior"><i class="fa fa-check"></i><b>19.1</b> Grid approximation (to define posterior) :</a></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html"><i class="fa fa-check"></i><b>20</b> Bayesian and Stan langage</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#règles"><i class="fa fa-check"></i><b>20.1</b> Règles</a></li>
-<li class="chapter" data-level="20.2" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#les-données"><i class="fa fa-check"></i><b>20.2</b> Les données</a></li>
-<li class="chapter" data-level="20.3" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#definitions"><i class="fa fa-check"></i><b>20.3</b> Definitions</a></li>
-<li class="chapter" data-level="20.4" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-poisson-positif-discret-par-exemble-un-abondance"><i class="fa fa-check"></i><b>20.4</b> Loi Poisson (positif &amp; discret) (par exemble un abondance)</a></li>
-<li class="chapter" data-level="20.5" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#loi-bernouilli-logistique-blogit-réponse-binaire"><i class="fa fa-check"></i><b>20.5</b> Loi Bernouilli-logistique (Blogit) (réponse binaire)</a></li>
-<li class="chapter" data-level="20.6" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#tools-1"><i class="fa fa-check"></i><b>20.6</b> Tools</a></li>
-<li class="chapter" data-level="20.7" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#rapidité"><i class="fa fa-check"></i><b>20.7</b> Rapidité</a></li>
-<li class="chapter" data-level="20.8" data-path="bayesian-and-stan-langage.html"><a href="bayesian-and-stan-langage.html#non-identifiabilité"><i class="fa fa-check"></i><b>20.8</b> Non-identifiabilité</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><i class="fa fa-check"></i><b>21</b> Inla-Inlabru statistiques bayésiennes spatialisées</a>
-<ul>
-<li class="chapter" data-level="21.1" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#install-inla-r-package"><i class="fa fa-check"></i><b>21.1</b> Install INLA R package</a></li>
-<li class="chapter" data-level="21.2" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#other-packages"><i class="fa fa-check"></i><b>21.2</b> Other packages</a></li>
-<li class="chapter" data-level="21.3" data-path="inla-inlabru-statistiques-bayésiennes-spatialisées.html"><a href="inla-inlabru-statistiques-bayésiennes-spatialisées.html#load-packages"><i class="fa fa-check"></i><b>21.3</b> Load packages</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="cours.html"><a href="cours.html"><i class="fa fa-check"></i><b>22</b> Cours</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="cours.html"><a href="cours.html#approche-bayésienne"><i class="fa fa-check"></i><b>22.1</b> Approche bayésienne</a></li>
-<li class="chapter" data-level="22.2" data-path="cours.html"><a href="cours.html#inlabru"><i class="fa fa-check"></i><b>22.2</b> inlabru</a></li>
-</ul></li>
-<li class="part"><span><b>V Rédaction</b></span></li>
-<li class="chapter" data-level="23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html"><i class="fa fa-check"></i><b>23</b> Conseils de rédaction scientifique</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conseils-généraux"><i class="fa fa-check"></i><b>23.1</b> Conseils généraux:</a></li>
-<li class="chapter" data-level="23.2" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#pq-écrire-pq-publier"><i class="fa fa-check"></i><b>23.2</b> Pq écrire ? / Pq publier ?</a></li>
-<li class="chapter" data-level="23.3" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-barrières-pour-écrire-et-publier"><i class="fa fa-check"></i><b>23.3</b> Les barrières pour écrire et publier :</a></li>
-<li class="chapter" data-level="23.4" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#que-veulent-les-rédacteurs"><i class="fa fa-check"></i><b>23.4</b> Que veulent les rédacteurs ?</a></li>
-<li class="chapter" data-level="23.5" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#fonctionnement-dune-revue"><i class="fa fa-check"></i><b>23.5</b> Fonctionnement d’une revue :</a>
-<ul>
-<li class="chapter" data-level="23.5.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#différents-types-darticles"><i class="fa fa-check"></i><b>23.5.1</b> Différents types d’articles :</a></li>
-</ul></li>
-<li class="chapter" data-level="23.6" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#introduction-3-paragraphes-250-mots-¼-des-refs"><i class="fa fa-check"></i><b>23.6</b> Introduction (3 paragraphes) (250 mots) (¼ des refs)</a></li>
-<li class="chapter" data-level="23.7" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#méthodes-pour-que-ce-soit-reproductible"><i class="fa fa-check"></i><b>23.7</b> Méthodes (pour que ce soit reproductible) ()</a></li>
-<li class="chapter" data-level="23.8" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résultats-pas-de-plan-par-défaut-voir-les-consignes-de-la-revue"><i class="fa fa-check"></i><b>23.8</b> Résultats (pas de plan par défaut, voir les consignes de la revue)</a></li>
-<li class="chapter" data-level="23.9" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#discussion-on-discute-le-résultat-tout-le-long-10-20h-de-travail"><i class="fa fa-check"></i><b>23.9</b> Discussion on discute le résultat tout le long (10-20h de travail</a></li>
-<li class="chapter" data-level="23.10" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#annexes"><i class="fa fa-check"></i><b>23.10</b> Annexes</a></li>
-<li class="chapter" data-level="23.11" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#les-auteurs-les-4-pts-validé-international"><i class="fa fa-check"></i><b>23.11</b> Les auteurs (les 4 pts validé, international)</a></li>
-<li class="chapter" data-level="23.12" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#références"><i class="fa fa-check"></i><b>23.12</b> Références :</a></li>
-<li class="chapter" data-level="23.13" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#titre-de-larticle"><i class="fa fa-check"></i><b>23.13</b> Titre de l’article :</a></li>
-<li class="chapter" data-level="23.14" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#science-ouverte-diffusion-des-produits-scientifiques-résultats-données-écrits-et-code-source"><i class="fa fa-check"></i><b>23.14</b> science ouverte : diffusion des produits scientifiques (résultats, données, écrits et code source)</a></li>
-<li class="chapter" data-level="23.15" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#data-availability"><i class="fa fa-check"></i><b>23.15</b> Data availability:</a></li>
-<li class="chapter" data-level="23.16" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#résumé"><i class="fa fa-check"></i><b>23.16</b> Résumé :</a></li>
-<li class="chapter" data-level="23.17" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#choix-dune-revue-coopist-journal-selector"><i class="fa fa-check"></i><b>23.17</b> Choix d’une revue (Coopist, “journal selector”)</a></li>
-<li class="chapter" data-level="23.18" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#remerciement"><i class="fa fa-check"></i><b>23.18</b> Remerciement :</a></li>
-<li class="chapter" data-level="23.19" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#creditcontributeurs"><i class="fa fa-check"></i><b>23.19</b> CRediT/contributeurs :</a></li>
-<li class="chapter" data-level="23.20" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#conflit-dintérêt-relations-et-activités-qui-ont-pu-influencer"><i class="fa fa-check"></i><b>23.20</b> Conflit d’intérêt (relations et activités qui ont pu influencer) :</a></li>
-<li class="chapter" data-level="23.21" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-du-temps"><i class="fa fa-check"></i><b>23.21</b> Gestion du temps</a></li>
-<li class="chapter" data-level="23.22" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#gestion-des-coauteurs"><i class="fa fa-check"></i><b>23.22</b> Gestion des coauteurs :</a></li>
-<li class="chapter" data-level="23.23" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#ecriture-qqsoit-la-langue"><i class="fa fa-check"></i><b>23.23</b> Ecriture (qqsoit la langue) :</a>
-<ul>
-<li class="chapter" data-level="23.23.1" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#en-englais"><i class="fa fa-check"></i><b>23.23.1</b> En englais</a></li>
-</ul></li>
-<li class="chapter" data-level="23.24" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#embellissement-de-larticle-pas-bien"><i class="fa fa-check"></i><b>23.24</b> Embellissement de l’article (pas bien)</a></li>
-<li class="chapter" data-level="23.25" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#lettre-de-motivation-de-soumission-pas-tjrs-demandée"><i class="fa fa-check"></i><b>23.25</b> Lettre de motivation de soumission (pas tjrs demandée) :</a></li>
-<li class="chapter" data-level="23.26" data-path="conseils-de-rédaction-scientifique.html"><a href="conseils-de-rédaction-scientifique.html#au-cirad"><i class="fa fa-check"></i><b>23.26</b> Au Cirad</a></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="formulation-de-phrases-élégantes.html"><a href="formulation-de-phrases-élégantes.html"><i class="fa fa-check"></i><b>24</b> Formulation de phrases élégantes</a></li>
-<li class="chapter" data-level="25" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html"><i class="fa fa-check"></i><b>25</b> Distinction britanique/americain</a>
-<ul>
-<li class="chapter" data-level="25.1" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#our-uk-ou--or-us"><i class="fa fa-check"></i><b>25.1</b> -our (UK) ou -or (US)</a></li>
-<li class="chapter" data-level="25.2" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#re-uk-ou--er-us"><i class="fa fa-check"></i><b>25.2</b> -re (UK) ou -er (US)</a></li>
-<li class="chapter" data-level="25.3" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ise-uk-ou--ize-us"><i class="fa fa-check"></i><b>25.3</b> -ise (UK) ou -ize (US)</a></li>
-<li class="chapter" data-level="25.4" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#nce-uk-ou--nse-us"><i class="fa fa-check"></i><b>25.4</b> -nce (UK) ou -nse (US)</a></li>
-<li class="chapter" data-level="25.5" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ge-uk-ou--g-us"><i class="fa fa-check"></i><b>25.5</b> -ge (UK) ou -g (US)</a></li>
-<li class="chapter" data-level="25.6" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ae-uk-ou--e-us"><i class="fa fa-check"></i><b>25.6</b> -ae (UK) ou -e (US)</a></li>
-<li class="chapter" data-level="25.7" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#ogue-uk-ou--og-us"><i class="fa fa-check"></i><b>25.7</b> -ogue (UK) ou -og (US)</a></li>
-<li class="chapter" data-level="25.8" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#que-uk-ou--ck-us"><i class="fa fa-check"></i><b>25.8</b> -que (UK) ou -ck (US)</a></li>
-<li class="chapter" data-level="25.9" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#voyelle-l"><i class="fa fa-check"></i><b>25.9</b> voyelle + L</a></li>
-<li class="chapter" data-level="25.10" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#past-simple"><i class="fa fa-check"></i><b>25.10</b> Past simple</a></li>
-<li class="chapter" data-level="25.11" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#get"><i class="fa fa-check"></i><b>25.11</b> Get</a></li>
-<li class="chapter" data-level="25.12" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#prépositions"><i class="fa fa-check"></i><b>25.12</b> Prépositions</a></li>
-<li class="chapter" data-level="25.13" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#have-got-uk-vs-have-us"><i class="fa fa-check"></i><b>25.13</b> have got (UK) vs have (US)</a></li>
-<li class="chapter" data-level="25.14" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#as-uklike-us"><i class="fa fa-check"></i><b>25.14</b> as (UK)/like (US)</a></li>
-<li class="chapter" data-level="25.15" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-dates"><i class="fa fa-check"></i><b>25.15</b> Les dates</a></li>
-<li class="chapter" data-level="25.16" data-path="distinction-britaniqueamericain.html"><a href="distinction-britaniqueamericain.html#les-contractions"><i class="fa fa-check"></i><b>25.16</b> Les contractions</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/VincyaneBadouard/My_cours" target="blank">Source</a></li>
 
@@ -551,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My cours</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utilisation_cluster_de_calcul</a>
           </h1>
         </div>
 
@@ -562,8 +164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class = rmdreview>
 This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
 </div>
-<div id="work-with-lidar-data" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Cours 5</span> Work with LiDAR data<a href="work-with-lidar-data.html#work-with-lidar-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="work-with-lidar-data" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Cours 7</span> Work with LiDAR data<a href="work-with-lidar-data.html#work-with-lidar-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>LiDAR : “light detection and ranging” ou “laser imaging detection and ranging”<br />
 Lumière d’un laser en général : visible, infrarouge ou ultraviolet.</p>
 <p><strong>Télémétrie</strong> : détermination de la distance d’un objet</p>
@@ -574,62 +176,67 @@ Lumière d’un laser en général : visible, infrarouge ou ultraviolet.</p>
 <p>Fichiers :
 - trajectoire : décrit les positions dans le temps
 - nuage de points (.las ou .laz en compréssé)</p>
-<div id="tools" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Tools<a href="work-with-lidar-data.html#tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tools" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Tools<a href="work-with-lidar-data.html#tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>logiciels : cloudcompare, Fugroviewer</p>
-<div id="lastools" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> LAStools<a href="work-with-lidar-data.html#lastools" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lastools" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> LAStools<a href="work-with-lidar-data.html#lastools" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using <a href="https://github.com/LAStools/LAStools">LAStools</a>,
-help <a href="https://lastools.github.io/">here</a>.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="work-with-lidar-data.html#cb41-1" tabindex="-1"></a><span class="co"># Define the R function that calls lastools executables</span></span>
-<span id="cb41-2"><a href="work-with-lidar-data.html#cb41-2" tabindex="-1"></a>LAStool <span class="ot">&lt;-</span> <span class="cf">function</span>(tool, inputFile, ...){</span>
-<span id="cb41-3"><a href="work-with-lidar-data.html#cb41-3" tabindex="-1"></a>  cmd <span class="ot">=</span> <span class="fu">paste</span>(<span class="fu">paste</span>(LAStoolsDir, tool, <span class="at">sep=</span><span class="st">&#39;&#39;</span>), <span class="st">&#39;-i&#39;</span>, inputFile , ...)</span>
-<span id="cb41-4"><a href="work-with-lidar-data.html#cb41-4" tabindex="-1"></a>  <span class="fu">cat</span>(cmd)</span>
-<span id="cb41-5"><a href="work-with-lidar-data.html#cb41-5" tabindex="-1"></a>  <span class="fu">system</span>(cmd)</span>
-<span id="cb41-6"><a href="work-with-lidar-data.html#cb41-6" tabindex="-1"></a>  <span class="fu">return</span>(cmd)</span>
-<span id="cb41-7"><a href="work-with-lidar-data.html#cb41-7" tabindex="-1"></a>}</span>
-<span id="cb41-8"><a href="work-with-lidar-data.html#cb41-8" tabindex="-1"></a></span>
-<span id="cb41-9"><a href="work-with-lidar-data.html#cb41-9" tabindex="-1"></a><span class="co"># Define the directory for the ALS project</span></span>
-<span id="cb41-10"><a href="work-with-lidar-data.html#cb41-10" tabindex="-1"></a>cloudPath <span class="ot">&lt;-</span> <span class="st">&quot;//amap-data.cirad.fr/work/users/VincyaneBadouard/Lidar/HovermapUAV2023/P16_C19C20/&quot;</span> </span>
-<span id="cb41-11"><a href="work-with-lidar-data.html#cb41-11" tabindex="-1"></a></span>
-<span id="cb41-12"><a href="work-with-lidar-data.html#cb41-12" tabindex="-1"></a><span class="co"># Define las/laz files to be processed</span></span>
-<span id="cb41-13"><a href="work-with-lidar-data.html#cb41-13" tabindex="-1"></a>inFiles <span class="ot">=</span> <span class="fu">paste</span>(cloudPath, <span class="st">&#39;Output_laz1_4.laz&#39;</span>, <span class="at">sep =</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb41-14"><a href="work-with-lidar-data.html#cb41-14" tabindex="-1"></a>outFile <span class="ot">=</span> <span class="st">&quot;FullDensity.laz&quot;</span></span>
-<span id="cb41-15"><a href="work-with-lidar-data.html#cb41-15" tabindex="-1"></a></span>
-<span id="cb41-16"><a href="work-with-lidar-data.html#cb41-16" tabindex="-1"></a><span class="co"># Define output directory (and creates it ... if doesn&#39;t exist)</span></span>
-<span id="cb41-17"><a href="work-with-lidar-data.html#cb41-17" tabindex="-1"></a>outDir <span class="ot">=</span> <span class="fu">paste</span>(cloudPath, <span class="st">&#39;FullDens_split&#39;</span>, <span class="at">sep =</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb41-18"><a href="work-with-lidar-data.html#cb41-18" tabindex="-1"></a><span class="fu">dir.create</span>(outDir) <span class="co"># , showWarnings = F (pas le droit de le faire dans le serveur safe)</span></span>
-<span id="cb41-19"><a href="work-with-lidar-data.html#cb41-19" tabindex="-1"></a></span>
-<span id="cb41-20"><a href="work-with-lidar-data.html#cb41-20" tabindex="-1"></a><span class="co"># Call the lastools function to split il several files by gpstime</span></span>
-<span id="cb41-21"><a href="work-with-lidar-data.html#cb41-21" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">detectCores</span>()</span>
-<span id="cb41-22"><a href="work-with-lidar-data.html#cb41-22" tabindex="-1"></a></span>
-<span id="cb41-23"><a href="work-with-lidar-data.html#cb41-23" tabindex="-1"></a>LASrun <span class="ot">&lt;-</span> <span class="fu">LAStool</span>(<span class="st">&#39;lassplit64&#39;</span>, inFiles,</span>
-<span id="cb41-24"><a href="work-with-lidar-data.html#cb41-24" tabindex="-1"></a>                  <span class="st">&#39;-cores&#39;</span>, cores,</span>
-<span id="cb41-25"><a href="work-with-lidar-data.html#cb41-25" tabindex="-1"></a>                  <span class="st">&#39;-by_gps_time_interval 60&#39;</span>,</span>
-<span id="cb41-26"><a href="work-with-lidar-data.html#cb41-26" tabindex="-1"></a>                  <span class="st">&#39;-odir&#39;</span>, outDir,</span>
-<span id="cb41-27"><a href="work-with-lidar-data.html#cb41-27" tabindex="-1"></a>                  <span class="st">&#39;-odix _split&#39;</span>,</span>
-<span id="cb41-28"><a href="work-with-lidar-data.html#cb41-28" tabindex="-1"></a>                  <span class="st">&#39;-o&#39;</span>, outFile</span>
-<span id="cb41-29"><a href="work-with-lidar-data.html#cb41-29" tabindex="-1"></a>)</span>
-<span id="cb41-30"><a href="work-with-lidar-data.html#cb41-30" tabindex="-1"></a></span>
-<span id="cb41-31"><a href="work-with-lidar-data.html#cb41-31" tabindex="-1"></a><span class="co"># Merge files once corrected</span></span>
-<span id="cb41-32"><a href="work-with-lidar-data.html#cb41-32" tabindex="-1"></a>outDir2 <span class="ot">&lt;-</span> <span class="fu">paste</span>(cloudPath, <span class="st">&#39;FullDens_cor&#39;</span>, <span class="at">sep=</span><span class="st">&#39;&#39;</span>) <span class="co"># new folder: files rebinded and corrected</span></span>
-<span id="cb41-33"><a href="work-with-lidar-data.html#cb41-33" tabindex="-1"></a><span class="fu">dir.create</span>(outDir2, <span class="at">showWarnings =</span> F)</span>
-<span id="cb41-34"><a href="work-with-lidar-data.html#cb41-34" tabindex="-1"></a>inFiles <span class="ot">&lt;-</span> <span class="fu">paste</span>(outDir, <span class="st">&#39;/*.laz&#39;</span>, <span class="at">sep=</span><span class="st">&#39;&#39;</span>) <span class="co"># files corrected</span></span>
-<span id="cb41-35"><a href="work-with-lidar-data.html#cb41-35" tabindex="-1"></a>LASrun <span class="ot">&lt;-</span> <span class="fu">LAStool</span>(<span class="st">&#39;lasmerge64&#39;</span>, inFiles,</span>
-<span id="cb41-36"><a href="work-with-lidar-data.html#cb41-36" tabindex="-1"></a>                  <span class="st">&#39;-odir&#39;</span>, outDir2,</span>
-<span id="cb41-37"><a href="work-with-lidar-data.html#cb41-37" tabindex="-1"></a>                  <span class="st">&#39;-odix _cor&#39;</span>,</span>
-<span id="cb41-38"><a href="work-with-lidar-data.html#cb41-38" tabindex="-1"></a>                  <span class="st">&#39;-o&#39;</span>, outFile</span>
-<span id="cb41-39"><a href="work-with-lidar-data.html#cb41-39" tabindex="-1"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="work-with-lidar-data.html#cb42-1" tabindex="-1"></a><span class="co"># laz to dem</span></span>
-<span id="cb42-2"><a href="work-with-lidar-data.html#cb42-2" tabindex="-1"></a><span class="ex">las2dem</span> <span class="at">-i</span> input/Paracou_284500_581500.laz <span class="at">-o</span> output/dem.asc</span></code></pre></div>
+help <a href="https://lastools.github.io/">here</a>.
+In R :</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="work-with-lidar-data.html#cb44-1" tabindex="-1"></a><span class="co"># Define the path for lastools executables</span></span>
+<span id="cb44-2"><a href="work-with-lidar-data.html#cb44-2" tabindex="-1"></a>LAStoolsDir <span class="ot">=</span>  <span class="st">&quot;D:/Program/LAStools/bin/&quot;</span></span>
+<span id="cb44-3"><a href="work-with-lidar-data.html#cb44-3" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="work-with-lidar-data.html#cb44-4" tabindex="-1"></a><span class="co"># Define the R function that calls lastools executables</span></span>
+<span id="cb44-5"><a href="work-with-lidar-data.html#cb44-5" tabindex="-1"></a>LAStool <span class="ot">&lt;-</span> <span class="cf">function</span>(tool, inputFile, ...){</span>
+<span id="cb44-6"><a href="work-with-lidar-data.html#cb44-6" tabindex="-1"></a>  cmd <span class="ot">=</span> <span class="fu">paste</span>(<span class="fu">paste</span>(LAStoolsDir, tool, <span class="at">sep=</span><span class="st">&#39;&#39;</span>), <span class="st">&#39;-i&#39;</span>, inputFile , ...)</span>
+<span id="cb44-7"><a href="work-with-lidar-data.html#cb44-7" tabindex="-1"></a>  <span class="fu">cat</span>(cmd)</span>
+<span id="cb44-8"><a href="work-with-lidar-data.html#cb44-8" tabindex="-1"></a>  <span class="fu">system</span>(cmd)</span>
+<span id="cb44-9"><a href="work-with-lidar-data.html#cb44-9" tabindex="-1"></a>  <span class="fu">return</span>(cmd)</span>
+<span id="cb44-10"><a href="work-with-lidar-data.html#cb44-10" tabindex="-1"></a>}</span>
+<span id="cb44-11"><a href="work-with-lidar-data.html#cb44-11" tabindex="-1"></a></span>
+<span id="cb44-12"><a href="work-with-lidar-data.html#cb44-12" tabindex="-1"></a><span class="co"># Define the directory for the ALS project</span></span>
+<span id="cb44-13"><a href="work-with-lidar-data.html#cb44-13" tabindex="-1"></a>cloudPath <span class="ot">&lt;-</span> <span class="st">&quot;//amap-data.cirad.fr/work/users/VincyaneBadouard/Lidar/HovermapUAV2023/P16_C19C20/&quot;</span> </span>
+<span id="cb44-14"><a href="work-with-lidar-data.html#cb44-14" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="work-with-lidar-data.html#cb44-15" tabindex="-1"></a><span class="co"># Define las/laz files to be processed</span></span>
+<span id="cb44-16"><a href="work-with-lidar-data.html#cb44-16" tabindex="-1"></a>inFiles <span class="ot">=</span> <span class="fu">paste</span>(cloudPath, <span class="st">&#39;Output_laz1_4.laz&#39;</span>, <span class="at">sep =</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb44-17"><a href="work-with-lidar-data.html#cb44-17" tabindex="-1"></a>outFile <span class="ot">=</span> <span class="st">&quot;FullDensity.laz&quot;</span></span>
+<span id="cb44-18"><a href="work-with-lidar-data.html#cb44-18" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="work-with-lidar-data.html#cb44-19" tabindex="-1"></a><span class="co"># Define output directory (and creates it ... if doesn&#39;t exist)</span></span>
+<span id="cb44-20"><a href="work-with-lidar-data.html#cb44-20" tabindex="-1"></a>outDir <span class="ot">=</span> <span class="fu">paste</span>(cloudPath, <span class="st">&#39;FullDens_split&#39;</span>, <span class="at">sep =</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb44-21"><a href="work-with-lidar-data.html#cb44-21" tabindex="-1"></a><span class="fu">dir.create</span>(outDir) <span class="co"># , showWarnings = F (pas le droit de le faire dans le serveur safe)</span></span>
+<span id="cb44-22"><a href="work-with-lidar-data.html#cb44-22" tabindex="-1"></a></span>
+<span id="cb44-23"><a href="work-with-lidar-data.html#cb44-23" tabindex="-1"></a><span class="co"># Call the lastools function to split in several files by gpstime</span></span>
+<span id="cb44-24"><a href="work-with-lidar-data.html#cb44-24" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">detectCores</span>()</span>
+<span id="cb44-25"><a href="work-with-lidar-data.html#cb44-25" tabindex="-1"></a></span>
+<span id="cb44-26"><a href="work-with-lidar-data.html#cb44-26" tabindex="-1"></a>LASrun <span class="ot">&lt;-</span> <span class="fu">LAStool</span>(<span class="st">&#39;lassplit64&#39;</span>, inFiles,</span>
+<span id="cb44-27"><a href="work-with-lidar-data.html#cb44-27" tabindex="-1"></a>                  <span class="st">&#39;-cores&#39;</span>, cores,</span>
+<span id="cb44-28"><a href="work-with-lidar-data.html#cb44-28" tabindex="-1"></a>                  <span class="st">&#39;-by_gps_time_interval 60&#39;</span>,</span>
+<span id="cb44-29"><a href="work-with-lidar-data.html#cb44-29" tabindex="-1"></a>                  <span class="st">&#39;-odir&#39;</span>, outDir,</span>
+<span id="cb44-30"><a href="work-with-lidar-data.html#cb44-30" tabindex="-1"></a>                  <span class="st">&#39;-odix _split&#39;</span>,</span>
+<span id="cb44-31"><a href="work-with-lidar-data.html#cb44-31" tabindex="-1"></a>                  <span class="st">&#39;-o&#39;</span>, outFile</span>
+<span id="cb44-32"><a href="work-with-lidar-data.html#cb44-32" tabindex="-1"></a>)</span>
+<span id="cb44-33"><a href="work-with-lidar-data.html#cb44-33" tabindex="-1"></a></span>
+<span id="cb44-34"><a href="work-with-lidar-data.html#cb44-34" tabindex="-1"></a><span class="co"># Merge files once corrected</span></span>
+<span id="cb44-35"><a href="work-with-lidar-data.html#cb44-35" tabindex="-1"></a>outDir2 <span class="ot">&lt;-</span> <span class="fu">paste</span>(cloudPath, <span class="st">&#39;FullDens_cor&#39;</span>, <span class="at">sep=</span><span class="st">&#39;&#39;</span>) <span class="co"># new folder: files rebinded and corrected</span></span>
+<span id="cb44-36"><a href="work-with-lidar-data.html#cb44-36" tabindex="-1"></a><span class="fu">dir.create</span>(outDir2, <span class="at">showWarnings =</span> F)</span>
+<span id="cb44-37"><a href="work-with-lidar-data.html#cb44-37" tabindex="-1"></a>inFiles <span class="ot">&lt;-</span> <span class="fu">paste</span>(outDir, <span class="st">&#39;/*.laz&#39;</span>, <span class="at">sep=</span><span class="st">&#39;&#39;</span>) <span class="co"># files corrected</span></span>
+<span id="cb44-38"><a href="work-with-lidar-data.html#cb44-38" tabindex="-1"></a></span>
+<span id="cb44-39"><a href="work-with-lidar-data.html#cb44-39" tabindex="-1"></a>LASrun <span class="ot">&lt;-</span> <span class="fu">LAStool</span>(<span class="st">&#39;lasmerge64&#39;</span>, inFiles,</span>
+<span id="cb44-40"><a href="work-with-lidar-data.html#cb44-40" tabindex="-1"></a>                  <span class="st">&#39;-odir&#39;</span>, outDir2,</span>
+<span id="cb44-41"><a href="work-with-lidar-data.html#cb44-41" tabindex="-1"></a>                  <span class="st">&#39;-odix _cor&#39;</span>,</span>
+<span id="cb44-42"><a href="work-with-lidar-data.html#cb44-42" tabindex="-1"></a>                  <span class="st">&#39;-o&#39;</span>, outFile</span>
+<span id="cb44-43"><a href="work-with-lidar-data.html#cb44-43" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="work-with-lidar-data.html#cb45-1" tabindex="-1"></a><span class="co"># laz to dem</span></span>
+<span id="cb45-2"><a href="work-with-lidar-data.html#cb45-2" tabindex="-1"></a><span class="ex">las2dem</span> <span class="at">-i</span> input/Paracou_284500_581500.laz <span class="at">-o</span> output/dem.asc</span></code></pre></div>
 </div>
-<div id="r-packages" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> R packages<a href="work-with-lidar-data.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-packages" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> R packages<a href="work-with-lidar-data.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>lidR : <a href="https://github.com/r-lidar/lidR" class="uri">https://github.com/r-lidar/lidR</a> ; <a href="https://r-lidar.github.io/lidRbook/" class="uri">https://r-lidar.github.io/lidRbook/</a></p>
 </div>
 </div>
-<div id="load-laz" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Load laz<a href="work-with-lidar-data.html#load-laz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="load-laz" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Load laz<a href="work-with-lidar-data.html#load-laz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le format binaire ASPRS LASer (.las) est un format ouvert permettant le stockage de données à 3 dimensions sous forme binaire. En plus des coordonnées x,y,z de chaque point, ce format permet de stocker des informations propres aux données LiDAR :
 - temps GPS
 - intensité
@@ -645,63 +252,76 @@ help <a href="https://lastools.github.io/">here</a>.</p>
 - ID du point source
 - couleur RGB
 <a href="https://r-lidar.github.io/lidRbook/io.html" class="uri">https://r-lidar.github.io/lidRbook/io.html</a></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="work-with-lidar-data.html#cb43-1" tabindex="-1"></a>las1 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">readLAS</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span>
-<span id="cb43-2"><a href="work-with-lidar-data.html#cb43-2" tabindex="-1"></a><span class="co"># ou</span></span>
-<span id="cb43-3"><a href="work-with-lidar-data.html#cb43-3" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> rlas<span class="sc">::</span><span class="fu">read.las</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span></code></pre></div>
-<div id="load-several-laz" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Load several laz<a href="work-with-lidar-data.html#load-several-laz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="work-with-lidar-data.html#cb44-1" tabindex="-1"></a><span class="co"># readLAScatalog() creates a las catalog from a folder to search in</span></span>
-<span id="cb44-2"><a href="work-with-lidar-data.html#cb44-2" tabindex="-1"></a>ctg <span class="ot">&lt;-</span> <span class="fu">readLAScatalog</span>(<span class="at">folder =</span> <span class="st">&quot;D:/Mes Donnees/PhD/Lidar&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;keep&quot;</span>) <span class="co"># las catalog. filter only 1st returns</span></span>
-<span id="cb44-3"><a href="work-with-lidar-data.html#cb44-3" tabindex="-1"></a><span class="co"># readLAS(filter = &quot;-help&quot;)</span></span>
-<span id="cb44-4"><a href="work-with-lidar-data.html#cb44-4" tabindex="-1"></a></span>
-<span id="cb44-5"><a href="work-with-lidar-data.html#cb44-5" tabindex="-1"></a><span class="co"># To apply a function to a LAScatalog</span></span>
-<span id="cb44-6"><a href="work-with-lidar-data.html#cb44-6" tabindex="-1"></a><span class="fu">catalog_apply</span>(ctg,fct)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="work-with-lidar-data.html#cb46-1" tabindex="-1"></a>las1 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">readLAS</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span>
+<span id="cb46-2"><a href="work-with-lidar-data.html#cb46-2" tabindex="-1"></a><span class="co"># ou</span></span>
+<span id="cb46-3"><a href="work-with-lidar-data.html#cb46-3" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> rlas<span class="sc">::</span><span class="fu">read.las</span>(<span class="at">files =</span> <span class="st">&quot;D:/Mes Donnees/PhD/SIG_data/Lidar/P16_2022_ptf6.laz&quot;</span>)</span></code></pre></div>
+<div id="load-several-laz" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Load several laz<a href="work-with-lidar-data.html#load-several-laz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="work-with-lidar-data.html#cb47-1" tabindex="-1"></a><span class="co"># readLAScatalog() creates a las catalog from a folder to search in</span></span>
+<span id="cb47-2"><a href="work-with-lidar-data.html#cb47-2" tabindex="-1"></a>ctg <span class="ot">&lt;-</span> <span class="fu">readLAScatalog</span>(<span class="at">folder =</span> <span class="st">&quot;D:/Mes Donnees/PhD/Lidar&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;keep&quot;</span>) <span class="co"># las catalog. filter only 1st returns</span></span>
+<span id="cb47-3"><a href="work-with-lidar-data.html#cb47-3" tabindex="-1"></a><span class="co"># readLAS(filter = &quot;-help&quot;)</span></span>
+<span id="cb47-4"><a href="work-with-lidar-data.html#cb47-4" tabindex="-1"></a><span class="co"># &quot;-first_only&quot;</span></span>
+<span id="cb47-5"><a href="work-with-lidar-data.html#cb47-5" tabindex="-1"></a><span class="co"># , select = &quot;xyz&quot;)  # load XYZ only</span></span>
+<span id="cb47-6"><a href="work-with-lidar-data.html#cb47-6" tabindex="-1"></a><span class="co"># filter = &quot;-keep_first -drop_z_below 5 -drop_z_above 50&quot;)</span></span>
+<span id="cb47-7"><a href="work-with-lidar-data.html#cb47-7" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="work-with-lidar-data.html#cb47-8" tabindex="-1"></a><span class="co"># To apply a function to a LAScatalog</span></span>
+<span id="cb47-9"><a href="work-with-lidar-data.html#cb47-9" tabindex="-1"></a><span class="fu">catalog_apply</span>(ctg,fct)</span></code></pre></div>
+</div>
+<div id="loadcreate-a-subset-of-the-laz-to-developpe-the-code-with-smaller-data" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Load/Create a subset of the laz to developpe the code with smaller data<a href="work-with-lidar-data.html#loadcreate-a-subset-of-the-laz-to-developpe-the-code-with-smaller-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="work-with-lidar-data.html#cb48-1" tabindex="-1"></a><span class="fu">range</span>(las<span class="sc">$</span>gpstime) <span class="co">#  1697733332 1697734174</span></span>
+<span id="cb48-2"><a href="work-with-lidar-data.html#cb48-2" tabindex="-1"></a><span class="fu">readLAS</span>(<span class="at">filter =</span> <span class="st">&quot;-help&quot;</span>)</span>
+<span id="cb48-3"><a href="work-with-lidar-data.html#cb48-3" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;Y:/users/VincyaneBadouard/Lidar/HovermapUAV2023/Translation/LAZ/UAV_C19C20_translated.las&quot;</span>,</span>
+<span id="cb48-4"><a href="work-with-lidar-data.html#cb48-4" tabindex="-1"></a>               <span class="at">filter =</span> <span class="st">&quot;-keep_gps_time 1697733332 1697733334&quot;</span>)</span>
+<span id="cb48-5"><a href="work-with-lidar-data.html#cb48-5" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="work-with-lidar-data.html#cb48-6" tabindex="-1"></a>sampletowork <span class="ot">&lt;-</span> <span class="fu">decimate_points</span>(las, <span class="fu">random</span>(<span class="dv">1</span>)) <span class="co"># reduce point density (13 MB)</span></span>
+<span id="cb48-7"><a href="work-with-lidar-data.html#cb48-7" tabindex="-1"></a><span class="fu">plot</span>(sampletowork)</span></code></pre></div>
 </div>
 </div>
-<div id="write-laz" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Write laz<a href="work-with-lidar-data.html#write-laz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="work-with-lidar-data.html#cb45-1" tabindex="-1"></a><span class="fu">writeLAS</span>(las, <span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz&quot;</span>)</span></code></pre></div>
+<div id="write-laz" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Write laz<a href="work-with-lidar-data.html#write-laz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="work-with-lidar-data.html#cb49-1" tabindex="-1"></a><span class="fu">writeLAS</span>(las, <span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/P16_2022_v2_4ha.laz&quot;</span>)</span></code></pre></div>
 </div>
-<div id="check-if-the-las-is-complete" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Check if the las is complete<a href="work-with-lidar-data.html#check-if-the-las-is-complete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="work-with-lidar-data.html#cb46-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span></code></pre></div>
+<div id="check-if-the-las-is-complete" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Check if the las is complete<a href="work-with-lidar-data.html#check-if-the-las-is-complete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="work-with-lidar-data.html#cb50-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">las_check</span>(las1)</span></code></pre></div>
 </div>
-<div id="see-their-summaries" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> See their summaries<a href="work-with-lidar-data.html#see-their-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="work-with-lidar-data.html#cb47-1" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
-<span id="cb47-2"><a href="work-with-lidar-data.html#cb47-2" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
-<span id="cb47-3"><a href="work-with-lidar-data.html#cb47-3" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
-<span id="cb47-4"><a href="work-with-lidar-data.html#cb47-4" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
-<span id="cb47-5"><a href="work-with-lidar-data.html#cb47-5" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
-<span id="cb47-6"><a href="work-with-lidar-data.html#cb47-6" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="work-with-lidar-data.html#cb47-7" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
-<span id="cb47-8"><a href="work-with-lidar-data.html#cb47-8" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
-<span id="cb47-9"><a href="work-with-lidar-data.html#cb47-9" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
-<span id="cb47-10"><a href="work-with-lidar-data.html#cb47-10" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
-<span id="cb47-11"><a href="work-with-lidar-data.html#cb47-11" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
-<span id="cb47-12"><a href="work-with-lidar-data.html#cb47-12" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
+<div id="see-their-summaries" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> See their summaries<a href="work-with-lidar-data.html#see-their-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="work-with-lidar-data.html#cb51-1" tabindex="-1"></a><span class="fu">class</span>(las1)</span>
+<span id="cb51-2"><a href="work-with-lidar-data.html#cb51-2" tabindex="-1"></a><span class="co"># [1] &quot;LAS&quot;</span></span>
+<span id="cb51-3"><a href="work-with-lidar-data.html#cb51-3" tabindex="-1"></a><span class="co"># attr(,&quot;package&quot;)</span></span>
+<span id="cb51-4"><a href="work-with-lidar-data.html#cb51-4" tabindex="-1"></a><span class="co"># [1] &quot;lidR&quot;</span></span>
+<span id="cb51-5"><a href="work-with-lidar-data.html#cb51-5" tabindex="-1"></a><span class="fu">class</span>(las2) <span class="co"># &quot;data.table&quot; &quot;data.frame&quot;</span></span>
+<span id="cb51-6"><a href="work-with-lidar-data.html#cb51-6" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="work-with-lidar-data.html#cb51-7" tabindex="-1"></a><span class="fu">print</span>(las1) </span>
+<span id="cb51-8"><a href="work-with-lidar-data.html#cb51-8" tabindex="-1"></a><span class="fu">print</span>(las2)</span>
+<span id="cb51-9"><a href="work-with-lidar-data.html#cb51-9" tabindex="-1"></a><span class="co"># area         : 294704 m²</span></span>
+<span id="cb51-10"><a href="work-with-lidar-data.html#cb51-10" tabindex="-1"></a><span class="co"># points       : 116.93 million points</span></span>
+<span id="cb51-11"><a href="work-with-lidar-data.html#cb51-11" tabindex="-1"></a><span class="co"># density      : 396.77 points/m²</span></span>
+<span id="cb51-12"><a href="work-with-lidar-data.html#cb51-12" tabindex="-1"></a><span class="co"># density      : 180.46 pulses/m²</span></span></code></pre></div>
 </div>
-<div id="plot" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Plot<a href="work-with-lidar-data.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="work-with-lidar-data.html#cb48-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
-<span id="cb48-2"><a href="work-with-lidar-data.html#cb48-2" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="work-with-lidar-data.html#cb49-1" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
-<span id="cb49-2"><a href="work-with-lidar-data.html#cb49-2" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
-<span id="cb49-3"><a href="work-with-lidar-data.html#cb49-3" tabindex="-1"></a></span>
-<span id="cb49-4"><a href="work-with-lidar-data.html#cb49-4" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
+<div id="plot" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Plot<a href="work-with-lidar-data.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="work-with-lidar-data.html#cb52-1" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las1)</span>
+<span id="cb52-2"><a href="work-with-lidar-data.html#cb52-2" tabindex="-1"></a><span class="co"># persp(x = las2$X, y = las2$Y, z = las2$Z)</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="work-with-lidar-data.html#cb53-1" tabindex="-1"></a>LASfile <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;MixedConifer.laz&quot;</span>, <span class="at">package=</span><span class="st">&quot;lidR&quot;</span>)</span>
+<span id="cb53-2"><a href="work-with-lidar-data.html#cb53-2" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(LASfile)</span>
+<span id="cb53-3"><a href="work-with-lidar-data.html#cb53-3" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="work-with-lidar-data.html#cb53-4" tabindex="-1"></a>lidR<span class="sc">::</span><span class="fu">plot</span>(las)</span></code></pre></div>
 <p>Ploter une raster layer : d’abord en faire un data.frame</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="work-with-lidar-data.html#cb50-1" tabindex="-1"></a>TWI_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(TWI, <span class="at">xy =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb50-2"><a href="work-with-lidar-data.html#cb50-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a href="work-with-lidar-data.html#cb50-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&#39;TWI&#39;</span> <span class="ot">=</span> <span class="st">&#39;P13_2022_TWI&#39;</span>)</span>
-<span id="cb50-4"><a href="work-with-lidar-data.html#cb50-4" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="work-with-lidar-data.html#cb50-5" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb50-6"><a href="work-with-lidar-data.html#cb50-6" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="at">data =</span> TWI_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> TWI)) <span class="sc">+</span></span>
-<span id="cb50-7"><a href="work-with-lidar-data.html#cb50-7" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb50-8"><a href="work-with-lidar-data.html#cb50-8" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Paracou P13 - TWI&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb50-9"><a href="work-with-lidar-data.html#cb50-9" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="work-with-lidar-data.html#cb54-1" tabindex="-1"></a>TWI_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(TWI, <span class="at">xy =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb54-2"><a href="work-with-lidar-data.html#cb54-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="work-with-lidar-data.html#cb54-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&#39;TWI&#39;</span> <span class="ot">=</span> <span class="st">&#39;P13_2022_TWI&#39;</span>)</span>
+<span id="cb54-4"><a href="work-with-lidar-data.html#cb54-4" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="work-with-lidar-data.html#cb54-5" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb54-6"><a href="work-with-lidar-data.html#cb54-6" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="at">data =</span> TWI_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> TWI)) <span class="sc">+</span></span>
+<span id="cb54-7"><a href="work-with-lidar-data.html#cb54-7" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb54-8"><a href="work-with-lidar-data.html#cb54-8" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Paracou P13 - TWI&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb54-9"><a href="work-with-lidar-data.html#cb54-9" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
 </div>
-<div id="trajectory" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Trajectory<a href="work-with-lidar-data.html#trajectory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="trajectory" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Trajectory<a href="work-with-lidar-data.html#trajectory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Permet :<br />
 - de calculer les hauteurs de vol
 - d’estimer les incertitudes de positionnement des points (en fonction de la hauteur)
@@ -721,112 +341,134 @@ help <a href="https://lastools.github.io/">here</a>.</p>
 - Angle du système d’axes par rapport au Nord (radian)
 - Accélération sur les axes X, Y, Z (m/s2)
 - Vitesse angulaire autour des axes X, Y, Z (rad/s)</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="work-with-lidar-data.html#cb51-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>) <span class="co"># or .txt</span></span>
-<span id="cb51-2"><a href="work-with-lidar-data.html#cb51-2" tabindex="-1"></a>traj </span>
-<span id="cb51-3"><a href="work-with-lidar-data.html#cb51-3" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="work-with-lidar-data.html#cb51-4" tabindex="-1"></a><span class="fu">plot3d</span>(traj[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">aspect=</span>F) <span class="co"># plot the trajectory (x,y,z)</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="work-with-lidar-data.html#cb55-1" tabindex="-1"></a>traj <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ZebHorizon/LiDAR_Manu/2022-09-07_15-46-34.gs-traj&quot;</span>) <span class="co"># or .txt</span></span>
+<span id="cb55-2"><a href="work-with-lidar-data.html#cb55-2" tabindex="-1"></a>traj </span>
+<span id="cb55-3"><a href="work-with-lidar-data.html#cb55-3" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="work-with-lidar-data.html#cb55-4" tabindex="-1"></a><span class="fu">plot3d</span>(traj[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">aspect=</span>F) <span class="co"># plot the trajectory (x,y,z)</span></span></code></pre></div>
 </div>
-<div id="clip-the-point-cloud" class="section level2 hasAnchor" number="5.8">
-<h2><span class="header-section-number">5.8</span> Clip the point cloud<a href="work-with-lidar-data.html#clip-the-point-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="clip-the-point-cloud" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Clip the point cloud<a href="work-with-lidar-data.html#clip-the-point-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>selon une géométrie : <strong>clip_roi(las = ctg, geometry = ROI)</strong></li>
 <li>selon des coordonées : <strong>clip_rectangle()/clip_polygon()/clip_circle()</strong></li>
 <li>sur un LAScatalog (ça ne coupera pas dans une dalle mais ça réduit le nombre de dalle à la région d’intéret) : <strong>catalog_intersect(ctg, ROI)</strong></li>
 </ul>
 </div>
-<div id="classification" class="section level2 hasAnchor" number="5.9">
-<h2><span class="header-section-number">5.9</span> Classification<a href="work-with-lidar-data.html#classification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="classification" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Classification<a href="work-with-lidar-data.html#classification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>7 = bruit
 2 = sol
 9 = eau
 vegetation = 0,3,4,5</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="work-with-lidar-data.html#cb52-1" tabindex="-1"></a><span class="fu">table</span>(ST<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, veg = 3,4,5</span></span>
-<span id="cb52-2"><a href="work-with-lidar-data.html#cb52-2" tabindex="-1"></a>ST<span class="sc">@</span>data <span class="ot">&lt;-</span> ST<span class="sc">@</span>data[Classification <span class="sc">!=</span> <span class="dv">7</span>,] <span class="co"># enlever le bruit</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="work-with-lidar-data.html#cb56-1" tabindex="-1"></a><span class="fu">table</span>(ST<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, veg = 3,4,5</span></span>
+<span id="cb56-2"><a href="work-with-lidar-data.html#cb56-2" tabindex="-1"></a>ST<span class="sc">@</span>data <span class="ot">&lt;-</span> ST<span class="sc">@</span>data[Classification <span class="sc">!=</span> <span class="dv">7</span>,] <span class="co"># enlever le bruit</span></span></code></pre></div>
 <p>Classifier le sol</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="work-with-lidar-data.html#cb53-1" tabindex="-1"></a><span class="co"># Modèle numérique de terrain</span></span>
-<span id="cb53-2"><a href="work-with-lidar-data.html#cb53-2" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/mnt_roi36ha_1m.asc&quot;</span>)</span>
-<span id="cb53-3"><a href="work-with-lidar-data.html#cb53-3" tabindex="-1"></a><span class="fu">plot</span>(mnt)</span>
-<span id="cb53-4"><a href="work-with-lidar-data.html#cb53-4" tabindex="-1"></a></span>
-<span id="cb53-5"><a href="work-with-lidar-data.html#cb53-5" tabindex="-1"></a><span class="co"># Normaliser la hauteur du sol</span></span>
-<span id="cb53-6"><a href="work-with-lidar-data.html#cb53-6" tabindex="-1"></a>ST_norm <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">normalize_height</span>(ST, mnt) <span class="co"># applati le relief</span></span>
-<span id="cb53-7"><a href="work-with-lidar-data.html#cb53-7" tabindex="-1"></a><span class="fu">plot</span>(ST_norm)<span class="co"># sol plat</span></span>
-<span id="cb53-8"><a href="work-with-lidar-data.html#cb53-8" tabindex="-1"></a></span>
-<span id="cb53-9"><a href="work-with-lidar-data.html#cb53-9" tabindex="-1"></a><span class="co"># Classifier les points</span></span>
-<span id="cb53-10"><a href="work-with-lidar-data.html#cb53-10" tabindex="-1"></a>ST_norm<span class="sc">@</span>data[(Z<span class="sc">&gt;</span>(<span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">&amp;</span> Z<span class="sc">&lt;</span> <span class="fl">0.5</span>), Classification <span class="sc">:=</span> <span class="dv">2</span>] </span>
-<span id="cb53-11"><a href="work-with-lidar-data.html#cb53-11" tabindex="-1"></a></span>
-<span id="cb53-12"><a href="work-with-lidar-data.html#cb53-12" tabindex="-1"></a><span class="fu">table</span>(ST_norm<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, vegetation = 3,4,5</span></span>
-<span id="cb53-13"><a href="work-with-lidar-data.html#cb53-13" tabindex="-1"></a><span class="co"># plot(ST_norm, color = &quot;Classification&quot;) # trop long</span></span>
-<span id="cb53-14"><a href="work-with-lidar-data.html#cb53-14" tabindex="-1"></a></span>
-<span id="cb53-15"><a href="work-with-lidar-data.html#cb53-15" tabindex="-1"></a><span class="co"># Dénormaliser la hauteur du sol</span></span>
-<span id="cb53-16"><a href="work-with-lidar-data.html#cb53-16" tabindex="-1"></a>ST <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">unnormalize_height</span>(ST_norm) </span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="work-with-lidar-data.html#cb57-1" tabindex="-1"></a><span class="co"># Modèle numérique de terrain</span></span>
+<span id="cb57-2"><a href="work-with-lidar-data.html#cb57-2" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;Z:/users/VincyaneBadouard/ALS2022/mnt_roi36ha_1m.asc&quot;</span>)</span>
+<span id="cb57-3"><a href="work-with-lidar-data.html#cb57-3" tabindex="-1"></a><span class="fu">plot</span>(mnt)</span>
+<span id="cb57-4"><a href="work-with-lidar-data.html#cb57-4" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="work-with-lidar-data.html#cb57-5" tabindex="-1"></a><span class="co"># Normaliser la hauteur du sol</span></span>
+<span id="cb57-6"><a href="work-with-lidar-data.html#cb57-6" tabindex="-1"></a>ST_norm <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">normalize_height</span>(ST, mnt) <span class="co"># applati le relief</span></span>
+<span id="cb57-7"><a href="work-with-lidar-data.html#cb57-7" tabindex="-1"></a><span class="fu">plot</span>(ST_norm)<span class="co"># sol plat</span></span>
+<span id="cb57-8"><a href="work-with-lidar-data.html#cb57-8" tabindex="-1"></a></span>
+<span id="cb57-9"><a href="work-with-lidar-data.html#cb57-9" tabindex="-1"></a><span class="co"># Classifier les points</span></span>
+<span id="cb57-10"><a href="work-with-lidar-data.html#cb57-10" tabindex="-1"></a>ST_norm<span class="sc">@</span>data[(Z<span class="sc">&gt;</span>(<span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">&amp;</span> Z<span class="sc">&lt;</span> <span class="fl">0.5</span>), Classification <span class="sc">:=</span> <span class="dv">2</span>] </span>
+<span id="cb57-11"><a href="work-with-lidar-data.html#cb57-11" tabindex="-1"></a></span>
+<span id="cb57-12"><a href="work-with-lidar-data.html#cb57-12" tabindex="-1"></a><span class="fu">table</span>(ST_norm<span class="sc">@</span>data<span class="sc">$</span>Classification) <span class="co"># 7 = bruit, 2 = sol, vegetation = 3,4,5</span></span>
+<span id="cb57-13"><a href="work-with-lidar-data.html#cb57-13" tabindex="-1"></a><span class="co"># plot(ST_norm, color = &quot;Classification&quot;) # trop long</span></span>
+<span id="cb57-14"><a href="work-with-lidar-data.html#cb57-14" tabindex="-1"></a></span>
+<span id="cb57-15"><a href="work-with-lidar-data.html#cb57-15" tabindex="-1"></a><span class="co"># Dénormaliser la hauteur du sol</span></span>
+<span id="cb57-16"><a href="work-with-lidar-data.html#cb57-16" tabindex="-1"></a>ST <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">unnormalize_height</span>(ST_norm) </span></code></pre></div>
 </div>
-<div id="ajouter-des-points-à-un-las-combiner-plusieurs-las" class="section level2 hasAnchor" number="5.10">
-<h2><span class="header-section-number">5.10</span> Ajouter des points à un las, combiner plusieurs las<a href="work-with-lidar-data.html#ajouter-des-points-à-un-las-combiner-plusieurs-las" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="work-with-lidar-data.html#cb54-1" tabindex="-1"></a><span class="co"># transform in a LAS object</span></span>
-<span id="cb54-2"><a href="work-with-lidar-data.html#cb54-2" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">LAS</span>(vector_coord[,.(XB,YB,ZB)], las1<span class="sc">@</span>header)</span>
-<span id="cb54-3"><a href="work-with-lidar-data.html#cb54-3" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="work-with-lidar-data.html#cb54-4" tabindex="-1"></a><span class="co"># This triggers some warning because we input some incorrectly quantized coordinates. Check the output of las_check()</span></span>
-<span id="cb54-5"><a href="work-with-lidar-data.html#cb54-5" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
-<span id="cb54-6"><a href="work-with-lidar-data.html#cb54-6" tabindex="-1"></a><span class="co"># We can fix that</span></span>
-<span id="cb54-7"><a href="work-with-lidar-data.html#cb54-7" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_quantize</span>(las2, <span class="cn">TRUE</span>)</span>
-<span id="cb54-8"><a href="work-with-lidar-data.html#cb54-8" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_update</span>(las2)</span>
-<span id="cb54-9"><a href="work-with-lidar-data.html#cb54-9" tabindex="-1"></a></span>
-<span id="cb54-10"><a href="work-with-lidar-data.html#cb54-10" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
-<span id="cb54-11"><a href="work-with-lidar-data.html#cb54-11" tabindex="-1"></a></span>
-<span id="cb54-12"><a href="work-with-lidar-data.html#cb54-12" tabindex="-1"></a><span class="co"># To combine the las1 and las2 they must have the same columns.</span></span>
-<span id="cb54-13"><a href="work-with-lidar-data.html#cb54-13" tabindex="-1"></a><span class="co"># We need to make them manually.</span></span>
-<span id="cb54-14"><a href="work-with-lidar-data.html#cb54-14" tabindex="-1"></a><span class="co"># Here if you load only XYZ in las the job is easier.</span></span>
-<span id="cb54-15"><a href="work-with-lidar-data.html#cb54-15" tabindex="-1"></a></span>
-<span id="cb54-16"><a href="work-with-lidar-data.html#cb54-16" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>gpstime <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb54-17"><a href="work-with-lidar-data.html#cb54-17" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Intensity <span class="ot">=</span> 0L</span>
-<span id="cb54-18"><a href="work-with-lidar-data.html#cb54-18" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ReturnNumber <span class="ot">=</span> 1L</span>
-<span id="cb54-19"><a href="work-with-lidar-data.html#cb54-19" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>NumberOfReturns <span class="ot">=</span> 1L</span>
-<span id="cb54-20"><a href="work-with-lidar-data.html#cb54-20" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanDirectionFlag <span class="ot">=</span> 0L</span>
-<span id="cb54-21"><a href="work-with-lidar-data.html#cb54-21" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>EdgeOfFlightline <span class="ot">=</span> 0L</span>
-<span id="cb54-22"><a href="work-with-lidar-data.html#cb54-22" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Classification <span class="ot">=</span> 0L</span>
-<span id="cb54-23"><a href="work-with-lidar-data.html#cb54-23" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Synthetic_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb54-24"><a href="work-with-lidar-data.html#cb54-24" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Keypoint_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb54-25"><a href="work-with-lidar-data.html#cb54-25" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Withheld_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb54-26"><a href="work-with-lidar-data.html#cb54-26" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanAngleRank <span class="ot">=</span> 0L</span>
-<span id="cb54-27"><a href="work-with-lidar-data.html#cb54-27" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>UserData <span class="ot">=</span> 0L</span>
-<span id="cb54-28"><a href="work-with-lidar-data.html#cb54-28" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>PointSourceID <span class="ot">=</span> 0L</span>
-<span id="cb54-29"><a href="work-with-lidar-data.html#cb54-29" tabindex="-1"></a></span>
-<span id="cb54-30"><a href="work-with-lidar-data.html#cb54-30" tabindex="-1"></a><span class="co"># Bind</span></span>
-<span id="cb54-31"><a href="work-with-lidar-data.html#cb54-31" tabindex="-1"></a>las3 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">rbind</span>(las1, las2)</span></code></pre></div>
+<div id="ajouter-des-points-à-un-las-combiner-plusieurs-las" class="section level2 hasAnchor" number="7.10">
+<h2><span class="header-section-number">7.10</span> Ajouter des points à un las, combiner plusieurs las<a href="work-with-lidar-data.html#ajouter-des-points-à-un-las-combiner-plusieurs-las" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="work-with-lidar-data.html#cb58-1" tabindex="-1"></a><span class="co"># transform in a LAS object</span></span>
+<span id="cb58-2"><a href="work-with-lidar-data.html#cb58-2" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">LAS</span>(vector_coord[,.(XB,YB,ZB)], las1<span class="sc">@</span>header)</span>
+<span id="cb58-3"><a href="work-with-lidar-data.html#cb58-3" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="work-with-lidar-data.html#cb58-4" tabindex="-1"></a><span class="co"># This triggers some warning because we input some incorrectly quantized coordinates. Check the output of las_check()</span></span>
+<span id="cb58-5"><a href="work-with-lidar-data.html#cb58-5" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
+<span id="cb58-6"><a href="work-with-lidar-data.html#cb58-6" tabindex="-1"></a><span class="co"># We can fix that</span></span>
+<span id="cb58-7"><a href="work-with-lidar-data.html#cb58-7" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_quantize</span>(las2, <span class="cn">TRUE</span>)</span>
+<span id="cb58-8"><a href="work-with-lidar-data.html#cb58-8" tabindex="-1"></a>las2 <span class="ot">&lt;-</span> <span class="fu">las_update</span>(las2)</span>
+<span id="cb58-9"><a href="work-with-lidar-data.html#cb58-9" tabindex="-1"></a></span>
+<span id="cb58-10"><a href="work-with-lidar-data.html#cb58-10" tabindex="-1"></a><span class="fu">las_check</span>(las2)</span>
+<span id="cb58-11"><a href="work-with-lidar-data.html#cb58-11" tabindex="-1"></a></span>
+<span id="cb58-12"><a href="work-with-lidar-data.html#cb58-12" tabindex="-1"></a><span class="co"># To combine the las1 and las2 they must have the same columns.</span></span>
+<span id="cb58-13"><a href="work-with-lidar-data.html#cb58-13" tabindex="-1"></a><span class="co"># We need to make them manually.</span></span>
+<span id="cb58-14"><a href="work-with-lidar-data.html#cb58-14" tabindex="-1"></a><span class="co"># Here if you load only XYZ in las the job is easier.</span></span>
+<span id="cb58-15"><a href="work-with-lidar-data.html#cb58-15" tabindex="-1"></a></span>
+<span id="cb58-16"><a href="work-with-lidar-data.html#cb58-16" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>gpstime <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb58-17"><a href="work-with-lidar-data.html#cb58-17" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Intensity <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-18"><a href="work-with-lidar-data.html#cb58-18" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ReturnNumber <span class="ot">=</span> <span class="dv">1</span><span class="dt">L</span></span>
+<span id="cb58-19"><a href="work-with-lidar-data.html#cb58-19" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>NumberOfReturns <span class="ot">=</span> <span class="dv">1</span><span class="dt">L</span></span>
+<span id="cb58-20"><a href="work-with-lidar-data.html#cb58-20" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanDirectionFlag <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-21"><a href="work-with-lidar-data.html#cb58-21" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>EdgeOfFlightline <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-22"><a href="work-with-lidar-data.html#cb58-22" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Classification <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-23"><a href="work-with-lidar-data.html#cb58-23" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Synthetic_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb58-24"><a href="work-with-lidar-data.html#cb58-24" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Keypoint_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb58-25"><a href="work-with-lidar-data.html#cb58-25" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>Withheld_flag <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb58-26"><a href="work-with-lidar-data.html#cb58-26" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>ScanAngleRank <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-27"><a href="work-with-lidar-data.html#cb58-27" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>UserData <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-28"><a href="work-with-lidar-data.html#cb58-28" tabindex="-1"></a>las2<span class="sc">@</span>data<span class="sc">$</span>PointSourceID <span class="ot">=</span> <span class="dv">0</span><span class="dt">L</span></span>
+<span id="cb58-29"><a href="work-with-lidar-data.html#cb58-29" tabindex="-1"></a></span>
+<span id="cb58-30"><a href="work-with-lidar-data.html#cb58-30" tabindex="-1"></a><span class="co"># Bind</span></span>
+<span id="cb58-31"><a href="work-with-lidar-data.html#cb58-31" tabindex="-1"></a>las3 <span class="ot">&lt;-</span> lidR<span class="sc">::</span><span class="fu">rbind</span>(las1, las2)</span></code></pre></div>
 </div>
-<div id="caluler-des-métriques" class="section level2 hasAnchor" number="5.11">
-<h2><span class="header-section-number">5.11</span> Caluler des métriques<a href="work-with-lidar-data.html#caluler-des-métriques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="generate-a-dtm-mnt" class="section level3 hasAnchor" number="5.11.1">
-<h3><span class="header-section-number">5.11.1</span> Generate a DTM (MNT)<a href="work-with-lidar-data.html#generate-a-dtm-mnt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="caluler-des-métriques" class="section level2 hasAnchor" number="7.11">
+<h2><span class="header-section-number">7.11</span> Caluler des métriques<a href="work-with-lidar-data.html#caluler-des-métriques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="generate-a-chm-canopy-height-model-and-dsm-digital-surface-model" class="section level3 hasAnchor" number="7.11.1">
+<h3><span class="header-section-number">7.11.1</span> Generate a CHM (Canopy Height Model) and DSM (Digital Surface Model)<a href="work-with-lidar-data.html#generate-a-chm-canopy-height-model-and-dsm-digital-surface-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the case of a <strong>normalized point cloud</strong>, the derived surface represents the canopy height (for vegetated areas) and is referred to as <strong>CHM</strong>.
+When the original (non-normalized) point cloud with absolute elevations is used, the derived layer represents the elevation of the top of the canopy above sea level, and is referred to as <strong>DSM</strong></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="work-with-lidar-data.html#cb59-1" tabindex="-1"></a>CHM <span class="ot">&lt;-</span> <span class="fu">rasterize_canopy</span>(<span class="fu">normalize_height</span>(ST, <span class="fu">knnidw</span>()), <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">p2r</span>()) </span>
+<span id="cb59-2"><a href="work-with-lidar-data.html#cb59-2" tabindex="-1"></a><span class="co"># p2r() : for each pixel of the output raster the function attributes the height of the highest point found</span></span>
+<span id="cb59-3"><a href="work-with-lidar-data.html#cb59-3" tabindex="-1"></a><span class="co"># tin() : triangulation algorithm</span></span>
+<span id="cb59-4"><a href="work-with-lidar-data.html#cb59-4" tabindex="-1"></a><span class="fu">plot</span>(CHM, <span class="at">col =</span> <span class="fu">height.colors</span>(<span class="dv">25</span>))</span>
+<span id="cb59-5"><a href="work-with-lidar-data.html#cb59-5" tabindex="-1"></a></span>
+<span id="cb59-6"><a href="work-with-lidar-data.html#cb59-6" tabindex="-1"></a>DSM <span class="ot">&lt;-</span> <span class="fu">rasterize_canopy</span>(ST, <span class="at">res =</span> <span class="fl">0.5</span>, <span class="at">algorithm =</span> <span class="fu">dsmtin</span>())</span>
+<span id="cb59-7"><a href="work-with-lidar-data.html#cb59-7" tabindex="-1"></a><span class="co"># dsmtin() : algorithm for digital surface model computation using a Delaunay triangulation of first returns with a linear interpolation within each triangle.</span></span>
+<span id="cb59-8"><a href="work-with-lidar-data.html#cb59-8" tabindex="-1"></a></span>
+<span id="cb59-9"><a href="work-with-lidar-data.html#cb59-9" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb59-10"><a href="work-with-lidar-data.html#cb59-10" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> CHM, <span class="fu">aes</span>(<span class="at">fill =</span> Z)) <span class="sc">+</span></span>
+<span id="cb59-11"><a href="work-with-lidar-data.html#cb59-11" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">&quot;Canopy height (m)&quot;</span>,</span>
+<span id="cb59-12"><a href="work-with-lidar-data.html#cb59-12" tabindex="-1"></a>                       <span class="at">colors =</span> <span class="fu">height.colors</span>(<span class="dv">25</span>), <span class="at">na.value=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb59-13"><a href="work-with-lidar-data.html#cb59-13" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sf<span class="sc">::</span><span class="fu">st_cast</span>(ROI, <span class="st">&quot;LINESTRING&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb59-14"><a href="work-with-lidar-data.html#cb59-14" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Paracou P16 4ha - CHM ALS 2023 - 1m res&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb59-15"><a href="work-with-lidar-data.html#cb59-15" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb59-16"><a href="work-with-lidar-data.html#cb59-16" tabindex="-1"></a>  <span class="fu">coord_sf</span>()</span></code></pre></div>
+</div>
+<div id="generate-a-dtm-mnt" class="section level3 hasAnchor" number="7.11.2">
+<h3><span class="header-section-number">7.11.2</span> Generate a DTM (MNT)<a href="work-with-lidar-data.html#generate-a-dtm-mnt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://r-lidar.github.io/lidRbook/dtm.html" class="uri">https://r-lidar.github.io/lidRbook/dtm.html</a>
 l’élévation est dans la variable Z (dtm$Z)</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="work-with-lidar-data.html#cb55-1" tabindex="-1"></a><span class="co"># Triangulation (généralement utilisée)</span></span>
-<span id="cb55-2"><a href="work-with-lidar-data.html#cb55-2" tabindex="-1"></a>dtm_tin <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb55-3"><a href="work-with-lidar-data.html#cb55-3" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_tin, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb55-4"><a href="work-with-lidar-data.html#cb55-4" tabindex="-1"></a></span>
-<span id="cb55-5"><a href="work-with-lidar-data.html#cb55-5" tabindex="-1"></a><span class="co"># Invert distance weighting</span></span>
-<span id="cb55-6"><a href="work-with-lidar-data.html#cb55-6" tabindex="-1"></a>dtm_idw <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">knnidw</span>(<span class="at">k =</span> 10L, <span class="at">p =</span> <span class="dv">2</span>))</span>
-<span id="cb55-7"><a href="work-with-lidar-data.html#cb55-7" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_idw, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb55-8"><a href="work-with-lidar-data.html#cb55-8" tabindex="-1"></a></span>
-<span id="cb55-9"><a href="work-with-lidar-data.html#cb55-9" tabindex="-1"></a><span class="co"># Kriging</span></span>
-<span id="cb55-10"><a href="work-with-lidar-data.html#cb55-10" tabindex="-1"></a>dtm_kriging <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">kriging</span>(<span class="at">k =</span> <span class="dv">40</span>))</span>
-<span id="cb55-11"><a href="work-with-lidar-data.html#cb55-11" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_kriging, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb55-12"><a href="work-with-lidar-data.html#cb55-12" tabindex="-1"></a></span>
-<span id="cb55-13"><a href="work-with-lidar-data.html#cb55-13" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> dtm_tin</span>
-<span id="cb55-14"><a href="work-with-lidar-data.html#cb55-14" tabindex="-1"></a></span>
-<span id="cb55-15"><a href="work-with-lidar-data.html#cb55-15" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb55-16"><a href="work-with-lidar-data.html#cb55-16" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> mnt, <span class="fu">aes</span>(<span class="at">fill =</span> Z)) <span class="sc">+</span></span>
-<span id="cb55-17"><a href="work-with-lidar-data.html#cb55-17" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">&quot;Elevation (m)&quot;</span>,</span>
-<span id="cb55-18"><a href="work-with-lidar-data.html#cb55-18" tabindex="-1"></a>                       <span class="at">colors =</span> <span class="fu">terrain.colors</span>(<span class="dv">20</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="work-with-lidar-data.html#cb60-1" tabindex="-1"></a><span class="co"># Triangulation (généralement utilisée)</span></span>
+<span id="cb60-2"><a href="work-with-lidar-data.html#cb60-2" tabindex="-1"></a>dtm_tin <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb60-3"><a href="work-with-lidar-data.html#cb60-3" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_tin, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb60-4"><a href="work-with-lidar-data.html#cb60-4" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="work-with-lidar-data.html#cb60-5" tabindex="-1"></a><span class="co"># Invert distance weighting</span></span>
+<span id="cb60-6"><a href="work-with-lidar-data.html#cb60-6" tabindex="-1"></a>dtm_idw <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">knnidw</span>(<span class="at">k =</span> <span class="dv">10</span><span class="dt">L</span>, <span class="at">p =</span> <span class="dv">2</span>))</span>
+<span id="cb60-7"><a href="work-with-lidar-data.html#cb60-7" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_idw, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb60-8"><a href="work-with-lidar-data.html#cb60-8" tabindex="-1"></a></span>
+<span id="cb60-9"><a href="work-with-lidar-data.html#cb60-9" tabindex="-1"></a><span class="co"># Kriging</span></span>
+<span id="cb60-10"><a href="work-with-lidar-data.html#cb60-10" tabindex="-1"></a>dtm_kriging <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(ST, <span class="at">algorithm =</span> <span class="fu">kriging</span>(<span class="at">k =</span> <span class="dv">40</span>))</span>
+<span id="cb60-11"><a href="work-with-lidar-data.html#cb60-11" tabindex="-1"></a><span class="fu">plot_dtm3d</span>(dtm_kriging, <span class="at">bg =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb60-12"><a href="work-with-lidar-data.html#cb60-12" tabindex="-1"></a></span>
+<span id="cb60-13"><a href="work-with-lidar-data.html#cb60-13" tabindex="-1"></a>mnt <span class="ot">&lt;-</span> dtm_tin</span>
+<span id="cb60-14"><a href="work-with-lidar-data.html#cb60-14" tabindex="-1"></a></span>
+<span id="cb60-15"><a href="work-with-lidar-data.html#cb60-15" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb60-16"><a href="work-with-lidar-data.html#cb60-16" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> mnt, <span class="fu">aes</span>(<span class="at">fill =</span> Z)) <span class="sc">+</span></span>
+<span id="cb60-17"><a href="work-with-lidar-data.html#cb60-17" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">&quot;Elevation (m)&quot;</span>,</span>
+<span id="cb60-18"><a href="work-with-lidar-data.html#cb60-18" tabindex="-1"></a>                       <span class="at">colors =</span> <span class="fu">terrain.colors</span>(<span class="dv">20</span>), <span class="at">na.value=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-19"><a href="work-with-lidar-data.html#cb60-19" tabindex="-1"></a>  <span class="fu">theme_classic</span>() </span></code></pre></div>
 </div>
-<div id="la-réflectance-albedo" class="section level3 hasAnchor" number="5.11.2">
-<h3><span class="header-section-number">5.11.2</span> La réflectance (albedo)<a href="work-with-lidar-data.html#la-réflectance-albedo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="la-réflectance-albedo" class="section level3 hasAnchor" number="7.11.3">
+<h3><span class="header-section-number">7.11.3</span> La réflectance (albedo)<a href="work-with-lidar-data.html#la-réflectance-albedo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculer la réflectance apparente en ratio (albedo)</p>
 <p>Réflectance (ou Albedo) = énergie lumineuse réfléchie/énergie lumineuse incidente</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="work-with-lidar-data.html#cb56-1" tabindex="-1"></a>VP<span class="sc">$</span>initial_intensity <span class="ot">&lt;-</span> VP<span class="sc">$</span>Intensity </span>
-<span id="cb56-2"><a href="work-with-lidar-data.html#cb56-2" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="work-with-lidar-data.html#cb56-3" tabindex="-1"></a><span class="co"># Intensité = réflectance apparente en ratio (albedo)</span></span>
-<span id="cb56-4"><a href="work-with-lidar-data.html#cb56-4" tabindex="-1"></a>VP<span class="sc">$</span>Intensity <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>(VP<span class="sc">$</span>Reflectance<span class="sc">/</span><span class="dv">10</span>) <span class="co"># Réflectance initialment en decibel (et selon une référence connue)</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="work-with-lidar-data.html#cb61-1" tabindex="-1"></a>VP<span class="sc">$</span>initial_intensity <span class="ot">&lt;-</span> VP<span class="sc">$</span>Intensity </span>
+<span id="cb61-2"><a href="work-with-lidar-data.html#cb61-2" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="work-with-lidar-data.html#cb61-3" tabindex="-1"></a><span class="co"># Intensité = réflectance apparente en ratio (albedo)</span></span>
+<span id="cb61-4"><a href="work-with-lidar-data.html#cb61-4" tabindex="-1"></a>VP<span class="sc">$</span>Intensity <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>(VP<span class="sc">$</span>Reflectance<span class="sc">/</span><span class="dv">10</span>) <span class="co"># Réflectance initialment en decibel (et selon une référence connue)</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -835,7 +477,7 @@ l’élévation est dans la variable Z (dtm$Z)</p>
           </div>
         </div>
       </div>
-<a href="spatial-data-cours.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geometry-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="parallelisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
