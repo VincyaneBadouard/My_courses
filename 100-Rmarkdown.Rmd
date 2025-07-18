@@ -79,7 +79,10 @@ Afficher une valeur dans le texte :
 
 ## Quarto options
 ---
-title: "title"
+params:
+  species: Paypayrola_hulkiana # pour faire un quarto par sp
+title: "Residuals explo plots"
+subtitle: "*`r params$sp`*" # pour mettre l'sp en sous-titre
 author: "Vincyane Badouard"
 date: "`r Sys.Date()`"
 format: html

@@ -232,7 +232,7 @@ La fonction plot() permet d’explorer les données en créant *1 graphique par 
 
 Les tif sont trés volumineux. Si l'on n'as pas besoin d'une si haute résolution, on peut simplifier le raster avec *raster::aggregate()*
 
- + Attribuer un crs à  raster : **crs(mnt) <- crs(obj2)** ou **crs(mnt) <- crs("EPSG:2972")**
+ + Attribuer un crs à raster : **crs(mnt) <- crs(obj2)** ou **crs(mnt) <- crs("EPSG:2972")**
 
  
 #### Travailler sur du vectoriel & du raster 

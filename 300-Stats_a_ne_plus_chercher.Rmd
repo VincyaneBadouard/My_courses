@@ -71,7 +71,7 @@ Etapes :
 5) Transformation des données dans le nouvel espace
 
 
-### Pour gerer ces donnees manquantes il serait possible de :
+### Pour gerer les donnees manquantes il serait possible de :
 i) les retirer (individus ou variables) ou si peu de variables :
 ii) utiliser PCA() de FactoMineR qui remplace ("impute") les NA par la valeur moyenne de la variable (approche "grossiere"), ou :
 iii) la plus juste : utiliser une ACP iterative regularisee avec la fonction imputePCA() du package missMDA, voir video pour plus de details : http://factominer.free.fr/missMDA/PCA-fr.html
@@ -88,8 +88,8 @@ mean(acp1$eig) doit être =1
 Quel est le nombre de composantes principales expliquant un minimum de x % de l’information (ou inertie totale).  
 Ce pourcentage d’inertie est calculé en divisant la valeur propre d’un axe par le nombre d’axes possibles (égal au nombre de variables du tableau de départ)
 ```{r}
-pc <- round(acp1$eig/sum(acp1$eig)*100,2)#arrondi a 2 chiffres apres la virgule 
-pc <- as.numeric(as.character(pc)) #passer de character a numerique
+pc <- round(acp$eig/sum(acp$eig)*100,2) # arrondi a 2 chiffres apres la virgule 
+pc <- as.numeric(as.character(pc)) # passer de character a numerique
 pc #72.96 22.85  3.67  0.52
 # ne retenir que les plus explicatifs (generalement > 10% de variation) (ici les 2 1ers)
 # % cumules

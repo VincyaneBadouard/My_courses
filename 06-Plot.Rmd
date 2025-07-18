@@ -89,34 +89,39 @@ ou **scale_color_gradientn()** pour des points (ne pas mettre fill = mais color 
 ## Des histoires de texte
 
 + **geom_text(data = data, aes(x = x, y = y, label = Id))**
-+ Relier le label au point quand c'est pas visible : **ggrepel::geom_text_repel(data = data, aes(x = x, y = y, label = Id), color = "black", size = 2)** 
-+ Si positions varient selon une variable : créer un dataset avec :
-label <- data.frame(
-var_x = 4, 
-var_y = c(0.08, 0.075, 0.07), 
-color = unique(long$LIDF),
-label = paste("MAE = ",round(unique(long$MAE),3))
-)
-+ geom_text(data = label, aes(label = label), show.legend = F) +
+
++ Relier le label au point quand c'est pas visible :   **ggrepel::geom_text_repel(data = data, aes(x = x, y = y, label = Id), color = "black", size = 2)**   
+
++ Si positions varient selon une variable : créer un dataset avec :  
+label <- data.frame(  
+var_x = 4,   
+var_y = c(0.08, 0.075, 0.07),   
+color = unique(long$LIDF),  
+label = paste("MAE = ",round(unique(long$MAE),3))  
+)  
++ geom_text(data = label, aes(label = label), show.legend = F) +  
 
 
 ## Axes
-https://r-charts.com/ggplot2/axis/
+https://r-charts.com/ggplot2/axis/  
 
-+ Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
-+ changer l'échelle des axes (ici y): **scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))**
-pour un facet_wrap :
++ Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**  
++ changer l'échelle des axes (ici y): **scale_y_continuous(limits = c(0, 100), breaks = c(0, 50, 100))**  
+pour un facet_wrap :  
 
-ggh4x::facetted_pos_scales(
-x = list(
-Transect == "LAY" ~ scale_x_continuous(breaks = seq(1:26)),
-Transect == "HOBO" ~ scale_x_continuous(breaks = seq(1:20))
-)
-) +
+ggh4x::facetted_pos_scales(  
+x = list(  
+Transect == "LAY" ~ scale_x_continuous(breaks = seq(1:26)),  
+Transect == "HOBO" ~ scale_x_continuous(breaks = seq(1:20))  
+)  
+) +  
 
 + pour arrondir les valeurs des axes : **scale_y_continuous(labels = scales::number_format(accuracy = 0.001))**
 
 + pour transformer l'axe : **scale_y_continuous(trans="log")**
+
++ transformer seulment les valeurs de l'axe : 
+**scale_x_continuous(n.breaks = 10, labels = ~round(exp(.)*100,2))** # delog and in %
 
 + pour les factor et character : **scale_x_discrete(limits = as.character(seq(1, 48, by= 5)))** ou breaks
 + axe de meme longeur : **coord_fixed(ratio=1)**
@@ -185,6 +190,8 @@ puis **geom_blank(data = blank_data, aes(x = x, y = y))**
 
 + Plusieurs graphiques sur une même page : **ggpubr::ggarrange(plot1, plot2, labels = c("A", "B"), ncol = 1, nrow = 2)**
 
+si list de plots : **ggpubr::ggarrange(plotlist = plist, nrow = 2, ncol = 2)**
+
 ## Légende
 
 ```{r}
@@ -209,6 +216,8 @@ geom_point(shape = "circle", size = 1.5,
 
 + Pour modifier la légende : **guides(fill= guide_legend(title, theme, position, direction, override.aes = list(), nrow, ncol, reverse, order))**
 
++ un titre qui prend moins de place en le metant sur 2 lignes : *"Species\nFrequency\n(%)"*
+
 ## Ajouter des lignes 
 
 + Pour ajouter une droite horizontale : 
@@ -227,6 +236,8 @@ geom_point(shape = "circle", size = 1.5,
 + et du texte : **geom_text(data = data2,
 mapping = aes(x= x, y = y, label= as.character(var)),
 size = 3)** # les colonnes de data1 et data2 impliqués dans le plot doivent etre communes
+
++ **linetype = c("solid", "dashed", "dotted")**
 
 # Ajouter une shaded area
 
@@ -264,7 +275,7 @@ df %>%
 ```
 
 
-+ Pour ajouter une courbe de tendance (régression) du nuage de points : **panel.smooth(x,y)**  
++ Pour ajouter une courbe de tendance (régression) du nuage de points : **panel.smooth(x,y)**  ou **geom_smooth(method='lm', formula= y~x)**
 
 + ajouter l'equation et le R2 de la régression : 
 ggpubr::stat_cor(label.x = 0.01, label.y = 40000000) +

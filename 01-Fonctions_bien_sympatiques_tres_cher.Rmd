@@ -178,7 +178,7 @@ mutate(var = case_when(
   .default = var) # le reste reste comme c'est
 )
 ```
-
+ + Mutate de plusieurs columns avec ifelse : **mutate_at(vars(c("var1", "var2")), ~ ifelse(is.na(.), 0, .)) **
 
 + Changer le nombre de décimales : **format(x, digits = 0, scientific = F)** ou **round(x, digits = 0)**  
 + Arrondir tout un df sur uniquement les variables numériques :  *mutate_if(is.numeric, round, digits = 2)*
@@ -199,10 +199,25 @@ mutate(var = case_when(
 + Standardiser pour sommer à 100% : **var/sum(Sum))*100**
 
 + joindre des tables : **left_join(dataB, by= c("var1", "var2"), suffix = c("_A", "_B")))**
+ +with different col names : **left_join(df_A, df_B, by = c('team' = 'team_name'))**
 
 + Replace each NA with the most recent non-NA prior to it : **zoo::na.locf()**
 
 + prendre toutes les colones : **everything()**
+
+### Les pivots
+```{r}
+pivot_longer(cols = everything(),
+  names_to = c("chain", "variable"),
+  names_sep = "\\.",
+  values_to = "value")
+
+pivot_wider(names_from = variable,
+  values_from = value)
+
+pivot_longer(cols = starts_with("P["),
+  values_to = "p") 
+```
 
 ## Histoire de characters
 
@@ -223,7 +238,7 @@ x <- "!"
 + Extraire un element numeric dans une chaîne de characters :   **readr::parse_number(var)**  ou **gsub("[[:digit:]]", "", var)**
 
 + Extraire un élément d'une chaine de characters :  
-**substring(ID, first=1, last=2)**
+**substring(string, first=1, last=2)** ou **substr(string, start = 0, stop = 3)**
 
 si data$idtree = "site_plot"  
 **data$site = data.table::tstrsplit(data$idtree, split = "_")[[1]]** 1er elmt  
