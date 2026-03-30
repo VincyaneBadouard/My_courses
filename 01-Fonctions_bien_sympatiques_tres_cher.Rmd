@@ -199,7 +199,7 @@ mutate(var = case_when(
 + Standardiser pour sommer à 100% : **var/sum(Sum))*100**
 
 + joindre des tables : **left_join(dataB, by= c("var1", "var2"), suffix = c("_A", "_B")))**
- +with different col names : **left_join(df_A, df_B, by = c('team' = 'team_name'))**
++ with different col names : **left_join(df_A, df_B, by = c('team' = 'team_name'))**
 
 + Replace each NA with the most recent non-NA prior to it : **zoo::na.locf()**
 
@@ -340,7 +340,8 @@ values <- c("Tom", "Lynn") vecteur de n'importe quoi
 
 + Ne pas prendre une partie des données (valeurs) : **filter(!(Vernacular %in% remove))** (enlever remove dans vernacular)  
 + Quand dans un booléen les Na dérangent, utiliser plutot **%in%** que **==** (ex: a %in% TRUE)  
-+ Enlever des colonnes : **select(-colname)**  
++ Enlever des colonnes : **select(-colname)** 
++ Garder uniquement certaines colonnes : **select(colname, contains("TreeHeight"))**
 
 + Réaliser les opérations suivantes par groupes de modalités : **group_by**  
 

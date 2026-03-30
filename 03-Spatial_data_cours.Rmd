@@ -362,6 +362,8 @@ data <- cbind(datasf, XY) # bind XY coord
 
 + corners of a square : **st_coordinates(square)[,1:2]**
 
++ raster to sf polygon : **st_as_sf(as.polygons(raster))**
+
 + st_union ne préserve pas l'ordre des géométries dans la géométrie finale, il faut utiliser :  
 
 ```{r, eval = F}

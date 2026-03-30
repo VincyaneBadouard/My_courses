@@ -1,0 +1,72 @@
+# Diaporama 
+
+Create diaporama from quarto doument to revealjs.  
+https://quarto.org/docs/presentations/revealjs/  
+
+## 1st Page
+---
+title: "Presentation title"
+author: "Vincyane BADOUARD"
+format:
+  revealjs:
+    logo: logo.png # logo on the slide
+    footer: "Footer text"
+theme: dark
+incremental: true # to display bullet point step-by-step
+ smaller: true # to reduce slide text size
+    scrollable: true # to scroll slide text
+---
+
+## Structure
+### New slide
+- Create a new slide with just a title: **# Slide Title **
+- Create a new slide with a title: **## Slide Title **  
+- Create a new slide without title: **---**
+
+### Multiple Columns
+:::: {.columns}
+
+::: {.column width="40%"}
+Left column
+:::
+
+::: {.column width="60%"}
+Right column
+:::
+
+::::
+
+### Content
+- Add a footnote:
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+- Add a numbered footnote:
+**text^[the footnote]**
+
+
+## Slide too small
+- Reduce text size of the slide: **## Slide Title {.smaller}**
+- To scroll the content: **## Slide Title {.scrollable}**
+
+## Display options
+- incremental list only on a slide: 
+::: {.incremental} 
+- step 1
+- step 2
+:::
+- non incremental: **{.nonincremental}**
+- Display text step by step on a slide: **. . .**
+
+## Speaker Notes
+::: {.notes}
+Speaker notes go here.
+:::
+- Press **S** on the presentation to open the presentation speaker view
+
+## Aesthetic
+### Themes
+https://quarto.org/docs/presentations/revealjs/themes.html
+default, simple, serif, dark, beige, blood, dracula, league, moon, night, sky, solarized

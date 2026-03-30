@@ -17,7 +17,7 @@ Télécharger des packages d'aide à l'organisation et structure, nécessaire à
 ## library(roxygen2)  #permet d’automatiser la documentation obligatoire des packages
 ## 
 ## library(devtools) #boîte à outils, permettant notamment de construire et tester les packages
-## # roxygen2::roxygenise()#refresh de la documentation
+## # roxygen2::roxygenise() #refresh de la documentation
 ## 
 ## library(testthat) # Create test units
 ## 

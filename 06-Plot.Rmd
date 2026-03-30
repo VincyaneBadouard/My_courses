@@ -35,6 +35,10 @@ ggplot(data, aes(x = x)) +
 + Titre de la figure et noms des axes : **labs(title="Figure title", x ="x title", y = "y title")**
 ou **ggtitle("Figure title")**
 
++ Titre en italique : labs(x= expression(italic(O)~"80% incertitude (transmittance %)") ou
+labs(x='*O* 80% incertitude (transmittance %)') +
+theme(axis.title = ggtext::element_markdown())
+
 ## Des couleurs
 Voir les palettes : **RColorBrewer::display.brewer.all()**  
 Voir  palettes from ggsci R package
@@ -100,7 +104,6 @@ color = unique(long$LIDF),
 label = paste("MAE = ",round(unique(long$MAE),3))  
 )  
 + geom_text(data = label, aes(label = label), show.legend = F) +  
-
 
 ## Axes
 https://r-charts.com/ggplot2/axis/  
@@ -188,9 +191,13 @@ max commun, min commun, max commun), y = c(min commun, max commun, min commun, m
 
 puis **geom_blank(data = blank_data, aes(x = x, y = y))**  
 
-+ Plusieurs graphiques sur une même page : **ggpubr::ggarrange(plot1, plot2, labels = c("A", "B"), ncol = 1, nrow = 2)**
++ Plusieurs graphiques sur une même page : **ggpubr::ggarrange(plot1, plot2, labels = c("A", "B"), ncol = 1, nrow = 2)** , top=NULL pour enlever la pagination
 
 si list de plots : **ggpubr::ggarrange(plotlist = plist, nrow = 2, ncol = 2)**
+
+Sur mesure : 
+plot_grid(plist[[1]], plist[[2]], plist[[3]], plist[[4]], legend, 
+          ncol = 2, nrow=3, rel_heights = c(1, 1, .2))
 
 ## Légende
 
@@ -320,7 +327,7 @@ avec le postscript format (.ps) on peut zoomer sans perdre de qualité : postscr
 
 + pdf : **pdf(path,  pointsize=30, width=40, height=25, paper = "A4")** avant commande du plot & **dev.off()** après commande du plot  
 
-+ **ggsave("mtcars.pdf", path = , width = 25, height = 15, units = "cm", dpi=800, bg="white")**  (ne fonctionne qu'avec des ggplots)
++ **ggsave("mtcars.pdf", path = , width = 18, height = 15, units = "cm", dpi=800, bg="white")**  (ne fonctionne qu'avec des ggplots)
 
 + compresser : **save(objt, file = "objt.rda", compress = "xz")** 
 
